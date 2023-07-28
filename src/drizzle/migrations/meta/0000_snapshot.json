@@ -1,0 +1,155 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "sqlite",
+  "tables": {
+    "pokemon": {
+      "name": "pokemon",
+      "columns": {
+        "pokedex_number": {
+          "autoincrement": false,
+          "name": "pokedex_number",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "name": {
+          "autoincrement": false,
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "generation": {
+          "autoincrement": false,
+          "name": "generation",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "autoincrement": false,
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "type_1": {
+          "autoincrement": false,
+          "name": "type_1",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "type_2": {
+          "autoincrement": false,
+          "name": "type_2",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ability_1": {
+          "autoincrement": false,
+          "name": "ability_1",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ability_2": {
+          "autoincrement": false,
+          "name": "ability_2",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ability_hidden": {
+          "autoincrement": false,
+          "name": "ability_hidden",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_points": {
+          "autoincrement": false,
+          "name": "total_points",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hp": {
+          "autoincrement": false,
+          "name": "hp",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "attack": {
+          "autoincrement": false,
+          "name": "attack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "defense": {
+          "autoincrement": false,
+          "name": "defense",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sp_attack": {
+          "autoincrement": false,
+          "name": "sp_attack",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sp_defense": {
+          "autoincrement": false,
+          "name": "sp_defense",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "speed": {
+          "autoincrement": false,
+          "name": "speed",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "egg_type_1": {
+          "autoincrement": false,
+          "name": "egg_type_1",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "egg_type_2": {
+          "autoincrement": false,
+          "name": "egg_type_2",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "percentage_male": {
+          "autoincrement": false,
+          "name": "percentage_male",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
