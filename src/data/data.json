@@ -1,0 +1,4906 @@
+[
+    {
+        "name": "Bulbasaur",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Ivysaur",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Venusaur",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Charmander",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Charmeleon",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Charizard",
+        "type1": "Fire",
+        "type2": "Flying",
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Squirtle",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Wartortle",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Blastoise",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Caterpie",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Metapod",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Butterfree",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Weedle",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Kakuna",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Beedrill",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Pidgey",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Pidgeotto",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Pidgeot",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Rattata",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Raticate",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Spearow",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Fearow",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Ekans",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Field",
+        "percentageMale": 50
+    },
+    {
+        "name": "Arbok",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Field",
+        "percentageMale": 50
+    },
+    {
+        "name": "Pikachu",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Field",
+        "percentageMale": 50
+    },
+    {
+        "name": "Raichu",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Field",
+        "percentageMale": 50
+    },
+    {
+        "name": "Sandshrew",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Sandslash",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Nidoran♀",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 0
+    },
+    {
+        "name": "Nidorina",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 0
+    },
+    {
+        "name": "Nidoqueen",
+        "type1": "Poison",
+        "type2": "Ground",
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 0
+    },
+    {
+        "name": "Nidoran♂",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 100
+    },
+    {
+        "name": "Nidorino",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 100
+    },
+    {
+        "name": "Nidoking",
+        "type1": "Poison",
+        "type2": "Ground",
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 100
+    },
+    {
+        "name": "Clefairy",
+        "type1": "Fairy",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Clefable",
+        "type1": "Fairy",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Vulpix",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Ninetales",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Jigglypuff",
+        "type1": "Normal",
+        "type2": "Fairy",
+        "eggType1": "Fairy",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Wigglytuff",
+        "type1": "Normal",
+        "type2": "Fairy",
+        "eggType1": "Fairy",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Zubat",
+        "type1": "Poison",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Golbat",
+        "type1": "Poison",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Oddish",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Gloom",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Vileplume",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Paras",
+        "type1": "Bug",
+        "type2": "Grass",
+        "eggType1": "Bug",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Parasect",
+        "type1": "Bug",
+        "type2": "Grass",
+        "eggType1": "Bug",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Venonat",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Venomoth",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Diglett",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Dugtrio",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Meowth",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Persian",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Psyduck",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Golduck",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Mankey",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Primeape",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Growlithe",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Arcanine",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Poliwag",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Poliwhirl",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Poliwrath",
+        "type1": "Water",
+        "type2": "Fighting",
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Abra",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Kadabra",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Alakazam",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Machop",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Machoke",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Machamp",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Bellsprout",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Weepinbell",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Victreebel",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Tentacool",
+        "type1": "Water",
+        "type2": "Poison",
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Tentacruel",
+        "type1": "Water",
+        "type2": "Poison",
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Geodude",
+        "type1": "Rock",
+        "type2": "Ground",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Graveler",
+        "type1": "Rock",
+        "type2": "Ground",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Golem",
+        "type1": "Rock",
+        "type2": "Ground",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Ponyta",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Rapidash",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Slowpoke",
+        "type1": "Water",
+        "type2": "Psychic",
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Slowbro",
+        "type1": "Water",
+        "type2": "Psychic",
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Magnemite",
+        "type1": "Electric",
+        "type2": "Steel",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Magneton",
+        "type1": "Electric",
+        "type2": "Steel",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Farfetch'd",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Field",
+        "eggType2": "Flying",
+        "percentageMale": 50
+    },
+    {
+        "name": "Doduo",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Dodrio",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Seel",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Dewgong",
+        "type1": "Water",
+        "type2": "Ice",
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Grimer",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Muk",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Shellder",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Cloyster",
+        "type1": "Water",
+        "type2": "Ice",
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Gastly",
+        "type1": "Ghost",
+        "type2": "Poison",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Haunter",
+        "type1": "Ghost",
+        "type2": "Poison",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Gengar",
+        "type1": "Ghost",
+        "type2": "Poison",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Onix",
+        "type1": "Rock",
+        "type2": "Ground",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Drowzee",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Hypno",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Krabby",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Kingler",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Voltorb",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Electrode",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Exeggcute",
+        "type1": "Grass",
+        "type2": "Psychic",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Exeggutor",
+        "type1": "Grass",
+        "type2": "Psychic",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Cubone",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Marowak",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Hitmonlee",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Hitmonchan",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Lickitung",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Koffing",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Weezing",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Rhyhorn",
+        "type1": "Ground",
+        "type2": "Rock",
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Rhydon",
+        "type1": "Ground",
+        "type2": "Rock",
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Chansey",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Tangela",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Kangaskhan",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Horsea",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Seadra",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Goldeen",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Seaking",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Staryu",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Starmie",
+        "type1": "Water",
+        "type2": "Psychic",
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Mr. Mime",
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Scyther",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Jynx",
+        "type1": "Ice",
+        "type2": "Psychic",
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Electabuzz",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Magmar",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Pinsir",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Tauros",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Magikarp",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Water B",
+        "percentageMale": 50
+    },
+    {
+        "name": "Gyarados",
+        "type1": "Water",
+        "type2": "Flying",
+        "eggType1": "Dragon",
+        "eggType2": "Water B",
+        "percentageMale": 50
+    },
+    {
+        "name": "Lapras",
+        "type1": "Water",
+        "type2": "Ice",
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Ditto",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Ditto",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Eevee",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Vaporeon",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Jolteon",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Flareon",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Porygon",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Omanyte",
+        "type1": "Rock",
+        "type2": "Water",
+        "eggType1": "Water A",
+        "eggType2": "Water C",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Omastar",
+        "type1": "Rock",
+        "type2": "Water",
+        "eggType1": "Water A",
+        "eggType2": "Water C",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Kabuto",
+        "type1": "Rock",
+        "type2": "Water",
+        "eggType1": "Water A",
+        "eggType2": "Water C",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Kabutops",
+        "type1": "Rock",
+        "type2": "Water",
+        "eggType1": "Water A",
+        "eggType2": "Water C",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Aerodactyl",
+        "type1": "Rock",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Snorlax",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Dratini",
+        "type1": "Dragon",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Dragonair",
+        "type1": "Dragon",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Dragonite",
+        "type1": "Dragon",
+        "type2": "Flying",
+        "eggType1": "Dragon",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Chikorita",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Bayleef",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Cyndaquil",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Quilava",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Typhlosion",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Totodile",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Croconaw",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Feraligatr",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Sentret",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Furret",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Hoothoot",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Noctowl",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Ledyba",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Ledian",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Spinarak",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Ariados",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Crobat",
+        "type1": "Poison",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Chinchou",
+        "type1": "Water",
+        "type2": "Electric",
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Lanturn",
+        "type1": "Water",
+        "type2": "Electric",
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Pichu",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Cleffa",
+        "type1": "Fairy",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Igglybuff",
+        "type1": "Normal",
+        "type2": "Fairy",
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Togepi",
+        "type1": "Fairy",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Togetic",
+        "type1": "Fairy",
+        "type2": "Flying",
+        "eggType1": "Fairy",
+        "eggType2": "Flying",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Natu",
+        "type1": "Psychic",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Xatu",
+        "type1": "Psychic",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Mareep",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Flaaffy",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Ampharos",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Bellossom",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Marill",
+        "type1": "Water",
+        "type2": "Fairy",
+        "eggType1": "Fairy",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Azumarill",
+        "type1": "Water",
+        "type2": "Fairy",
+        "eggType1": "Fairy",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Sudowoodo",
+        "type1": "Rock",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Politoed",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Hoppip",
+        "type1": "Grass",
+        "type2": "Flying",
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Skiploom",
+        "type1": "Grass",
+        "type2": "Flying",
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Jumpluff",
+        "type1": "Grass",
+        "type2": "Flying",
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Aipom",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Sunkern",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Sunflora",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Yanma",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Wooper",
+        "type1": "Water",
+        "type2": "Ground",
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Quagsire",
+        "type1": "Water",
+        "type2": "Ground",
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Espeon",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Umbreon",
+        "type1": "Dark",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Murkrow",
+        "type1": "Dark",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Slowking",
+        "type1": "Water",
+        "type2": "Psychic",
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Misdreavus",
+        "type1": "Ghost",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Unown",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Wobbuffet",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Girafarig",
+        "type1": "Normal",
+        "type2": "Psychic",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Pineco",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Forretress",
+        "type1": "Bug",
+        "type2": "Steel",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Dunsparce",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Gligar",
+        "type1": "Ground",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Steelix",
+        "type1": "Steel",
+        "type2": "Ground",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Snubbull",
+        "type1": "Fairy",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Field",
+        "percentageMale": 25
+    },
+    {
+        "name": "Granbull",
+        "type1": "Fairy",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Field",
+        "percentageMale": 25
+    },
+    {
+        "name": "Qwilfish",
+        "type1": "Water",
+        "type2": "Poison",
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Scizor",
+        "type1": "Bug",
+        "type2": "Steel",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Shuckle",
+        "type1": "Bug",
+        "type2": "Rock",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Heracross",
+        "type1": "Bug",
+        "type2": "Fighting",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Sneasel",
+        "type1": "Dark",
+        "type2": "Ice",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Teddiursa",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Ursaring",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Slugma",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Magcargo",
+        "type1": "Fire",
+        "type2": "Rock",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Swinub",
+        "type1": "Ice",
+        "type2": "Ground",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Piloswine",
+        "type1": "Ice",
+        "type2": "Ground",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Corsola",
+        "type1": "Water",
+        "type2": "Rock",
+        "eggType1": "Water A",
+        "eggType2": "Water C",
+        "percentageMale": 25
+    },
+    {
+        "name": "Remoraid",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": "Water B",
+        "percentageMale": 50
+    },
+    {
+        "name": "Octillery",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": "Water B",
+        "percentageMale": 50
+    },
+    {
+        "name": "Delibird",
+        "type1": "Ice",
+        "type2": "Flying",
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Mantine",
+        "type1": "Water",
+        "type2": "Flying",
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Skarmory",
+        "type1": "Steel",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Houndour",
+        "type1": "Dark",
+        "type2": "Fire",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Houndoom",
+        "type1": "Dark",
+        "type2": "Fire",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Kingdra",
+        "type1": "Water",
+        "type2": "Dragon",
+        "eggType1": "Dragon",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Phanpy",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Donphan",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Porygon2",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Stantler",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Smeargle",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Tyrogue",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Hitmontop",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Smoochum",
+        "type1": "Ice",
+        "type2": "Psychic",
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Elekid",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Magby",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Miltank",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Blissey",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Larvitar",
+        "type1": "Rock",
+        "type2": "Ground",
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Pupitar",
+        "type1": "Rock",
+        "type2": "Ground",
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Tyranitar",
+        "type1": "Rock",
+        "type2": "Dark",
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Treecko",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Grovyle",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Sceptile",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Torchic",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Combusken",
+        "type1": "Fire",
+        "type2": "Fighting",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Blaziken",
+        "type1": "Fire",
+        "type2": "Fighting",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Mudkip",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Marshtomp",
+        "type1": "Water",
+        "type2": "Ground",
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Swampert",
+        "type1": "Water",
+        "type2": "Ground",
+        "eggType1": "Monster",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Poochyena",
+        "type1": "Dark",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Mightyena",
+        "type1": "Dark",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Zigzagoon",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Linoone",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Wurmple",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Silcoon",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Beautifly",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Cascoon",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Dustox",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Lotad",
+        "type1": "Water",
+        "type2": "Grass",
+        "eggType1": "Grass",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Lombre",
+        "type1": "Water",
+        "type2": "Grass",
+        "eggType1": "Grass",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Ludicolo",
+        "type1": "Water",
+        "type2": "Grass",
+        "eggType1": "Grass",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Seedot",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Nuzleaf",
+        "type1": "Grass",
+        "type2": "Dark",
+        "eggType1": "Field",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Shiftry",
+        "type1": "Grass",
+        "type2": "Dark",
+        "eggType1": "Field",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Taillow",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Swellow",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Wingull",
+        "type1": "Water",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Pelipper",
+        "type1": "Water",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Ralts",
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "eggType1": "Amorphous",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Kirlia",
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "eggType1": "Amorphous",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Gardevoir",
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "eggType1": "Amorphous",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Surskit",
+        "type1": "Bug",
+        "type2": "Water",
+        "eggType1": "Bug",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Masquerain",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Shroomish",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Breloom",
+        "type1": "Grass",
+        "type2": "Fighting",
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Slakoth",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Vigoroth",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Slaking",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Nincada",
+        "type1": "Bug",
+        "type2": "Ground",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Ninjask",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Shedinja",
+        "type1": "Bug",
+        "type2": "Ghost",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Whismur",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Loudred",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Exploud",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Makuhita",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Hariyama",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Azurill",
+        "type1": "Normal",
+        "type2": "Fairy",
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Nosepass",
+        "type1": "Rock",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Skitty",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Field",
+        "percentageMale": 25
+    },
+    {
+        "name": "Delcatty",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Field",
+        "percentageMale": 25
+    },
+    {
+        "name": "Sableye",
+        "type1": "Dark",
+        "type2": "Ghost",
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Mawile",
+        "type1": "Steel",
+        "type2": "Fairy",
+        "eggType1": "Fairy",
+        "eggType2": "Field",
+        "percentageMale": 50
+    },
+    {
+        "name": "Aron",
+        "type1": "Steel",
+        "type2": "Rock",
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Lairon",
+        "type1": "Steel",
+        "type2": "Rock",
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Aggron",
+        "type1": "Steel",
+        "type2": "Rock",
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Meditite",
+        "type1": "Fighting",
+        "type2": "Psychic",
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Medicham",
+        "type1": "Fighting",
+        "type2": "Psychic",
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Electrike",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Manectric",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Plusle",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Minun",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Volbeat",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": "Humanoid",
+        "percentageMale": 100
+    },
+    {
+        "name": "Illumise",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": "Humanoid",
+        "percentageMale": 0
+    },
+    {
+        "name": "Roselia",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Gulpin",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Swalot",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Carvanha",
+        "type1": "Water",
+        "type2": "Dark",
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Sharpedo",
+        "type1": "Water",
+        "type2": "Dark",
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Wailmer",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water B",
+        "percentageMale": 50
+    },
+    {
+        "name": "Wailord",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water B",
+        "percentageMale": 50
+    },
+    {
+        "name": "Numel",
+        "type1": "Fire",
+        "type2": "Ground",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Camerupt",
+        "type1": "Fire",
+        "type2": "Ground",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Torkoal",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Spoink",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Grumpig",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Spinda",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Trapinch",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": "Dragon",
+        "percentageMale": 50
+    },
+    {
+        "name": "Vibrava",
+        "type1": "Ground",
+        "type2": "Dragon",
+        "eggType1": "Bug",
+        "eggType2": "Dragon",
+        "percentageMale": 50
+    },
+    {
+        "name": "Flygon",
+        "type1": "Ground",
+        "type2": "Dragon",
+        "eggType1": "Bug",
+        "eggType2": "Dragon",
+        "percentageMale": 50
+    },
+    {
+        "name": "Cacnea",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Cacturne",
+        "type1": "Grass",
+        "type2": "Dark",
+        "eggType1": "Grass",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Swablu",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Dragon",
+        "eggType2": "Flying",
+        "percentageMale": 50
+    },
+    {
+        "name": "Altaria",
+        "type1": "Dragon",
+        "type2": "Flying",
+        "eggType1": "Dragon",
+        "eggType2": "Flying",
+        "percentageMale": 50
+    },
+    {
+        "name": "Zangoose",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Seviper",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Field",
+        "percentageMale": 50
+    },
+    {
+        "name": "Lunatone",
+        "type1": "Rock",
+        "type2": "Psychic",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Solrock",
+        "type1": "Rock",
+        "type2": "Psychic",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Barboach",
+        "type1": "Water",
+        "type2": "Ground",
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Whiscash",
+        "type1": "Water",
+        "type2": "Ground",
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Corphish",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": "Water C",
+        "percentageMale": 50
+    },
+    {
+        "name": "Crawdaunt",
+        "type1": "Water",
+        "type2": "Dark",
+        "eggType1": "Water A",
+        "eggType2": "Water C",
+        "percentageMale": 50
+    },
+    {
+        "name": "Baltoy",
+        "type1": "Ground",
+        "type2": "Psychic",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Claydol",
+        "type1": "Ground",
+        "type2": "Psychic",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Lileep",
+        "type1": "Rock",
+        "type2": "Grass",
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Cradily",
+        "type1": "Rock",
+        "type2": "Grass",
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Anorith",
+        "type1": "Rock",
+        "type2": "Bug",
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Armaldo",
+        "type1": "Rock",
+        "type2": "Bug",
+        "eggType1": "Water C",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Feebas",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Milotic",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Castform",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": "Fairy",
+        "percentageMale": 50
+    },
+    {
+        "name": "Castform Sunny Form",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": "Fairy",
+        "percentageMale": 50
+    },
+    {
+        "name": "Castform Rainy Form",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": "Fairy",
+        "percentageMale": 50
+    },
+    {
+        "name": "Castform Snowy Form",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": "Fairy",
+        "percentageMale": 50
+    },
+    {
+        "name": "Kecleon",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Shuppet",
+        "type1": "Ghost",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Banette",
+        "type1": "Ghost",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Duskull",
+        "type1": "Ghost",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Dusclops",
+        "type1": "Ghost",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Tropius",
+        "type1": "Grass",
+        "type2": "Flying",
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Chimecho",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Absol",
+        "type1": "Dark",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Wynaut",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Snorunt",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Mineral",
+        "percentageMale": 50
+    },
+    {
+        "name": "Glalie",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Mineral",
+        "percentageMale": 50
+    },
+    {
+        "name": "Spheal",
+        "type1": "Ice",
+        "type2": "Water",
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Sealeo",
+        "type1": "Ice",
+        "type2": "Water",
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Walrein",
+        "type1": "Ice",
+        "type2": "Water",
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Clamperl",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Huntail",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Gorebyss",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Relicanth",
+        "type1": "Water",
+        "type2": "Rock",
+        "eggType1": "Water A",
+        "eggType2": "Water B",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Luvdisc",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Bagon",
+        "type1": "Dragon",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Shelgon",
+        "type1": "Dragon",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Salamence",
+        "type1": "Dragon",
+        "type2": "Flying",
+        "eggType1": "Dragon",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Beldum",
+        "type1": "Steel",
+        "type2": "Psychic",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Metang",
+        "type1": "Steel",
+        "type2": "Psychic",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Metagross",
+        "type1": "Steel",
+        "type2": "Psychic",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Turtwig",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Grotle",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Torterra",
+        "type1": "Grass",
+        "type2": "Ground",
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Chimchar",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Humanoid",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Monferno",
+        "type1": "Fire",
+        "type2": "Fighting",
+        "eggType1": "Field",
+        "eggType2": "Humanoid",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Infernape",
+        "type1": "Fire",
+        "type2": "Fighting",
+        "eggType1": "Field",
+        "eggType2": "Humanoid",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Piplup",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Prinplup",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Empoleon",
+        "type1": "Water",
+        "type2": "Steel",
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Starly",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Staravia",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Staraptor",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Bidoof",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Bibarel",
+        "type1": "Normal",
+        "type2": "Water",
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Kricketot",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Kricketune",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Shinx",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Luxio",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Luxray",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Budew",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Roserade",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Cranidos",
+        "type1": "Rock",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Rampardos",
+        "type1": "Rock",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Shieldon",
+        "type1": "Rock",
+        "type2": "Steel",
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Bastiodon",
+        "type1": "Rock",
+        "type2": "Steel",
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Burmy",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Wormadam Plant Cloak",
+        "type1": "Bug",
+        "type2": "Grass",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Wormadam Sandy Cloak",
+        "type1": "Bug",
+        "type2": "Ground",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Wormadam Trash Cloak",
+        "type1": "Bug",
+        "type2": "Steel",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Mothim",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Combee",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Vespiquen",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Pachirisu",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Field",
+        "percentageMale": 50
+    },
+    {
+        "name": "Buizel",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Floatzel",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Cherubi",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Cherrim",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Shellos",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Gastrodon",
+        "type1": "Water",
+        "type2": "Ground",
+        "eggType1": "Amorphous",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Ambipom",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Drifloon",
+        "type1": "Ghost",
+        "type2": "Flying",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Drifblim",
+        "type1": "Ghost",
+        "type2": "Flying",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Buneary",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Lopunny",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Mismagius",
+        "type1": "Ghost",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Honchkrow",
+        "type1": "Dark",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Glameow",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Purugly",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Chingling",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Stunky",
+        "type1": "Poison",
+        "type2": "Dark",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Skuntank",
+        "type1": "Poison",
+        "type2": "Dark",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Bronzor",
+        "type1": "Steel",
+        "type2": "Psychic",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Bronzong",
+        "type1": "Steel",
+        "type2": "Psychic",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Bonsly",
+        "type1": "Rock",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Mime Jr.",
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Happiny",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Chatot",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Spiritomb",
+        "type1": "Ghost",
+        "type2": "Dark",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Gible",
+        "type1": "Dragon",
+        "type2": "Ground",
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Gabite",
+        "type1": "Dragon",
+        "type2": "Ground",
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Garchomp",
+        "type1": "Dragon",
+        "type2": "Ground",
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Munchlax",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Riolu",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Lucario",
+        "type1": "Fighting",
+        "type2": "Steel",
+        "eggType1": "Field",
+        "eggType2": "Humanoid",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Hippopotas",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Hippowdon",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Skorupi",
+        "type1": "Poison",
+        "type2": "Bug",
+        "eggType1": "Bug",
+        "eggType2": "Water C",
+        "percentageMale": 50
+    },
+    {
+        "name": "Drapion",
+        "type1": "Poison",
+        "type2": "Dark",
+        "eggType1": "Bug",
+        "eggType2": "Water C",
+        "percentageMale": 50
+    },
+    {
+        "name": "Croagunk",
+        "type1": "Poison",
+        "type2": "Fighting",
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Toxicroak",
+        "type1": "Poison",
+        "type2": "Fighting",
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Carnivine",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Finneon",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Lumineon",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Mantyke",
+        "type1": "Water",
+        "type2": "Flying",
+        "eggType1": "Cannot Breed",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Snover",
+        "type1": "Grass",
+        "type2": "Ice",
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Abomasnow",
+        "type1": "Grass",
+        "type2": "Ice",
+        "eggType1": "Grass",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Weavile",
+        "type1": "Dark",
+        "type2": "Ice",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Magnezone",
+        "type1": "Electric",
+        "type2": "Steel",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Lickilicky",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Monster",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Rhyperior",
+        "type1": "Ground",
+        "type2": "Rock",
+        "eggType1": "Field",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Tangrowth",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Electivire",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Magmortar",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Togekiss",
+        "type1": "Fairy",
+        "type2": "Flying",
+        "eggType1": "Fairy",
+        "eggType2": "Flying",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Yanmega",
+        "type1": "Bug",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Leafeon",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Glaceon",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Gliscor",
+        "type1": "Ground",
+        "type2": "Flying",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Mamoswine",
+        "type1": "Ice",
+        "type2": "Ground",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Porygon-Z",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Gallade",
+        "type1": "Psychic",
+        "type2": "Fighting",
+        "eggType1": "Amorphous",
+        "eggType2": "Humanoid",
+        "percentageMale": 100
+    },
+    {
+        "name": "Probopass",
+        "type1": "Rock",
+        "type2": "Steel",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Dusknoir",
+        "type1": "Ghost",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Froslass",
+        "type1": "Ice",
+        "type2": "Ghost",
+        "eggType1": "Fairy",
+        "eggType2": "Mineral",
+        "percentageMale": 0
+    },
+    {
+        "name": "Rotom",
+        "type1": "Electric",
+        "type2": "Ghost",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Heat Rotom",
+        "type1": "Electric",
+        "type2": "Fire",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Wash Rotom",
+        "type1": "Electric",
+        "type2": "Water",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Frost Rotom",
+        "type1": "Electric",
+        "type2": "Ice",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Fan Rotom",
+        "type1": "Electric",
+        "type2": "Flying",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Mow Rotom",
+        "type1": "Electric",
+        "type2": "Grass",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Snivy",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Grass",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Servine",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Grass",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Serperior",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Grass",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Tepig",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Pignite",
+        "type1": "Fire",
+        "type2": "Fighting",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Emboar",
+        "type1": "Fire",
+        "type2": "Fighting",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Oshawott",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Dewott",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Samurott",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Patrat",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Watchog",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Lillipup",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Herdier",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Stoutland",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Purrloin",
+        "type1": "Dark",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Liepard",
+        "type1": "Dark",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Pansage",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Simisage",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Pansear",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Simisear",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Panpour",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Simipour",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Munna",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Musharna",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Pidove",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Tranquill",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Unfezant",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Blitzle",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Zebstrika",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Roggenrola",
+        "type1": "Rock",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Boldore",
+        "type1": "Rock",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Gigalith",
+        "type1": "Rock",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Woobat",
+        "type1": "Psychic",
+        "type2": "Flying",
+        "eggType1": "Field",
+        "eggType2": "Flying",
+        "percentageMale": 50
+    },
+    {
+        "name": "Swoobat",
+        "type1": "Psychic",
+        "type2": "Flying",
+        "eggType1": "Field",
+        "eggType2": "Flying",
+        "percentageMale": 50
+    },
+    {
+        "name": "Drilbur",
+        "type1": "Ground",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Excadrill",
+        "type1": "Ground",
+        "type2": "Steel",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Audino",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Fairy",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Timburr",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Gurdurr",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Conkeldurr",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 75
+    },
+    {
+        "name": "Tympole",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Palpitoad",
+        "type1": "Water",
+        "type2": "Ground",
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Seismitoad",
+        "type1": "Water",
+        "type2": "Ground",
+        "eggType1": "Water A",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Throh",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Sawk",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Sewaddle",
+        "type1": "Bug",
+        "type2": "Grass",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Swadloon",
+        "type1": "Bug",
+        "type2": "Grass",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Leavanny",
+        "type1": "Bug",
+        "type2": "Grass",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Venipede",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Whirlipede",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Scolipede",
+        "type1": "Bug",
+        "type2": "Poison",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Cottonee",
+        "type1": "Grass",
+        "type2": "Fairy",
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Whimsicott",
+        "type1": "Grass",
+        "type2": "Fairy",
+        "eggType1": "Fairy",
+        "eggType2": "Grass",
+        "percentageMale": 50
+    },
+    {
+        "name": "Petilil",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Lilligant",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Basculin Red-Striped Form",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Basculin Blue-Striped Form",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water B",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Sandile",
+        "type1": "Ground",
+        "type2": "Dark",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Krokorok",
+        "type1": "Ground",
+        "type2": "Dark",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Krookodile",
+        "type1": "Ground",
+        "type2": "Dark",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Darumaka",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Darmanitan Standard Mode",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Darmanitan Zen Mode",
+        "type1": "Fire",
+        "type2": "Psychic",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Maractus",
+        "type1": "Grass",
+        "type2": null,
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Dwebble",
+        "type1": "Bug",
+        "type2": "Rock",
+        "eggType1": "Bug",
+        "eggType2": "Mineral",
+        "percentageMale": 50
+    },
+    {
+        "name": "Crustle",
+        "type1": "Bug",
+        "type2": "Rock",
+        "eggType1": "Bug",
+        "eggType2": "Mineral",
+        "percentageMale": 50
+    },
+    {
+        "name": "Scraggy",
+        "type1": "Dark",
+        "type2": "Fighting",
+        "eggType1": "Dragon",
+        "eggType2": "Field",
+        "percentageMale": 50
+    },
+    {
+        "name": "Scrafty",
+        "type1": "Dark",
+        "type2": "Fighting",
+        "eggType1": "Dragon",
+        "eggType2": "Field",
+        "percentageMale": 50
+    },
+    {
+        "name": "Sigilyph",
+        "type1": "Psychic",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Yamask",
+        "type1": "Ghost",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": "Mineral",
+        "percentageMale": 50
+    },
+    {
+        "name": "Cofagrigus",
+        "type1": "Ghost",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": "Mineral",
+        "percentageMale": 50
+    },
+    {
+        "name": "Tirtouga",
+        "type1": "Water",
+        "type2": "Rock",
+        "eggType1": "Water A",
+        "eggType2": "Water C",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Carracosta",
+        "type1": "Water",
+        "type2": "Rock",
+        "eggType1": "Water A",
+        "eggType2": "Water C",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Archen",
+        "type1": "Rock",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": "Water C",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Archeops",
+        "type1": "Rock",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": "Water C",
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Trubbish",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Garbodor",
+        "type1": "Poison",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Zorua",
+        "type1": "Dark",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Zoroark",
+        "type1": "Dark",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 87.5
+    },
+    {
+        "name": "Minccino",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Cinccino",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Gothita",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Gothorita",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Gothitelle",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 25
+    },
+    {
+        "name": "Solosis",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Duosion",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Reuniclus",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Ducklett",
+        "type1": "Water",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Swanna",
+        "type1": "Water",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Vanillite",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Vanillish",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Vanilluxe",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Deerling",
+        "type1": "Normal",
+        "type2": "Grass",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Sawsbuck",
+        "type1": "Normal",
+        "type2": "Grass",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Emolga",
+        "type1": "Electric",
+        "type2": "Flying",
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Karrablast",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Escavalier",
+        "type1": "Bug",
+        "type2": "Steel",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Foongus",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Amoonguss",
+        "type1": "Grass",
+        "type2": "Poison",
+        "eggType1": "Grass",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Frillish",
+        "type1": "Water",
+        "type2": "Ghost",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Jellicent",
+        "type1": "Water",
+        "type2": "Ghost",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Alomomola",
+        "type1": "Water",
+        "type2": null,
+        "eggType1": "Water A",
+        "eggType2": "Water B",
+        "percentageMale": 50
+    },
+    {
+        "name": "Joltik",
+        "type1": "Bug",
+        "type2": "Electric",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Galvantula",
+        "type1": "Bug",
+        "type2": "Electric",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Ferroseed",
+        "type1": "Grass",
+        "type2": "Steel",
+        "eggType1": "Grass",
+        "eggType2": "Mineral",
+        "percentageMale": 50
+    },
+    {
+        "name": "Ferrothorn",
+        "type1": "Grass",
+        "type2": "Steel",
+        "eggType1": "Grass",
+        "eggType2": "Mineral",
+        "percentageMale": 50
+    },
+    {
+        "name": "Klink",
+        "type1": "Steel",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Klang",
+        "type1": "Steel",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Klinklang",
+        "type1": "Steel",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Tynamo",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Eelektrik",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Eelektross",
+        "type1": "Electric",
+        "type2": null,
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Elgyem",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Beheeyem",
+        "type1": "Psychic",
+        "type2": null,
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Litwick",
+        "type1": "Ghost",
+        "type2": "Fire",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Lampent",
+        "type1": "Ghost",
+        "type2": "Fire",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Chandelure",
+        "type1": "Ghost",
+        "type2": "Fire",
+        "eggType1": "Amorphous",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Axew",
+        "type1": "Dragon",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Fraxure",
+        "type1": "Dragon",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Haxorus",
+        "type1": "Dragon",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Cubchoo",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Beartic",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Cryogonal",
+        "type1": "Ice",
+        "type2": null,
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Shelmet",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Accelgor",
+        "type1": "Bug",
+        "type2": null,
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Stunfisk",
+        "type1": "Ground",
+        "type2": "Electric",
+        "eggType1": "Amorphous",
+        "eggType2": "Water A",
+        "percentageMale": 50
+    },
+    {
+        "name": "Mienfoo",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Mienshao",
+        "type1": "Fighting",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": "Humanoid",
+        "percentageMale": 50
+    },
+    {
+        "name": "Druddigon",
+        "type1": "Dragon",
+        "type2": null,
+        "eggType1": "Dragon",
+        "eggType2": "Monster",
+        "percentageMale": 50
+    },
+    {
+        "name": "Golett",
+        "type1": "Ground",
+        "type2": "Ghost",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Golurk",
+        "type1": "Ground",
+        "type2": "Ghost",
+        "eggType1": "Mineral",
+        "eggType2": null,
+        "percentageMale": null
+    },
+    {
+        "name": "Pawniard",
+        "type1": "Dark",
+        "type2": "Steel",
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Bisharp",
+        "type1": "Dark",
+        "type2": "Steel",
+        "eggType1": "Humanoid",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Bouffalant",
+        "type1": "Normal",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Rufflet",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Braviary",
+        "type1": "Normal",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 100
+    },
+    {
+        "name": "Vullaby",
+        "type1": "Dark",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Mandibuzz",
+        "type1": "Dark",
+        "type2": "Flying",
+        "eggType1": "Flying",
+        "eggType2": null,
+        "percentageMale": 0
+    },
+    {
+        "name": "Heatmor",
+        "type1": "Fire",
+        "type2": null,
+        "eggType1": "Field",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Durant",
+        "type1": "Bug",
+        "type2": "Steel",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Deino",
+        "type1": "Dark",
+        "type2": "Dragon",
+        "eggType1": "Dragon",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Zweilous",
+        "type1": "Dark",
+        "type2": "Dragon",
+        "eggType1": "Dragon",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Hydreigon",
+        "type1": "Dark",
+        "type2": "Dragon",
+        "eggType1": "Dragon",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Larvesta",
+        "type1": "Bug",
+        "type2": "Fire",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "Volcarona",
+        "type1": "Bug",
+        "type2": "Fire",
+        "eggType1": "Bug",
+        "eggType2": null,
+        "percentageMale": 50
+    },
+    {
+        "name": "",
+        "type1": "",
+        "type2": null,
+        "eggType1": "",
+        "eggType2": null,
+        "percentageMale": null
+    }
+]

@@ -1,0 +1,691 @@
+﻿name,type_1,type_2,egg_type_1,egg_type_2,percentage_male
+Bulbasaur,Grass,Poison,Grass,Monster,87.5
+Ivysaur,Grass,Poison,Grass,Monster,87.5
+Venusaur,Grass,Poison,Grass,Monster,87.5
+Mega Venusaur,Grass,Poison,Grass,Monster,87.5
+Charmander,Fire,,Dragon,Monster,87.5
+Charmeleon,Fire,,Dragon,Monster,87.5
+Charizard,Fire,Flying,Dragon,Monster,87.5
+Mega Charizard X,Fire,Dragon,Dragon,Monster,87.5
+Mega Charizard Y,Fire,Flying,Dragon,Monster,87.5
+Squirtle,Water,,Monster,Water 1,87.5
+Wartortle,Water,,Monster,Water 1,87.5
+Blastoise,Water,,Monster,Water 1,87.5
+Mega Blastoise,Water,,Monster,Water 1,87.5
+Caterpie,Bug,,Bug,,50.0
+Metapod,Bug,,Bug,,50.0
+Butterfree,Bug,Flying,Bug,,50.0
+Weedle,Bug,Poison,Bug,,50.0
+Kakuna,Bug,Poison,Bug,,50.0
+Beedrill,Bug,Poison,Bug,,50.0
+Mega Beedrill,Bug,Poison,Bug,,50.0
+Pidgey,Normal,Flying,Flying,,50.0
+Pidgeotto,Normal,Flying,Flying,,50.0
+Pidgeot,Normal,Flying,Flying,,50.0
+Mega Pidgeot,Normal,Flying,Flying,,50.0
+Rattata,Normal,,Field,,50.0
+Alolan Rattata,Dark,Normal,Field,,50.0
+Raticate,Normal,,Field,,50.0
+Alolan Raticate,Dark,Normal,Field,,50.0
+Spearow,Normal,Flying,Flying,,50.0
+Fearow,Normal,Flying,Flying,,50.0
+Ekans,Poison,,Dragon,Field,50.0
+Arbok,Poison,,Dragon,Field,50.0
+Pikachu,Electric,,Fairy,Field,50.0
+Partner Pikachu,Electric,,,,50.0
+Raichu,Electric,,Fairy,Field,50.0
+Alolan Raichu,Electric,Psychic,Fairy,Field,50.0
+Sandshrew,Ground,,Field,,50.0
+Alolan Sandshrew,Ice,Steel,Field,,50.0
+Sandslash,Ground,,Field,,50.0
+Alolan Sandslash,Ice,Steel,Field,,50.0
+Nidoran♀,Poison,,Field,Monster,0.0
+Nidorina,Poison,,Undiscovered,,0.0
+Nidoqueen,Poison,Ground,Undiscovered,,0.0
+Nidoran♂,Poison,,Field,Monster,100.0
+Nidorino,Poison,,Field,Monster,100.0
+Nidoking,Poison,Ground,Field,Monster,100.0
+Clefairy,Fairy,,Fairy,,25.0
+Clefable,Fairy,,Fairy,,25.0
+Vulpix,Fire,,Field,,25.0
+Alolan Vulpix,Ice,,Field,,25.0
+Ninetales,Fire,,Field,,25.0
+Alolan Ninetales,Ice,Fairy,Field,,25.0
+Jigglypuff,Normal,Fairy,Fairy,,25.0
+Wigglytuff,Normal,Fairy,Fairy,,25.0
+Zubat,Poison,Flying,Flying,,50.0
+Golbat,Poison,Flying,Flying,,50.0
+Oddish,Grass,Poison,Grass,,50.0
+Gloom,Grass,Poison,Grass,,50.0
+Vileplume,Grass,Poison,Grass,,50.0
+Paras,Bug,Grass,Bug,Grass,50.0
+Parasect,Bug,Grass,Bug,Grass,50.0
+Venonat,Bug,Poison,Bug,,50.0
+Venomoth,Bug,Poison,Bug,,50.0
+Diglett,Ground,,Field,,50.0
+Alolan Diglett,Ground,Steel,Field,,50.0
+Dugtrio,Ground,,Field,,50.0
+Alolan Dugtrio,Ground,Steel,Field,,50.0
+Meowth,Normal,,Field,,50.0
+Alolan Meowth,Dark,,Field,,50.0
+Galarian Meowth,Steel,,Field,,
+Persian,Normal,,Field,,50.0
+Alolan Persian,Dark,,Field,,50.0
+Psyduck,Water,,Field,Water 1,50.0
+Golduck,Water,,Field,Water 1,50.0
+Mankey,Fighting,,Field,,50.0
+Primeape,Fighting,,Field,,50.0
+Growlithe,Fire,,Field,,75.0
+Arcanine,Fire,,Field,,75.0
+Poliwag,Water,,Water 1,,50.0
+Poliwhirl,Water,,Water 1,,50.0
+Poliwrath,Water,Fighting,Water 1,,50.0
+Abra,Psychic,,Human-Like,,75.0
+Kadabra,Psychic,,Human-Like,,75.0
+Alakazam,Psychic,,Human-Like,,75.0
+Mega Alakazam,Psychic,,Human-Like,,75.0
+Machop,Fighting,,Human-Like,,75.0
+Machoke,Fighting,,Human-Like,,75.0
+Machamp,Fighting,,Human-Like,,75.0
+Bellsprout,Grass,Poison,Grass,,50.0
+Weepinbell,Grass,Poison,Grass,,50.0
+Victreebel,Grass,Poison,Grass,,50.0
+Tentacool,Water,Poison,Water 3,,50.0
+Tentacruel,Water,Poison,Water 3,,50.0
+Geodude,Rock,Ground,Mineral,,50.0
+Alolan Geodude,Rock,Electric,Mineral,,50.0
+Graveler,Rock,Ground,Mineral,,50.0
+Alolan Graveler,Rock,Electric,Mineral,,50.0
+Golem,Rock,Ground,Mineral,,50.0
+Alolan Golem,Rock,Electric,Mineral,,50.0
+Ponyta,Fire,,Field,,50.0
+Galarian Ponyta,Psychic,,Field,,
+Rapidash,Fire,,Field,,50.0
+Galarian Rapidash,Psychic,Fairy,Field,,
+Slowpoke,Water,Psychic,Monster,Water 1,50.0
+Slowbro,Water,Psychic,Monster,Water 1,50.0
+Mega Slowbro,Water,Psychic,Monster,Water 1,50.0
+Magnemite,Electric,Steel,Mineral,,
+Magneton,Electric,Steel,Mineral,,
+Farfetch'd,Normal,Flying,Field,Flying,50.0
+Galarian Farfetch'd,Fighting,,Field,Flying,
+Doduo,Normal,Flying,Flying,,50.0
+Dodrio,Normal,Flying,Flying,,50.0
+Seel,Water,,Field,Water 1,50.0
+Dewgong,Water,Ice,Field,Water 1,50.0
+Grimer,Poison,,Amorphous,,50.0
+Alolan Grimer,Poison,Dark,Amorphous,,50.0
+Muk,Poison,,Amorphous,,50.0
+Alolan Muk,Poison,Dark,Amorphous,,50.0
+Shellder,Water,,Water 3,,50.0
+Cloyster,Water,Ice,Water 3,,50.0
+Gastly,Ghost,Poison,Amorphous,,50.0
+Haunter,Ghost,Poison,Amorphous,,50.0
+Gengar,Ghost,Poison,Amorphous,,50.0
+Mega Gengar,Ghost,Poison,Amorphous,,50.0
+Onix,Rock,Ground,Mineral,,50.0
+Drowzee,Psychic,,Human-Like,,50.0
+Hypno,Psychic,,Human-Like,,50.0
+Krabby,Water,,Water 3,,50.0
+Kingler,Water,,Water 3,,50.0
+Voltorb,Electric,,Mineral,,
+Electrode,Electric,,Mineral,,
+Exeggcute,Grass,Psychic,Grass,,50.0
+Exeggutor,Grass,Psychic,Grass,,50.0
+Alolan Exeggutor,Grass,Dragon,Grass,,50.0
+Cubone,Ground,,Monster,,50.0
+Marowak,Ground,,Monster,,50.0
+Alolan Marowak,Fire,Ghost,Monster,,50.0
+Hitmonlee,Fighting,,Human-Like,,100.0
+Hitmonchan,Fighting,,Human-Like,,100.0
+Lickitung,Normal,,Monster,,50.0
+Koffing,Poison,,Amorphous,,50.0
+Weezing,Poison,,Amorphous,,50.0
+Galarian Weezing,Poison,Fairy,Amorphous,,
+Rhyhorn,Ground,Rock,Field,Monster,50.0
+Rhydon,Ground,Rock,Field,Monster,50.0
+Chansey,Normal,,Fairy,,0.0
+Tangela,Grass,,Grass,,50.0
+Kangaskhan,Normal,,Monster,,0.0
+Mega Kangaskhan,Normal,,Monster,,0.0
+Horsea,Water,,Dragon,Water 1,50.0
+Seadra,Water,,Dragon,Water 1,50.0
+Goldeen,Water,,Water 2,,50.0
+Seaking,Water,,Water 2,,50.0
+Staryu,Water,,Water 3,,
+Starmie,Water,Psychic,Water 3,,
+Mr. Mime,Psychic,Fairy,Human-Like,,50.0
+Galarian Mr. Mime,Psychic,Ice,Human-Like,,
+Scyther,Bug,Flying,Bug,,50.0
+Jynx,Ice,Psychic,Human-Like,,0.0
+Electabuzz,Electric,,Human-Like,,75.0
+Magmar,Fire,,Human-Like,,75.0
+Pinsir,Bug,,Bug,,50.0
+Mega Pinsir,Bug,Flying,Bug,,50.0
+Tauros,Normal,,Field,,100.0
+Magikarp,Water,,Dragon,Water 2,50.0
+Gyarados,Water,Flying,Dragon,Water 2,50.0
+Mega Gyarados,Water,Dark,Dragon,Water 2,50.0
+Lapras,Water,Ice,Monster,Water 1,50.0
+Ditto,Normal,,Ditto,,
+Eevee,Normal,,Field,,87.5
+Partner Eevee,Normal,,,,87.5
+Vaporeon,Water,,Field,,87.5
+Jolteon,Electric,,Field,,87.5
+Flareon,Fire,,Field,,87.5
+Porygon,Normal,,Mineral,,
+Omanyte,Rock,Water,Water 1,Water 3,87.5
+Omastar,Rock,Water,Water 1,Water 3,87.5
+Kabuto,Rock,Water,Water 1,Water 3,87.5
+Kabutops,Rock,Water,Water 1,Water 3,87.5
+Aerodactyl,Rock,Flying,Flying,,87.5
+Mega Aerodactyl,Rock,Flying,Flying,,87.5
+Snorlax,Normal,,Monster,,87.5
+Dratini,Dragon,,Dragon,Water 1,50.0
+Dragonair,Dragon,,Dragon,Water 1,50.0
+Dragonite,Dragon,Flying,Dragon,Water 1,50.0
+Chikorita,Grass,,Grass,Monster,87.5
+Bayleef,Grass,,Grass,Monster,87.5
+Meganium,Grass,,Grass,Monster,87.5
+Cyndaquil,Fire,,Field,,87.5
+Quilava,Fire,,Field,,87.5
+Typhlosion,Fire,,Field,,87.5
+Totodile,Water,,Monster,Water 1,87.5
+Croconaw,Water,,Monster,Water 1,87.5
+Feraligatr,Water,,Monster,Water 1,87.5
+Sentret,Normal,,Field,,50.0
+Furret,Normal,,Field,,50.0
+Hoothoot,Normal,Flying,Flying,,50.0
+Noctowl,Normal,Flying,Flying,,50.0
+Ledyba,Bug,Flying,Bug,,50.0
+Ledian,Bug,Flying,Bug,,50.0
+Spinarak,Bug,Poison,Bug,,50.0
+Ariados,Bug,Poison,Bug,,50.0
+Crobat,Poison,Flying,Flying,,50.0
+Chinchou,Water,Electric,Water 2,,50.0
+Lanturn,Water,Electric,Water 2,,50.0
+Pichu,Electric,,Undiscovered,,50.0
+Cleffa,Fairy,,Undiscovered,,25.0
+Igglybuff,Normal,Fairy,Undiscovered,,25.0
+Togepi,Fairy,,Undiscovered,,87.5
+Togetic,Fairy,Flying,Fairy,Flying,87.5
+Natu,Psychic,Flying,Flying,,50.0
+Xatu,Psychic,Flying,Flying,,50.0
+Mareep,Electric,,Field,Monster,50.0
+Flaaffy,Electric,,Field,Monster,50.0
+Ampharos,Electric,,Field,Monster,50.0
+Mega Ampharos,Electric,Dragon,Field,Monster,50.0
+Bellossom,Grass,,Grass,,50.0
+Marill,Water,Fairy,Fairy,Water 1,50.0
+Azumarill,Water,Fairy,Fairy,Water 1,50.0
+Sudowoodo,Rock,,Mineral,,50.0
+Politoed,Water,,Water 1,,50.0
+Hoppip,Grass,Flying,Fairy,Grass,50.0
+Skiploom,Grass,Flying,Fairy,Grass,50.0
+Jumpluff,Grass,Flying,Fairy,Grass,50.0
+Aipom,Normal,,Field,,50.0
+Sunkern,Grass,,Grass,,50.0
+Sunflora,Grass,,Grass,,50.0
+Yanma,Bug,Flying,Bug,,50.0
+Wooper,Water,Ground,Field,Water 1,50.0
+Quagsire,Water,Ground,Field,Water 1,50.0
+Espeon,Psychic,,Field,,87.5
+Umbreon,Dark,,Field,,87.5
+Murkrow,Dark,Flying,Flying,,50.0
+Slowking,Water,Psychic,Monster,Water 1,50.0
+Misdreavus,Ghost,,Amorphous,,50.0
+Unown,Psychic,,Undiscovered,,
+Wobbuffet,Psychic,,Amorphous,,50.0
+Girafarig,Normal,Psychic,Field,,50.0
+Pineco,Bug,,Bug,,50.0
+Forretress,Bug,Steel,Bug,,50.0
+Dunsparce,Normal,,Field,,50.0
+Gligar,Ground,Flying,Bug,,50.0
+Steelix,Steel,Ground,Mineral,,50.0
+Mega Steelix,Steel,Ground,Mineral,,50.0
+Snubbull,Fairy,,Fairy,Field,25.0
+Granbull,Fairy,,Fairy,Field,25.0
+Qwilfish,Water,Poison,Water 2,,50.0
+Scizor,Bug,Steel,Bug,,50.0
+Mega Scizor,Bug,Steel,Bug,,50.0
+Shuckle,Bug,Rock,Bug,,50.0
+Heracross,Bug,Fighting,Bug,,50.0
+Mega Heracross,Bug,Fighting,Bug,,50.0
+Sneasel,Dark,Ice,Field,,50.0
+Teddiursa,Normal,,Field,,50.0
+Ursaring,Normal,,Field,,50.0
+Slugma,Fire,,Amorphous,,50.0
+Magcargo,Fire,Rock,Amorphous,,50.0
+Swinub,Ice,Ground,Field,,50.0
+Piloswine,Ice,Ground,Field,,50.0
+Corsola,Water,Rock,Water 1,Water 3,25.0
+Galarian Corsola,Ghost,,Water 1,Water 3,
+Remoraid,Water,,Water 1,Water 2,50.0
+Octillery,Water,,Water 1,Water 2,50.0
+Delibird,Ice,Flying,Field,Water 1,50.0
+Mantine,Water,Flying,Water 1,,50.0
+Skarmory,Steel,Flying,Flying,,50.0
+Houndour,Dark,Fire,Field,,50.0
+Houndoom,Dark,Fire,Field,,50.0
+Mega Houndoom,Dark,Fire,Field,,50.0
+Kingdra,Water,Dragon,Dragon,Water 1,50.0
+Phanpy,Ground,,Field,,50.0
+Donphan,Ground,,Field,,50.0
+Porygon2,Normal,,Mineral,,
+Stantler,Normal,,Field,,50.0
+Smeargle,Normal,,Field,,50.0
+Tyrogue,Fighting,,Undiscovered,,100.0
+Hitmontop,Fighting,,Human-Like,,100.0
+Smoochum,Ice,Psychic,Undiscovered,,0.0
+Elekid,Electric,,Undiscovered,,75.0
+Magby,Fire,,Undiscovered,,75.0
+Miltank,Normal,,Field,,0.0
+Blissey,Normal,,Fairy,,0.0
+Larvitar,Rock,Ground,Monster,,50.0
+Pupitar,Rock,Ground,Monster,,50.0
+Tyranitar,Rock,Dark,Monster,,50.0
+Mega Tyranitar,Rock,Dark,Monster,,50.0
+Treecko,Grass,,Dragon,Monster,87.5
+Grovyle,Grass,,Dragon,Monster,87.5
+Sceptile,Grass,,Dragon,Monster,87.5
+Mega Sceptile,Grass,Dragon,Dragon,Monster,87.5
+Torchic,Fire,,Field,,87.5
+Combusken,Fire,Fighting,Field,,87.5
+Blaziken,Fire,Fighting,Field,,87.5
+Mega Blaziken,Fire,Fighting,Field,,87.5
+Mudkip,Water,,Monster,Water 1,87.5
+Marshtomp,Water,Ground,Monster,Water 1,87.5
+Swampert,Water,Ground,Monster,Water 1,87.5
+Mega Swampert,Water,Ground,Monster,Water 1,87.5
+Poochyena,Dark,,Field,,50.0
+Mightyena,Dark,,Field,,50.0
+Zigzagoon,Normal,,Field,,50.0
+Galarian Zigzagoon,Dark,Normal,Field,,
+Linoone,Normal,,Field,,50.0
+Galarian Linoone,Dark,Normal,Field,,
+Wurmple,Bug,,Bug,,50.0
+Silcoon,Bug,,Bug,,50.0
+Beautifly,Bug,Flying,Bug,,50.0
+Cascoon,Bug,,Bug,,50.0
+Dustox,Bug,Poison,Bug,,50.0
+Lotad,Water,Grass,Grass,Water 1,50.0
+Lombre,Water,Grass,Grass,Water 1,50.0
+Ludicolo,Water,Grass,Grass,Water 1,50.0
+Seedot,Grass,,Field,Grass,50.0
+Nuzleaf,Grass,Dark,Field,Grass,50.0
+Shiftry,Grass,Dark,Field,Grass,50.0
+Taillow,Normal,Flying,Flying,,50.0
+Swellow,Normal,Flying,Flying,,50.0
+Wingull,Water,Flying,Flying,Water 1,50.0
+Pelipper,Water,Flying,Flying,Water 1,50.0
+Ralts,Psychic,Fairy,Amorphous,Human-Like,50.0
+Kirlia,Psychic,Fairy,Amorphous,Human-Like,50.0
+Gardevoir,Psychic,Fairy,Amorphous,Human-Like,50.0
+Mega Gardevoir,Psychic,Fairy,Amorphous,,50.0
+Surskit,Bug,Water,Bug,Water 1,50.0
+Masquerain,Bug,Flying,Bug,Water 1,50.0
+Shroomish,Grass,,Fairy,Grass,50.0
+Breloom,Grass,Fighting,Fairy,Grass,50.0
+Slakoth,Normal,,Field,,50.0
+Vigoroth,Normal,,Field,,50.0
+Slaking,Normal,,Field,,50.0
+Nincada,Bug,Ground,Bug,,50.0
+Ninjask,Bug,Flying,Bug,,50.0
+Shedinja,Bug,Ghost,Mineral,,
+Whismur,Normal,,Field,Monster,50.0
+Loudred,Normal,,Field,Monster,50.0
+Exploud,Normal,,Field,Monster,50.0
+Makuhita,Fighting,,Human-Like,,75.0
+Hariyama,Fighting,,Human-Like,,75.0
+Azurill,Normal,Fairy,Undiscovered,,25.0
+Nosepass,Rock,,Mineral,,50.0
+Skitty,Normal,,Fairy,Field,25.0
+Delcatty,Normal,,Fairy,Field,25.0
+Sableye,Dark,Ghost,Human-Like,,50.0
+Mega Sableye,Dark,Ghost,Human-Like,,50.0
+Mawile,Steel,Fairy,Fairy,Field,50.0
+Mega Mawile,Steel,Fairy,Fairy,Field,50.0
+Aron,Steel,Rock,Monster,,50.0
+Lairon,Steel,Rock,Monster,,50.0
+Aggron,Steel,Rock,Monster,,50.0
+Mega Aggron,Steel,,Monster,,50.0
+Meditite,Fighting,Psychic,Human-Like,,50.0
+Medicham,Fighting,Psychic,Human-Like,,50.0
+Mega Medicham,Fighting,Psychic,Human-Like,,50.0
+Electrike,Electric,,Field,,50.0
+Manectric,Electric,,Field,,50.0
+Mega Manectric,Electric,,Field,,50.0
+Plusle,Electric,,Fairy,,50.0
+Minun,Electric,,Fairy,,50.0
+Volbeat,Bug,,Bug,Human-Like,100.0
+Illumise,Bug,,Bug,Human-Like,0.0
+Roselia,Grass,Poison,Fairy,Grass,50.0
+Gulpin,Poison,,Amorphous,,50.0
+Swalot,Poison,,Amorphous,,50.0
+Carvanha,Water,Dark,Water 2,,50.0
+Sharpedo,Water,Dark,Water 2,,50.0
+Mega Sharpedo,Water,Dark,Water 2,,50.0
+Wailmer,Water,,Field,Water 2,50.0
+Wailord,Water,,Field,Water 2,50.0
+Numel,Fire,Ground,Field,,50.0
+Camerupt,Fire,Ground,Field,,50.0
+Mega Camerupt,Fire,Ground,Field,,50.0
+Torkoal,Fire,,Field,,50.0
+Spoink,Psychic,,Field,,50.0
+Grumpig,Psychic,,Field,,50.0
+Spinda,Normal,,Field,Human-Like,50.0
+Trapinch,Ground,,Bug,Dragon,50.0
+Vibrava,Ground,Dragon,Bug,Dragon,50.0
+Flygon,Ground,Dragon,Bug,Dragon,50.0
+Cacnea,Grass,,Grass,Human-Like,50.0
+Cacturne,Grass,Dark,Grass,Human-Like,50.0
+Swablu,Normal,Flying,Dragon,Flying,50.0
+Altaria,Dragon,Flying,Dragon,Flying,50.0
+Mega Altaria,Dragon,Fairy,Dragon,Flying,50.0
+Zangoose,Normal,,Field,,50.0
+Seviper,Poison,,Dragon,Field,50.0
+Lunatone,Rock,Psychic,Mineral,,
+Solrock,Rock,Psychic,Mineral,,
+Barboach,Water,Ground,Water 2,,50.0
+Whiscash,Water,Ground,Water 2,,50.0
+Corphish,Water,,Water 1,Water 3,50.0
+Crawdaunt,Water,Dark,Water 1,Water 3,50.0
+Baltoy,Ground,Psychic,Mineral,,
+Claydol,Ground,Psychic,Mineral,,
+Lileep,Rock,Grass,Water 3,,87.5
+Cradily,Rock,Grass,Water 3,,87.5
+Anorith,Rock,Bug,Water 3,,87.5
+Armaldo,Rock,Bug,Water 3,,87.5
+Feebas,Water,,Dragon,Water 1,50.0
+Milotic,Water,,Dragon,Water 1,50.0
+Castform,Normal,,Amorphous,Fairy,50.0
+Castform Sunny Form,Fire,,Amorphous,Fairy,50.0
+Castform Rainy Form,Water,,Amorphous,Fairy,50.0
+Castform Snowy Form,Ice,,Amorphous,Fairy,50.0
+Kecleon,Normal,,Field,,50.0
+Shuppet,Ghost,,Amorphous,,50.0
+Banette,Ghost,,Amorphous,,50.0
+Mega Banette,Ghost,,Amorphous,,50.0
+Duskull,Ghost,,Amorphous,,50.0
+Dusclops,Ghost,,Amorphous,,50.0
+Tropius,Grass,Flying,Grass,Monster,50.0
+Chimecho,Psychic,,Amorphous,,50.0
+Absol,Dark,,Field,,50.0
+Mega Absol,Dark,,Field,,50.0
+Wynaut,Psychic,,Undiscovered,,50.0
+Snorunt,Ice,,Fairy,Mineral,50.0
+Glalie,Ice,,Fairy,Mineral,50.0
+Mega Glalie,Ice,,Fairy,Mineral,50.0
+Spheal,Ice,Water,Field,Water 1,50.0
+Sealeo,Ice,Water,Field,Water 1,50.0
+Walrein,Ice,Water,Field,Water 1,50.0
+Clamperl,Water,,Water 1,,50.0
+Huntail,Water,,Water 1,,50.0
+Gorebyss,Water,,Water 1,,50.0
+Relicanth,Water,Rock,Water 1,Water 2,87.5
+Luvdisc,Water,,Water 2,,25.0
+Bagon,Dragon,,Dragon,,50.0
+Shelgon,Dragon,,Dragon,,50.0
+Salamence,Dragon,Flying,Dragon,,50.0
+Mega Salamence,Dragon,Flying,Dragon,,50.0
+Beldum,Steel,Psychic,Mineral,,
+Metang,Steel,Psychic,Mineral,,
+Metagross,Steel,Psychic,Mineral,,
+Mega Metagross,Steel,Psychic,Mineral,,
+Turtwig,Grass,,Grass,Monster,87.5
+Grotle,Grass,,Grass,Monster,87.5
+Torterra,Grass,Ground,Grass,Monster,87.5
+Chimchar,Fire,,Field,Human-Like,87.5
+Monferno,Fire,Fighting,Field,Human-Like,87.5
+Infernape,Fire,Fighting,Field,Human-Like,87.5
+Piplup,Water,,Field,Water 1,87.5
+Prinplup,Water,,Field,Water 1,87.5
+Empoleon,Water,Steel,Field,Water 1,87.5
+Starly,Normal,Flying,Flying,,50.0
+Staravia,Normal,Flying,Flying,,50.0
+Staraptor,Normal,Flying,Flying,,50.0
+Bidoof,Normal,,Field,Water 1,50.0
+Bibarel,Normal,Water,Field,Water 1,50.0
+Kricketot,Bug,,Bug,,50.0
+Kricketune,Bug,,Bug,,50.0
+Shinx,Electric,,Field,,50.0
+Luxio,Electric,,Field,,50.0
+Luxray,Electric,,Field,,50.0
+Budew,Grass,Poison,Undiscovered,,50.0
+Roserade,Grass,Poison,Fairy,Grass,50.0
+Cranidos,Rock,,Monster,,87.5
+Rampardos,Rock,,Monster,,87.5
+Shieldon,Rock,Steel,Monster,,87.5
+Bastiodon,Rock,Steel,Monster,,87.5
+Burmy,Bug,,Bug,,50.0
+Wormadam Plant Cloak,Bug,Grass,Bug,,0.0
+Wormadam Sandy Cloak,Bug,Ground,Bug,,0.0
+Wormadam Trash Cloak,Bug,Steel,Bug,,0.0
+Mothim,Bug,Flying,Bug,,100.0
+Combee,Bug,Flying,Bug,,87.5
+Vespiquen,Bug,Flying,Bug,,0.0
+Pachirisu,Electric,,Fairy,Field,50.0
+Buizel,Water,,Field,Water 1,50.0
+Floatzel,Water,,Field,Water 1,50.0
+Cherubi,Grass,,Fairy,Grass,50.0
+Cherrim,Grass,,Fairy,Grass,50.0
+Shellos,Water,,Amorphous,Water 1,50.0
+Gastrodon,Water,Ground,Amorphous,Water 1,50.0
+Ambipom,Normal,,Field,,50.0
+Drifloon,Ghost,Flying,Amorphous,,50.0
+Drifblim,Ghost,Flying,Amorphous,,50.0
+Buneary,Normal,,Field,Human-Like,50.0
+Lopunny,Normal,,Field,Human-Like,50.0
+Mega Lopunny,Normal,Fighting,Field,Human-Like,50.0
+Mismagius,Ghost,,Amorphous,,50.0
+Honchkrow,Dark,Flying,Flying,,50.0
+Glameow,Normal,,Field,,25.0
+Purugly,Normal,,Field,,25.0
+Chingling,Psychic,,Undiscovered,,50.0
+Stunky,Poison,Dark,Field,,50.0
+Skuntank,Poison,Dark,Field,,50.0
+Bronzor,Steel,Psychic,Mineral,,
+Bronzong,Steel,Psychic,Mineral,,
+Bonsly,Rock,,Undiscovered,,50.0
+Mime Jr.,Psychic,Fairy,Undiscovered,,50.0
+Happiny,Normal,,Undiscovered,,0.0
+Chatot,Normal,Flying,Flying,,50.0
+Spiritomb,Ghost,Dark,Amorphous,,50.0
+Gible,Dragon,Ground,Dragon,Monster,50.0
+Gabite,Dragon,Ground,Dragon,Monster,50.0
+Garchomp,Dragon,Ground,Dragon,Monster,50.0
+Mega Garchomp,Dragon,Ground,Dragon,Monster,50.0
+Munchlax,Normal,,Undiscovered,,87.5
+Riolu,Fighting,,Undiscovered,,87.5
+Lucario,Fighting,Steel,Field,Human-Like,87.5
+Mega Lucario,Fighting,Steel,Field,Human-Like,87.5
+Hippopotas,Ground,,Field,,50.0
+Hippowdon,Ground,,Field,,50.0
+Skorupi,Poison,Bug,Bug,Water 3,50.0
+Drapion,Poison,Dark,Bug,Water 3,50.0
+Croagunk,Poison,Fighting,Human-Like,,50.0
+Toxicroak,Poison,Fighting,Human-Like,,50.0
+Carnivine,Grass,,Grass,,50.0
+Finneon,Water,,Water 2,,50.0
+Lumineon,Water,,Water 2,,50.0
+Mantyke,Water,Flying,Undiscovered,,50.0
+Snover,Grass,Ice,Grass,Monster,50.0
+Abomasnow,Grass,Ice,Grass,Monster,50.0
+Mega Abomasnow,Grass,Ice,Grass,Monster,50.0
+Weavile,Dark,Ice,Field,,50.0
+Magnezone,Electric,Steel,Mineral,,
+Lickilicky,Normal,,Monster,,50.0
+Rhyperior,Ground,Rock,Field,Monster,50.0
+Tangrowth,Grass,,Grass,,50.0
+Electivire,Electric,,Human-Like,,75.0
+Magmortar,Fire,,Human-Like,,75.0
+Togekiss,Fairy,Flying,Fairy,Flying,87.5
+Yanmega,Bug,Flying,Bug,,50.0
+Leafeon,Grass,,Field,,87.5
+Glaceon,Ice,,Field,,87.5
+Gliscor,Ground,Flying,Bug,,50.0
+Mamoswine,Ice,Ground,Field,,50.0
+Porygon-Z,Normal,,Mineral,,
+Gallade,Psychic,Fighting,Amorphous,Human-Like,100.0
+Mega Gallade,Psychic,Fighting,Amorphous,,100.0
+Probopass,Rock,Steel,Mineral,,50.0
+Dusknoir,Ghost,,Amorphous,,50.0
+Froslass,Ice,Ghost,Fairy,Mineral,0.0
+Rotom,Electric,Ghost,Amorphous,,
+Heat Rotom,Electric,Fire,Amorphous,,
+Wash Rotom,Electric,Water,Amorphous,,
+Frost Rotom,Electric,Ice,Amorphous,,
+Fan Rotom,Electric,Flying,Amorphous,,
+Mow Rotom,Electric,Grass,Amorphous,,
+Snivy,Grass,,Field,Grass,87.5
+Servine,Grass,,Field,Grass,87.5
+Serperior,Grass,,Field,Grass,87.5
+Tepig,Fire,,Field,,87.5
+Pignite,Fire,Fighting,Field,,87.5
+Emboar,Fire,Fighting,Field,,87.5
+Oshawott,Water,,Field,,87.5
+Dewott,Water,,Field,,87.5
+Samurott,Water,,Field,,87.5
+Patrat,Normal,,Field,,50.0
+Watchog,Normal,,Field,,50.0
+Lillipup,Normal,,Field,,50.0
+Herdier,Normal,,Field,,50.0
+Stoutland,Normal,,Field,,50.0
+Purrloin,Dark,,Field,,50.0
+Liepard,Dark,,Field,,50.0
+Pansage,Grass,,Field,,87.5
+Simisage,Grass,,Field,,87.5
+Pansear,Fire,,Field,,87.5
+Simisear,Fire,,Field,,87.5
+Panpour,Water,,Field,,87.5
+Simipour,Water,,Field,,87.5
+Munna,Psychic,,Field,,50.0
+Musharna,Psychic,,Field,,50.0
+Pidove,Normal,Flying,Flying,,50.0
+Tranquill,Normal,Flying,Flying,,50.0
+Unfezant,Normal,Flying,Flying,,50.0
+Blitzle,Electric,,Field,,50.0
+Zebstrika,Electric,,Field,,50.0
+Roggenrola,Rock,,Mineral,,50.0
+Boldore,Rock,,Mineral,,50.0
+Gigalith,Rock,,Mineral,,50.0
+Woobat,Psychic,Flying,Field,Flying,50.0
+Swoobat,Psychic,Flying,Field,Flying,50.0
+Drilbur,Ground,,Field,,50.0
+Excadrill,Ground,Steel,Field,,50.0
+Audino,Normal,,Fairy,,50.0
+Mega Audino,Normal,Fairy,Fairy,,50.0
+Timburr,Fighting,,Human-Like,,75.0
+Gurdurr,Fighting,,Human-Like,,75.0
+Conkeldurr,Fighting,,Human-Like,,75.0
+Tympole,Water,,Water 1,,50.0
+Palpitoad,Water,Ground,Water 1,,50.0
+Seismitoad,Water,Ground,Water 1,,50.0
+Throh,Fighting,,Human-Like,,100.0
+Sawk,Fighting,,Human-Like,,100.0
+Sewaddle,Bug,Grass,Bug,,50.0
+Swadloon,Bug,Grass,Bug,,50.0
+Leavanny,Bug,Grass,Bug,,50.0
+Venipede,Bug,Poison,Bug,,50.0
+Whirlipede,Bug,Poison,Bug,,50.0
+Scolipede,Bug,Poison,Bug,,50.0
+Cottonee,Grass,Fairy,Fairy,Grass,50.0
+Whimsicott,Grass,Fairy,Fairy,Grass,50.0
+Petilil,Grass,,Grass,,0.0
+Lilligant,Grass,,Grass,,0.0
+Basculin Red-Striped Form,Water,,Water 2,,50.0
+Basculin Blue-Striped Form,Water,,Water 2,,50.0
+Sandile,Ground,Dark,Field,,50.0
+Krokorok,Ground,Dark,Field,,50.0
+Krookodile,Ground,Dark,Field,,50.0
+Darumaka,Fire,,Field,,50.0
+Galarian Darumaka,Ice,,Field,,
+Darmanitan Standard Mode,Fire,,Field,,50.0
+Darmanitan Zen Mode,Fire,Psychic,Field,,50.0
+Galarian Darmanitan Standard Mode,Ice,,Field,,
+Galarian Darmanitan Zen Mode,Ice,Fire,,,
+Maractus,Grass,,Grass,,50.0
+Dwebble,Bug,Rock,Bug,Mineral,50.0
+Crustle,Bug,Rock,Bug,Mineral,50.0
+Scraggy,Dark,Fighting,Dragon,Field,50.0
+Scrafty,Dark,Fighting,Dragon,Field,50.0
+Sigilyph,Psychic,Flying,Flying,,50.0
+Yamask,Ghost,,Amorphous,Mineral,50.0
+Galarian Yamask,Ground,Ghost,Amorphous,Mineral,
+Cofagrigus,Ghost,,Amorphous,Mineral,50.0
+Tirtouga,Water,Rock,Water 1,Water 3,87.5
+Carracosta,Water,Rock,Water 1,Water 3,87.5
+Archen,Rock,Flying,Flying,Water 3,87.5
+Archeops,Rock,Flying,Flying,Water 3,87.5
+Trubbish,Poison,,Mineral,,50.0
+Garbodor,Poison,,Mineral,,50.0
+Zorua,Dark,,Field,,87.5
+Zoroark,Dark,,Field,,87.5
+Minccino,Normal,,Field,,25.0
+Cinccino,Normal,,Field,,25.0
+Gothita,Psychic,,Human-Like,,25.0
+Gothorita,Psychic,,Human-Like,,25.0
+Gothitelle,Psychic,,Human-Like,,25.0
+Solosis,Psychic,,Amorphous,,50.0
+Duosion,Psychic,,Amorphous,,50.0
+Reuniclus,Psychic,,Amorphous,,50.0
+Ducklett,Water,Flying,Flying,Water 1,50.0
+Swanna,Water,Flying,Flying,Water 1,50.0
+Vanillite,Ice,,Mineral,,50.0
+Vanillish,Ice,,Mineral,,50.0
+Vanilluxe,Ice,,Mineral,,50.0
+Deerling,Normal,Grass,Field,,50.0
+Sawsbuck,Normal,Grass,Field,,50.0
+Emolga,Electric,Flying,Field,,50.0
+Karrablast,Bug,,Bug,,50.0
+Escavalier,Bug,Steel,Bug,,50.0
+Foongus,Grass,Poison,Grass,,50.0
+Amoonguss,Grass,Poison,Grass,,50.0
+Frillish,Water,Ghost,Amorphous,,50.0
+Jellicent,Water,Ghost,Amorphous,,50.0
+Alomomola,Water,,Water 1,Water 2,50.0
+Joltik,Bug,Electric,Bug,,50.0
+Galvantula,Bug,Electric,Bug,,50.0
+Ferroseed,Grass,Steel,Grass,Mineral,50.0
+Ferrothorn,Grass,Steel,Grass,Mineral,50.0
+Klink,Steel,,Mineral,,
+Klang,Steel,,Mineral,,
+Klinklang,Steel,,Mineral,,
+Tynamo,Electric,,Amorphous,,50.0
+Eelektrik,Electric,,Amorphous,,50.0
+Eelektross,Electric,,Amorphous,,50.0
+Elgyem,Psychic,,Human-Like,,50.0
+Beheeyem,Psychic,,Human-Like,,50.0
+Litwick,Ghost,Fire,Amorphous,,50.0
+Lampent,Ghost,Fire,Amorphous,,50.0
+Chandelure,Ghost,Fire,Amorphous,,50.0
+Axew,Dragon,,Dragon,Monster,50.0
+Fraxure,Dragon,,Dragon,Monster,50.0
+Haxorus,Dragon,,Dragon,Monster,50.0
+Cubchoo,Ice,,Field,,50.0
+Beartic,Ice,,Field,,50.0
+Cryogonal,Ice,,Mineral,,
+Shelmet,Bug,,Bug,,50.0
+Accelgor,Bug,,Bug,,50.0
+Stunfisk,Ground,Electric,Amorphous,Water 1,50.0
+Galarian Stunfisk,Ground,Steel,Amorphous,Water 1,
+Mienfoo,Fighting,,Field,Human-Like,50.0
+Mienshao,Fighting,,Field,Human-Like,50.0
+Druddigon,Dragon,,Dragon,Monster,50.0
+Golett,Ground,Ghost,Mineral,,
+Golurk,Ground,Ghost,Mineral,,
+Pawniard,Dark,Steel,Human-Like,,50.0
+Bisharp,Dark,Steel,Human-Like,,50.0
+Bouffalant,Normal,,Field,,50.0
+Rufflet,Normal,Flying,Flying,,100.0
+Braviary,Normal,Flying,Flying,,100.0
+Vullaby,Dark,Flying,Flying,,0.0
+Mandibuzz,Dark,Flying,Flying,,0.0
+Heatmor,Fire,,Field,,50.0
+Durant,Bug,Steel,Bug,,50.0
+Deino,Dark,Dragon,Dragon,,50.0
+Zweilous,Dark,Dragon,Dragon,,50.0
+Hydreigon,Dark,Dragon,Dragon,,50.0
+Larvesta,Bug,Fire,Bug,,50.0
+Volcarona,Bug,Fire,Bug,,50.0
+,,,,,
