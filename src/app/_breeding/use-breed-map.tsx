@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { Map } from 'immutable'
-import { useMount } from '@/lib/utils'
+import { useMount } from '@/lib/hooks/use-mount'
 import { Pokemon } from '@/data/types.js'
 
 export const columnsPerRow = [1, 2, 4, 8, 16, 32] as const

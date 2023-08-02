@@ -1,15 +1,15 @@
 'use client'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/app/_components/ui/button'
 
-import { Separator } from '@/components/ui/separator'
+import { Separator } from '@/app/_components/ui/separator'
 import { Pokemon } from '@/data/types'
 import { getSprite } from '@/lib/utils'
 import { For, block } from 'million/react'
 import { Fragment, useId, useRef, useState } from 'react'
 import type { Gender, Node, Position } from './use-breed-map'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/ui/command'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { Popover, PopoverContent, PopoverTrigger } from '@/app/_components/ui/popover'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/app/_components/ui/command'
+import { ScrollArea } from '@/app/_components/ui/scroll-area'
 
 const getPokemon = async (name: string) => {
   const res = await fetch(`http://localhost:3000/api/pokemons/${name}`)
@@ -38,28 +38,29 @@ const PokemonSelect = block(
   }) => {
     const id = useId()
 
-    const [search, setSearch] = useState<string>('')
+    const [search, setSearch] = useState('')
+    const [isOpen, setIsOpen] = useState(false)
     const [selectedPokemon, setSelectedPokemon] = useState<string | undefined>(
       undefined,
     )
     const [gender, setGender] = useState<Gender | undefined>(undefined)
 
     async function handleSelectPokemon(name: string) {
-      console.log('handleSelectPokemon', name)
       const pokemon = await getPokemon(name)
-      console.log(pokemon)
       setSelectedPokemon(pokemon.name)
 
       props.set(props.position, {
         gender: 'Female',
         pokemon,
       })
+
+      setIsOpen(false)
     }
 
     return (
-      <Popover>
+      <Popover open={isOpen} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
-          <Button size={'icon'} className="rounded-full">
+          <Button size={'icon'} className="rounded-full bg-neutral-300 dark:bg-neutral-800">
             {selectedPokemon && (
               // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
               <img

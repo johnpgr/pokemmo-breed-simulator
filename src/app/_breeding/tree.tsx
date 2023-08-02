@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import PokemonSelect from './select'
-import { Generations, columnsPerRow, useBreedMap } from './use-breed-map'
+import { Generations, Node, columnsPerRow, useBreedMap } from './use-breed-map'
 import { For, block } from 'million/react'
 import { Pokemon } from '@/data/types'
 
@@ -16,6 +16,14 @@ const PokemonTree = block(
       ? props.numberOf31IVs + 1
       : props.numberOf31IVs
     const breedMap = useBreedMap({ generations: generations as Generations })
+
+    function debug() {
+      const debugValue = {} as Record<string, Node | null>
+      for (const [key, value] of breedMap.map.entries()) {
+        debugValue[key] = value
+      }
+      console.log(debugValue)
+    }
 
     return (
       <div className="flex flex-col-reverse items-center gap-32">
@@ -38,7 +46,7 @@ const PokemonTree = block(
             </div>
           )}
         </For>
-        <button onClick={() => console.log(breedMap.map)}>Debug</button>
+        <button onClick={debug}>Debug</button>
       </div>
     )
   },
