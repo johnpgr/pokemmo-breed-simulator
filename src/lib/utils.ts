@@ -43,4 +43,8 @@ export function camelToSpacedPascal(input: string) {
     .replace(/^./, (str) => str.toUpperCase())
 }
 
+export function capitalize(input: string) {
+  return input[0].toUpperCase() + input.slice(1)
+}
+
 export type Keys<T> = keyof T

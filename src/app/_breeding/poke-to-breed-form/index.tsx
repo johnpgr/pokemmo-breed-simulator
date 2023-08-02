@@ -8,6 +8,7 @@ import { Keys, getPokemonByName } from '@/lib/utils'
 import React from 'react'
 import { Ivs } from './ivs'
 import { Species } from './species'
+import { NatureSelect } from './nature'
 
 export const PokemonToBreedSelector = (props: {
   pokemons: {
@@ -26,6 +27,7 @@ export const PokemonToBreedSelector = (props: {
     specialDefense: null,
     speed: null,
   })
+  const [natured, setNatured] = React.useState(false)
   const [nature, setNature] = React.useState<NatureType | null>(null)
 
   async function handleSelectPokemon(name: string) {
@@ -34,9 +36,14 @@ export const PokemonToBreedSelector = (props: {
     setIsSpeciesSelectOpen(false)
   }
 
-  function handleSelectNature(nature: NatureType) {
-    setNature(nature)
-  }
+  const handleSelectIvs = React.useCallback((iv: Keys<IVs>) => {
+    setIvs((prev) => {
+      return {
+        ...prev,
+        [iv]: 31,
+      } as IVs
+    })
+  }, [])
 
   function handleSubmit() {
     ctx.setPokemon(pokemon)
@@ -56,7 +63,13 @@ export const PokemonToBreedSelector = (props: {
             selected={pokemon?.name}
             onSelect={handleSelectPokemon}
           />
-          <Ivs natured setIvs={setIvs} />
+          <NatureSelect
+            checked={natured}
+            onCheckedChange={setNatured}
+            nature={nature}
+            setNature={setNature}
+          />
+          <Ivs natured={natured} onChange={handleSelectIvs} />
         </div>
       </div>
       <div className="flex items-center gap-2">

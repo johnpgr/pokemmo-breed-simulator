@@ -84,6 +84,7 @@ export const Species = block(
                           value={pokemon.name}
                           onSelect={onSelect}
                           data-cy={`${pokemon.name}-value`}
+                          className='cursor-pointer'
                         >
                           {parseNames(pokemon.name)}
                         </CommandItem>
