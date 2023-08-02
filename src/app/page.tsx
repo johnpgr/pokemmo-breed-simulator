@@ -1,13 +1,12 @@
-import { Suspense } from 'react'
-
-import { PokemonList } from '@/components/pokemons'
+import PokemonTree from './_breeding/tree'
+import pokemons from '@/data/data.json'
 
 export const runtime = 'edge'
 
-export default function HomePage() {
-    return (
-        <Suspense fallback={'Loading...'}>
-            <PokemonList />
-        </Suspense>
-    )
+export default async function HomePage() {
+  const _pokemons = pokemons.map((pokemon) => ({
+    name: pokemon.name,
+    number: pokemon.pokedexNumber,
+  }))
+  return <PokemonTree pokemons={_pokemons} numberOf31IVs={5} natured={true} />
 }
