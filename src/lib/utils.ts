@@ -30,3 +30,17 @@ export async function getPokemonByName(name: string) {
   const res = await fetch(`http://localhost:3000/api/pokemons/${name}`)
   return res.json() as Promise<Pokemon>
 }
+
+export function randomString(length: number) {
+  return Math.random()
+    .toString(36)
+    .substring(2, 2 + length)
+}
+
+export function camelToSpacedPascal(input: string) {
+  return input
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/^./, (str) => str.toUpperCase())
+}
+
+export type Keys<T> = keyof T

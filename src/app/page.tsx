@@ -1,7 +1,7 @@
 import pokemons from '@/data/data.json'
-import { RenderTree } from './_breeding/render-tree'
-import { PokemonToBreedSelector } from './_components/pokemon-to-breed'
 import { PokemonToBreedContext } from './_context'
+import { PokemonToBreedTree } from './_breeding/tree'
+import { PokemonToBreedSelector } from './_breeding/poke-to-breed-form'
 
 export const runtime = 'edge'
 
@@ -13,7 +13,7 @@ export default async function HomePage() {
   return (
     <PokemonToBreedContext>
       <PokemonToBreedSelector pokemons={_pokemons} />
-      <RenderTree pokemons={_pokemons} />
+      <PokemonToBreedTree pokemons={_pokemons} />
     </PokemonToBreedContext>
   )
 }

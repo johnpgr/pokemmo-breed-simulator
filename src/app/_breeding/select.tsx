@@ -77,9 +77,7 @@ const PokemonSelect = block(
                   <Fragment key={`${id}:${pokemon.name}`}>
                     <CommandItem
                       value={pokemon.name}
-                      onSelect={(currentValue) => {
-                        handleSelectPokemon(currentValue)
-                      }}
+                      onSelect={handleSelectPokemon}
                       data-cy={`${pokemon.name}-value`}
                     >
                       {parseNames(pokemon.name)}

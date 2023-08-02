@@ -335,7 +335,7 @@
   },
   {
     "pokedexNumber": 29,
-    "name": "Nidoran\f",
+    "name": "Nidoran-f",
     "types": [
       "Poison"
     ],
@@ -372,7 +372,7 @@
   },
   {
     "pokedexNumber": 32,
-    "name": "Nidoran\u000b",
+    "name": "Nidoran-m",
     "types": [
       "Poison"
     ],

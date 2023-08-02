@@ -59,4 +59,10 @@ const PokemonTree = block(
     )
   },
 )
-export default PokemonTree
+
+export const PokemonToBreedTree = (props: {pokemons: {name: string, number: number}[]}) => {
+  const ctx = usePokemonToBreed()
+  if(!ctx.pokemon) return null
+  return <PokemonTree pokemons={props.pokemons} />
+}
+
