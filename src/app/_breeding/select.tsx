@@ -1,31 +1,15 @@
 'use client'
 import { Button } from '@/app/_components/ui/button'
 
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/app/_components/ui/command'
+import { Popover, PopoverContent, PopoverTrigger } from '@/app/_components/ui/popover'
+import { ScrollArea } from '@/app/_components/ui/scroll-area'
 import { Separator } from '@/app/_components/ui/separator'
 import { Pokemon } from '@/data/types'
-import { getSprite } from '@/lib/utils'
+import { getPokemonByName, getSprite, parseNames } from '@/lib/utils'
 import { For, block } from 'million/react'
-import { Fragment, useId, useRef, useState } from 'react'
-import type { Gender, Node, Position } from './use-breed-map'
-import { Popover, PopoverContent, PopoverTrigger } from '@/app/_components/ui/popover'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/app/_components/ui/command'
-import { ScrollArea } from '@/app/_components/ui/scroll-area'
-
-const getPokemon = async (name: string) => {
-  const res = await fetch(`http://localhost:3000/api/pokemons/${name}`)
-  return res.json() as Promise<Pokemon>
-}
-
-const parseNames = (name: string) => {
-  switch (name) {
-    case 'Nidoran-f':
-      return 'Nidoran ♀'
-    case 'Nidoran-m':
-      return 'Nidoran ♂'
-    default:
-      return name
-  }
-}
+import { Fragment, useId, useState } from 'react'
+import type { Breed, Gender, Position } from './types'
 
 const PokemonSelect = block(
   (props: {
@@ -34,7 +18,7 @@ const PokemonSelect = block(
       number: number
     }[]
     position: Position
-    set: (key: Position, value: Node | null) => void
+    set: (key: Position, value: Breed | null) => void
   }) => {
     const id = useId()
 
@@ -46,7 +30,7 @@ const PokemonSelect = block(
     const [gender, setGender] = useState<Gender | undefined>(undefined)
 
     async function handleSelectPokemon(name: string) {
-      const pokemon = await getPokemon(name)
+      const pokemon = await getPokemonByName(name)
       setSelectedPokemon(pokemon.name)
 
       props.set(props.position, {
@@ -108,7 +92,7 @@ const PokemonSelect = block(
             </CommandGroup>
           </Command>
         </PopoverContent>
-      </Popover >
+      </Popover>
     )
   },
 )

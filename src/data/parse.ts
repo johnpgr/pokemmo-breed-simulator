@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import csvParser from 'csv-parser'
-import type { EggGroup, Pokemon } from './types'
+import type { EggType, Pokemon } from './types'
+import path from 'node:path'
 
 const skippedPokemons = [
   'Mega',
@@ -30,7 +31,7 @@ const fixPokemonEggGroups = {
   },
 } as const
 
-function parseEggType(eggType: string | null): EggGroup | null {
+function parseEggType(eggType: string): EggType | undefined {
   switch (eggType) {
     case 'Water 1':
       return 'Water A'
@@ -42,8 +43,10 @@ function parseEggType(eggType: string | null): EggGroup | null {
       return 'Cannot Breed'
     case 'Human-Like':
       return 'Humanoid'
+    case '':
+      return undefined
     default:
-      return eggType as EggGroup | null
+      return eggType as EggType
   }
 }
 
@@ -63,7 +66,7 @@ function parseName(name: string): string {
 ;(() => {
   const pokemons: Pokemon[] = []
 
-  fs.createReadStream('src/data/pokemon_data.csv', 'utf8')
+  fs.createReadStream(path.resolve(__dirname, 'pokemon_data.csv'), 'utf8')
     .pipe(
       csvParser({
         mapHeaders: ({ header }) => header.trim(),
@@ -79,21 +82,28 @@ function parseName(name: string): string {
       const pokemon: Pokemon = {
         pokedexNumber: parseInt(row['pokedex_number']),
         name: parseName(row['name']),
-        type1: row['type_1'],
-        type2: row['type_2'] || null,
-        eggType1: parseEggType(row['egg_type_1']),
-        eggType2: parseEggType(row['egg_type_2'] || null),
+        types: [row['type_1'], row['type_2']].filter(Boolean),
+        eggTypes: [
+          parseEggType(row['egg_type_1']),
+          parseEggType(row['egg_type_2']),
+        ].filter(Boolean) as EggType[],
         percentageMale: parseFloat(row['percentage_male']),
       }
+
       const fix =
         fixPokemonEggGroups[pokemon.name as keyof typeof fixPokemonEggGroups]
+
       if (fix) {
-        pokemon.eggType1 = fix.eggType1
-        pokemon.eggType2 = fix.eggType2
+        pokemon.eggTypes[0] = fix.eggType1
+        pokemon.eggTypes[1] = fix.eggType2
       }
+
       pokemons.push(pokemon)
     })
     .on('end', () => {
-      fs.writeFileSync('public/data.json', JSON.stringify(pokemons, null, 2))
+      fs.writeFileSync(
+        path.resolve(__dirname, 'data.json'),
+        JSON.stringify(pokemons, null, 2),
+      )
     })
 })()

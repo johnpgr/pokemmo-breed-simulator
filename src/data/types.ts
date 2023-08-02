@@ -1,10 +1,8 @@
 export type Pokemon = {
   pokedexNumber: number
   name: string
-  type1: PokemonType
-  type2: PokemonType | null
-  eggType1: string | null
-  eggType2: string | null
+  types: PokemonType[]
+  eggTypes: EggType[]
   percentageMale: number
 }
 
@@ -27,7 +25,7 @@ export type PokemonType =
   | 'Dark'
   | 'Steel'
 
-export type EggGroup =
+export type EggType =
   | 'Monster'
   | 'Water A'
   | 'Water B'
@@ -44,3 +42,35 @@ export type EggGroup =
   | 'Dragon'
   | 'Cannot Breed'
   | 'Genderless'
+
+export const Nature = {
+  Hardy: 'Hardy',
+  Lonely: 'Lonely',
+  Brave: 'Brave',
+  Adamant: 'Adamant',
+  Naughty: 'Naughty',
+  Bold: 'Bold',
+  Docile: 'Docile',
+  Relaxed: 'Relaxed',
+  Impish: 'Impish',
+  Lax: 'Lax',
+  Timid: 'Timid',
+  Hasty: 'Hasty',
+  Serious: 'Serious',
+  Jolly: 'Jolly',
+  Naive: 'Naive',
+  Modest: 'Modest',
+  Mild: 'Mild',
+  Quiet: 'Quiet',
+  Bashful: 'Bashful',
+  Rash: 'Rash',
+  Calm: 'Calm',
+  Gentle: 'Gentle',
+  Sassy: 'Sassy',
+  Careful: 'Careful',
+  Quirky: 'Quirky',
+} as const
+
+type Values<T> = T[keyof T];
+
+export type NatureType = Values<typeof Nature>;
