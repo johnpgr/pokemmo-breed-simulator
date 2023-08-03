@@ -10,6 +10,7 @@ import {
 } from '@/app/_components/ui/select'
 import { IVs } from '@/app/_context/types'
 import { Keys, camelToSpacedPascal, randomString } from '@/lib/utils'
+import { Dice5 } from 'lucide-react'
 import React from 'react'
 
 const numberOfPokemons = {
@@ -32,19 +33,18 @@ const Ivs = React.memo(
   ({
     natured,
     setIvs,
+    currentValues,
+    setCurrentValues,
+    numberOf31IVs,
+    setNumberOf31IVs,
   }: {
     natured: boolean
     setIvs: React.Dispatch<React.SetStateAction<IVs>>
+    currentValues: Keys<IVs>[]
+    setCurrentValues: React.Dispatch<React.SetStateAction<Keys<IVs>[]>>
+    numberOf31IVs: 2 | 3 | 4 | 5
+    setNumberOf31IVs: React.Dispatch<React.SetStateAction<2 | 3 | 4 | 5>>
   }) => {
-    const [numberOf31IVs, setNumberOf31IVs] = React.useState<2 | 3 | 4 | 5>(2)
-    const [currentValues, setCurrentValues] = React.useState<Keys<IVs>[]>([
-      'hp',
-      'attack',
-      'defense',
-      'specialDefense',
-      'speed',
-    ])
-
     function hadleNumberOf31Ivs(number: string) {
       const value = parseInt(number) as 2 | 3 | 4 | 5
       switch (value) {
@@ -135,8 +135,8 @@ const Ivs = React.memo(
     ) {
       const currentSelects: Keys<IVs>[] = []
 
-      for(let i = 0; i < numberOf31IVs; i ++) {
-        if(i === currentValueIndex) continue
+      for (let i = 0; i < numberOf31IVs; i++) {
+        if (i === currentValueIndex) continue
         const value = currentValues[i]
         currentSelects.push(value)
       }

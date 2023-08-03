@@ -5,6 +5,7 @@ import './globals.css'
 import { ThemeProvider } from './_providers/themes'
 import { ModeToggle } from './_components/mode-toggle'
 import { cn } from '@/lib/utils'
+import { Toaster } from './_components/ui/toaster'
 
 const fontSans = Inter({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function Layout(props: { children: React.ReactNode }) {
             <ModeToggle />
           </header>
           {props.children}
+          <Toaster/>
         </ThemeProvider>
       </body>
     </html>

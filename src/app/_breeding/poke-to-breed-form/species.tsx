@@ -13,30 +13,35 @@ import {
 } from '@/app/_components/ui/popover'
 import { ScrollArea } from '@/app/_components/ui/scroll-area'
 import { Separator } from '@/app/_components/ui/separator'
-import { getSprite, parseNames } from '@/lib/utils'
+import { Pokemon } from '@/data/types'
+import { getPokemonByName, getSprite, parseNames } from '@/lib/utils'
 import clsx from 'clsx'
 import { ChevronsUpDown } from 'lucide-react'
 import { For, block } from 'million/react'
-import React, { Dispatch, Fragment, SetStateAction } from 'react'
+import React from 'react'
 
 export const Species = block(
   ({
     pokemons,
-    isOpen,
-    setIsOpen,
-    onSelect,
+    setPokemon,
     selected,
   }: {
     pokemons: {
       name: string
       number: number
     }[]
-    isOpen: boolean
-    setIsOpen: Dispatch<SetStateAction<boolean>>
-    onSelect: (name: string) => void
+    setPokemon: React.Dispatch<React.SetStateAction<Pokemon | null>>
     selected: string | undefined
   }) => {
+    const [isOpen, setIsOpen] = React.useState(false)
     const [search, setSearch] = React.useState('')
+
+    async function handleSelectPokemon(name: string) {
+      const pokemon = await getPokemonByName(name)
+      setPokemon(pokemon)
+      setIsOpen(false)
+    }
+
     return (
       <div className="flex items-center gap-2">
         <Popover open={isOpen} onOpenChange={setIsOpen}>
@@ -79,17 +84,17 @@ export const Species = block(
                     )}
                   >
                     {(pokemon) => (
-                      <Fragment key={`pokemon_to_breed:${pokemon.name}`}>
+                      <React.Fragment key={`pokemon_to_breed:${pokemon.name}`}>
                         <CommandItem
                           value={pokemon.name}
-                          onSelect={onSelect}
+                          onSelect={handleSelectPokemon}
                           data-cy={`${pokemon.name}-value`}
-                          className='cursor-pointer'
+                          className="cursor-pointer"
                         >
                           {parseNames(pokemon.name)}
                         </CommandItem>
                         <Separator />
-                      </Fragment>
+                      </React.Fragment>
                     )}
                   </For>
                 </ScrollArea>
