@@ -20,8 +20,8 @@ export const PokemonToBreedSelector = (props: {
   const [isSpeciesSelectOpen, setIsSpeciesSelectOpen] = React.useState(false)
   const [pokemon, setPokemon] = React.useState<Pokemon | null>(null)
   const [ivs, setIvs] = React.useState<IVs>({
-    hp: null,
-    attack: null,
+    hp: 31,
+    attack: 31,
     defense: null,
     specialAttack: null,
     specialDefense: null,
@@ -36,23 +36,15 @@ export const PokemonToBreedSelector = (props: {
     setIsSpeciesSelectOpen(false)
   }
 
-  const handleSelectIvs = React.useCallback((iv: Keys<IVs>) => {
-    setIvs((prev) => {
-      return {
-        ...prev,
-        [iv]: 31,
-      } as IVs
-    })
-  }, [])
-
-  function handleSubmit() {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
     ctx.setPokemon(pokemon)
     ctx.setIvs(ivs)
     ctx.setNature(nature)
   }
 
   return (
-    <form className="container max-w-6xl mx-auto flex flex-col items-center gap-4">
+    <form className="container max-w-6xl mx-auto flex flex-col items-center gap-4" onSubmit={handleSubmit}>
       Select a pokemon to breed
       <div className="flex w-full flex-col items-center gap-4">
         <div className="flex w-full flex-col gap-2">
@@ -69,10 +61,13 @@ export const PokemonToBreedSelector = (props: {
             nature={nature}
             setNature={setNature}
           />
-          <Ivs natured={natured} onChange={handleSelectIvs} />
+          <Ivs natured={natured} setIvs={setIvs} />
         </div>
       </div>
       <div className="flex items-center gap-2">
+        <pre>
+          {JSON.stringify(ivs, null, 2)}
+        </pre>
         <Button type="submit">Start Breeding</Button>
         <Button type="reset" variant={'destructive'}>
           Clear

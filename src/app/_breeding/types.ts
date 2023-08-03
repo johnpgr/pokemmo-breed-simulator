@@ -6,11 +6,11 @@ export type Position = [number, number]
 //undefined here is only for the selected pokemon to breed, where the gender doesn't matter
 export type Gender = 'Male' | 'Female' | undefined
 
-export type Breed = {
+export type BreedNode = {
   pokemon: Pokemon
   gender: Gender
   nature: NatureType | null
   ivs: IVs
 }
 
-export type Generations = 1 | 2 | 3 | 4 | 5 | 6
+export type Rows = 1 | 2 | 3 | 4 | 5 | 6

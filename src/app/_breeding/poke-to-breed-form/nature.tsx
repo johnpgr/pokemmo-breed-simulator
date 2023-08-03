@@ -15,7 +15,7 @@ import { ScrollArea } from '@/app/_components/ui/scroll-area'
 import { Switch } from '@/app/_components/ui/switch'
 import { NatureType, Nature } from '@/data/types'
 import { capitalize, randomString } from '@/lib/utils'
-import { ChevronsUpDown } from 'lucide-react'
+import { Check, ChevronsUpDown } from 'lucide-react'
 import React from 'react'
 
 export const NatureSelect = ({
@@ -30,6 +30,7 @@ export const NatureSelect = ({
   onCheckedChange: (checked: boolean) => void
 }) => {
   const [search, setSearch] = React.useState('')
+  const [isOpen, setIsOpen] = React.useState(false)
 
   return (
     <div className="flex gap-4">
@@ -42,7 +43,7 @@ export const NatureSelect = ({
         Natured?
       </div>
       {checked && (
-        <Popover>
+        <Popover open={isOpen} onOpenChange={setIsOpen}>
           <PopoverTrigger asChild>
             <Button variant={'ghost'} className="border">
               {nature ?? 'Select a nature'}
@@ -60,16 +61,19 @@ export const NatureSelect = ({
               <CommandEmpty>No results.</CommandEmpty>
               <CommandGroup>
                 <ScrollArea className="h-72">
-                  {Object.keys(Nature).map((nature) => (
+                  {Object.keys(Nature).map((_nature) => (
                     <React.Fragment key={randomString(6)}>
                       <CommandItem
-                        value={nature}
-                        onSelect={(value) =>
+                        value={_nature}
+                        onSelect={(value) => {
+                          setIsOpen(false)
                           setNature(capitalize(value) as NatureType)
-                        }
+                        }}
                         data-cy={`${nature}-value`}
+                        className="pl-8 relative"
                       >
-                        {nature}
+                        {nature === _nature ? <Check className='h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2' /> : null}
+                        {_nature}
                       </CommandItem>
                     </React.Fragment>
                   ))}

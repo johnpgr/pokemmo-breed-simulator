@@ -1,21 +1,20 @@
 'use client'
 import { useState } from 'react'
-import { Map } from 'immutable'
 import { useMount } from '@/lib/hooks/use-mount'
-import { Breed, Generations, Position, columnsPerRow } from './types'
+import { BreedNode, Rows, Position, columnsPerRow } from './types'
 
-export function useBreedMap(props: { generations: Generations }) {
-  const [map, setMap] = useState(Map<string, Breed | null>())
+export function useBreedMap(props: { generations: Rows }) {
+  const [map, setMap] = useState(Map<string, BreedNode | null>())
 
   function getMapKey(position: Position) {
     return position.join(',')
   }
 
-  function set(key: Position, value: Breed | null) {
+  function set(key: Position, value: BreedNode | null) {
     setMap((prevMap) => prevMap.set(getMapKey(key), value))
   }
 
-  function get(key: Position): Breed | null {
+  function get(key: Position): BreedNode | null {
     return map.get(getMapKey(key)) ?? null
   }
 

@@ -9,7 +9,7 @@ import { Pokemon } from '@/data/types'
 import { getPokemonByName, getSprite, parseNames } from '@/lib/utils'
 import { For, block } from 'million/react'
 import { Fragment, useId, useState } from 'react'
-import type { Breed, Gender, Position } from './types'
+import type { BreedNode, Gender, Position } from './types'
 
 const PokemonSelect = block(
   (props: {
@@ -18,7 +18,7 @@ const PokemonSelect = block(
       number: number
     }[]
     position: Position
-    set: (key: Position, value: Breed | null) => void
+    set: (key: Position, value: BreedNode | null) => void
   }) => {
     const id = useId()
 

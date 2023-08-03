@@ -1,11 +1,11 @@
 import { raise } from '@/lib/utils'
-import { Breed, Position } from './types'
+import { BreedNode, Position } from './types'
 
 function breedError(pos1: Position, pos2: Position): never {
   raise('Not implemented.')
 }
 
-function getBreedChildSpecies(poke1: Breed, poke2: Breed) {
+function getBreedChildSpecies(poke1: BreedNode, poke2: BreedNode) {
   const pokes = [poke1, poke2].filter((p) => p.gender === 'Female')
   if (pokes.length !== 1) {
     raise('This shouldn not happen')
@@ -13,7 +13,7 @@ function getBreedChildSpecies(poke1: Breed, poke2: Breed) {
   return pokes[0].pokemon
 }
 
-function genderCompatibility(poke1: Breed, poke2: Breed) {
+function genderCompatibility(poke1: BreedNode, poke2: BreedNode) {
   if (poke1.gender === poke2.gender) {
     return false
   }
@@ -21,15 +21,15 @@ function genderCompatibility(poke1: Breed, poke2: Breed) {
 }
 
 function eggTypeCompatibility(
-  { pokemon: poke1 }: Breed,
-  { pokemon: poke2 }: Breed,
+  { pokemon: poke1 }: BreedNode,
+  { pokemon: poke2 }: BreedNode,
 ) {
   const compatible = poke1.eggTypes.some((e) => poke2.eggTypes.includes(e))
 
   return compatible
 }
 
-function checkBreedability(poke1: Breed, poke2: Breed) {
+function checkBreedability(poke1: BreedNode, poke2: BreedNode) {
   const genderCompatible = genderCompatibility(poke1, poke2)
   const eggTypeCompatible = eggTypeCompatibility(poke1, poke2)
 
@@ -40,8 +40,8 @@ function checkBreedability(poke1: Breed, poke2: Breed) {
 }
 
 export function breed(
-  poke1: { position: Position; breed: Breed },
-  poke2: { position: Position; breed: Breed },
+  poke1: { position: Position; breed: BreedNode },
+  poke2: { position: Position; breed: BreedNode },
 ) {
   const compatible = checkBreedability(poke1.breed, poke2.breed)
   if (!compatible) {
