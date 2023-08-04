@@ -1,34 +1,32 @@
 'use client'
 import { useState } from 'react'
-import { useMount } from '@/lib/hooks/use-mount'
-import { BreedNode, Rows, Position, columnsPerRow } from './types'
+import { BreedNode, Position, columnsPerRow, BreedMap } from './types'
 
-export function useBreedMap(props: { generations: Rows }) {
-  const [map, setMap] = useState(Map<string, BreedNode | null>())
-
-  function getMapKey(position: Position) {
-    return position.join(',')
-  }
+export function useBreedMap(props: {
+  generations: 2 | 3 | 4 | 5 | 6
+  pokemonToBreed: BreedNode
+}) {
+  const [map, setMap] = useState<BreedMap>({
+    '0,0': props.pokemonToBreed,
+  } as BreedMap)
 
   function set(key: Position, value: BreedNode | null) {
-    setMap((prevMap) => prevMap.set(getMapKey(key), value))
+    setMap((prevMap) => ({
+      ...prevMap,
+      [key]: value,
+    }))
   }
 
   function get(key: Position): BreedNode | null {
-    return map.get(getMapKey(key)) ?? null
+    return map[key] || null
   }
 
   function remove(key: Position) {
-    setMap((prevMap) => prevMap.delete(getMapKey(key)))
+    setMap((prevMap) => ({
+      ...prevMap,
+      [key]: null,
+    }))
   }
-
-  useMount(() => {
-    for (let row = 0; row < props.generations; row++) {
-      for (let column = 0; column < columnsPerRow[row]; column++) {
-        set([row, column], null)
-      }
-    }
-  })
 
   return {
     map,

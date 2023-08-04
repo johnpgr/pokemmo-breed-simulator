@@ -39,10 +39,12 @@ export const PokemonToBreedSelector = (props: {
   const [natured, setNatured] = React.useState(false)
   const [nature, setNature] = React.useState<NatureType | null>(null)
 
+  //TODO: Use React hook form with zod
   //FIXME: Provide the path to the incorrect fields
   function validateIvFields() {
-    const uniques = new Set([currentValues])
-    if (uniques.size !== currentValues.length) {
+    const selectedValues = currentValues.slice(0, numberOf31IVs - 1)
+    const uniques = new Set(selectedValues)
+    if (uniques.size !== selectedValues.length) {
       return false
     }
     return true
@@ -96,8 +98,6 @@ export const PokemonToBreedSelector = (props: {
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <pre>{JSON.stringify(ivs, null, 2)}</pre>
-        <pre>{JSON.stringify(currentValues, null, 2)}</pre>
         <Button type="submit">Start Breeding</Button>
         <Button type="reset" variant={'destructive'}>
           Clear

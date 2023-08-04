@@ -1,68 +1,59 @@
 'use client'
-import React from 'react'
-import PokemonSelect from './select'
-import { Rows, BreedNode, columnsPerRow } from './types'
-import { useBreedMap } from './use-breed-map'
-import { For, block } from 'million/react'
 import { usePokemonToBreed } from '../_context/hooks'
+import PokemonSelect from './select'
+import { Position, columnsPerRow } from './types'
+import { useBreedMap } from './use-breed-map'
 
-const PokemonTree = block(
-  (props: { pokemons: { name: string; number: number }[] }) => {
-    const { pokemon, nature, ivs } = usePokemonToBreed()
+const PokemonTree = (props: {
+  pokemons: { name: string; number: number }[]
+}) => {
+  const { pokemon, nature, ivs } = usePokemonToBreed()
 
-    const numberOf31IVs = ivs ? Object.values(ivs).filter((v) => v === 31).length : 0
+  const numberOf31IVs = ivs
+    ? Object.values(ivs).filter((v) => v === 31).length
+    : 0
 
-    const generations = nature ? numberOf31IVs + 1 : numberOf31IVs
+  const generations = nature ? numberOf31IVs + 1 : numberOf31IVs
 
-    const breedMap = useBreedMap({ generations: generations as Rows })
+  const breedMap = useBreedMap({
+    generations: generations as 2 | 3 | 4 | 5 | 6,
+    pokemonToBreed: {
+      pokemon: pokemon!,
+      nature,
+      ivs: ivs!,
+      parent: null,
+      sibling: null,
+      children: null,
+      gender: null,
+    },
+  })
 
-    if(pokemon && ivs) {
-      breedMap.set([0, 0], {
-        pokemon,
-        ivs,
-        nature,
-        gender: undefined
-      })
-    }
-
-    function debug() {
-      const debugValue = {} as Record<string, BreedNode | null>
-      for (const [key, value] of breedMap.map.entries()) {
-        debugValue[key] = value
-      }
-      console.log(debugValue)
-    }
-
-    return (
-      <div className="flex flex-col-reverse items-center gap-32">
-        <For each={Array.from({ length: generations })}>
-          {(_, row) => (
-            <div className="flex" key={`row:${row}`}>
-              <For each={Array.from({ length: columnsPerRow[row] })}>
-                {(_, column) => (
-                  <div key={`row:${row}col:${column}`}>
-                    {props.pokemons && (
-                      <PokemonSelect
-                        pokemons={props.pokemons}
-                        position={[row, column]}
-                        set={breedMap.set}
-                      />
-                    )}
-                  </div>
-                )}
-              </For>
+  return (
+    <div className="flex flex-col-reverse items-center gap-32">
+      {Array.from({ length: generations }).map((_, row) => (
+        <div className="flex" key={`row:${row}`}>
+          {Array.from({ length: columnsPerRow[row] }).map((_, column) => (
+            <div key={`row:${row}col:${column}`}>
+              {props.pokemons && (
+                <PokemonSelect
+                  pokemons={props.pokemons}
+                  position={`${row},${column}` as Position}
+                  set={breedMap.set}
+                />
+              )}
             </div>
-          )}
-        </For>
-        <button onClick={debug}>Debug</button>
-      </div>
-    )
-  },
-)
-
-export const PokemonToBreedTree = (props: {pokemons: {name: string, number: number}[]}) => {
-  const ctx = usePokemonToBreed()
-  if(!ctx.pokemon) return null
-  return <PokemonTree pokemons={props.pokemons} />
+          ))}
+        </div>
+      ))}
+      <button onClick={() => console.log(breedMap.map)}>Debug</button>
+    </div>
+  )
 }
 
+export const PokemonToBreedTree = (props: {
+  pokemons: { name: string; number: number }[]
+}) => {
+  const ctx = usePokemonToBreed()
+  if (!ctx.pokemon || !ctx.ivs) return null
+  return <PokemonTree pokemons={props.pokemons} />
+}
