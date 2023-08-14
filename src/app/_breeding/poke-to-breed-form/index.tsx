@@ -2,13 +2,12 @@
 
 import { Button } from '@/app/_components/ui/button'
 import { usePokemonToBreed } from '@/app/_context/hooks'
-import { IVs } from '@/app/_context/types'
+import { IV } from '@/app/_context/types'
 import { NatureType, Pokemon } from '@/data/types'
 import React from 'react'
 import { Ivs } from './ivs'
 import { NatureSelect } from './nature'
 import { Species } from './species'
-import { Keys } from '@/lib/utils'
 import { useToast } from '@/app/_components/ui/use-toast'
 
 export const PokemonToBreedSelector = (props: {
@@ -19,7 +18,7 @@ export const PokemonToBreedSelector = (props: {
 }) => {
   const ctx = usePokemonToBreed()
   const { toast } = useToast()
-  const [currentValues, setCurrentValues] = React.useState<Keys<IVs>[]>([
+  const [currentSelectValues, setCurrentSelectValues] = React.useState<IV[]>([
     'hp',
     'attack',
     'defense',
@@ -28,26 +27,16 @@ export const PokemonToBreedSelector = (props: {
   ])
   const [numberOf31IVs, setNumberOf31IVs] = React.useState<2 | 3 | 4 | 5>(2)
   const [pokemon, setPokemon] = React.useState<Pokemon | null>(null)
-  const [ivs, setIvs] = React.useState<IVs>({
-    hp: 31,
-    attack: 31,
-    defense: null,
-    specialAttack: null,
-    specialDefense: null,
-    speed: null,
-  })
+  const [ivs, setIvs] = React.useState<IV[]>(['hp', 'attack'])
   const [natured, setNatured] = React.useState(false)
   const [nature, setNature] = React.useState<NatureType | null>(null)
 
   //TODO: Use React hook form with zod
   //FIXME: Provide the path to the incorrect fields
   function validateIvFields() {
-    const selectedValues = currentValues.slice(0, numberOf31IVs - 1)
+    const selectedValues = currentSelectValues.slice(0, numberOf31IVs - 1)
     const uniques = new Set(selectedValues)
-    if (uniques.size !== selectedValues.length) {
-      return false
-    }
-    return true
+    return uniques.size !== selectedValues.length
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -90,13 +79,14 @@ export const PokemonToBreedSelector = (props: {
           <Ivs
             natured={natured}
             setIvs={setIvs}
-            currentValues={currentValues}
-            setCurrentValues={setCurrentValues}
+            currentSelectValues={currentSelectValues}
+            setCurrentSelectValues={setCurrentSelectValues}
             numberOf31IVs={numberOf31IVs}
             setNumberOf31IVs={setNumberOf31IVs}
           />
         </div>
       </div>
+      <pre>{JSON.stringify({ ivs, nature, pokemon }, null, 2)}</pre>
       <div className="flex items-center gap-2">
         <Button type="submit">Start Breeding</Button>
         <Button type="reset" variant={'destructive'}>

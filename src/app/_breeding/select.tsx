@@ -18,7 +18,7 @@ import { Separator } from '@/app/_components/ui/separator'
 import { getPokemonByName, getSprite, parseNames } from '@/lib/utils'
 import { For, block } from 'million/react'
 import { Fragment, useId, useState } from 'react'
-import type { BreedNode, Gender, Position } from './types'
+import type { BreedNode, GenderType, Position } from './types'
 import { usePokemonToBreed } from '../_context/hooks'
 
 const PokemonSelect = block(
@@ -39,7 +39,7 @@ const PokemonSelect = block(
     const [selectedPokemon, setSelectedPokemon] = useState<string | undefined>(
       undefined,
     )
-    const [gender, setGender] = useState<Gender | null>(null)
+    const [gender, setGender] = useState<GenderType | null>(null)
 
     async function handleSelectPokemon(name: string) {
       const pokemon = await getPokemonByName(name)
@@ -48,7 +48,6 @@ const PokemonSelect = block(
       props.set(props.position, {
         gender,
         pokemon,
-        ivs,
       })
 
       setIsOpen(false)

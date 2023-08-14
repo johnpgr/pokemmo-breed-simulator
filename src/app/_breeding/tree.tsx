@@ -1,7 +1,7 @@
 'use client'
 import { usePokemonToBreed } from '../_context/hooks'
 import PokemonSelect from './select'
-import { Position, columnsPerRow } from './types'
+import { Position } from './types'
 import { useBreedMap } from './use-breed-map'
 
 const PokemonTree = (props: {
@@ -9,9 +9,7 @@ const PokemonTree = (props: {
 }) => {
   const { pokemon, nature, ivs } = usePokemonToBreed()
 
-  const numberOf31IVs = ivs
-    ? Object.values(ivs).filter((v) => v === 31).length
-    : 0
+  const numberOf31IVs = ivs?.length
 
   const generations = nature ? numberOf31IVs + 1 : numberOf31IVs
 
@@ -20,7 +18,7 @@ const PokemonTree = (props: {
     pokemonToBreed: {
       pokemon: pokemon!,
       nature,
-      ivs: ivs!,
+      ivs,
       parent: null,
       sibling: null,
       children: null,

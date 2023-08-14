@@ -8,17 +8,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/app/_components/ui/select'
-import { IVs } from '@/app/_context/types'
+import { IV } from '@/app/_context/types'
 import { Keys, camelToSpacedPascal, randomString } from '@/lib/utils'
-import { Dice5 } from 'lucide-react'
 import React from 'react'
-
-const numberOfPokemons = {
-  2: { natured: [2, 1], natureless: [1, 1] },
-  3: { natured: [4, 2, 1], natureless: [2, 1, 1] },
-  4: { natured: [6, 5, 3, 1], natureless: [3, 2, 2, 1] },
-  5: { natured: [11, 10, 6, 2, 2], natureless: [5, 5, 3, 2, 1] },
-} as const
+import { numberOfPokemonsFromIVNumber } from '../consts'
 
 const ivs = [
   'hp',
@@ -27,129 +20,108 @@ const ivs = [
   'specialAttack',
   'specialDefense',
   'speed',
-] satisfies Keys<IVs>[]
+] satisfies IV[]
 
 const Ivs = React.memo(
   ({
     natured,
     setIvs,
-    currentValues,
-    setCurrentValues,
+    currentSelectValues,
+    setCurrentSelectValues,
     numberOf31IVs,
     setNumberOf31IVs,
   }: {
     natured: boolean
-    setIvs: React.Dispatch<React.SetStateAction<IVs>>
-    currentValues: Keys<IVs>[]
-    setCurrentValues: React.Dispatch<React.SetStateAction<Keys<IVs>[]>>
+    setIvs: React.Dispatch<React.SetStateAction<IV[]>>
+    currentSelectValues: IV[]
+    setCurrentSelectValues: React.Dispatch<React.SetStateAction<IV[]>>
     numberOf31IVs: 2 | 3 | 4 | 5
     setNumberOf31IVs: React.Dispatch<React.SetStateAction<2 | 3 | 4 | 5>>
   }) => {
-    function hadleNumberOf31Ivs(number: string) {
+    function handleNumberOf31Ivs(number: string) {
       const value = parseInt(number) as 2 | 3 | 4 | 5
       switch (value) {
         case 2:
-          setIvs({
-            hp: null,
-            attack: null,
-            defense: null,
-            specialAttack: null,
-            specialDefense: null,
-            speed: null,
-            [currentValues[0]]: 31,
-            [currentValues[1]]: 31,
-          })
+          setIvs([currentSelectValues[0], currentSelectValues[1]])
           break
         case 3:
-          setIvs({
-            hp: null,
-            attack: null,
-            defense: null,
-            specialAttack: null,
-            specialDefense: null,
-            speed: null,
-            [currentValues[0]]: 31,
-            [currentValues[1]]: 31,
-            [currentValues[2]]: 31,
-          })
+          {
+            const newValues = new Set([
+              currentSelectValues[0],
+              currentSelectValues[1],
+            ])
+            newValues.add(currentSelectValues[2])
+            setIvs(Array.from(newValues))
+          }
           break
         case 4:
-          setIvs({
-            hp: null,
-            attack: null,
-            defense: null,
-            specialAttack: null,
-            specialDefense: null,
-            speed: null,
-            [currentValues[0]]: 31,
-            [currentValues[1]]: 31,
-            [currentValues[2]]: 31,
-            [currentValues[3]]: 31,
-          })
+          {
+            const newValues = new Set([
+              currentSelectValues[0],
+              currentSelectValues[1],
+            ])
+            newValues.add(currentSelectValues[2])
+            newValues.add(currentSelectValues[3])
+            setIvs(Array.from(newValues))
+          }
           break
         case 5:
-          setIvs({
-            hp: null,
-            attack: null,
-            defense: null,
-            specialAttack: null,
-            specialDefense: null,
-            speed: null,
-            [currentValues[0]]: 31,
-            [currentValues[1]]: 31,
-            [currentValues[2]]: 31,
-            [currentValues[3]]: 31,
-            [currentValues[4]]: 31,
-          })
+          {
+            const newValues = new Set([
+              currentSelectValues[0],
+              currentSelectValues[1],
+            ])
+            newValues.add(currentSelectValues[2])
+            newValues.add(currentSelectValues[3])
+            newValues.add(currentSelectValues[4])
+            setIvs(Array.from(newValues))
+          }
           break
       }
       setNumberOf31IVs(value)
     }
 
     const pokeNumbers = natured
-      ? numberOfPokemons[numberOf31IVs].natured
-      : numberOfPokemons[numberOf31IVs].natureless
+      ? numberOfPokemonsFromIVNumber[numberOf31IVs].natured
+      : numberOfPokemonsFromIVNumber[numberOf31IVs].natureless
 
-    function handleChange(index: number, iv: Keys<IVs>) {
-      const previousValue = currentValues[index]
-      const newValues = [...currentValues]
-      newValues[index] = iv
+    function handleChange(value: IV, index: number) {
+      const previousValue = currentSelectValues[index]
+      const newValues = [...currentSelectValues]
+      newValues[index] = value
+
       setIvs((prev) => {
-        return {
-          ...prev,
-          [previousValue]: isPreviousValueIsCurrentlySelected(
-            index,
-            previousValue,
-          )
-            ? prev[previousValue]
-            : null,
-          [iv]: 31,
-        } as IVs
+        const newIvs = new Set([...prev])
+        if (!isPreviousValueCurrentlySelected(previousValue, index)) {
+          newIvs.delete(previousValue)
+        }
+        newIvs.add(value)
+        return Array.from(newIvs)
       })
-      setCurrentValues(newValues)
+
+      setCurrentSelectValues(newValues)
     }
 
-    function isPreviousValueIsCurrentlySelected(
+    function isPreviousValueCurrentlySelected(
+      value: IV,
       currentValueIndex: number,
-      prev: Keys<IVs>,
     ) {
-      const currentSelects: Keys<IVs>[] = []
+      const currentSelects: IV[] = []
 
       for (let i = 0; i < numberOf31IVs; i++) {
         if (i === currentValueIndex) continue
-        const value = currentValues[i]
+        const value = currentSelectValues[i]
         currentSelects.push(value)
       }
 
-      return currentSelects.includes(prev)
+      return currentSelects.includes(value)
     }
-
     return (
       <div>
         <RadioGroup
           className="border rounded w-fit flex"
           defaultValue={'2'}
-          onValueChange={hadleNumberOf31Ivs}
+          onValueChange={handleNumberOf31Ivs}
         >
           <RadioGroupItem className="border-0" value={'2'}>
             2
@@ -165,22 +137,24 @@ const Ivs = React.memo(
           </RadioGroupItem>
         </RadioGroup>
         <div className="flex flex-col md:flex-row items-center gap-2">
-          {pokeNumbers.map((n, i) => (
+          {Object.entries(pokeNumbers).map(([key, value], i) => (
             <div key={randomString(6)} className="w-full">
               <Label
                 key={randomString(6)}
                 className="text-sm text-foreground/70"
               >
-                <strong className="text-lg text-foreground mr-1">{n}</strong>{' '}
+                <strong className="text-lg text-foreground mr-1">
+                  {value}
+                </strong>{' '}
                 1x31 IV in
               </Label>
               <Select
-                value={currentValues[i]}
-                onValueChange={(v) => handleChange(i, v as Keys<IVs>)}
+                value={currentSelectValues[i]}
+                onValueChange={(v) => handleChange(v as IV, i)}
               >
                 <SelectTrigger>
-                  <SelectValue aria-label={currentValues[i]}>
-                    {camelToSpacedPascal(currentValues[i])}
+                  <SelectValue aria-label={currentSelectValues[i]}>
+                    {camelToSpacedPascal(currentSelectValues[i])}
                   </SelectValue>
                 </SelectTrigger>
                 <SelectContent>

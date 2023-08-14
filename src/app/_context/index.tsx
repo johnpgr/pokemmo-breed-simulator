@@ -1,8 +1,8 @@
 'use client'
 
+import { NatureType, Pokemon } from '@/data/types'
 import React from 'react'
-import { IPokemonToBreedContext, IVs } from './types'
-import { Pokemon, NatureType } from '@/data/types'
+import { IPokemonToBreedContext, IV } from './types'
 
 export const PokemonToBreedContextPrimitive =
   React.createContext<IPokemonToBreedContext>({} as IPokemonToBreedContext)
@@ -10,14 +10,7 @@ export const PokemonToBreedContextPrimitive =
 export const PokemonToBreedContext = (props: { children: React.ReactNode }) => {
   const [pokemon, setPokemon] = React.useState<Pokemon | null>(null)
   const [nature, setNature] = React.useState<NatureType | null>(null)
-  const [ivs, setIvs] = React.useState<IVs>({
-    hp: null,
-    attack: null,
-    defense: null,
-    specialAttack: null,
-    specialDefense: null,
-    speed: null,
-  })
+  const [ivs, setIvs] = React.useState<IV[] | null>(null)
 
   return (
     <PokemonToBreedContextPrimitive.Provider

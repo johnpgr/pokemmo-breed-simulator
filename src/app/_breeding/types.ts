@@ -1,19 +1,17 @@
 import { NatureType, Pokemon } from '@/data/types'
-import { IVs } from '../_context/types'
+import { ValueOf } from 'next/dist/shared/lib/constants'
+import { IV } from '../_context/types'
+import { Gender } from './consts'
 
-export const columnsPerRow = [1, 2, 4, 8, 16, 32] as const
-//undefined here is only for the selected pokemon to breed, where the gender doesn't matter
-export type Gender = 'Male' | 'Female' | null 
+export type GenderType = ValueOf<typeof Gender>
 
 export type BreedNode = {
-  pokemon: Pokemon
-  gender: Gender
+  pokemon: Pokemon | null
+  gender: GenderType | null
+  parents: [Position, Position] | null
+  ivs: IV[] | null
   nature: NatureType | null
-  ivs: IVs
-  sibling: Position | null
-  children: Position | null
-  parent: Position | null
-} | null
+}
 
 export type BreedMap = Record<Position, BreedNode>
 
