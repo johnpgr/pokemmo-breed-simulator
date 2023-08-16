@@ -46,35 +46,38 @@ const Ivs = React.memo(
           break
         case 3:
           {
-            const newValues = new Set([
-              currentSelectValues[0],
-              currentSelectValues[1],
+            setIvs([
+              ...new Set([
+                currentSelectValues[0],
+                currentSelectValues[1],
+                currentSelectValues[2],
+              ]),
             ])
-            newValues.add(currentSelectValues[2])
-            setIvs(Array.from(newValues))
           }
           break
         case 4:
           {
-            const newValues = new Set([
-              currentSelectValues[0],
-              currentSelectValues[1],
+            setIvs([
+              ...new Set([
+                currentSelectValues[0],
+                currentSelectValues[1],
+                currentSelectValues[2],
+                currentSelectValues[3],
+              ]),
             ])
-            newValues.add(currentSelectValues[2])
-            newValues.add(currentSelectValues[3])
-            setIvs(Array.from(newValues))
           }
           break
         case 5:
           {
-            const newValues = new Set([
-              currentSelectValues[0],
-              currentSelectValues[1],
+            setIvs([
+              ...new Set([
+                currentSelectValues[0],
+                currentSelectValues[1],
+                currentSelectValues[2],
+                currentSelectValues[3],
+                currentSelectValues[4],
+              ]),
             ])
-            newValues.add(currentSelectValues[2])
-            newValues.add(currentSelectValues[3])
-            newValues.add(currentSelectValues[4])
-            setIvs(Array.from(newValues))
           }
           break
       }

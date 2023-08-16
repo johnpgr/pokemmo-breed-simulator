@@ -59,7 +59,7 @@ export function useBreedMap(props: {
               pokemon: null,
               parents: null,
               gender: null,
-              ivs: [props.selectedPokemonIVs[value]],
+              ivs: props.selectedPokemonIVs,
               nature: null,
             }
           : {

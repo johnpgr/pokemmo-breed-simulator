@@ -32,11 +32,11 @@ export const PokemonToBreedSelector = (props: {
   const [nature, setNature] = React.useState<NatureType | null>(null)
 
   //TODO: Use React hook form with zod
-  //FIXME: Provide the path to the incorrect fields
+  //TODO: Provide the path to the incorrect fields
   function validateIvFields() {
-    const selectedValues = currentSelectValues.slice(0, numberOf31IVs - 1)
+    const selectedValues = currentSelectValues.slice(0, numberOf31IVs)
     const uniques = new Set(selectedValues)
-    return uniques.size !== selectedValues.length
+    return uniques.size === selectedValues.length
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
