@@ -10,9 +10,15 @@ const PokemonTree = (props: {
 }) => {
   const { pokemon, nature, ivs } = usePokemonToBreed()
 
-  const numberOf31IVs = ivs!.length
+  const ivsArray = Object.values(ivs).filter(Boolean)
+  const numberOf31IvPokemon = ivsArray.length as 2 | 3 | 4 | 5
 
-  const generations = nature ? numberOf31IVs! + 1 : numberOf31IVs
+  const generations = (nature ? numberOf31IvPokemon! + 1 : numberOf31IvPokemon) as
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
 
   const breedMap = useBreedMap({
     selectedPokemonIVs: ivs!,
@@ -20,10 +26,11 @@ const PokemonTree = (props: {
     pokemonToBreed: {
       pokemon: pokemon!,
       nature,
-      ivs,
+      ivs: ivsArray,
       parents: null,
       gender: null,
     },
+    numberOf31IvPokemon
   })
 
   return (

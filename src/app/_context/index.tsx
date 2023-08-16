@@ -10,7 +10,19 @@ export const PokemonToBreedContextPrimitive =
 export const PokemonToBreedContext = (props: { children: React.ReactNode }) => {
   const [pokemon, setPokemon] = React.useState<Pokemon | null>(null)
   const [nature, setNature] = React.useState<NatureType | null>(null)
-  const [ivs, setIvs] = React.useState<IV[] | null>(null)
+  const [ivs, setIvs] = React.useState<{
+    a: IV
+    b: IV
+    c: IV | null
+    d: IV | null
+    e: IV | null
+  }>({
+    a: 'hp',
+    b: 'attack',
+    c: null,
+    d: null,
+    e: null,
+  })
 
   return (
     <PokemonToBreedContextPrimitive.Provider

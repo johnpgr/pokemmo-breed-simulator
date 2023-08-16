@@ -8,13 +8,17 @@ import { pokemonIVsPositions } from './consts'
 import { IV } from '../_context/types'
 
 export function useBreedMap(props: {
-  selectedPokemonIVs: IV[]
+  selectedPokemonIVs: {
+    a: IV | null
+    b: IV | null
+    c: IV | null
+    d: IV | null
+    e: IV | null
+  }
+  numberOf31IvPokemon: 2 | 3 | 4 | 5
   pokemonToBreed: BreedNode
   nature: NatureType | null
 }) {
-  const generations = props.selectedPokemonIVs
-    .length as keyof typeof pokemonIVsPositions
-
   const [map, setMap] = useState<BreedMap>({
     '0,0': props.pokemonToBreed,
   } as BreedMap)
@@ -39,11 +43,14 @@ export function useBreedMap(props: {
 
   useMount(() => {
     const lastRowMapping = props.nature
-      ? pokemonIVsPositions[generations].natured
-      : pokemonIVsPositions[generations].natureless
+      ? pokemonIVsPositions[props.numberOf31IvPokemon].natured
+      : pokemonIVsPositions[props.numberOf31IvPokemon].natureless
     const lastRow: BreedMap = {} as BreedMap
 
+    console.log({ lastRowMapping })
+    console.log({ selectedPokemonIVs: props.selectedPokemonIVs })
     Object.entries(lastRowMapping).forEach(([key, value]) => {
+      console.log({ key, value })
       if (value === 'nature') {
         lastRow[key as Position] = {
           nature: props.nature,
@@ -52,25 +59,19 @@ export function useBreedMap(props: {
           parents: null,
           pokemon: null,
         }
-      } else if (value in props.selectedPokemonIVs) {
-        //@ts-expect-error ts is dumb
-        lastRow[key as Position] = props.selectedPokemonIVs[value]
-          ? {
-              pokemon: null,
-              parents: null,
-              gender: null,
-              ivs: props.selectedPokemonIVs,
-              nature: null,
-            }
-          : {
-              pokemon: null,
-              parents: null,
-              nature: null,
-              ivs: null,
-              gender: null,
-            }
+        return
+      }
+      if (props.selectedPokemonIVs[value]) {
+        lastRow[key as Position] = {
+          pokemon: null,
+          parents: null,
+          gender: null,
+          ivs: [props.selectedPokemonIVs[value]!],
+          nature: null,
+        }
       }
     })
+    console.log({ lastRow })
 
     setMap((prevMap) => ({
       ...prevMap,

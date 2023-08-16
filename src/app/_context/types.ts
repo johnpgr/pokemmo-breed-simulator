@@ -12,11 +12,19 @@ export const IVs = {
 
 export type IV = keyof typeof IVs
 
+export type IVMap = {
+  a: IV
+  b: IV
+  c: IV | null
+  d: IV | null
+  e: IV | null
+}
+
 export type IPokemonToBreedContext = {
   pokemon: Pokemon | null
-  ivs: IV[] | null
+  ivs: IVMap
   nature: NatureType | null
   setPokemon: Dispatch<SetStateAction<Pokemon | null>>
-  setIvs: Dispatch<SetStateAction<IV[] | null>>
+  setIvs: Dispatch<SetStateAction<IVMap>>
   setNature: Dispatch<SetStateAction<NatureType | null>>
 }

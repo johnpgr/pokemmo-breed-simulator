@@ -53,7 +53,13 @@ export const PokemonToBreedSelector = (props: {
     }
 
     ctx.setPokemon(pokemon)
-    ctx.setIvs(ivs)
+    ctx.setIvs({
+      a: ivs[0],
+      b: ivs[1],
+      c: ivs[2] || null,
+      d: ivs[3] || null,
+      e: ivs[4] || null,
+    })
     ctx.setNature(nature)
   }
 
