@@ -179,11 +179,14 @@ function CurrentNodeInformationCard(props: {
         </CardTitle>
       </CardHeader>
       <CardContent className="pb-4 pt-2">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 mb-2">
           {props.currentNode.ivs?.map((iv) => (
             <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
           ))}
-          <div className="flex gap-2 mt-4">
+          {props.currentNode.nature && (
+            <i className="block">{props.currentNode.nature}</i>
+          )}
+          <div className="flex gap-2">
             <Male className="fill-blue-500 h-6 w-fit" />
             <Switch
               className="data-[state=unchecked]:bg-primary"
@@ -193,7 +196,6 @@ function CurrentNodeInformationCard(props: {
             <Female className="fill-pink-500 h-6 w-fit -ml-1" />
           </div>
         </div>
-        {props.currentNode.nature && <i>{props.currentNode.nature}</i>}
         {props.children}
       </CardContent>
     </Card>
