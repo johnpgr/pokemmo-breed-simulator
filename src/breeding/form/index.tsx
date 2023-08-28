@@ -91,7 +91,7 @@ export function PokemonToBreedSelector(props: {
           />
         </div>
       </div>
-      <pre>{JSON.stringify({ ivs, nature, pokemon }, null, 2)}</pre>
+      {/* <pre>{JSON.stringify({ ivs, nature, pokemon }, null, 2)}</pre> */}
       <div className="flex items-center gap-2">
         <Button type="submit">Start Breeding</Button>
         <Button type="reset" variant={"destructive"}>

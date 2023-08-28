@@ -1,6 +1,8 @@
 "use client"
 import { Button } from "@/components/ui/button"
 
+import type { getPokemonByName } from "@/actions/pokemon-by-name"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Command,
   CommandEmpty,
@@ -15,6 +17,8 @@ import {
 } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
+import { usePokemonToBreed } from "@/context/hooks"
+import { Pokemon } from "@/data/types"
 import {
   camelToSpacedPascal,
   getSprite,
@@ -22,17 +26,12 @@ import {
   randomString,
 } from "@/lib/utils"
 import { For, block } from "million/react"
-import { Fragment, useEffect, useId, useState } from "react"
-import type { BreedNode, GenderType, Position } from "./types"
-import { usePokemonToBreed } from "@/context/hooks"
-import type { getPokemonByName } from "@/actions/pokemon-by-name"
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
-import { Pokemon } from "@/data/types"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import React, { Fragment, useId, useState } from "react"
+import type { BreedNode, BreedNodeSetter, GenderType, Position } from "./types"
+import { Switch } from "@/components/ui/switch"
+import { Gender } from "./consts"
+import { Male } from "@/components/icons/male"
+import { Female } from "@/components/icons/female"
 
 export const PokemonSelect = block(
   (props: {
@@ -41,7 +40,7 @@ export const PokemonSelect = block(
       number: number
     }>
     position: Position
-    set: (key: Position, value: BreedNode | null) => void
+    set: (key: Position, value: BreedNodeSetter) => void
     get: (key: Position) => BreedNode | null
     getPokemonByName: typeof getPokemonByName
   }) => {
@@ -51,7 +50,7 @@ export const PokemonSelect = block(
 
     const [search, setSearch] = useState("")
     const [isOpen, setIsOpen] = useState(false)
-    const [gender, setGender] = useState<GenderType | null>(null)
+    const [gender, setGender] = useState<GenderType>(Gender.MALE)
     const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null)
     const [currentNode, setCurrentNode] = useState<BreedNode | null>(null)
 
@@ -60,13 +59,23 @@ export const PokemonSelect = block(
       if (!pokemon) return
 
       setSelectedPokemon(pokemon)
-      //TODO: Implement the set of this pokemon node
-      // props.set(props.position, {
-      //   gender,
-      //   pokemon,
-      // })
+      props.set(props.position, {
+        gender,
+        pokemon,
+      })
 
       setIsOpen(false)
+    }
+
+    function handleChangeGender(gender: GenderType) {
+      setGender(gender)
+
+      if (!selectedPokemon) return
+
+      props.set(props.position, {
+        gender,
+        pokemon: selectedPokemon,
+      })
     }
 
     function handleOpenPopover(open: boolean) {
@@ -103,7 +112,18 @@ export const PokemonSelect = block(
         </PopoverTrigger>
         <PopoverContent className="p-0 relative">
           {currentNode ? (
-            <CurrentNodeInformationCard currentNode={currentNode} />
+            <CurrentNodeInformationCard
+              currentNode={currentNode}
+              gender={gender}
+              setGender={handleChangeGender}
+            >
+              <Button
+                className="mt-4"
+                onClick={() => console.log(props.get(props.position))}
+              >
+                Debug
+              </Button>
+            </CurrentNodeInformationCard>
           ) : null}
           <Command>
             <CommandInput
@@ -142,7 +162,15 @@ export const PokemonSelect = block(
   },
 )
 
-function CurrentNodeInformationCard(props: { currentNode: BreedNode }) {
+function CurrentNodeInformationCard(props: {
+  currentNode: BreedNode
+  gender: GenderType | null
+  setGender: (gender: GenderType) => void
+  children?: React.ReactNode
+}) {
+  function onCheckedChange(value: boolean) {
+    props.setGender(value ? Gender.FEMALE : Gender.MALE)
+  }
   return (
     <Card className="absolute w-64 -ml-[264px]">
       <CardHeader className="pb-2 pt-4">
@@ -151,13 +179,22 @@ function CurrentNodeInformationCard(props: { currentNode: BreedNode }) {
         </CardTitle>
       </CardHeader>
       <CardContent className="pb-4 pt-2">
-        <span>IVs</span>
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2">
           {props.currentNode.ivs?.map((iv) => (
             <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
           ))}
+          <div className="flex gap-2 mt-4">
+            <Male className="fill-blue-500 h-6 w-fit" />
+            <Switch
+              className="data-[state=unchecked]:bg-primary"
+              checked={props.gender === Gender.FEMALE}
+              onCheckedChange={onCheckedChange}
+            />
+            <Female className="fill-pink-500 h-6 w-fit -ml-1" />
+          </div>
         </div>
         {props.currentNode.nature && <i>{props.currentNode.nature}</i>}
+        {props.children}
       </CardContent>
     </Card>
   )

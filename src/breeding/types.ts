@@ -12,6 +12,7 @@ export type BreedNode = {
   ivs: Array<IV> | null
   nature: NatureType | null
 }
+export type BreedNodeSetter = Pick<BreedNode, "gender" | "pokemon">
 
 export type BreedMap = Record<Position, BreedNode>
 

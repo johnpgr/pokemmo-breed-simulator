@@ -2,9 +2,10 @@
 import { usePokemonToBreed } from "@/context/hooks"
 import { columnsPerRow } from "./consts"
 import { PokemonSelect } from "./select"
-import { Position } from "./types"
+import { BreedNodeSetter, Position } from "./types"
 import { useBreedMap } from "./use-breed-map"
 import { getPokemonByName } from "@/actions/pokemon-by-name"
+import { Button } from "@/components/ui/button"
 
 function PokemonTree(props: {
   pokemons: Array<{ name: string; number: number }>
@@ -32,6 +33,16 @@ function PokemonTree(props: {
     numberOf31IvPokemon,
   })
 
+  function setBreedNode(key: Position, value: BreedNodeSetter) {
+    const node = breedMap.get(key)
+    if (!node) return
+
+    breedMap.set(key, {
+      ...node,
+      ...value,
+    })
+  }
+
   return (
     <div className="flex flex-col-reverse items-center gap-32">
       {Array.from({ length: generations }).map((_, row) => (
@@ -43,7 +54,7 @@ function PokemonTree(props: {
                   getPokemonByName={getPokemonByName}
                   pokemons={props.pokemons}
                   position={`${row},${column}` as Position}
-                  set={breedMap.set}
+                  set={setBreedNode}
                   get={breedMap.get}
                 />
               )}
@@ -51,7 +62,9 @@ function PokemonTree(props: {
           ))}
         </div>
       ))}
-      <button onClick={() => console.log(breedMap.map)}>Debug</button>
+      <Button className="mt-4" onClick={() => console.log(breedMap.map)}>
+        Debug
+      </Button>
     </div>
   )
 }
