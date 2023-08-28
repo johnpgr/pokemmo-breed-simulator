@@ -1,7 +1,7 @@
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-import { BASE_SPRITES_URL } from './consts'
-import { Pokemon } from '@/data/types'
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+import { BASE_SPRITES_URL } from "./consts"
+import { Pokemon } from "@/data/types"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -17,10 +17,10 @@ export function raise(message: string): never {
 
 export function parseNames(name: string) {
   switch (name) {
-    case 'Nidoran-f':
-      return 'Nidoran ♀'
-    case 'Nidoran-m':
-      return 'Nidoran ♂'
+    case "Nidoran-f":
+      return "Nidoran ♀"
+    case "Nidoran-m":
+      return "Nidoran ♂"
     default:
       return name
   }
@@ -39,7 +39,7 @@ export function randomString(length: number) {
 
 export function camelToSpacedPascal(input: string) {
   return input
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
     .replace(/^./, (str) => str.toUpperCase())
 }
 

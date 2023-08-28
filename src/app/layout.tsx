@@ -1,21 +1,21 @@
 import "@total-typescript/ts-reset"
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 
-import './globals.css'
-import { ThemeProvider } from './_providers/themes'
-import { ModeToggle } from './_components/mode-toggle'
-import { cn } from '@/lib/utils'
-import { Toaster } from './_components/ui/toaster'
+import "./globals.css"
+import { ThemeProvider } from "./_providers/themes"
+import { ModeToggle } from "./_components/mode-toggle"
+import { cn } from "@/lib/utils"
+import { Toaster } from "./_components/ui/toaster"
 
 const fontSans = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
+  subsets: ["latin"],
+  variable: "--font-sans",
 })
 
 export const metadata: Metadata = {
-  title: 'Pokemmo breed planner',
-  description: 'A tool to help you plan your pokemon breeding',
+  title: "Pokemmo breed planner",
+  description: "A tool to help you plan your pokemon breeding",
 }
 
 export default function Layout(props: { children: React.ReactNode }) {
@@ -23,7 +23,7 @@ export default function Layout(props: { children: React.ReactNode }) {
     <html lang="en">
       <body
         className={cn(
-          'min-h-screen flex flex-col bg-background',
+          "min-h-screen flex flex-col bg-background",
           fontSans.className,
         )}
       >
@@ -32,7 +32,7 @@ export default function Layout(props: { children: React.ReactNode }) {
             <ModeToggle />
           </header>
           {props.children}
-          <Toaster/>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { BreedNode, Position, BreedMap } from './types'
-import { useMount } from '@/lib/hooks/use-mount'
-import { NatureType } from '@/data/types'
-import { pokemonIVsPositions } from './consts'
-import { IV } from '../_context/types'
+import { useState } from "react"
+import { BreedNode, Position, BreedMap } from "./types"
+import { useMount } from "@/lib/hooks/use-mount"
+import { NatureType } from "@/data/types"
+import { LastRowMapping, columnsPerRow, pokemonIVsPositions } from "./consts"
+import { IV } from "../_context/types"
 
 export function useBreedMap(props: {
   selectedPokemonIVs: {
@@ -20,7 +20,7 @@ export function useBreedMap(props: {
   nature: NatureType | null
 }) {
   const [map, setMap] = useState<BreedMap>({
-    '0,0': props.pokemonToBreed,
+    "0,0": props.pokemonToBreed,
   } as BreedMap)
 
   function set(key: Position, value: BreedNode | null) {
@@ -41,17 +41,9 @@ export function useBreedMap(props: {
     }))
   }
 
-  useMount(() => {
-    const lastRowMapping = props.nature
-      ? pokemonIVsPositions[props.numberOf31IvPokemon].natured
-      : pokemonIVsPositions[props.numberOf31IvPokemon].natureless
-    const lastRow: BreedMap = {} as BreedMap
-
-    console.log({ lastRowMapping })
-    console.log({ selectedPokemonIVs: props.selectedPokemonIVs })
+  function setFirstRowIvs(lastRowMapping: LastRowMapping, lastRow: BreedMap) {
     Object.entries(lastRowMapping).forEach(([key, value]) => {
-      console.log({ key, value })
-      if (value === 'nature') {
+      if (value === "nature") {
         lastRow[key as Position] = {
           nature: props.nature,
           ivs: null,
@@ -71,11 +63,62 @@ export function useBreedMap(props: {
         }
       }
     })
-    console.log({ lastRow })
+  }
+
+  /* This function should be called after setFirstRowIvs.
+   * It will set the remaining rows of the map with the correct IVs based on their parents. (Pokemon's that are directly above them in the breed tree)
+   * Iterates through all rows starting from the second last row and inserts the correct IVs based on the two direct parents.
+   */
+  function setRemainingRowsIvs(map: BreedMap) {
+    const numberOfRows = props.nature
+      ? props.numberOf31IvPokemon + 1
+      : props.numberOf31IvPokemon
+
+    // Iterate through all rows starting from the second last row.
+    for (let row = numberOfRows - 2; row > 0; row--) {
+      // Iterate through all columns in the current row.
+      for (let col = 0; col < columnsPerRow[row - 1]; col++) {
+        const key = `${row},${col}` as Position
+
+        const parent1Pos = `${row + 1},${col * 2}` as Position
+        const parent2Pos = `${row + 1},${col * 2 + 1}` as Position
+        const parent1 = map[parent1Pos]
+        const parent2 = map[parent2Pos]
+        // console.log({
+        //   parent1Pos,
+        //   parent2Pos,
+        //   parent1,
+        //   parent2,
+        // })
+
+        const ivs =
+          parent1.ivs && parent2.ivs ? [...parent1.ivs, ...parent2.ivs] : null
+
+        map[key] = {
+          pokemon: null,
+          parents: [parent1Pos, parent2Pos],
+          gender: null,
+          ivs: Array.from(new Set(ivs)),
+          //TODO: Set nature if parent is natured.
+          nature: null,
+        }
+      }
+    }
+  }
+
+  useMount(() => {
+    const lastRowMapping = props.nature
+      ? pokemonIVsPositions[props.numberOf31IvPokemon].natured
+      : pokemonIVsPositions[props.numberOf31IvPokemon].natureless
+
+    const map: BreedMap = {} as BreedMap
+
+    setFirstRowIvs(lastRowMapping, map)
+    setRemainingRowsIvs(map)
 
     setMap((prevMap) => ({
       ...prevMap,
-      ...lastRow,
+      ...map,
     }))
   })
 

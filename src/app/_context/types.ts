@@ -1,13 +1,13 @@
-import { NatureType, Pokemon } from '@/data/types'
-import { Dispatch, SetStateAction } from 'react'
+import { NatureType, Pokemon } from "@/data/types"
+import { Dispatch, SetStateAction } from "react"
 
 export const IVs = {
-  hp: 'hp',
-  attack: 'attack',
-  defense: 'defense',
-  specialAttack: 'specialAttack',
-  specialDefense: 'specialDefense',
-  speed: 'speed',
+  hp: "hp",
+  attack: "attack",
+  defense: "defense",
+  specialAttack: "specialAttack",
+  specialDefense: "specialDefense",
+  speed: "speed",
 } as const
 
 export type IV = keyof typeof IVs

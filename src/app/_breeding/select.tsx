@@ -1,5 +1,5 @@
-'use client'
-import { Button } from '@/app/_components/ui/button'
+"use client"
+import { Button } from "@/app/_components/ui/button"
 
 import {
   Command,
@@ -7,19 +7,19 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
-} from '@/app/_components/ui/command'
+} from "@/app/_components/ui/command"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/app/_components/ui/popover'
-import { ScrollArea } from '@/app/_components/ui/scroll-area'
-import { Separator } from '@/app/_components/ui/separator'
-import { getPokemonByName, getSprite, parseNames } from '@/lib/utils'
-import { For, block } from 'million/react'
-import { Fragment, useId, useState } from 'react'
-import type { BreedNode, GenderType, Position } from './types'
-import { usePokemonToBreed } from '../_context/hooks'
+} from "@/app/_components/ui/popover"
+import { ScrollArea } from "@/app/_components/ui/scroll-area"
+import { Separator } from "@/app/_components/ui/separator"
+import { getPokemonByName, getSprite, parseNames } from "@/lib/utils"
+import { For, block } from "million/react"
+import { Fragment, useId, useState } from "react"
+import type { BreedNode, GenderType, Position } from "./types"
+import { usePokemonToBreed } from "../_context/hooks"
 
 const PokemonSelect = block(
   (props: {
@@ -32,9 +32,9 @@ const PokemonSelect = block(
   }) => {
     const id = useId()
     const { pokemon: pokemonToBreed } = usePokemonToBreed()
-    const isPokemonToBreed = props.position === '0,0'
+    const isPokemonToBreed = props.position === "0,0"
 
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState("")
     const [isOpen, setIsOpen] = useState(false)
     const [selectedPokemon, setSelectedPokemon] = useState<string | undefined>(
       undefined,
@@ -60,7 +60,7 @@ const PokemonSelect = block(
       >
         <PopoverTrigger asChild>
           <Button
-            size={'icon'}
+            size={"icon"}
             className="rounded-full bg-neutral-300 dark:bg-neutral-800"
           >
             {selectedPokemon || isPokemonToBreed ? (
@@ -70,7 +70,7 @@ const PokemonSelect = block(
                   isPokemonToBreed ? pokemonToBreed!.name : selectedPokemon!,
                 )}
                 style={{
-                  imageRendering: 'pixelated',
+                  imageRendering: "pixelated",
                 }}
                 className="mb-1"
               />

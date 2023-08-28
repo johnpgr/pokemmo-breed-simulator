@@ -1,22 +1,22 @@
-import { Button } from '@/app/_components/ui/button'
+import { Button } from "@/app/_components/ui/button"
 import {
   Command,
   CommandInput,
   CommandGroup,
   CommandEmpty,
   CommandItem,
-} from '@/app/_components/ui/command'
+} from "@/app/_components/ui/command"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/app/_components/ui/popover'
-import { ScrollArea } from '@/app/_components/ui/scroll-area'
-import { Switch } from '@/app/_components/ui/switch'
-import { NatureType, Nature } from '@/data/types'
-import { capitalize, randomString } from '@/lib/utils'
-import { Check, ChevronsUpDown } from 'lucide-react'
-import React from 'react'
+} from "@/app/_components/ui/popover"
+import { ScrollArea } from "@/app/_components/ui/scroll-area"
+import { Switch } from "@/app/_components/ui/switch"
+import { NatureType, Nature } from "@/data/types"
+import { capitalize, randomString } from "@/lib/utils"
+import { Check, ChevronsUpDown } from "lucide-react"
+import React from "react"
 
 export const NatureSelect = ({
   nature,
@@ -29,7 +29,7 @@ export const NatureSelect = ({
   checked: boolean
   onCheckedChange: (checked: boolean) => void
 }) => {
-  const [search, setSearch] = React.useState('')
+  const [search, setSearch] = React.useState("")
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
@@ -45,8 +45,8 @@ export const NatureSelect = ({
       {checked && (
         <Popover open={isOpen} onOpenChange={setIsOpen}>
           <PopoverTrigger asChild>
-            <Button variant={'ghost'} className="border">
-              {nature ?? 'Select a nature'}
+            <Button variant={"ghost"} className="border">
+              {nature ?? "Select a nature"}
               <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
           </PopoverTrigger>
@@ -72,7 +72,9 @@ export const NatureSelect = ({
                         data-cy={`${nature}-value`}
                         className="pl-8 relative"
                       >
-                        {nature === _nature ? <Check className='h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2' /> : null}
+                        {nature === _nature ? (
+                          <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
+                        ) : null}
                         {_nature}
                       </CommandItem>
                     </React.Fragment>

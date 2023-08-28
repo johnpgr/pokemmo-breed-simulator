@@ -1,5 +1,5 @@
-import pokemons from '@/data/data.json' assert { type: 'json' }
-import { NextResponse } from 'next/server'
+import pokemons from "@/data/data.json" assert { type: "json" }
+import { NextResponse } from "next/server"
 
 export function GET(_: any, { params }: { params: { name: string } }) {
   const { name } = params

@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { NatureType, Pokemon } from '@/data/types'
-import React from 'react'
-import { IPokemonToBreedContext, IV } from './types'
+import { NatureType, Pokemon } from "@/data/types"
+import React from "react"
+import { IPokemonToBreedContext, IV } from "./types"
 
 export const PokemonToBreedContextPrimitive =
   React.createContext<IPokemonToBreedContext>({} as IPokemonToBreedContext)
@@ -17,8 +17,8 @@ export const PokemonToBreedContext = (props: { children: React.ReactNode }) => {
     d: IV | null
     e: IV | null
   }>({
-    a: 'hp',
-    b: 'attack',
+    a: "hp",
+    b: "attack",
     c: null,
     d: null,
     e: null,

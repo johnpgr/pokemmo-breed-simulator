@@ -1,49 +1,49 @@
-import fs from 'node:fs'
-import csvParser from 'csv-parser'
-import type { EggType, Pokemon } from './types'
-import path from 'node:path'
+import fs from "node:fs"
+import csvParser from "csv-parser"
+import type { EggType, Pokemon } from "./types"
+import path from "node:path"
 
 const skippedPokemons = [
-  'Mega',
-  'Partner',
-  'Alolan',
-  'Galarian',
-  'Castform ',
-  'Wormadam Sandy Cloak',
-  'Wormadam Trash Cloak',
-  'Wash',
-  'Frost',
-  'Heat',
-  'Fan',
-  'Mow',
-  'Basculin Blue-Striped Form',
-  'Darmanitan Zen Mode',
+  "Mega",
+  "Partner",
+  "Alolan",
+  "Galarian",
+  "Castform ",
+  "Wormadam Sandy Cloak",
+  "Wormadam Trash Cloak",
+  "Wash",
+  "Frost",
+  "Heat",
+  "Fan",
+  "Mow",
+  "Basculin Blue-Striped Form",
+  "Darmanitan Zen Mode",
 ]
 
 const fixPokemonEggGroups = {
   Nidorina: {
-    eggType1: 'Field',
-    eggType2: 'Monster',
+    eggType1: "Field",
+    eggType2: "Monster",
   },
   Nidoqueen: {
-    eggType1: 'Field',
-    eggType2: 'Monster',
+    eggType1: "Field",
+    eggType2: "Monster",
   },
 } as const
 
 function parseEggType(eggType: string): EggType | undefined {
   switch (eggType) {
-    case 'Water 1':
-      return 'Water A'
-    case 'Water 2':
-      return 'Water B'
-    case 'Water 3':
-      return 'Water C'
-    case 'Undiscovered':
-      return 'Cannot Breed'
-    case 'Human-Like':
-      return 'Humanoid'
-    case '':
+    case "Water 1":
+      return "Water A"
+    case "Water 2":
+      return "Water B"
+    case "Water 3":
+      return "Water C"
+    case "Undiscovered":
+      return "Cannot Breed"
+    case "Human-Like":
+      return "Humanoid"
+    case "":
       return undefined
     default:
       return eggType as EggType
@@ -52,12 +52,12 @@ function parseEggType(eggType: string): EggType | undefined {
 
 function parseName(name: string): string {
   switch (name) {
-    case 'Wormadam Plant Cloak':
-      return 'Wormadam'
-    case 'Basculin Red-Striped Form':
-      return 'Basculin'
-    case 'Darmanitan Standard Mode':
-      return 'Darmanitan'
+    case "Wormadam Plant Cloak":
+      return "Wormadam"
+    case "Basculin Red-Striped Form":
+      return "Basculin"
+    case "Darmanitan Standard Mode":
+      return "Darmanitan"
     default:
       return name
   }
@@ -66,28 +66,28 @@ function parseName(name: string): string {
 ;(() => {
   const pokemons: Pokemon[] = []
 
-  fs.createReadStream(path.resolve(__dirname, 'pokemon_data.csv'), 'utf8')
+  fs.createReadStream(path.resolve(__dirname, "pokemon_data.csv"), "utf8")
     .pipe(
       csvParser({
         mapHeaders: ({ header }) => header.trim(),
       }),
     )
-    .on('data', (row) => {
+    .on("data", (row) => {
       if (
-        skippedPokemons.some((name) => (row['name'] as string).startsWith(name))
+        skippedPokemons.some((name) => (row["name"] as string).startsWith(name))
       ) {
         return
       }
 
       const pokemon: Pokemon = {
-        pokedexNumber: parseInt(row['pokedex_number']),
-        name: parseName(row['name']),
-        types: [row['type_1'], row['type_2']].filter(Boolean),
+        pokedexNumber: parseInt(row["pokedex_number"]),
+        name: parseName(row["name"]),
+        types: [row["type_1"], row["type_2"]].filter(Boolean),
         eggTypes: [
-          parseEggType(row['egg_type_1']),
-          parseEggType(row['egg_type_2']),
+          parseEggType(row["egg_type_1"]),
+          parseEggType(row["egg_type_2"]),
         ].filter(Boolean) as EggType[],
-        percentageMale: parseFloat(row['percentage_male']),
+        percentageMale: parseFloat(row["percentage_male"]),
       }
 
       const fix =
@@ -100,9 +100,9 @@ function parseName(name: string): string {
 
       pokemons.push(pokemon)
     })
-    .on('end', () => {
+    .on("end", () => {
       fs.writeFileSync(
-        path.resolve(__dirname, 'data.json'),
+        path.resolve(__dirname, "data.json"),
         JSON.stringify(pokemons, null, 2),
       )
     })

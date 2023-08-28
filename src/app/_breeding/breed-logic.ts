@@ -1,8 +1,8 @@
-import { raise } from '@/lib/utils'
-import type { BreedNode, GenderType, Position } from './types'
-import { Gender } from './consts'
-import { genderlessEggtypes, parsePosition } from './utils'
-import { Pokemon } from '@/data/types'
+import { raise } from "@/lib/utils"
+import type { BreedNode, GenderType, Position } from "./types"
+import { Gender } from "./consts"
+import { genderlessEggtypes, parsePosition } from "./utils"
+import { Pokemon } from "@/data/types"
 
 type BreedPokemonNode = {
   position: Position
@@ -64,7 +64,7 @@ export class Breeder {
     )
 
     if (pokes.length !== 1) {
-      raise('This shouldn not happen')
+      raise("This shouldn not happen")
     }
 
     return pokes[0].pokemon
@@ -88,6 +88,6 @@ export class Breeder {
       : Gender.MALE
   }
   private breedError(pos1: Position, pos2: Position): never {
-    raise('Not implemented.')
+    raise("Not implemented.")
   }
 }

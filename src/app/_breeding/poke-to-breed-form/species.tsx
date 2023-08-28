@@ -1,24 +1,24 @@
-import { Button } from '@/app/_components/ui/button'
+import { Button } from "@/app/_components/ui/button"
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from '@/app/_components/ui/command'
+} from "@/app/_components/ui/command"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/app/_components/ui/popover'
-import { ScrollArea } from '@/app/_components/ui/scroll-area'
-import { Separator } from '@/app/_components/ui/separator'
-import { Pokemon } from '@/data/types'
-import { getPokemonByName, getSprite, parseNames } from '@/lib/utils'
-import clsx from 'clsx'
-import { ChevronsUpDown } from 'lucide-react'
-import { For, block } from 'million/react'
-import React from 'react'
+} from "@/app/_components/ui/popover"
+import { ScrollArea } from "@/app/_components/ui/scroll-area"
+import { Separator } from "@/app/_components/ui/separator"
+import { Pokemon } from "@/data/types"
+import { getPokemonByName, getSprite, parseNames } from "@/lib/utils"
+import clsx from "clsx"
+import { ChevronsUpDown } from "lucide-react"
+import { For, block } from "million/react"
+import React from "react"
 
 export const Species = block(
   ({
@@ -34,7 +34,7 @@ export const Species = block(
     selected: string | undefined
   }) => {
     const [isOpen, setIsOpen] = React.useState(false)
-    const [search, setSearch] = React.useState('')
+    const [search, setSearch] = React.useState("")
 
     async function handleSelectPokemon(name: string) {
       const pokemon = await getPokemonByName(name)
@@ -48,10 +48,10 @@ export const Species = block(
           <PopoverTrigger asChild>
             <Button
               type="button"
-              variant={'ghost'}
-              className={clsx('border', {
-                'pl-2': selected,
-                'pl-4': !selected,
+              variant={"ghost"}
+              className={clsx("border", {
+                "pl-2": selected,
+                "pl-4": !selected,
               })}
             >
               {selected ? (
@@ -59,11 +59,11 @@ export const Species = block(
                   className="top-[1px] left-0"
                   src={getSprite(selected)}
                   style={{
-                    imageRendering: 'pixelated',
+                    imageRendering: "pixelated",
                   }}
                 />
               ) : null}
-              {selected ? parseNames(selected) : 'Select a pokemon'}
+              {selected ? parseNames(selected) : "Select a pokemon"}
               <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
           </PopoverTrigger>

@@ -1,25 +1,25 @@
-'use client'
-import { Label } from '@/app/_components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/app/_components/ui/radio-group'
+"use client"
+import { Label } from "@/app/_components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/app/_components/ui/radio-group"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/app/_components/ui/select'
-import { IV } from '@/app/_context/types'
-import { Keys, camelToSpacedPascal, randomString } from '@/lib/utils'
-import React from 'react'
-import { numberOfPokemonsFromIVNumber } from '../consts'
+} from "@/app/_components/ui/select"
+import { IV } from "@/app/_context/types"
+import { Keys, camelToSpacedPascal, randomString } from "@/lib/utils"
+import React from "react"
+import { numberOfPokemonsFromIVNumber } from "../consts"
 
 const ivs = [
-  'hp',
-  'attack',
-  'defense',
-  'specialAttack',
-  'specialDefense',
-  'speed',
+  "hp",
+  "attack",
+  "defense",
+  "specialAttack",
+  "specialDefense",
+  "speed",
 ] satisfies IV[]
 
 const Ivs = React.memo(
@@ -123,19 +123,19 @@ const Ivs = React.memo(
       <div>
         <RadioGroup
           className="border rounded w-fit flex"
-          defaultValue={'2'}
+          defaultValue={"2"}
           onValueChange={handleNumberOf31Ivs}
         >
-          <RadioGroupItem className="border-0" value={'2'}>
+          <RadioGroupItem className="border-0" value={"2"}>
             2
           </RadioGroupItem>
-          <RadioGroupItem className="border-0" value={'3'}>
+          <RadioGroupItem className="border-0" value={"3"}>
             3
           </RadioGroupItem>
-          <RadioGroupItem className="border-0" value={'4'}>
+          <RadioGroupItem className="border-0" value={"4"}>
             4
           </RadioGroupItem>
-          <RadioGroupItem className="border-0" value={'5'}>
+          <RadioGroupItem className="border-0" value={"5"}>
             5
           </RadioGroupItem>
         </RadioGroup>
@@ -148,7 +148,7 @@ const Ivs = React.memo(
               >
                 <strong className="text-lg text-foreground mr-1">
                   {value}
-                </strong>{' '}
+                </strong>{" "}
                 1x31 IV in
               </Label>
               <Select
@@ -176,5 +176,5 @@ const Ivs = React.memo(
   },
 )
 
-Ivs.displayName = 'Ivs'
+Ivs.displayName = "Ivs"
 export { Ivs }
