@@ -1,6 +1,6 @@
 import { NatureType, Pokemon } from "@/data/types"
 import { ValueOf } from "next/dist/shared/lib/constants"
-import { IV } from "../_context/types"
+import type { IV } from "@/context/types"
 import { Gender } from "./consts"
 
 export type GenderType = ValueOf<typeof Gender>

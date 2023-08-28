@@ -1,13 +1,15 @@
 "use client"
-import { usePokemonToBreed } from "../_context/hooks"
+import { usePokemonToBreed } from "@/context/hooks"
 import { columnsPerRow } from "./consts"
 import PokemonSelect from "./select"
 import { Position } from "./types"
 import { useBreedMap } from "./use-breed-map"
+import { getPokemonByName } from "@/actions/pokemon-by-name"
 
-const PokemonTree = (props: {
+function PokemonTree(props: {
   pokemons: Array<{ name: string; number: number }>
-}) => {
+  getPokemonByName: typeof getPokemonByName
+}) {
   const { pokemon, nature, ivs } = usePokemonToBreed()
 
   const ivsArray = Object.values(ivs).filter(Boolean)
@@ -38,6 +40,7 @@ const PokemonTree = (props: {
             <div key={`row:${row}col:${column}`}>
               {props.pokemons && (
                 <PokemonSelect
+                  getPokemonByName={getPokemonByName}
                   pokemons={props.pokemons}
                   position={`${row},${column}` as Position}
                   set={breedMap.set}
@@ -52,10 +55,16 @@ const PokemonTree = (props: {
   )
 }
 
-export const PokemonToBreedTree = (props: {
+export function PokemonToBreedTree(props: {
   pokemons: Array<{ name: string; number: number }>
-}) => {
+  getPokemonByName: typeof getPokemonByName
+}) {
   const ctx = usePokemonToBreed()
   if (!ctx.pokemon || !ctx.ivs) return null
-  return <PokemonTree pokemons={props.pokemons} />
+  return (
+    <PokemonTree
+      getPokemonByName={getPokemonByName}
+      pokemons={props.pokemons}
+    />
+  )
 }

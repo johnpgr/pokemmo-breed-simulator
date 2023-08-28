@@ -5,7 +5,7 @@ import { BreedNode, Position, BreedMap } from "./types"
 import { useMount } from "@/lib/hooks/use-mount"
 import { NatureType } from "@/data/types"
 import { LastRowMapping, columnsPerRow, pokemonIVsPositions } from "./consts"
-import { IV } from "../_context/types"
+import type { IV } from "@/context/types"
 
 export function useBreedMap(props: {
   selectedPokemonIVs: {

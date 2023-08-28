@@ -7,7 +7,7 @@ import { IPokemonToBreedContext, IV } from "./types"
 export const PokemonToBreedContextPrimitive =
   React.createContext<IPokemonToBreedContext>({} as IPokemonToBreedContext)
 
-export const PokemonToBreedContext = (props: { children: React.ReactNode }) => {
+export function PokemonToBreedContext(props: { children: React.ReactNode }) {
   const [pokemon, setPokemon] = React.useState<Pokemon | null>(null)
   const [nature, setNature] = React.useState<NatureType | null>(null)
   const [ivs, setIvs] = React.useState<{

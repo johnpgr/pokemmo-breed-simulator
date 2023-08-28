@@ -1,21 +1,23 @@
 "use client"
 
-import { Button } from "@/app/_components/ui/button"
-import { usePokemonToBreed } from "@/app/_context/hooks"
-import { IV } from "@/app/_context/types"
+import { Button } from "@/components/ui/button"
+import { usePokemonToBreed } from "@/context/hooks"
+import { IV } from "@/context/types"
 import { NatureType, Pokemon } from "@/data/types"
 import React from "react"
-import { Ivs } from "./ivs"
+import Ivs from "./ivs"
 import { NatureSelect } from "./nature"
-import { Species } from "./species"
-import { useToast } from "@/app/_components/ui/use-toast"
+import Species from "./species"
+import { useToast } from "@/components/ui/use-toast"
+import { getPokemonByName } from "@/actions/pokemon-by-name"
 
-export const PokemonToBreedSelector = (props: {
+export function PokemonToBreedSelector(props: {
   pokemons: Array<{
     name: string
     number: number
   }>
-}) => {
+  getPokemonByName: typeof getPokemonByName
+}) {
   const ctx = usePokemonToBreed()
   const { toast } = useToast()
   const [currentSelectValues, setCurrentSelectValues] = React.useState<
@@ -69,8 +71,9 @@ export const PokemonToBreedSelector = (props: {
         <div className="flex w-full flex-col gap-2">
           <Species
             pokemons={props.pokemons}
+            pokemon={pokemon}
             setPokemon={setPokemon}
-            selected={pokemon?.name}
+            getPokemonByName={getPokemonByName}
           />
           <NatureSelect
             checked={natured}

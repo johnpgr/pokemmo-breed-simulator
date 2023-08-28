@@ -1,24 +1,24 @@
-import { Button } from "@/app/_components/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Command,
   CommandInput,
   CommandGroup,
   CommandEmpty,
   CommandItem,
-} from "@/app/_components/ui/command"
+} from "@/components/ui/command"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/app/_components/ui/popover"
-import { ScrollArea } from "@/app/_components/ui/scroll-area"
-import { Switch } from "@/app/_components/ui/switch"
+} from "@/components/ui/popover"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Switch } from "@/components/ui/switch"
 import { NatureType, Nature } from "@/data/types"
 import { capitalize, randomString } from "@/lib/utils"
 import { Check, ChevronsUpDown } from "lucide-react"
 import React from "react"
 
-export const NatureSelect = ({
+export function NatureSelect({
   nature,
   setNature,
   checked,
@@ -28,7 +28,7 @@ export const NatureSelect = ({
   setNature: React.Dispatch<React.SetStateAction<NatureType | null>>
   checked: boolean
   onCheckedChange: (checked: boolean) => void
-}) => {
+}) {
   const [search, setSearch] = React.useState("")
   const [isOpen, setIsOpen] = React.useState(false)
 

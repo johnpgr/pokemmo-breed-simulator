@@ -1,7 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { BASE_SPRITES_URL } from "./consts"
-import { Pokemon } from "@/data/types"
 
 export function cn(...inputs: Array<ClassValue>) {
   return twMerge(clsx(inputs))
@@ -24,11 +23,6 @@ export function parseNames(name: string) {
     default:
       return name
   }
-}
-
-export async function getPokemonByName(name: string) {
-  const res = await fetch(`http://localhost:3000/api/pokemons/${name}`)
-  return res.json() as Promise<Pokemon>
 }
 
 export function randomString(length: number) {

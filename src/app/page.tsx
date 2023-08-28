@@ -1,7 +1,8 @@
 import pokemons from "@/data/data.json"
-import { PokemonToBreedContext } from "./_context"
-import { PokemonToBreedTree } from "./_breeding/tree"
-import { PokemonToBreedSelector } from "./_breeding/poke-to-breed-form"
+import { PokemonToBreedContext } from "../context"
+import { PokemonToBreedSelector } from "@/breeding/form"
+import { PokemonToBreedTree } from "@/breeding/tree"
+import { getPokemonByName } from "@/actions/pokemon-by-name"
 
 export const runtime = "edge"
 
@@ -12,8 +13,14 @@ export default async function HomePage() {
   }))
   return (
     <PokemonToBreedContext>
-      <PokemonToBreedSelector pokemons={_pokemons} />
-      <PokemonToBreedTree pokemons={_pokemons} />
+      <PokemonToBreedSelector
+        getPokemonByName={getPokemonByName}
+        pokemons={_pokemons}
+      />
+      <PokemonToBreedTree
+        getPokemonByName={getPokemonByName}
+        pokemons={_pokemons}
+      />
     </PokemonToBreedContext>
   )
 }

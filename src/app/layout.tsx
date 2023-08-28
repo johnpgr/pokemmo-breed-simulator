@@ -3,10 +3,10 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 
 import "./globals.css"
-import { ThemeProvider } from "./_providers/themes"
-import { ModeToggle } from "./_components/mode-toggle"
+import { ThemeProvider } from "../components/providers/themes"
+import { ThemeToggle } from "../components/theme-toggle"
 import { cn } from "@/lib/utils"
-import { Toaster } from "./_components/ui/toaster"
+import { Toaster } from "../components/ui/toaster"
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -29,7 +29,7 @@ export default function Layout(props: { children: React.ReactNode }) {
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header className="mb-4">
-            <ModeToggle />
+            <ThemeToggle />
           </header>
           {props.children}
           <Toaster />
