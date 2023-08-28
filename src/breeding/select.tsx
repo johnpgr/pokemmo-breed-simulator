@@ -26,12 +26,11 @@ import {
   randomString,
 } from "@/lib/utils"
 import { For, block } from "million/react"
-import React, { Fragment, useId, useState } from "react"
+import React from "react"
 import type { BreedNode, BreedNodeSetter, GenderType, Position } from "./types"
 import { Switch } from "@/components/ui/switch"
 import { Gender } from "./consts"
-import { Male } from "@/components/icons/male"
-import { Female } from "@/components/icons/female"
+import { Male, Female } from "@/components/icons"
 
 export const PokemonSelect = block(
   (props: {
@@ -44,15 +43,16 @@ export const PokemonSelect = block(
     get: (key: Position) => BreedNode | null
     getPokemonByName: typeof getPokemonByName
   }) => {
-    const id = useId()
+    const id = React.useId()
     const { pokemon: pokemonToBreed } = usePokemonToBreed()
     const isPokemonToBreed = props.position === "0,0"
 
-    const [search, setSearch] = useState("")
-    const [isOpen, setIsOpen] = useState(false)
-    const [gender, setGender] = useState<GenderType>(Gender.MALE)
-    const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null)
-    const [currentNode, setCurrentNode] = useState<BreedNode | null>(null)
+    const [search, setSearch] = React.useState("")
+    const [isOpen, setIsOpen] = React.useState(false)
+    const [gender, setGender] = React.useState<GenderType>(Gender.MALE)
+    const [selectedPokemon, setSelectedPokemon] =
+      React.useState<Pokemon | null>(null)
+    const [currentNode, setCurrentNode] = React.useState<BreedNode | null>(null)
 
     async function handleSelectPokemon(name: string) {
       const pokemon = await props.getPokemonByName(name)
@@ -141,7 +141,7 @@ export const PokemonSelect = block(
                   )}
                 >
                   {(pokemon) => (
-                    <Fragment key={`${id}:${pokemon.name}`}>
+                    <React.Fragment key={`${id}:${pokemon.name}`}>
                       <CommandItem
                         value={pokemon.name}
                         onSelect={handleSelectPokemon}
@@ -150,7 +150,7 @@ export const PokemonSelect = block(
                         {parseNames(pokemon.name)}
                       </CommandItem>
                       <Separator />
-                    </Fragment>
+                    </React.Fragment>
                   )}
                 </For>
               </ScrollArea>

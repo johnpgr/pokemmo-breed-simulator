@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React from "react"
 import { BreedNode, Position, BreedMap } from "./types"
 import { useMount } from "@/lib/hooks/use-mount"
 import { NatureType } from "@/data/types"
@@ -19,7 +19,7 @@ export function useBreedMap(props: {
   pokemonToBreed: BreedNode
   nature: NatureType | null
 }) {
-  const [map, setMap] = useState<BreedMap>({
+  const [map, setMap] = React.useState<BreedMap>({
     "0,0": props.pokemonToBreed,
   } as BreedMap)
 
@@ -41,7 +41,7 @@ export function useBreedMap(props: {
     }))
   }
 
-  function setLastRowIvs(map: BreedMap, lastRowMapping: LastRowMapping) {
+  function setLastRow(map: BreedMap, lastRowMapping: LastRowMapping) {
     Object.entries(lastRowMapping).forEach(([key, value]) => {
       if (value === "nature") {
         map[key as Position] = {
@@ -69,7 +69,7 @@ export function useBreedMap(props: {
    * It will set the remaining rows of the map with the correct IVs based on their parents. (Pokemon's that are directly above them in the breed tree)
    * Iterates through all rows starting from the second last row and inserts the correct IVs based on the two direct parents.
    */
-  function setRemainingRowsIvs(map: BreedMap) {
+  function setRemainingRows(map: BreedMap) {
     const numberOfRows = props.nature
       ? props.numberOf31IvPokemon + 1
       : props.numberOf31IvPokemon
@@ -86,8 +86,13 @@ export function useBreedMap(props: {
         const parent1 = map[parent1Pos]
         const parent2 = map[parent2Pos]
 
-        const ivs =
-          parent1.ivs && parent2.ivs ? [...parent1.ivs, ...parent2.ivs] : null
+        const ivs: Array<IV> = []
+        if (parent1?.ivs) ivs.push(...parent1.ivs)
+        if (parent2?.ivs) ivs.push(...parent2.ivs)
+
+        let nature: NatureType | null = null
+        if (parent1?.nature) nature = parent1.nature
+        if (parent2?.nature) nature = parent2.nature
 
         map[key] = {
           pokemon: null,
@@ -95,7 +100,7 @@ export function useBreedMap(props: {
           gender: null,
           ivs: Array.from(new Set(ivs)),
           //TODO: Set nature if parent is natured.
-          nature: null,
+          nature,
         }
       }
     }
@@ -108,8 +113,8 @@ export function useBreedMap(props: {
 
     const map: BreedMap = {} as BreedMap
 
-    setLastRowIvs(map, lastRowMapping)
-    setRemainingRowsIvs(map)
+    setLastRow(map, lastRowMapping)
+    setRemainingRows(map)
 
     setMap((prevMap) => ({
       ...prevMap,
