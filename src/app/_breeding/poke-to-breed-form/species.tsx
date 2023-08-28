@@ -26,10 +26,10 @@ export const Species = block(
     setPokemon,
     selected,
   }: {
-    pokemons: {
+    pokemons: Array<{
       name: string
       number: number
-    }[]
+    }>
     setPokemon: React.Dispatch<React.SetStateAction<Pokemon | null>>
     selected: string | undefined
   }) => {

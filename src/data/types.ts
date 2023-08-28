@@ -1,8 +1,8 @@
 export type Pokemon = {
   pokedexNumber: number
   name: string
-  types: PokemonType[]
-  eggTypes: EggType[]
+  types: Array<PokemonType>
+  eggTypes: Array<EggType>
   percentageMale: number
 }
 

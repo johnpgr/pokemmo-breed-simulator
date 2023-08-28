@@ -64,7 +64,7 @@ function parseName(name: string): string {
 }
 
 ;(() => {
-  const pokemons: Pokemon[] = []
+  const pokemons: Array<Pokemon> = []
 
   fs.createReadStream(path.resolve(__dirname, "pokemon_data.csv"), "utf8")
     .pipe(
@@ -86,7 +86,7 @@ function parseName(name: string): string {
         eggTypes: [
           parseEggType(row["egg_type_1"]),
           parseEggType(row["egg_type_2"]),
-        ].filter(Boolean) as EggType[],
+        ].filter(Boolean) as Array<EggType>,
         percentageMale: parseFloat(row["percentage_male"]),
       }
 

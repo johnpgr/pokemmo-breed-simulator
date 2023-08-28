@@ -9,7 +9,7 @@ export type BreedNode = {
   pokemon: Pokemon | null
   gender: GenderType | null
   parents: [Position, Position] | null
-  ivs: IV[] | null
+  ivs: Array<IV> | null
   nature: NatureType | null
 }
 

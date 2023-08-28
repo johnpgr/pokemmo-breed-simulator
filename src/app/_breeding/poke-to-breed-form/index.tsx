@@ -11,23 +11,19 @@ import { Species } from "./species"
 import { useToast } from "@/app/_components/ui/use-toast"
 
 export const PokemonToBreedSelector = (props: {
-  pokemons: {
+  pokemons: Array<{
     name: string
     number: number
-  }[]
+  }>
 }) => {
   const ctx = usePokemonToBreed()
   const { toast } = useToast()
-  const [currentSelectValues, setCurrentSelectValues] = React.useState<IV[]>([
-    "hp",
-    "attack",
-    "defense",
-    "specialDefense",
-    "speed",
-  ])
+  const [currentSelectValues, setCurrentSelectValues] = React.useState<
+    Array<IV>
+  >(["hp", "attack", "defense", "specialDefense", "speed"])
   const [numberOf31IVs, setNumberOf31IVs] = React.useState<2 | 3 | 4 | 5>(2)
   const [pokemon, setPokemon] = React.useState<Pokemon | null>(null)
-  const [ivs, setIvs] = React.useState<IV[]>(["hp", "attack"])
+  const [ivs, setIvs] = React.useState<Array<IV>>(["hp", "attack"])
   const [natured, setNatured] = React.useState(false)
   const [nature, setNature] = React.useState<NatureType | null>(null)
 

@@ -20,7 +20,7 @@ const ivs = [
   "specialAttack",
   "specialDefense",
   "speed",
-] satisfies IV[]
+] satisfies Array<IV>
 
 const Ivs = React.memo(
   ({
@@ -32,9 +32,9 @@ const Ivs = React.memo(
     setNumberOf31IVs,
   }: {
     natured: boolean
-    setIvs: React.Dispatch<React.SetStateAction<IV[]>>
-    currentSelectValues: IV[]
-    setCurrentSelectValues: React.Dispatch<React.SetStateAction<IV[]>>
+    setIvs: React.Dispatch<React.SetStateAction<Array<IV>>>
+    currentSelectValues: Array<IV>
+    setCurrentSelectValues: React.Dispatch<React.SetStateAction<Array<IV>>>
     numberOf31IVs: 2 | 3 | 4 | 5
     setNumberOf31IVs: React.Dispatch<React.SetStateAction<2 | 3 | 4 | 5>>
   }) => {
@@ -109,7 +109,7 @@ const Ivs = React.memo(
       value: IV,
       currentValueIndex: number,
     ) {
-      const currentSelects: IV[] = []
+      const currentSelects: Array<IV> = []
 
       for (let i = 0; i < numberOf31IVs; i++) {
         if (i === currentValueIndex) continue

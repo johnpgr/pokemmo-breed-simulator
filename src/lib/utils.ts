@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge"
 import { BASE_SPRITES_URL } from "./consts"
 import { Pokemon } from "@/data/types"
 
-export function cn(...inputs: ClassValue[]) {
+export function cn(...inputs: Array<ClassValue>) {
   return twMerge(clsx(inputs))
 }
 

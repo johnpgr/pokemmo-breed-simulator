@@ -6,7 +6,7 @@ import { Position } from "./types"
 import { useBreedMap } from "./use-breed-map"
 
 const PokemonTree = (props: {
-  pokemons: { name: string; number: number }[]
+  pokemons: Array<{ name: string; number: number }>
 }) => {
   const { pokemon, nature, ivs } = usePokemonToBreed()
 
@@ -53,7 +53,7 @@ const PokemonTree = (props: {
 }
 
 export const PokemonToBreedTree = (props: {
-  pokemons: { name: string; number: number }[]
+  pokemons: Array<{ name: string; number: number }>
 }) => {
   const ctx = usePokemonToBreed()
   if (!ctx.pokemon || !ctx.ivs) return null

@@ -23,10 +23,10 @@ import { usePokemonToBreed } from "../_context/hooks"
 
 const PokemonSelect = block(
   (props: {
-    pokemons: {
+    pokemons: Array<{
       name: string
       number: number
-    }[]
+    }>
     position: Position
     set: (key: Position, value: BreedNode | null) => void
   }) => {

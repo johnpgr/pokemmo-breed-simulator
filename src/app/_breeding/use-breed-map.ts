@@ -41,10 +41,10 @@ export function useBreedMap(props: {
     }))
   }
 
-  function setFirstRowIvs(lastRowMapping: LastRowMapping, lastRow: BreedMap) {
+  function setLastRowIvs(map: BreedMap, lastRowMapping: LastRowMapping) {
     Object.entries(lastRowMapping).forEach(([key, value]) => {
       if (value === "nature") {
-        lastRow[key as Position] = {
+        map[key as Position] = {
           nature: props.nature,
           ivs: null,
           gender: null,
@@ -54,7 +54,7 @@ export function useBreedMap(props: {
         return
       }
       if (props.selectedPokemonIVs[value]) {
-        lastRow[key as Position] = {
+        map[key as Position] = {
           pokemon: null,
           parents: null,
           gender: null,
@@ -84,12 +84,6 @@ export function useBreedMap(props: {
         const parent2Pos = `${row + 1},${col * 2 + 1}` as Position
         const parent1 = map[parent1Pos]
         const parent2 = map[parent2Pos]
-        // console.log({
-        //   parent1Pos,
-        //   parent2Pos,
-        //   parent1,
-        //   parent2,
-        // })
 
         const ivs =
           parent1.ivs && parent2.ivs ? [...parent1.ivs, ...parent2.ivs] : null
@@ -113,7 +107,7 @@ export function useBreedMap(props: {
 
     const map: BreedMap = {} as BreedMap
 
-    setFirstRowIvs(lastRowMapping, map)
+    setLastRowIvs(map, lastRowMapping)
     setRemainingRowsIvs(map)
 
     setMap((prevMap) => ({
