@@ -15,7 +15,12 @@ import {
 } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
-import { getSprite, parseNames, randomString } from "@/lib/utils"
+import {
+  camelToSpacedPascal,
+  getSprite,
+  parseNames,
+  randomString,
+} from "@/lib/utils"
 import { For, block } from "million/react"
 import { Fragment, useEffect, useId, useState } from "react"
 import type { BreedNode, GenderType, Position } from "./types"
@@ -55,6 +60,7 @@ export const PokemonSelect = block(
       if (!pokemon) return
 
       setSelectedPokemon(pokemon)
+      //TODO: Implement the set of this pokemon node
       // props.set(props.position, {
       //   gender,
       //   pokemon,
@@ -138,21 +144,20 @@ export const PokemonSelect = block(
 
 function CurrentNodeInformationCard(props: { currentNode: BreedNode }) {
   return (
-    <Card className="absolute w-48 -ml-52">
-      <CardHeader>
+    <Card className="absolute w-64 -ml-[264px]">
+      <CardHeader className="pb-2 pt-4">
         <CardTitle className="text-lg">
           {props.currentNode.pokemon?.name ?? "Unselected"}
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pb-4 pt-2">
         <span>IVs</span>
         <div className="flex gap-2">
           {props.currentNode.ivs?.map((iv) => (
-            <span key={randomString(4)} className="capitalize">
-              {iv}
-            </span>
+            <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
           ))}
         </div>
+        {props.currentNode.nature && <i>{props.currentNode.nature}</i>}
       </CardContent>
     </Card>
   )
