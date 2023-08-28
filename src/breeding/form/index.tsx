@@ -7,7 +7,7 @@ import { NatureType, Pokemon } from "@/data/types"
 import React from "react"
 import Ivs from "./ivs"
 import { NatureSelect } from "./nature"
-import Species from "./species"
+import { Species } from "./species"
 import { useToast } from "@/components/ui/use-toast"
 import { getPokemonByName } from "@/actions/pokemon-by-name"
 

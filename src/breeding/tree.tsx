@@ -1,7 +1,7 @@
 "use client"
 import { usePokemonToBreed } from "@/context/hooks"
 import { columnsPerRow } from "./consts"
-import PokemonSelect from "./select"
+import { PokemonSelect } from "./select"
 import { Position } from "./types"
 import { useBreedMap } from "./use-breed-map"
 import { getPokemonByName } from "@/actions/pokemon-by-name"
@@ -44,6 +44,7 @@ function PokemonTree(props: {
                   pokemons={props.pokemons}
                   position={`${row},${column}` as Position}
                   set={breedMap.set}
+                  get={breedMap.get}
                 />
               )}
             </div>

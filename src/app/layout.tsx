@@ -15,7 +15,7 @@ const fontSans = Inter({
 
 export const metadata: Metadata = {
   title: "Pokemmo breed planner",
-  description: "A tool to help you plan your pokemon breeding",
+  description: "A tool to help you plan your pokemmo breeding",
 }
 
 export default function Layout(props: { children: React.ReactNode }) {
