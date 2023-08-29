@@ -166,14 +166,7 @@ export const PokemonSelect = block(
               currentNode={currentNode}
               gender={gender}
               setGender={handleChangeGender}
-            >
-              <Button
-                className="mt-4"
-                onClick={() => console.log(props.get(props.position))}
-              >
-                Debug
-              </Button>
-            </CurrentNodeInformationCard>
+            />
           ) : null}
           {!isPokemonToBreed ? (
             <Command className="w-72 border">
@@ -229,6 +222,7 @@ export const PokemonSelect = block(
   },
 )
 
+//TODO: Improve the UI on this.
 function CurrentNodeInformationCard(props: {
   currentNode: BreedNode
   gender: GenderType | null
@@ -246,12 +240,23 @@ function CurrentNodeInformationCard(props: {
         </CardTitle>
       </CardHeader>
       <CardContent className="gap-4 flex flex-col items-center">
-        {props.currentNode.ivs?.map((iv) => (
-          <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
-        ))}
+        <div className="flex flex-col gap-1 items-center">
+          <p>Ivs:</p>
+          {props.currentNode.ivs?.map((iv) => (
+            <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
+          ))}
+        </div>
         {props.currentNode.nature && (
           <i className="block">{props.currentNode.nature}</i>
         )}
+        {props.currentNode.pokemon ? (
+          <div className="text-center flex flex-col gap-1">
+            <p>Egg Groups:</p>
+            {props.currentNode.pokemon.eggTypes.map((egg) => (
+              <span key={randomString(3)}>{egg}</span>
+            ))}
+          </div>
+        ) : null}
         <div className="flex gap-2">
           <Male className="fill-blue-500 h-6 w-fit" />
           <Switch
