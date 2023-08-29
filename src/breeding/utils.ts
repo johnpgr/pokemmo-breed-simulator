@@ -6,3 +6,39 @@ export function parsePosition(pos: Position) {
 }
 
 export const genderlessEggtypes = ["Ditto", "Genderless"] as const
+
+/**
+ * This is for getting valid breeding pokemon of a specified genderless species
+ */
+export class GenderlessPokemonEvolutionTree {
+  static readonly Magnemite = ["Magnemite", "Magneton", "Magnezone"]
+  static readonly Magneton = this.Magnemite
+  static readonly Magnezone = this.Magnemite
+
+  static readonly Staryu = ["Staryu", "Starmie"]
+  static readonly Starmie = this.Staryu
+
+  static readonly Bronzor = ["Bronzor", "Bronzong"]
+  static readonly Bronzong = this.Bronzor
+
+  static readonly Beldum = ["Beldum", "Metang", "Metagross"]
+  static readonly Metang = this.Beldum
+  static readonly Metagross = this.Beldum
+
+  static readonly Baltoy = ["Baltoy", "Claydol"]
+  static readonly Claydol = this.Baltoy
+
+  static readonly Voltorb = ["Voltorb", "Electrode"]
+  static readonly Electrode = this.Voltorb
+
+  static readonly Porygon = ["Porygon", "Porygon2", "Porygon-Z"]
+  static readonly Porygon2 = this.Porygon
+  static readonly "Porygon-Z" = this.Porygon
+
+  static readonly Klink = ["Klink", "Klang", "Klinklang"]
+  static readonly Klang = this.Klink
+  static readonly Klinklang = this.Klink
+
+  static readonly Golett = ["Golett", "Golurk"]
+  static readonly Golurk = this.Golett
+}

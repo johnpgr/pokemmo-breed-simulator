@@ -1,9 +1,9 @@
-import pokemons from "@/data/data.json"
-import { PokemonToBreedContext } from "../context"
-import { PokemonToBreedSelector } from "@/breeding/form"
-import { PokemonToBreedTree } from "@/breeding/tree"
 import { getPokemonByName } from "@/actions/pokemon-by-name"
-import { EggType, PokemonSelectList } from "@/data/types"
+import { PokemonToBreedSelector } from "@/breeding/form"
+import { PokemonToBreedTree } from "@/breeding/pokemon-tree"
+import pokemons from "@/data/data.json"
+import { IEggType, PokemonSelectList } from "@/data/types"
+import { PokemonToBreedContext } from "../context"
 
 export const runtime = "edge"
 
@@ -11,7 +11,7 @@ export default async function HomePage() {
   const _pokemons = pokemons.map((pokemon) => ({
     name: pokemon.name,
     number: pokemon.pokedexNumber,
-    eggTypes: pokemon.eggTypes as Array<EggType>,
+    eggTypes: pokemon.eggTypes as Array<IEggType>,
   })) satisfies PokemonSelectList
 
   return (

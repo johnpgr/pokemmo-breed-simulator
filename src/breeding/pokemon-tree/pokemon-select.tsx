@@ -25,13 +25,15 @@ import {
   camelToSpacedPascal,
   getSprite,
   parseNames,
+  raise,
   randomString,
 } from "@/lib/utils"
-import { Loader2 } from "lucide-react"
+import { Loader } from "lucide-react"
 import { For, block } from "million/react"
 import React from "react"
-import { Gender } from "./consts"
-import type { BreedNode, BreedNodeSetter, GenderType, Position } from "./types"
+import { Gender } from "../consts"
+import type { BreedNode, BreedNodeSetter, GenderType, Position } from "../types"
+import { GenderlessPokemonEvolutionTree } from "../utils"
 
 function filterPokemonByEggGroups(
   list: PokemonSelectList,
@@ -39,18 +41,18 @@ function filterPokemonByEggGroups(
 ): PokemonSelectList {
   const newList: PokemonSelectList = []
 
-  const ditto = list.find((poke) => poke.name === "Ditto")
-  if (!ditto) throw new Error("Ditto should be defined")
+  const ditto =
+    list.find((poke) => poke.name === "Ditto") ??
+    raise("Ditto should be defined")
 
   newList.push(ditto)
 
   if (currentPokemon.eggTypes.includes("Genderless")) {
-    newList.push({
-      eggTypes: currentPokemon.eggTypes,
-      name: currentPokemon.name,
-      number: currentPokemon.pokedexNumber,
-    })
-    return newList
+    const breedable = GenderlessPokemonEvolutionTree[
+      currentPokemon.name as keyof typeof GenderlessPokemonEvolutionTree
+    ] as Array<string>
+
+    return newList.concat(list.filter((poke) => breedable.includes(poke.name)))
   }
 
   list.forEach((pokemon) => {
@@ -193,7 +195,7 @@ export const PokemonSelect = block(
                 <ScrollArea className="h-72">
                   {pending ? (
                     <div className="h-full w-full flex items-center justify-center">
-                      <Loader2 className="animate-spin text-primary" />
+                      <Loader className="animate-spin text-primary" />
                     </div>
                   ) : (
                     <For

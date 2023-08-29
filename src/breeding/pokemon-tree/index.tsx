@@ -3,10 +3,10 @@ import { getPokemonByName } from "@/actions/pokemon-by-name"
 import { Button } from "@/components/ui/button"
 import { usePokemonToBreed } from "@/context/hooks"
 import { PokemonSelectList } from "@/data/types"
-import { columnsPerRow } from "./consts"
-import { PokemonSelect } from "./select"
-import { BreedNodeSetter, Position } from "./types"
-import { useBreedMap } from "./use-breed-map"
+import { columnsPerRow } from "../consts"
+import { PokemonSelect } from "./pokemon-select"
+import { BreedNodeSetter, Position } from "../types"
+import { useBreedMap } from "../use-breed-map"
 
 function PokemonTree(props: {
   pokemons: PokemonSelectList
