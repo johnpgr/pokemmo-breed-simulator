@@ -78,7 +78,7 @@ export function useBreedMap(props: {
     for (let row = numberOfRows - 2; row > 0; row--) {
       // Iterate through all columns in the current row.
       for (let col = 0; col < columnsPerRow[row]; col++) {
-        console.log({ row, col })
+        // console.log({ row, col })
         const key = `${row},${col}` as Position
 
         const parent1Pos = `${row + 1},${col * 2}` as Position

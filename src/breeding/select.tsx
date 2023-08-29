@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button"
 
 import type { getPokemonByName } from "@/actions/pokemon-by-name"
+import { Female, Male } from "@/components/icons"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Command,
@@ -17,6 +18,7 @@ import {
 } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
+import { Switch } from "@/components/ui/switch"
 import { usePokemonToBreed } from "@/context/hooks"
 import { Pokemon } from "@/data/types"
 import {
@@ -27,10 +29,8 @@ import {
 } from "@/lib/utils"
 import { For, block } from "million/react"
 import React from "react"
-import type { BreedNode, BreedNodeSetter, GenderType, Position } from "./types"
-import { Switch } from "@/components/ui/switch"
 import { Gender } from "./consts"
-import { Male, Female } from "@/components/icons"
+import type { BreedNode, BreedNodeSetter, GenderType, Position } from "./types"
 
 export const PokemonSelect = block(
   (props: {
@@ -85,10 +85,7 @@ export const PokemonSelect = block(
     }
 
     return (
-      <Popover
-        open={isPokemonToBreed ? false : isOpen}
-        onOpenChange={handleOpenPopover}
-      >
+      <Popover open={isOpen} onOpenChange={handleOpenPopover}>
         <PopoverTrigger asChild>
           <Button
             size={"icon"}
@@ -110,7 +107,7 @@ export const PokemonSelect = block(
             ) : null}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="p-0 relative">
+        <PopoverContent className="p-0 flex gap-4 max-w-lg w-full border-none bg-none shadow-none">
           {currentNode ? (
             <CurrentNodeInformationCard
               currentNode={currentNode}
@@ -125,37 +122,39 @@ export const PokemonSelect = block(
               </Button>
             </CurrentNodeInformationCard>
           ) : null}
-          <Command>
-            <CommandInput
-              placeholder="Search pokemon..."
-              value={search}
-              onValueChange={setSearch}
-              data-cy="search-pokemon-input"
-            />
-            <CommandEmpty>No results</CommandEmpty>
-            <CommandGroup>
-              <ScrollArea className="h-72">
-                <For
-                  each={props.pokemons.filter((pokemon) =>
-                    pokemon.name.toLowerCase().includes(search.toLowerCase()),
-                  )}
-                >
-                  {(pokemon) => (
-                    <React.Fragment key={`${id}:${pokemon.name}`}>
-                      <CommandItem
-                        value={pokemon.name}
-                        onSelect={handleSelectPokemon}
-                        data-cy={`${pokemon.name}-value`}
-                      >
-                        {parseNames(pokemon.name)}
-                      </CommandItem>
-                      <Separator />
-                    </React.Fragment>
-                  )}
-                </For>
-              </ScrollArea>
-            </CommandGroup>
-          </Command>
+          {!isPokemonToBreed ? (
+            <Command className="w-64 border">
+              <CommandInput
+                placeholder="Search pokemon..."
+                value={search}
+                onValueChange={setSearch}
+                data-cy="search-pokemon-input"
+              />
+              <CommandEmpty>No results</CommandEmpty>
+              <CommandGroup>
+                <ScrollArea className="h-72">
+                  <For
+                    each={props.pokemons.filter((pokemon) =>
+                      pokemon.name.toLowerCase().includes(search.toLowerCase()),
+                    )}
+                  >
+                    {(pokemon) => (
+                      <React.Fragment key={`${id}:${pokemon.name}`}>
+                        <CommandItem
+                          value={pokemon.name}
+                          onSelect={handleSelectPokemon}
+                          data-cy={`${pokemon.name}-value`}
+                        >
+                          {parseNames(pokemon.name)}
+                        </CommandItem>
+                        <Separator />
+                      </React.Fragment>
+                    )}
+                  </For>
+                </ScrollArea>
+              </CommandGroup>
+            </Command>
+          ) : null}
         </PopoverContent>
       </Popover>
     )
@@ -172,29 +171,27 @@ function CurrentNodeInformationCard(props: {
     props.setGender(value ? Gender.FEMALE : Gender.MALE)
   }
   return (
-    <Card className="absolute w-64 -ml-[264px]">
+    <Card className="w-64 h-fit">
       <CardHeader className="pb-2 pt-4">
-        <CardTitle className="text-lg">
+        <CardTitle className="text-lg text-center">
           {props.currentNode.pokemon?.name ?? "Unselected"}
         </CardTitle>
       </CardHeader>
-      <CardContent className="pb-4 pt-2">
-        <div className="flex flex-col gap-2 mb-2">
-          {props.currentNode.ivs?.map((iv) => (
-            <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
-          ))}
-          {props.currentNode.nature && (
-            <i className="block">{props.currentNode.nature}</i>
-          )}
-          <div className="flex gap-2">
-            <Male className="fill-blue-500 h-6 w-fit" />
-            <Switch
-              className="data-[state=unchecked]:bg-primary"
-              checked={props.gender === Gender.FEMALE}
-              onCheckedChange={onCheckedChange}
-            />
-            <Female className="fill-pink-500 h-6 w-fit -ml-1" />
-          </div>
+      <CardContent className="gap-4 flex flex-col items-center">
+        {props.currentNode.ivs?.map((iv) => (
+          <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
+        ))}
+        {props.currentNode.nature && (
+          <i className="block">{props.currentNode.nature}</i>
+        )}
+        <div className="flex gap-2">
+          <Male className="fill-blue-500 h-6 w-fit" />
+          <Switch
+            className="data-[state=unchecked]:bg-primary"
+            checked={props.gender === Gender.FEMALE}
+            onCheckedChange={onCheckedChange}
+          />
+          <Female className="fill-pink-500 h-6 w-fit -ml-1" />
         </div>
         {props.children}
       </CardContent>
