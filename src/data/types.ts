@@ -74,3 +74,9 @@ export const Nature = {
 type Values<T> = T[keyof T]
 
 export type NatureType = Values<typeof Nature>
+
+export type PokemonSelectList = Array<{
+  name: string
+  number: number
+  eggTypes: Array<EggType>
+}>

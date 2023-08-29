@@ -20,7 +20,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Switch } from "@/components/ui/switch"
 import { usePokemonToBreed } from "@/context/hooks"
-import { Pokemon } from "@/data/types"
+import { EggType, Pokemon, PokemonSelectList } from "@/data/types"
 import {
   camelToSpacedPascal,
   getSprite,
@@ -28,16 +28,24 @@ import {
   randomString,
 } from "@/lib/utils"
 import { For, block } from "million/react"
-import React from "react"
+import React, { useCallback, useDeferredValue } from "react"
 import { Gender } from "./consts"
 import type { BreedNode, BreedNodeSetter, GenderType, Position } from "./types"
+import { Loader2 } from "lucide-react"
+import { useDebounce } from "@/lib/hooks/use-debouce"
+
+function filterPokemonByEggGroups(
+  list: PokemonSelectList,
+  eggGroups: Array<EggType>,
+) {
+  return list.filter((pokemon) => {
+    return pokemon.eggTypes.some((eggType) => eggGroups.includes(eggType))
+  })
+}
 
 export const PokemonSelect = block(
   (props: {
-    pokemons: Array<{
-      name: string
-      number: number
-    }>
+    pokemons: PokemonSelectList
     position: Position
     set: (key: Position, value: BreedNodeSetter) => void
     get: (key: Position) => BreedNode | null
@@ -47,12 +55,16 @@ export const PokemonSelect = block(
     const { pokemon: pokemonToBreed } = usePokemonToBreed()
     const isPokemonToBreed = props.position === "0,0"
 
+    const [searchMode, setSearchMode] = React.useState<"ALL" | "EGG_GROUP">(
+      "ALL",
+    )
     const [search, setSearch] = React.useState("")
     const [isOpen, setIsOpen] = React.useState(false)
     const [gender, setGender] = React.useState<GenderType>(Gender.MALE)
     const [selectedPokemon, setSelectedPokemon] =
       React.useState<Pokemon | null>(null)
     const [currentNode, setCurrentNode] = React.useState<BreedNode | null>(null)
+    const [pending, startTransition] = React.useTransition()
 
     async function handleSelectPokemon(name: string) {
       const pokemon = await props.getPokemonByName(name)
@@ -83,6 +95,24 @@ export const PokemonSelect = block(
       setCurrentNode(currentNode)
       setIsOpen(!!open)
     }
+
+    function handleSearchModeChange() {
+      startTransition(() => {
+        setSearchMode((prev) => (prev === "ALL" ? "EGG_GROUP" : "ALL"))
+      })
+    }
+
+    function handleSearchInputChange(search: string) {
+      setSearch(search)
+    }
+
+    const pokemonList = React.useMemo(
+      () =>
+        searchMode === "ALL"
+          ? props.pokemons
+          : filterPokemonByEggGroups(props.pokemons, pokemonToBreed!.eggTypes),
+      [searchMode, props.pokemons, pokemonToBreed],
+    )
 
     return (
       <Popover open={isOpen} onOpenChange={handleOpenPopover}>
@@ -123,34 +153,49 @@ export const PokemonSelect = block(
             </CurrentNodeInformationCard>
           ) : null}
           {!isPokemonToBreed ? (
-            <Command className="w-64 border">
+            <Command className="w-72 border">
               <CommandInput
                 placeholder="Search pokemon..."
                 value={search}
-                onValueChange={setSearch}
+                onValueChange={handleSearchInputChange}
                 data-cy="search-pokemon-input"
               />
-              <CommandEmpty>No results</CommandEmpty>
+              <div className="flex items-center gap-2 text-xs text-foreground/80 p-1">
+                <Switch
+                  checked={searchMode === "EGG_GROUP"}
+                  onCheckedChange={handleSearchModeChange}
+                />
+                Show only {pokemonToBreed?.name}&apos;s egg groups
+              </div>
+              <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
               <CommandGroup>
                 <ScrollArea className="h-72">
-                  <For
-                    each={props.pokemons.filter((pokemon) =>
-                      pokemon.name.toLowerCase().includes(search.toLowerCase()),
-                    )}
-                  >
-                    {(pokemon) => (
-                      <React.Fragment key={`${id}:${pokemon.name}`}>
-                        <CommandItem
-                          value={pokemon.name}
-                          onSelect={handleSelectPokemon}
-                          data-cy={`${pokemon.name}-value`}
-                        >
-                          {parseNames(pokemon.name)}
-                        </CommandItem>
-                        <Separator />
-                      </React.Fragment>
-                    )}
-                  </For>
+                  {pending ? (
+                    <div className="h-full w-full flex items-center justify-center">
+                      <Loader2 className="animate-spin text-primary" />
+                    </div>
+                  ) : (
+                    <For
+                      each={pokemonList.filter((pokemon) =>
+                        pokemon.name
+                          .toLowerCase()
+                          .includes(search.toLowerCase()),
+                      )}
+                    >
+                      {(pokemon) => (
+                        <React.Fragment key={`${id}:${pokemon.name}`}>
+                          <CommandItem
+                            value={pokemon.name}
+                            onSelect={handleSelectPokemon}
+                            data-cy={`${pokemon.name}-value`}
+                          >
+                            {parseNames(pokemon.name)}
+                          </CommandItem>
+                          <Separator />
+                        </React.Fragment>
+                      )}
+                    </For>
+                  )}
                 </ScrollArea>
               </CommandGroup>
             </Command>

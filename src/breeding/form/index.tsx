@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { usePokemonToBreed } from "@/context/hooks"
 import { IV } from "@/context/types"
-import { NatureType, Pokemon } from "@/data/types"
+import { EggType, NatureType, Pokemon, PokemonSelectList } from "@/data/types"
 import React from "react"
 import Ivs from "./ivs"
 import { NatureSelect } from "./nature"
@@ -12,10 +12,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { getPokemonByName } from "@/actions/pokemon-by-name"
 
 export function PokemonToBreedSelector(props: {
-  pokemons: Array<{
-    name: string
-    number: number
-  }>
+  pokemons: PokemonSelectList
   getPokemonByName: typeof getPokemonByName
 }) {
   const ctx = usePokemonToBreed()

@@ -1,14 +1,15 @@
 "use client"
+import { getPokemonByName } from "@/actions/pokemon-by-name"
+import { Button } from "@/components/ui/button"
 import { usePokemonToBreed } from "@/context/hooks"
+import { PokemonSelectList } from "@/data/types"
 import { columnsPerRow } from "./consts"
 import { PokemonSelect } from "./select"
 import { BreedNodeSetter, Position } from "./types"
 import { useBreedMap } from "./use-breed-map"
-import { getPokemonByName } from "@/actions/pokemon-by-name"
-import { Button } from "@/components/ui/button"
 
 function PokemonTree(props: {
-  pokemons: Array<{ name: string; number: number }>
+  pokemons: PokemonSelectList
   getPokemonByName: typeof getPokemonByName
 }) {
   const { pokemon, nature, ivs } = usePokemonToBreed()
@@ -70,7 +71,7 @@ function PokemonTree(props: {
 }
 
 export function PokemonToBreedTree(props: {
-  pokemons: Array<{ name: string; number: number }>
+  pokemons: PokemonSelectList
   getPokemonByName: typeof getPokemonByName
 }) {
   const ctx = usePokemonToBreed()
