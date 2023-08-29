@@ -20,27 +20,48 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Switch } from "@/components/ui/switch"
 import { usePokemonToBreed } from "@/context/hooks"
-import { EggType, Pokemon, PokemonSelectList } from "@/data/types"
+import { Pokemon, PokemonSelectList } from "@/data/types"
 import {
   camelToSpacedPascal,
   getSprite,
   parseNames,
   randomString,
 } from "@/lib/utils"
+import { Loader2 } from "lucide-react"
 import { For, block } from "million/react"
-import React, { useCallback, useDeferredValue } from "react"
+import React from "react"
 import { Gender } from "./consts"
 import type { BreedNode, BreedNodeSetter, GenderType, Position } from "./types"
-import { Loader2 } from "lucide-react"
-import { useDebounce } from "@/lib/hooks/use-debouce"
 
 function filterPokemonByEggGroups(
   list: PokemonSelectList,
-  eggGroups: Array<EggType>,
-) {
-  return list.filter((pokemon) => {
-    return pokemon.eggTypes.some((eggType) => eggGroups.includes(eggType))
+  currentPokemon: Pokemon,
+): PokemonSelectList {
+  const newList: PokemonSelectList = []
+
+  const ditto = list.find((poke) => poke.name === "Ditto")
+  if (!ditto) throw new Error("Ditto should be defined")
+
+  newList.push(ditto)
+
+  if (currentPokemon.eggTypes.includes("Genderless")) {
+    newList.push({
+      eggTypes: currentPokemon.eggTypes,
+      name: currentPokemon.name,
+      number: currentPokemon.pokedexNumber,
+    })
+    return newList
+  }
+
+  list.forEach((pokemon) => {
+    const compatible = pokemon.eggTypes.some((e) =>
+      currentPokemon.eggTypes.includes(e),
+    )
+    if (!compatible) return
+
+    newList.push(pokemon)
   })
+  return newList
 }
 
 export const PokemonSelect = block(
@@ -110,7 +131,7 @@ export const PokemonSelect = block(
       () =>
         searchMode === "ALL"
           ? props.pokemons
-          : filterPokemonByEggGroups(props.pokemons, pokemonToBreed!.eggTypes),
+          : filterPokemonByEggGroups(props.pokemons, pokemonToBreed!),
       [searchMode, props.pokemons, pokemonToBreed],
     )
 

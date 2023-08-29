@@ -1,47 +1,53 @@
+type Values<T> = T[keyof T]
+
 export type Pokemon = {
   pokedexNumber: number
   name: string
-  types: Array<PokemonType>
-  eggTypes: Array<EggType>
+  types: Array<IPokemonType>
+  eggTypes: Array<IEggType>
   percentageMale: number
 }
 
-export type PokemonType =
-  | "Normal"
-  | "Fire"
-  | "Water"
-  | "Electric"
-  | "Grass"
-  | "Ice"
-  | "Fighting"
-  | "Poison"
-  | "Ground"
-  | "Flying"
-  | "Psychic"
-  | "Bug"
-  | "Rock"
-  | "Ghost"
-  | "Dragon"
-  | "Dark"
-  | "Steel"
+export const PokemonType = {
+  Normal: "Normal",
+  Fire: "Fire",
+  Water: "Water",
+  Electric: "Electric",
+  Grass: "Grass",
+  Ice: "Ice",
+  Fighting: "Fighting",
+  Poison: "Poison",
+  Ground: "Ground",
+  Flying: "Flying",
+  Psychic: "Psychic",
+  Bug: "Bug",
+  Rock: "Rock",
+  Ghost: "Ghost",
+  Dragon: "Dragon",
+  Dark: "Dark",
+  Steel: "Steel",
+} as const
+export type IPokemonType = Values<typeof PokemonType>
 
-export type EggType =
-  | "Monster"
-  | "Water A"
-  | "Water B"
-  | "Water C"
-  | "Bug"
-  | "Flying"
-  | "Field"
-  | "Fairy"
-  | "Plant"
-  | "Humanoid"
-  | "Mineral"
-  | "Chaos"
-  | "Ditto"
-  | "Dragon"
-  | "Cannot Breed"
-  | "Genderless"
+export const EggType = {
+  Monster: "Monster",
+  WaterA: "Water A",
+  WaterB: "Water B",
+  WaterC: "Water C",
+  Bug: "Bug",
+  Flying: "Flying",
+  Field: "Field",
+  Fairy: "Fairy",
+  Plant: "Plant",
+  Humanoid: "Humanoid",
+  Mineral: "Mineral",
+  Chaos: "Chaos",
+  Ditto: "Ditto",
+  Dragon: "Dragon",
+  CannotBreed: "Cannot Breed",
+  Genderless: "Genderless",
+} as const
+export type IEggType = Values<typeof EggType>
 
 export const Nature = {
   Hardy: "Hardy",
@@ -71,12 +77,10 @@ export const Nature = {
   Quirky: "Quirky",
 } as const
 
-type Values<T> = T[keyof T]
-
 export type NatureType = Values<typeof Nature>
 
 export type PokemonSelectList = Array<{
   name: string
   number: number
-  eggTypes: Array<EggType>
+  eggTypes: Array<IEggType>
 }>
