@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 
-import type { getPokemonByName } from "@/actions/pokemon-by-name"
+import type { getPokemonByName as getPokemonByNameFunc } from "@/actions/pokemon-by-name"
 import { Female, Male } from "@/components/icons"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -28,12 +28,15 @@ import {
   raise,
   randomString,
 } from "@/lib/utils"
-import { Loader } from "lucide-react"
+import { HelpCircle, Loader } from "lucide-react"
 import { For, block } from "million/react"
 import React from "react"
 import { Gender } from "../consts"
 import type { BreedNode, BreedNodeSetter, GenderType, Position } from "../types"
 import { GenderlessPokemonEvolutionTree } from "../utils"
+import { IV, IVMap } from "@/context/types"
+import type { useBreedMap } from "../use-breed-map"
+import { Color, IvColorMap } from "./iv-colors"
 
 function filterPokemonByEggGroups(
   list: PokemonSelectList,
@@ -66,17 +69,25 @@ function filterPokemonByEggGroups(
   return newList
 }
 
+function getColorsForCurrentNode(ivs: Array<IV>): Array<Color> {
+  return ivs.map((iv) => IvColorMap[iv])
+}
+
 export const PokemonSelect = block(
-  (props: {
+  ({
+    breedMap,
+    getPokemonByName,
+    pokemons,
+    position,
+  }: {
     pokemons: PokemonSelectList
     position: Position
-    set: (key: Position, value: BreedNodeSetter) => void
-    get: (key: Position) => BreedNode | null
-    getPokemonByName: typeof getPokemonByName
+    breedMap: ReturnType<typeof useBreedMap>
+    getPokemonByName: typeof getPokemonByNameFunc
   }) => {
     const id = React.useId()
-    const { pokemon: pokemonToBreed } = usePokemonToBreed()
-    const isPokemonToBreed = props.position === "0,0"
+    const { pokemon: pokemonToBreed, ivMap } = usePokemonToBreed()
+    const isPokemonToBreed = position === "0,0"
 
     const [searchMode, setSearchMode] = React.useState<"ALL" | "EGG_GROUP">(
       "ALL",
@@ -86,15 +97,32 @@ export const PokemonSelect = block(
     const [gender, setGender] = React.useState<GenderType>(Gender.MALE)
     const [selectedPokemon, setSelectedPokemon] =
       React.useState<Pokemon | null>(null)
-    const [currentNode, setCurrentNode] = React.useState<BreedNode | null>(null)
+    const [currentNode, setCurrentNode] = React.useState<BreedNode | undefined>(
+      undefined,
+    )
+    const [colors, setColors] = React.useState<Array<Color>>([])
     const [pending, startTransition] = React.useTransition()
 
+    /* 
+      This function is used to update the breedMap
+      Since all nodes are already set, we can't just re-set them, we need to first get the node at current position and merge the new values
+     */
+    function setBreedNode(key: Position, value: BreedNodeSetter) {
+      const node = breedMap.get(key)
+      if (!node) return
+
+      breedMap.set(key, {
+        ...node,
+        ...value,
+      })
+    }
+
     async function handleSelectPokemon(name: string) {
-      const pokemon = await props.getPokemonByName(name)
+      const pokemon = await getPokemonByName(name)
       if (!pokemon) return
 
       setSelectedPokemon(pokemon)
-      props.set(props.position, {
+      setBreedNode(position, {
         gender,
         pokemon,
       })
@@ -107,16 +135,10 @@ export const PokemonSelect = block(
 
       if (!selectedPokemon) return
 
-      props.set(props.position, {
+      setBreedNode(position, {
         gender,
         pokemon: selectedPokemon,
       })
-    }
-
-    function handleOpenPopover(open: boolean) {
-      const currentNode = props.get(props.position)
-      setCurrentNode(currentNode)
-      setIsOpen(!!open)
     }
 
     function handleSearchModeChange() {
@@ -132,18 +154,41 @@ export const PokemonSelect = block(
     const pokemonList = React.useMemo(
       () =>
         searchMode === "ALL"
-          ? props.pokemons
-          : filterPokemonByEggGroups(props.pokemons, pokemonToBreed!),
-      [searchMode, props.pokemons, pokemonToBreed],
+          ? pokemons
+          : filterPokemonByEggGroups(pokemons, pokemonToBreed!),
+      [searchMode],
     )
 
+    React.useEffect(() => {
+      if (!currentNode) {
+        const currentNode = breedMap.get(position)
+        setCurrentNode(currentNode)
+      }
+    }, [])
+
+    React.useEffect(() => {
+      if (!currentNode) return
+      if (!currentNode.ivs) return
+      setColors(getColorsForCurrentNode(currentNode.ivs))
+    }, [currentNode])
+
     return (
-      <Popover open={isOpen} onOpenChange={handleOpenPopover}>
+      <Popover open={isOpen} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
           <Button
             size={"icon"}
-            className="rounded-full bg-neutral-300 dark:bg-neutral-800"
+            className="relative rounded-full bg-neutral-300 dark:bg-neutral-800 overflow-hidden"
           >
+            {colors.map((color) => (
+              <div
+                key={randomString(3)}
+                style={{
+                  height: "100%",
+                  backgroundColor: color,
+                  width: 100 / colors.length,
+                }}
+              />
+            ))}
             {selectedPokemon || isPokemonToBreed ? (
               // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
               <img
@@ -155,7 +200,7 @@ export const PokemonSelect = block(
                 style={{
                   imageRendering: "pixelated",
                 }}
-                className="mb-1"
+                className="mb-1 absolute inset-0"
               />
             ) : null}
           </Button>
@@ -236,12 +281,14 @@ function CurrentNodeInformationCard(props: {
     <Card className="w-64 h-fit">
       <CardHeader className="pb-2 pt-4">
         <CardTitle className="text-lg text-center">
-          {props.currentNode.pokemon?.name ?? "Unselected"}
+          {props.currentNode.pokemon?.name ?? (
+            <HelpCircle className="mx-auto" size={32} />
+          )}
         </CardTitle>
       </CardHeader>
       <CardContent className="gap-4 flex flex-col items-center">
         <div className="flex flex-col gap-1 items-center">
-          <p>Ivs:</p>
+          {Boolean(props.currentNode.ivs) ? <p>Ivs:</p> : null}
           {props.currentNode.ivs?.map((iv) => (
             <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
           ))}
@@ -250,22 +297,24 @@ function CurrentNodeInformationCard(props: {
           <i className="block">{props.currentNode.nature}</i>
         )}
         {props.currentNode.pokemon ? (
-          <div className="text-center flex flex-col gap-1">
-            <p>Egg Groups:</p>
-            {props.currentNode.pokemon.eggTypes.map((egg) => (
-              <span key={randomString(3)}>{egg}</span>
-            ))}
-          </div>
+          <React.Fragment>
+            <div className="text-center flex flex-col gap-1">
+              <p>Egg Groups:</p>
+              {props.currentNode.pokemon.eggTypes.map((egg) => (
+                <span key={randomString(3)}>{egg}</span>
+              ))}
+            </div>
+            <div className="flex gap-2">
+              <Male className="fill-blue-500 h-6 w-fit" />
+              <Switch
+                className="data-[state=unchecked]:bg-primary"
+                checked={props.gender === Gender.FEMALE}
+                onCheckedChange={onCheckedChange}
+              />
+              <Female className="fill-pink-500 h-6 w-fit -ml-1" />
+            </div>
+          </React.Fragment>
         ) : null}
-        <div className="flex gap-2">
-          <Male className="fill-blue-500 h-6 w-fit" />
-          <Switch
-            className="data-[state=unchecked]:bg-primary"
-            checked={props.gender === Gender.FEMALE}
-            onCheckedChange={onCheckedChange}
-          />
-          <Female className="fill-pink-500 h-6 w-fit -ml-1" />
-        </div>
         {props.children}
       </CardContent>
     </Card>

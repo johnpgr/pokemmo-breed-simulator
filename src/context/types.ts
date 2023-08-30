@@ -22,9 +22,9 @@ export type IVMap = {
 
 export type IPokemonToBreedContext = {
   pokemon: Pokemon | null
-  ivs: IVMap
+  ivMap: IVMap
   nature: NatureType | null
   setPokemon: Dispatch<SetStateAction<Pokemon | null>>
-  setIvs: Dispatch<SetStateAction<IVMap>>
+  setIvMap: Dispatch<SetStateAction<IVMap>>
   setNature: Dispatch<SetStateAction<NatureType | null>>
 }

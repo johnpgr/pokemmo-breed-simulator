@@ -2,7 +2,7 @@
 
 import { NatureType, Pokemon } from "@/data/types"
 import React from "react"
-import { IPokemonToBreedContext, IV } from "./types"
+import { IPokemonToBreedContext, IVMap } from "./types"
 
 export const PokemonToBreedContextPrimitive =
   React.createContext<IPokemonToBreedContext>({} as IPokemonToBreedContext)
@@ -10,13 +10,7 @@ export const PokemonToBreedContextPrimitive =
 export function PokemonToBreedContext(props: { children: React.ReactNode }) {
   const [pokemon, setPokemon] = React.useState<Pokemon | null>(null)
   const [nature, setNature] = React.useState<NatureType | null>(null)
-  const [ivs, setIvs] = React.useState<{
-    a: IV
-    b: IV
-    c: IV | null
-    d: IV | null
-    e: IV | null
-  }>({
+  const [ivMap, setIvMap] = React.useState<IVMap>({
     a: "hp",
     b: "attack",
     c: null,
@@ -31,8 +25,8 @@ export function PokemonToBreedContext(props: { children: React.ReactNode }) {
         setPokemon,
         nature,
         setNature,
-        ivs,
-        setIvs,
+        ivMap,
+        setIvMap,
       }}
     >
       {props.children}

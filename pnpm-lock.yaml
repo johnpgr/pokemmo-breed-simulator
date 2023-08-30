@@ -59,6 +59,9 @@ dependencies:
   million:
     specifier: 2.5.4-beta.0
     version: 2.5.4-beta.0
+  mobx:
+    specifier: ^6.10.1
+    version: 6.10.1
   next:
     specifier: 13.4.16
     version: 13.4.16(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)
@@ -3507,6 +3510,10 @@ packages:
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: true
+
+  /mobx@6.10.1:
+    resolution: {integrity: sha512-oKibSy1GDJI+KfCKbqgFbxYt7DcpZ6jkq9byTzr9AYDGWOg4snI9Ux21U3hpFqhK4Ouw78CJQomRDbfXo1R6pg==}
+    dev: false
 
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}

@@ -1,15 +1,15 @@
 "use client"
 
+import { getPokemonByName } from "@/actions/pokemon-by-name"
 import { Button } from "@/components/ui/button"
+import { useToast } from "@/components/ui/use-toast"
 import { usePokemonToBreed } from "@/context/hooks"
-import { IV } from "@/context/types"
-import { EggType, NatureType, Pokemon, PokemonSelectList } from "@/data/types"
+import { IV, IVMap } from "@/context/types"
+import { NatureType, Pokemon, PokemonSelectList } from "@/data/types"
 import React from "react"
 import Ivs from "./ivs"
 import { NatureSelect } from "./nature"
 import { Species } from "./species"
-import { useToast } from "@/components/ui/use-toast"
-import { getPokemonByName } from "@/actions/pokemon-by-name"
 
 export function PokemonToBreedSelector(props: {
   pokemons: PokemonSelectList
@@ -26,7 +26,6 @@ export function PokemonToBreedSelector(props: {
   const [natured, setNatured] = React.useState(false)
   const [nature, setNature] = React.useState<NatureType | null>(null)
 
-  //TODO: Use React hook form with zod
   //TODO: Provide the path to the incorrect fields
   function validateIvFields() {
     const selectedValues = currentSelectValues.slice(0, numberOf31IVs)
@@ -62,15 +61,23 @@ export function PokemonToBreedSelector(props: {
       return
     }
 
-    ctx.setPokemon(pokemon)
-    ctx.setIvs({
-      a: ivs[0],
-      b: ivs[1],
-      c: ivs[2] || null,
-      d: ivs[3] || null,
-      e: ivs[4] || null,
-    })
+    const ivMap = {} as IVMap
+    const iterationMap = {
+      "0": "a",
+      "1": "b",
+      "2": "c",
+      "3": "d",
+      "4": "e",
+    } as const
+
+    for (let i = 0; i < ivs.length; i++) {
+      ivMap[iterationMap[String(i) as keyof typeof iterationMap]] =
+        currentSelectValues[i]
+    }
+
+    ctx.setIvMap(ivMap)
     ctx.setNature(nature)
+    ctx.setPokemon(pokemon)
   }
 
   return (
@@ -78,7 +85,7 @@ export function PokemonToBreedSelector(props: {
       className="container max-w-6xl mx-auto flex flex-col items-center gap-4"
       onSubmit={handleSubmit}
     >
-      Select a pokemon to breed
+      <h1 className="text-2xl font-medium">Select a pokemon to breed</h1>
       <div className="flex w-full flex-col items-center gap-4">
         <div className="flex w-full flex-col gap-2">
           <Species

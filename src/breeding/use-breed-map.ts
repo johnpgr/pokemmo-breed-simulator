@@ -1,66 +1,42 @@
 "use client"
 
-import React from "react"
-import { BreedNode, Position, BreedMap } from "./types"
-import { useMount } from "@/lib/hooks/use-mount"
+import type { IV, IVMap } from "@/context/types"
 import { NatureType } from "@/data/types"
+import { useMount } from "@/lib/hooks/use-mount"
+import { ObservableMap } from "mobx"
 import { LastRowMapping, columnsPerRow, pokemonIVsPositions } from "./consts"
-import type { IV } from "@/context/types"
+import { BreedNode, Position } from "./types"
 
 export function useBreedMap(props: {
-  selectedPokemonIVs: {
-    a: IV | null
-    b: IV | null
-    c: IV | null
-    d: IV | null
-    e: IV | null
-  }
+  ivMap: IVMap
   numberOf31IvPokemon: 2 | 3 | 4 | 5
   pokemonToBreed: BreedNode
   nature: NatureType | null
 }) {
-  const [map, setMap] = React.useState<BreedMap>({
-    "0,0": props.pokemonToBreed,
-  } as BreedMap)
+  const map = new ObservableMap<Position, BreedNode>([
+    ["0,0", props.pokemonToBreed],
+  ])
 
-  function set(key: Position, value: BreedNode | null) {
-    setMap((prevMap) => ({
-      ...prevMap,
-      [key]: value,
-    }))
-  }
-
-  function get(key: Position): BreedNode | null {
-    return map[key] || null
-  }
-
-  function remove(key: Position) {
-    setMap((prevMap) => ({
-      ...prevMap,
-      [key]: null,
-    }))
-  }
-
-  function setLastRow(map: BreedMap, lastRowMapping: LastRowMapping) {
+  function setLastRow(lastRowMapping: LastRowMapping) {
     Object.entries(lastRowMapping).forEach(([key, value]) => {
       if (value === "nature") {
-        map[key as Position] = {
+        map.set(key as Position, {
           nature: props.nature,
           ivs: null,
           gender: null,
           parents: null,
           pokemon: null,
-        }
+        })
         return
       }
-      if (props.selectedPokemonIVs[value]) {
-        map[key as Position] = {
+      if (props.ivMap[value]) {
+        map.set(key as Position, {
           pokemon: null,
           parents: null,
           gender: null,
-          ivs: [props.selectedPokemonIVs[value]!],
+          ivs: [props.ivMap[value]!],
           nature: null,
-        }
+        })
       }
     })
   }
@@ -69,7 +45,7 @@ export function useBreedMap(props: {
    * It will set the remaining rows of the map with the correct IVs based on their parents. (Pokemon's that are directly above them in the breed tree)
    * Iterates through all rows starting from the second last row and inserts the correct IVs based on the two direct parents.
    */
-  function setRemainingRows(map: BreedMap) {
+  function setRemainingRows() {
     const numberOfRows = props.nature
       ? props.numberOf31IvPokemon + 1
       : props.numberOf31IvPokemon
@@ -83,8 +59,8 @@ export function useBreedMap(props: {
 
         const parent1Pos = `${row + 1},${col * 2}` as Position
         const parent2Pos = `${row + 1},${col * 2 + 1}` as Position
-        const parent1 = map[parent1Pos]
-        const parent2 = map[parent2Pos]
+        const parent1 = map.get(parent1Pos)
+        const parent2 = map.get(parent2Pos)
 
         const ivs: Array<IV> = []
         if (parent1?.ivs) ivs.push(...parent1.ivs)
@@ -94,14 +70,13 @@ export function useBreedMap(props: {
         if (parent1?.nature) nature = parent1.nature
         if (parent2?.nature) nature = parent2.nature
 
-        map[key] = {
+        map.set(key as Position, {
           pokemon: null,
           parents: [parent1Pos, parent2Pos],
           gender: null,
           ivs: Array.from(new Set(ivs)),
-          //TODO: Set nature if parent is natured.
           nature,
-        }
+        })
       }
     }
   }
@@ -111,21 +86,9 @@ export function useBreedMap(props: {
       ? pokemonIVsPositions[props.numberOf31IvPokemon].natured
       : pokemonIVsPositions[props.numberOf31IvPokemon].natureless
 
-    const map: BreedMap = {} as BreedMap
-
-    setLastRow(map, lastRowMapping)
-    setRemainingRows(map)
-
-    setMap((prevMap) => ({
-      ...prevMap,
-      ...map,
-    }))
+    setLastRow(lastRowMapping)
+    setRemainingRows()
   })
 
-  return {
-    map,
-    set,
-    get,
-    remove,
-  }
+  return map
 }
