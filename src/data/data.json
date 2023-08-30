@@ -575,7 +575,7 @@
   },
   {
     "pokedexNumber": 83,
-    "name": "Farfetch'd",
+    "name": "Farfetchd",
     "types": ["Normal", "Flying"],
     "eggTypes": ["Field", "Flying"],
     "percentageMale": 50

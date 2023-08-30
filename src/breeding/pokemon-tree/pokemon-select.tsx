@@ -20,6 +20,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Switch } from "@/components/ui/switch"
 import { usePokemonToBreed } from "@/context/hooks"
+import { IV } from "@/context/types"
 import { Pokemon, PokemonSelectList } from "@/data/types"
 import {
   camelToSpacedPascal,
@@ -32,10 +33,9 @@ import { HelpCircle, Loader } from "lucide-react"
 import { For, block } from "million/react"
 import React from "react"
 import { Gender } from "../consts"
-import type { BreedNode, BreedNodeSetter, GenderType, Position } from "../types"
-import { GenderlessPokemonEvolutionTree } from "../utils"
-import { IV, IVMap } from "@/context/types"
+import type { BreedNode, GenderType, Position } from "../types"
 import type { useBreedMap } from "../use-breed-map"
+import { GenderlessPokemonEvolutionTree } from "../utils"
 import { Color, IvColorMap } from "./iv-colors"
 
 const NodeScaleByColorAmount = {
@@ -119,30 +119,25 @@ export const PokemonSelect = block(
     const [colors, setColors] = React.useState<Array<Color>>([])
     const [pending, startTransition] = React.useTransition()
 
-    /* 
-      This function is used to update the breedMap
-      Since all nodes are already set, we can't just re-set them, we need to first get the node at current position and merge the new values
-     */
-    function setBreedNode(key: Position, value: BreedNodeSetter) {
-      const node = breedMap.get(key)
-      if (!node) return
-
-      breedMap.set(key, {
-        ...node,
-        ...value,
-      })
-    }
-
     async function handleSelectPokemon(name: string) {
       const pokemon = await getPokemonByName(name)
       if (!pokemon) return
 
       setSelectedPokemon(pokemon)
-      setBreedNode(position, {
-        gender,
-        pokemon,
-      })
 
+      const node = breedMap.get(position)
+      if (!node) return
+
+      const newNode = {
+        gender: node.gender,
+        ivs: node.ivs,
+        nature: node.nature,
+        parents: node.parents,
+        pokemon,
+      } satisfies BreedNode
+
+      breedMap.set(position, newNode)
+      setCurrentNode(newNode)
       setIsOpen(false)
     }
 
@@ -151,9 +146,12 @@ export const PokemonSelect = block(
 
       if (!selectedPokemon) return
 
-      setBreedNode(position, {
+      const node = breedMap.get(position)
+      if (!node) return
+
+      breedMap.set(position, {
+        ...node,
         gender,
-        pokemon: selectedPokemon,
       })
     }
 
@@ -161,10 +159,6 @@ export const PokemonSelect = block(
       startTransition(() => {
         setSearchMode((prev) => (prev === "ALL" ? "EGG_GROUP" : "ALL"))
       })
-    }
-
-    function handleSearchInputChange(search: string) {
-      setSearch(search)
     }
 
     const pokemonList = React.useMemo(
@@ -246,7 +240,7 @@ export const PokemonSelect = block(
               <CommandInput
                 placeholder="Search pokemon..."
                 value={search}
-                onValueChange={handleSearchInputChange}
+                onValueChange={setSearch}
                 data-cy="search-pokemon-input"
               />
               <div className="flex items-center gap-2 text-xs text-foreground/80 p-1">
@@ -306,16 +300,29 @@ function CurrentNodeInformationCard(props: {
     props.setGender(value ? Gender.FEMALE : Gender.MALE)
   }
   return (
-    <Card className="w-64 h-fit">
+    <Card className="w-fit h-fit">
       <CardHeader className="pb-2 pt-4">
-        <CardTitle className="text-lg text-center">
-          {props.currentNode.pokemon?.name ?? (
-            <HelpCircle className="mx-auto" size={32} />
+        <CardTitle className="flex items-center">
+          {props.currentNode.pokemon ? (
+            <React.Fragment>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={getSprite(props.currentNode.pokemon.name)}
+                style={{
+                  imageRendering: "pixelated",
+                }}
+                alt={props.currentNode.pokemon.name}
+                className="mb-1"
+              />
+              {props.currentNode.pokemon.name}
+            </React.Fragment>
+          ) : (
+            <HelpCircle size={32} />
           )}
         </CardTitle>
       </CardHeader>
-      <CardContent className="gap-4 flex flex-col items-center">
-        <div className="flex flex-col gap-1 items-center">
+      <CardContent className="gap-4 flex flex-col">
+        <div className="flex flex-col gap-1">
           {Boolean(props.currentNode.ivs) ? <p>Ivs:</p> : null}
           {props.currentNode.ivs?.map((iv) => (
             <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
@@ -326,7 +333,7 @@ function CurrentNodeInformationCard(props: {
         )}
         {props.currentNode.pokemon ? (
           <React.Fragment>
-            <div className="text-center flex flex-col gap-1">
+            <div className="flex flex-col gap-1">
               <p>Egg Groups:</p>
               {props.currentNode.pokemon.eggTypes.map((egg) => (
                 <span key={randomString(3)}>{egg}</span>
