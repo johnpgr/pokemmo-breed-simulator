@@ -38,6 +38,22 @@ import { IV, IVMap } from "@/context/types"
 import type { useBreedMap } from "../use-breed-map"
 import { Color, IvColorMap } from "./iv-colors"
 
+const NodeScaleByColorAmount = {
+  "5": 1,
+  "4": 0.9,
+  "3": 0.8,
+  "2": 0.75,
+  "1": 0.66,
+} as const
+
+const SpriteScaleByColorAmount = {
+  "5": 1,
+  "4": 1.1,
+  "3": 1.2,
+  "2": 1.3,
+  "1": 1.5,
+} as const
+
 function filterPokemonByEggGroups(
   list: PokemonSelectList,
   currentPokemon: Pokemon,
@@ -178,6 +194,12 @@ export const PokemonSelect = block(
           <Button
             size={"icon"}
             className="relative rounded-full bg-neutral-300 dark:bg-neutral-800 overflow-hidden"
+            style={{
+              scale:
+                NodeScaleByColorAmount[
+                  String(colors.length) as keyof typeof NodeScaleByColorAmount
+                ],
+            }}
           >
             {colors.map((color) => (
               <div
@@ -199,8 +221,14 @@ export const PokemonSelect = block(
                 )}
                 style={{
                   imageRendering: "pixelated",
+                  scale:
+                    SpriteScaleByColorAmount[
+                      String(
+                        colors.length,
+                      ) as keyof typeof SpriteScaleByColorAmount
+                    ],
                 }}
-                className="mb-1 absolute inset-0"
+                className="mb-1 absolute"
               />
             ) : null}
           </Button>
