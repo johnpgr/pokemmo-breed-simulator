@@ -52,6 +52,16 @@ export function PokemonToBreedSelector(props: {
     e.preventDefault()
     const validIvs = validateIvFields()
 
+    //Nature switch true and no nature was selected
+    if (natured && !nature) {
+      toast({
+        title: "No nature was selected",
+        description: "You must select a nature when using natured breeding.",
+        variant: "destructive",
+      })
+      return
+    }
+
     if (!validIvs) {
       toast({
         title: "Invalid IVs",
@@ -61,6 +71,7 @@ export function PokemonToBreedSelector(props: {
       return
     }
 
+    //This is to make sure the Ivs are passed in order of current selection
     const ivMap = {} as IVMap
     const iterationMap = {
       "0": "a",
