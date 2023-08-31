@@ -12,15 +12,23 @@ import { getBreedPartnerPosition as getBreedingPartnerPosition } from "../../uti
 import { HeldItemsView } from "./held-items"
 
 //TODO: Improve the UI on this.
-export function CurrentNodeInformationCard(props: {
+export function CurrentNodeInformationCard({
+  currentNode,
+  breedMap,
+  gender,
+  position,
+  setGender,
+  children,
+}: {
   currentNode: BreedNode
-  gender: GenderType | null
+  gender: GenderType
   setGender: (gender: GenderType) => void
   position: Position
   breedMap: ReturnType<typeof useBreedMap>
+  children?: React.ReactNode
 }) {
   function onCheckedChange(value: boolean) {
-    props.setGender(value ? Gender.FEMALE : Gender.MALE)
+    setGender(value ? Gender.FEMALE : Gender.MALE)
   }
 
   function getIVDifferenceFromBreedPartner(self: Array<IV>, breedPartner: Array<IV> | BreedPartnerIsNatureOnly): IV {
@@ -34,15 +42,13 @@ export function CurrentNodeInformationCard(props: {
     return ivThatDoesntExistOnBreedPartner[0]
   }
 
-  const breedPartnerPos = props.position === "0,0" ? null : getBreedingPartnerPosition(props.position)
+  const breedPartnerPos = position === "0,0" ? null : getBreedingPartnerPosition(position)
   const IVsFromBreedPartner = breedPartnerPos
-    ? props.breedMap.get(breedPartnerPos)?.ivs ?? new BreedPartnerIsNatureOnly()
+    ? breedMap.get(breedPartnerPos)?.ivs ?? new BreedPartnerIsNatureOnly()
     : null
 
   const ivDifferenceFromBreedPartner =
-    IVsFromBreedPartner &&
-    props.currentNode.ivs &&
-    getIVDifferenceFromBreedPartner(props.currentNode.ivs, IVsFromBreedPartner)
+    IVsFromBreedPartner && currentNode.ivs && getIVDifferenceFromBreedPartner(currentNode.ivs, IVsFromBreedPartner)
 
   return (
     <Card className="w-fit h-fit relative">
@@ -50,22 +56,22 @@ export function CurrentNodeInformationCard(props: {
         <HeldItemsView
           item={
             //if not natured, ivs must exist.
-            props.currentNode.nature ? "nature" : ivDifferenceFromBreedPartner!
+            currentNode.nature ? "nature" : ivDifferenceFromBreedPartner!
           }
         />
         <CardTitle className="flex items-center">
-          {props.currentNode.pokemon ? (
+          {currentNode.pokemon ? (
             <React.Fragment>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={getSprite(props.currentNode.pokemon.name)}
+                src={getSprite(currentNode.pokemon.name)}
                 style={{
                   imageRendering: "pixelated",
                 }}
-                alt={props.currentNode.pokemon.name}
+                alt={currentNode.pokemon.name}
                 className="mb-1"
               />
-              {props.currentNode.pokemon.name}
+              {currentNode.pokemon.name}
             </React.Fragment>
           ) : (
             <HelpCircle size={32} />
@@ -74,15 +80,15 @@ export function CurrentNodeInformationCard(props: {
       </CardHeader>
       <CardContent className="gap-4 flex flex-col">
         <div className="flex flex-col gap-1">
-          {Boolean(props.currentNode.ivs) ? <p>Ivs:</p> : null}
-          {props.currentNode.ivs?.map((iv) => <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>)}
+          {Boolean(currentNode.ivs) ? <p>Ivs:</p> : null}
+          {currentNode.ivs?.map((iv) => <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>)}
         </div>
-        {props.currentNode.nature && <i className="block">{props.currentNode.nature}</i>}
-        {props.currentNode.pokemon ? (
+        {currentNode.nature && <i className="block">{currentNode.nature}</i>}
+        {currentNode.pokemon ? (
           <React.Fragment>
             <div className="flex flex-col gap-1">
               <p>Egg Groups:</p>
-              {props.currentNode.pokemon.eggTypes.map((egg) => (
+              {currentNode.pokemon.eggTypes.map((egg) => (
                 <span key={randomString(3)}>{egg}</span>
               ))}
             </div>
@@ -90,13 +96,14 @@ export function CurrentNodeInformationCard(props: {
               <Male className="fill-blue-500 h-6 w-fit" />
               <Switch
                 className="data-[state=unchecked]:bg-primary"
-                checked={props.gender === Gender.FEMALE}
+                checked={gender === Gender.FEMALE}
                 onCheckedChange={onCheckedChange}
               />
               <Female className="fill-pink-500 h-6 w-fit -ml-1" />
             </div>
           </React.Fragment>
         ) : null}
+        {children}
       </CardContent>
     </Card>
   )

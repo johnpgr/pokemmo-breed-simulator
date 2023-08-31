@@ -3,8 +3,9 @@ import type { BreedNode, GenderType, Position } from "./types"
 import { Gender } from "./consts"
 import { genderlessEggtypes, parsePosition } from "./utils"
 import { Pokemon } from "@/data/types"
+import { ObservableMap } from "mobx"
 
-type BreedNodeAndPosition = {
+export type BreedNodeAndPosition = {
   position: Position
   breedNode: BreedNode
 }
@@ -24,35 +25,32 @@ export class BreedError {
 }
 
 export class Breeder {
-  private pokemon?: BreedNodeAndPosition
-  private partner?: BreedNodeAndPosition
+  constructor(private readonly breedMap: ObservableMap<Position, BreedNode>) {}
 
-  constructor(private readonly getNodeFromPosition: (position: Position) => BreedNode | undefined) {}
+  public breed(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition): BreedError | null {
+    try {
+      this.checkBreedability(pokemon, partner)
 
-  public setBreeders(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition) {
-    this.pokemon = pokemon
-    this.partner = partner
-  }
+      const child = this.getBreedChildSpecies(pokemon, partner)
+      const childPosition = this.getChildPosition(pokemon, partner)
+      const childGender = this.getChildGender(child)
+      const childNode = this.breedMap.get(childPosition)
 
-  public tryBreed(): BreedNodeAndPosition | BreedError {
-    if (!this.pokemon || !this.partner) throw new BreedError(BreedErrorKind.NoPokemon, [])
-    this.checkBreedability(this.pokemon, this.partner)
-
-    const child = this.getBreedChildSpecies(this.pokemon, this.partner)
-    const childPosition = this.getChildPosition(this.pokemon, this.partner)
-    const childGender = this.getChildGender(child)
-    const childNode = this.getNodeFromPosition(childPosition)
-
-    return {
-      breedNode: {
+      this.breedMap.set(childPosition, {
         pokemon: child,
         gender: childGender,
-        parents: [this.pokemon.position, this.partner.position],
+        parents: [pokemon.position, partner.position],
         ivs: childNode?.ivs ?? null,
         nature: childNode?.nature ?? null,
-      },
-      position: childPosition,
+      })
+    } catch (error) {
+      if (error instanceof BreedError) {
+        return error
+      }
+      throw error
     }
+
+    return null
   }
 
   private checkBreedability(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition) {

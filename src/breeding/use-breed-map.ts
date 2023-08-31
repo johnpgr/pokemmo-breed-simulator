@@ -5,10 +5,11 @@ import { NatureType } from "@/data/types"
 import { useMount } from "@/lib/hooks/use-mount"
 import { ObservableMap, observe } from "mobx"
 import React from "react"
-import { BreedError, Breeder } from "./breeder"
+import { BreedError, BreedNodeAndPosition, Breeder } from "./breeder"
 import { LastRowMapping, columnsPerRow, pokemonIVsPositions } from "./consts"
 import { BreedNode, Position } from "./types"
 import { getBreedPartnerPosition } from "./utils"
+import { raise } from "@/lib/utils"
 
 function parseLastPositionChange(pos: Array<number>): Position {
   return pos.join(",") as Position
@@ -27,7 +28,7 @@ export function useBreedMap({
 }) {
   const map = React.useMemo(() => new ObservableMap<Position, BreedNode>([["0,0", pokemonToBreed]]), [])
   const [lastPositionChange, setLastPositionChange] = React.useState<Array<number> | undefined>()
-  const breeder = React.useMemo(() => new Breeder(map.get), [])
+  const breeder = React.useMemo(() => new Breeder(map), [map])
 
   function setLastRow(lastRowMapping: LastRowMapping) {
     Object.entries(lastRowMapping).forEach(([key, value]) => {
@@ -99,13 +100,14 @@ export function useBreedMap({
     setLastRow(lastRowMapping)
     setRemainingRows()
     observe(map, (change) => {
+      console.log("change", change)
       setLastPositionChange(change.name.split(",").map((n) => parseInt(n, 10)))
     })
   })
 
   React.useEffect(() => {
     const nodePosition = lastPositionChange
-    console.log("nodePosition Change:", nodePosition)
+    // console.log("nodePosition Change:", nodePosition)
 
     if (!nodePosition) return
 
@@ -123,7 +125,7 @@ export function useBreedMap({
 
     if (!pokemon || !partner) return
 
-    breeder.setBreeders(
+    const error = breeder.breed(
       {
         breedNode: node,
         position: nodePositionParsed,
@@ -134,11 +136,10 @@ export function useBreedMap({
       },
     )
 
-    const child = breeder.tryBreed()
-
-    if (child instanceof BreedError) return
-
-    map.set(child.position, child.breedNode)
+    //TODO: Handle errors
+    if (error) {
+      console.error(error)
+    }
   }, [lastPositionChange, breeder, map])
 
   return map

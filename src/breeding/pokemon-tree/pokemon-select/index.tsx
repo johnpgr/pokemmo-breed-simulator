@@ -86,7 +86,7 @@ export const PokemonSelect = block(
     const [isOpen, setIsOpen] = React.useState(false)
     const [gender, setGender] = React.useState<GenderType>(Gender.MALE)
     const [selectedPokemon, setSelectedPokemon] = React.useState<Pokemon | null>(null)
-    const [currentNode, setCurrentNode] = React.useState<BreedNode | undefined>(undefined)
+    const [currentNode, setCurrentNode] = React.useState<BreedNode | null>(null)
     const [colors, setColors] = React.useState<Array<Color>>([])
     const [pending, startTransition] = React.useTransition()
 
@@ -100,7 +100,7 @@ export const PokemonSelect = block(
       if (!node) return
 
       const newNode = {
-        gender: node.gender,
+        gender: gender,
         ivs: node.ivs,
         nature: node.nature,
         parents: node.parents,
@@ -140,7 +140,7 @@ export const PokemonSelect = block(
     React.useEffect(() => {
       if (!currentNode) {
         const currentNode = breedMap.get(position)
-        setCurrentNode(currentNode)
+        setCurrentNode(currentNode ?? null)
       }
     }, [])
 
@@ -201,7 +201,11 @@ export const PokemonSelect = block(
               setGender={handleChangeGender}
               breedMap={breedMap}
               position={position}
-            />
+            >
+              <Button size={"sm"} onClick={() => console.log(breedMap.get(position))}>
+                Debug
+              </Button>
+            </CurrentNodeInformationCard>
           ) : null}
           {!isPokemonToBreed ? (
             <Command className="w-72 border">
