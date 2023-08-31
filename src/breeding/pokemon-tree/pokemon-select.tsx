@@ -377,7 +377,6 @@ function CurrentNodeInformationCard(props: {
       </CardHeader>
       <CardContent className="gap-4 flex flex-col">
         <div className="flex flex-col gap-1">
-          <span>Breed partner: {breedPartnerPos}</span>
           {Boolean(props.currentNode.ivs) ? <p>Ivs:</p> : null}
           {props.currentNode.ivs?.map((iv) => (
             <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
