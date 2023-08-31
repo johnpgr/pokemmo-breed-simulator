@@ -9,11 +9,11 @@ type BreedNodeAndPosition = {
   breedNode: BreedNode
 }
 
-//TODO
 export enum BreedErrorKind {
-  GenderCompatibility,
-  EggTypeCompatibility,
-  UnknownError,
+  GenderCompatibility = "GenderCompatibility",
+  EggTypeCompatibility = "EggTypeCompatibility",
+  NoPokemon = "NoPokemon",
+  UnknownError = "UnknownError",
 }
 
 export class BreedError {
@@ -24,22 +24,22 @@ export class BreedError {
 }
 
 export class Breeder {
-  constructor(
-    private pokemon: BreedNodeAndPosition,
-    private partner: BreedNodeAndPosition,
-    private readonly getNodeFromPosition: (position: Position) => BreedNode | undefined,
-  ) {}
+  private pokemon?: BreedNodeAndPosition
+  private partner?: BreedNodeAndPosition
 
-  public changeBreeders(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition) {
+  constructor(private readonly getNodeFromPosition: (position: Position) => BreedNode | undefined) {}
+
+  public setBreeders(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition) {
     this.pokemon = pokemon
     this.partner = partner
   }
 
   public tryBreed(): BreedNodeAndPosition | BreedError {
-    this.checkBreedability()
+    if (!this.pokemon || !this.partner) throw new BreedError(BreedErrorKind.NoPokemon, [])
+    this.checkBreedability(this.pokemon, this.partner)
 
-    const child = this.getBreedChildSpecies()
-    const childPosition = this.getChildPosition()
+    const child = this.getBreedChildSpecies(this.pokemon, this.partner)
+    const childPosition = this.getChildPosition(this.pokemon, this.partner)
     const childGender = this.getChildGender(child)
     const childNode = this.getNodeFromPosition(childPosition)
 
@@ -55,35 +55,32 @@ export class Breeder {
     }
   }
 
-  private checkBreedability() {
-    this.genderCompatibility()
-    this.eggTypeCompatibility()
+  private checkBreedability(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition) {
+    this.genderCompatibility(pokemon, partner)
+    this.eggTypeCompatibility(pokemon, partner)
   }
 
-  private eggTypeCompatibility() {
-    const compatible = this.pokemon.breedNode.pokemon?.eggTypes.some(
-      (e) => this.partner.breedNode.pokemon?.eggTypes.includes(e),
-    )
-    if (!compatible)
-      throw new BreedError(BreedErrorKind.EggTypeCompatibility, [this.pokemon.position, this.partner.position])
+  private eggTypeCompatibility(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition) {
+    const compatible = pokemon.breedNode.pokemon?.eggTypes.some((e) => partner.breedNode.pokemon?.eggTypes.includes(e))
+    if (!compatible) throw new BreedError(BreedErrorKind.EggTypeCompatibility, [pokemon.position, partner.position])
   }
 
-  private genderCompatibility() {
-    if (this.pokemon.breedNode.gender === this.partner.breedNode.gender)
-      throw new BreedError(BreedErrorKind.GenderCompatibility, [this.pokemon.position, this.partner.position])
+  private genderCompatibility(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition) {
+    if (pokemon.breedNode.gender === partner.breedNode.gender)
+      throw new BreedError(BreedErrorKind.GenderCompatibility, [pokemon.position, partner.position])
   }
 
-  private getBreedChildSpecies(): Pokemon {
-    const pokes = [this.pokemon.breedNode, this.partner.breedNode].filter((p) => p.gender === Gender.FEMALE)
+  private getBreedChildSpecies(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition): Pokemon {
+    const pokes = [pokemon.breedNode, partner.breedNode].filter((p) => p.gender === Gender.FEMALE)
     if (pokes.length !== 1) {
       raise("Error getting Breed Child Species")
     }
     return pokes[0].pokemon ?? raise("Error getting Breed Child Species")
   }
 
-  private getChildPosition(): Position {
-    const parent1Position = parsePosition(this.pokemon.position)
-    const parent2Position = parsePosition(this.partner.position)
+  private getChildPosition(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition): Position {
+    const parent1Position = parsePosition(pokemon.position)
+    const parent2Position = parsePosition(partner.position)
     const childRow = parent1Position.row - 1
     const childCol = Math.floor((parent1Position.col + parent2Position.col) / 2)
     const childPosition = `${childRow},${childCol}`

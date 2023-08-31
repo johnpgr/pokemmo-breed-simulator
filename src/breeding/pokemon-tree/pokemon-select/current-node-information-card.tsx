@@ -9,7 +9,7 @@ import { Gender } from "../../consts"
 import type { BreedNode, GenderType, Position } from "../../types"
 import type { useBreedMap } from "../../use-breed-map"
 import { getBreedPartnerPosition as getBreedingPartnerPosition } from "../../utils"
-import { HeldItemsView } from "../held-items"
+import { HeldItemsView } from "./held-items"
 
 //TODO: Improve the UI on this.
 export function CurrentNodeInformationCard(props: {

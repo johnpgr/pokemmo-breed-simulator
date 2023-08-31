@@ -3,23 +3,37 @@
 import type { IV, IVMap } from "@/context/types"
 import { NatureType } from "@/data/types"
 import { useMount } from "@/lib/hooks/use-mount"
-import { ObservableMap } from "mobx"
+import { ObservableMap, observe } from "mobx"
+import React from "react"
+import { BreedError, Breeder } from "./breeder"
 import { LastRowMapping, columnsPerRow, pokemonIVsPositions } from "./consts"
 import { BreedNode, Position } from "./types"
+import { getBreedPartnerPosition } from "./utils"
 
-export function useBreedMap(props: {
+function parseLastPositionChange(pos: Array<number>): Position {
+  return pos.join(",") as Position
+}
+
+export function useBreedMap({
+  pokemonToBreed,
+  ivMap,
+  nature,
+  numberOf31IvPokemon,
+}: {
   ivMap: IVMap
   numberOf31IvPokemon: 2 | 3 | 4 | 5
   pokemonToBreed: BreedNode
   nature: NatureType | null
 }) {
-  const map = new ObservableMap<Position, BreedNode>([["0,0", props.pokemonToBreed]])
+  const map = React.useMemo(() => new ObservableMap<Position, BreedNode>([["0,0", pokemonToBreed]]), [])
+  const [lastPositionChange, setLastPositionChange] = React.useState<Array<number> | undefined>()
+  const breeder = React.useMemo(() => new Breeder(map.get), [])
 
   function setLastRow(lastRowMapping: LastRowMapping) {
     Object.entries(lastRowMapping).forEach(([key, value]) => {
       if (value === "nature") {
         map.set(key as Position, {
-          nature: props.nature,
+          nature,
           ivs: null,
           gender: null,
           parents: null,
@@ -27,12 +41,12 @@ export function useBreedMap(props: {
         })
         return
       }
-      if (props.ivMap[value]) {
+      if (ivMap[value]) {
         map.set(key as Position, {
           pokemon: null,
           parents: null,
           gender: null,
-          ivs: [props.ivMap[value]!],
+          ivs: [ivMap[value]!],
           nature: null,
         })
       }
@@ -44,7 +58,7 @@ export function useBreedMap(props: {
    * Iterates through all rows starting from the second last row and inserts the correct IVs based on the two direct parents.
    */
   function setRemainingRows() {
-    const numberOfRows = props.nature ? props.numberOf31IvPokemon + 1 : props.numberOf31IvPokemon
+    const numberOfRows = nature ? numberOf31IvPokemon + 1 : numberOf31IvPokemon
 
     // Iterate through all rows starting from the second last row.
     for (let row = numberOfRows - 2; row > 0; row--) {
@@ -78,13 +92,54 @@ export function useBreedMap(props: {
   }
 
   useMount(() => {
-    const lastRowMapping = props.nature
-      ? pokemonIVsPositions[props.numberOf31IvPokemon].natured
-      : pokemonIVsPositions[props.numberOf31IvPokemon].natureless
+    const lastRowMapping = nature
+      ? pokemonIVsPositions[numberOf31IvPokemon].natured
+      : pokemonIVsPositions[numberOf31IvPokemon].natureless
 
     setLastRow(lastRowMapping)
     setRemainingRows()
+    observe(map, (change) => {
+      setLastPositionChange(change.name.split(",").map((n) => parseInt(n, 10)))
+    })
   })
+
+  React.useEffect(() => {
+    const nodePosition = lastPositionChange
+    console.log("nodePosition Change:", nodePosition)
+
+    if (!nodePosition) return
+
+    const nodePositionParsed = parseLastPositionChange(nodePosition)
+    const node = map.get(nodePositionParsed)
+    if (!node) return
+
+    const pokemon = node.pokemon
+
+    const partnerPosition = getBreedPartnerPosition(nodePositionParsed)
+    const partnerNode = map.get(partnerPosition)
+    if (!partnerNode) return
+
+    const partner = partnerNode.pokemon
+
+    if (!pokemon || !partner) return
+
+    breeder.setBreeders(
+      {
+        breedNode: node,
+        position: nodePositionParsed,
+      },
+      {
+        breedNode: partnerNode,
+        position: partnerPosition,
+      },
+    )
+
+    const child = breeder.tryBreed()
+
+    if (child instanceof BreedError) return
+
+    map.set(child.position, child.breedNode)
+  }, [lastPositionChange, breeder, map])
 
   return map
 }

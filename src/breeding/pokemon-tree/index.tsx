@@ -5,9 +5,11 @@ import { usePokemonToBreed } from "@/context/hooks"
 import { PokemonSelectList } from "@/data/types"
 import { columnsPerRow } from "../consts"
 import { PokemonSelect } from "./pokemon-select"
-import { BreedNodeSetter, Position } from "../types"
+import { BreedNode, BreedNodeSetter, Position } from "../types"
 import { useBreedMap } from "../use-breed-map"
 import { IvColors } from "./iv-colors"
+import { Breeder } from "../breeder"
+import React from "react"
 
 function PokemonTree(props: { pokemons: PokemonSelectList; getPokemonByName: typeof getPokemonByName }) {
   const { pokemon, nature, ivMap } = usePokemonToBreed()
