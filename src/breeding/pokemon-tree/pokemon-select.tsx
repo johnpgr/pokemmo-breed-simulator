@@ -25,6 +25,7 @@ import { Pokemon, PokemonSelectList } from "@/data/types"
 import {
   camelToSpacedPascal,
   getSprite,
+  isEven,
   parseNames,
   raise,
   randomString,
@@ -35,7 +36,10 @@ import React from "react"
 import { Gender } from "../consts"
 import type { BreedNode, GenderType, Position } from "../types"
 import type { useBreedMap } from "../use-breed-map"
-import { GenderlessPokemonEvolutionTree } from "../utils"
+import {
+  GenderlessPokemonEvolutionTree,
+  getBreedPartnerPosition as getBreedingPartnerPosition,
+} from "../utils"
 import { Color, ColorMap } from "./iv-colors"
 import { HeldItemsView } from "./held-items"
 
@@ -244,6 +248,8 @@ export const PokemonSelect = block(
               currentNode={currentNode}
               gender={gender}
               setGender={handleChangeGender}
+              breedMap={breedMap}
+              position={position}
             />
           ) : null}
           {!isPokemonToBreed ? (
@@ -300,22 +306,54 @@ export const PokemonSelect = block(
   },
 )
 
+class BreedPartnerIsNatureOnly {}
+
 //TODO: Improve the UI on this.
 function CurrentNodeInformationCard(props: {
   currentNode: BreedNode
   gender: GenderType | null
   setGender: (gender: GenderType) => void
-  children?: React.ReactNode
+  position: Position
+  breedMap: ReturnType<typeof useBreedMap>
 }) {
   function onCheckedChange(value: boolean) {
     props.setGender(value ? Gender.FEMALE : Gender.MALE)
   }
+
+  function getIVDifferenceFromBreedPartner(
+    self: Array<IV>,
+    breedPartner: Array<IV> | BreedPartnerIsNatureOnly,
+  ): IV {
+    if (breedPartner instanceof BreedPartnerIsNatureOnly) {
+      //This means that self is one iv only, so get the first element is fine
+      return self[0]
+    }
+
+    const ivThatDoesntExistOnBreedPartner = self.filter(
+      (iv) => !breedPartner.includes(iv),
+    )
+
+    return ivThatDoesntExistOnBreedPartner[0]
+  }
+
+  const breedPartnerPos =
+    props.position === "0,0" ? null : getBreedingPartnerPosition(props.position)
+  const IVsFromBreedPartner = breedPartnerPos
+    ? props.breedMap.get(breedPartnerPos)?.ivs ?? new BreedPartnerIsNatureOnly()
+    : null
+
+  const ivDifferenceFromBreedPartner =
+    IVsFromBreedPartner &&
+    props.currentNode.ivs &&
+    getIVDifferenceFromBreedPartner(props.currentNode.ivs, IVsFromBreedPartner)
+
   return (
     <Card className="w-fit h-fit relative">
       <CardHeader className="pb-2 pt-4">
         <HeldItemsView
           item={
-            props.currentNode.nature ? "nature" : props.currentNode.ivs!.at(-1)!
+            //if not natured, ivs must exist.
+            props.currentNode.nature ? "nature" : ivDifferenceFromBreedPartner!
           }
         />
         <CardTitle className="flex items-center">
@@ -339,6 +377,7 @@ function CurrentNodeInformationCard(props: {
       </CardHeader>
       <CardContent className="gap-4 flex flex-col">
         <div className="flex flex-col gap-1">
+          <span>Breed partner: {breedPartnerPos}</span>
           {Boolean(props.currentNode.ivs) ? <p>Ivs:</p> : null}
           {props.currentNode.ivs?.map((iv) => (
             <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
@@ -366,7 +405,6 @@ function CurrentNodeInformationCard(props: {
             </div>
           </React.Fragment>
         ) : null}
-        {props.children}
       </CardContent>
     </Card>
   )

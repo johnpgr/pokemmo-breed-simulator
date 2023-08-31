@@ -42,3 +42,7 @@ export function capitalize(input: string) {
 }
 
 export type Keys<T> = keyof T
+
+export function isEven(num: number) {
+  return num % 2 === 0
+}

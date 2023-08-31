@@ -1,8 +1,26 @@
+import { isEven } from "@/lib/utils"
 import { Position } from "./types"
 
 export function parsePosition(pos: Position) {
   const [row, col] = pos.split(",")
   return { row: parseInt(row), col: parseInt(col) }
+}
+
+export function getBreedPartnerPosition(position: Position): Position {
+  const colRow = position.split(",")
+  const row = Number(colRow[0])
+  const col = Number(colRow[1])
+
+  let breedPartnerRow = row
+  let breedPartnerCol = -1
+
+  if (isEven(col)) {
+    breedPartnerCol = col + 1
+  } else {
+    breedPartnerCol = col - 1
+  }
+
+  return `${breedPartnerRow},${breedPartnerCol}` as Position
 }
 
 export const genderlessEggtypes = ["Ditto", "Genderless"] as const
