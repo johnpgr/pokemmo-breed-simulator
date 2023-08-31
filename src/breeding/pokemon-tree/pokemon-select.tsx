@@ -37,6 +37,7 @@ import type { BreedNode, GenderType, Position } from "../types"
 import type { useBreedMap } from "../use-breed-map"
 import { GenderlessPokemonEvolutionTree } from "../utils"
 import { Color, ColorMap } from "./iv-colors"
+import { HeldItemsView } from "./held-items"
 
 const NodeScaleByColorAmount = {
   "5": 1,
@@ -310,8 +311,13 @@ function CurrentNodeInformationCard(props: {
     props.setGender(value ? Gender.FEMALE : Gender.MALE)
   }
   return (
-    <Card className="w-fit h-fit">
+    <Card className="w-fit h-fit relative">
       <CardHeader className="pb-2 pt-4">
+        <HeldItemsView
+          item={
+            props.currentNode.nature ? "nature" : props.currentNode.ivs!.at(-1)!
+          }
+        />
         <CardTitle className="flex items-center">
           {props.currentNode.pokemon ? (
             <React.Fragment>
