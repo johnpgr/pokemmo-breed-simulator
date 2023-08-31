@@ -23,24 +23,18 @@ export function CurrentNodeInformationCard(props: {
     props.setGender(value ? Gender.FEMALE : Gender.MALE)
   }
 
-  function getIVDifferenceFromBreedPartner(
-    self: Array<IV>,
-    breedPartner: Array<IV> | BreedPartnerIsNatureOnly,
-  ): IV {
+  function getIVDifferenceFromBreedPartner(self: Array<IV>, breedPartner: Array<IV> | BreedPartnerIsNatureOnly): IV {
     if (breedPartner instanceof BreedPartnerIsNatureOnly) {
       //This means that self is one iv only, so get the first element is fine
       return self[0]
     }
 
-    const ivThatDoesntExistOnBreedPartner = self.filter(
-      (iv) => !breedPartner.includes(iv),
-    )
+    const ivThatDoesntExistOnBreedPartner = self.filter((iv) => !breedPartner.includes(iv))
 
     return ivThatDoesntExistOnBreedPartner[0]
   }
 
-  const breedPartnerPos =
-    props.position === "0,0" ? null : getBreedingPartnerPosition(props.position)
+  const breedPartnerPos = props.position === "0,0" ? null : getBreedingPartnerPosition(props.position)
   const IVsFromBreedPartner = breedPartnerPos
     ? props.breedMap.get(breedPartnerPos)?.ivs ?? new BreedPartnerIsNatureOnly()
     : null
@@ -81,13 +75,9 @@ export function CurrentNodeInformationCard(props: {
       <CardContent className="gap-4 flex flex-col">
         <div className="flex flex-col gap-1">
           {Boolean(props.currentNode.ivs) ? <p>Ivs:</p> : null}
-          {props.currentNode.ivs?.map((iv) => (
-            <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>
-          ))}
+          {props.currentNode.ivs?.map((iv) => <span key={randomString(4)}>31 {camelToSpacedPascal(iv)}</span>)}
         </div>
-        {props.currentNode.nature && (
-          <i className="block">{props.currentNode.nature}</i>
-        )}
+        {props.currentNode.nature && <i className="block">{props.currentNode.nature}</i>}
         {props.currentNode.pokemon ? (
           <React.Fragment>
             <div className="flex flex-col gap-1">

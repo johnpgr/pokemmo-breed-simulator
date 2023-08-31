@@ -5,10 +5,5 @@ import { PokemonToBreedContextPrimitive } from "."
 export function usePokemonToBreed() {
   const ctx = useContext(PokemonToBreedContextPrimitive)
 
-  return (
-    ctx ??
-    raise(
-      "usePokemonToBreed must be used within a PokemonToBreedContextProvider",
-    )
-  )
+  return ctx ?? raise("usePokemonToBreed must be used within a PokemonToBreedContextProvider")
 }

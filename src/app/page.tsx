@@ -16,14 +16,8 @@ export default async function HomePage() {
 
   return (
     <PokemonToBreedContext>
-      <PokemonToBreedSelector
-        getPokemonByName={getPokemonByName}
-        pokemons={_pokemons}
-      />
-      <PokemonToBreedTree
-        getPokemonByName={getPokemonByName}
-        pokemons={_pokemons}
-      />
+      <PokemonToBreedSelector getPokemonByName={getPokemonByName} pokemons={_pokemons} />
+      <PokemonToBreedTree getPokemonByName={getPokemonByName} pokemons={_pokemons} />
     </PokemonToBreedContext>
   )
 }

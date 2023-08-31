@@ -32,9 +32,7 @@ export function randomString(length: number) {
 }
 
 export function camelToSpacedPascal(input: string) {
-  return input
-    .replace(/([a-z])([A-Z])/g, "$1 $2")
-    .replace(/^./, (str) => str.toUpperCase())
+  return input.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (str) => str.toUpperCase())
 }
 
 export function capitalize(input: string) {

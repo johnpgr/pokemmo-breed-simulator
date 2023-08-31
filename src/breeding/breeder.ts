@@ -27,15 +27,10 @@ export class Breeder {
   constructor(
     private pokemon: BreedNodeAndPosition,
     private partner: BreedNodeAndPosition,
-    private readonly getNodeFromPosition: (
-      position: Position,
-    ) => BreedNode | undefined,
+    private readonly getNodeFromPosition: (position: Position) => BreedNode | undefined,
   ) {}
 
-  public changeBreeders(
-    pokemon: BreedNodeAndPosition,
-    partner: BreedNodeAndPosition,
-  ) {
+  public changeBreeders(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition) {
     this.pokemon = pokemon
     this.partner = partner
   }
@@ -70,24 +65,16 @@ export class Breeder {
       (e) => this.partner.breedNode.pokemon?.eggTypes.includes(e),
     )
     if (!compatible)
-      throw new BreedError(BreedErrorKind.EggTypeCompatibility, [
-        this.pokemon.position,
-        this.partner.position,
-      ])
+      throw new BreedError(BreedErrorKind.EggTypeCompatibility, [this.pokemon.position, this.partner.position])
   }
 
   private genderCompatibility() {
     if (this.pokemon.breedNode.gender === this.partner.breedNode.gender)
-      throw new BreedError(BreedErrorKind.GenderCompatibility, [
-        this.pokemon.position,
-        this.partner.position,
-      ])
+      throw new BreedError(BreedErrorKind.GenderCompatibility, [this.pokemon.position, this.partner.position])
   }
 
   private getBreedChildSpecies(): Pokemon {
-    const pokes = [this.pokemon.breedNode, this.partner.breedNode].filter(
-      (p) => p.gender === Gender.FEMALE,
-    )
+    const pokes = [this.pokemon.breedNode, this.partner.breedNode].filter((p) => p.gender === Gender.FEMALE)
     if (pokes.length !== 1) {
       raise("Error getting Breed Child Species")
     }
@@ -107,8 +94,6 @@ export class Breeder {
     if (child.eggTypes.some((e) => genderlessEggtypes.includes(e))) {
       return null
     }
-    return Math.random() * 100 > child.percentageMale
-      ? Gender.FEMALE
-      : Gender.MALE
+    return Math.random() * 100 > child.percentageMale ? Gender.FEMALE : Gender.MALE
   }
 }

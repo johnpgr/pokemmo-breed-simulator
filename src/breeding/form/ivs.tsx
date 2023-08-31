@@ -1,26 +1,13 @@
 "use client"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { IV } from "@/context/types"
 import { camelToSpacedPascal, randomString } from "@/lib/utils"
 import React from "react"
 import { numberOfPokemonsFromIVNumber } from "../consts"
 
-const ivs = [
-  "hp",
-  "attack",
-  "defense",
-  "specialAttack",
-  "specialDefense",
-  "speed",
-] satisfies Array<IV>
+const ivs = ["hp", "attack", "defense", "specialAttack", "specialDefense", "speed"] satisfies Array<IV>
 
 function Ivs({
   natured,
@@ -45,13 +32,7 @@ function Ivs({
         break
       case 3:
         {
-          setIvs([
-            ...new Set([
-              currentSelectValues[0],
-              currentSelectValues[1],
-              currentSelectValues[2],
-            ]),
-          ])
+          setIvs([...new Set([currentSelectValues[0], currentSelectValues[1], currentSelectValues[2]])])
         }
         break
       case 4:
@@ -104,10 +85,7 @@ function Ivs({
     setCurrentSelectValues(newValues)
   }
 
-  function isPreviousValueCurrentlySelected(
-    value: IV,
-    currentValueIndex: number,
-  ) {
+  function isPreviousValueCurrentlySelected(value: IV, currentValueIndex: number) {
     const currentSelects: Array<IV> = []
 
     for (let i = 0; i < numberOf31IVs; i++) {
@@ -120,11 +98,7 @@ function Ivs({
   }
   return (
     <div>
-      <RadioGroup
-        className="border rounded w-fit flex"
-        defaultValue={"2"}
-        onValueChange={handleNumberOf31Ivs}
-      >
+      <RadioGroup className="border rounded w-fit flex" defaultValue={"2"} onValueChange={handleNumberOf31Ivs}>
         <RadioGroupItem className="border-0" value={"2"}>
           2
         </RadioGroupItem>
@@ -142,13 +116,9 @@ function Ivs({
         {Object.entries(pokeNumbers).map(([key, value], i) => (
           <div key={randomString(6)} className="w-full">
             <Label key={randomString(6)} className="text-sm text-foreground/70">
-              <strong className="text-lg text-foreground mr-1">{value}</strong>{" "}
-              1x31 IV in
+              <strong className="text-lg text-foreground mr-1">{value}</strong> 1x31 IV in
             </Label>
-            <Select
-              value={currentSelectValues[i]}
-              onValueChange={(v) => handleChange(v as IV, i)}
-            >
+            <Select value={currentSelectValues[i]} onValueChange={(v) => handleChange(v as IV, i)}>
               <SelectTrigger>
                 <SelectValue aria-label={currentSelectValues[i]}>
                   {camelToSpacedPascal(currentSelectValues[i])}

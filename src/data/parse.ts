@@ -93,9 +93,7 @@ function parseName(name: string): string {
       }),
     )
     .on("data", (row) => {
-      if (
-        skippedPokemons.some((name) => (row["name"] as string).startsWith(name))
-      ) {
+      if (skippedPokemons.some((name) => (row["name"] as string).startsWith(name))) {
         return
       }
 
@@ -103,15 +101,11 @@ function parseName(name: string): string {
         pokedexNumber: parseInt(row["pokedex_number"]),
         name: parseName(row["name"]),
         types: [row["type_1"], row["type_2"]].filter(Boolean),
-        eggTypes: [
-          parseEggType(row["egg_type_1"]),
-          parseEggType(row["egg_type_2"]),
-        ].filter(Boolean) as Array<IEggType>,
+        eggTypes: [parseEggType(row["egg_type_1"]), parseEggType(row["egg_type_2"])].filter(Boolean) as Array<IEggType>,
         percentageMale: parseFloat(row["percentage_male"]),
       }
 
-      const fix =
-        fixPokemonEggGroups[pokemon.name as keyof typeof fixPokemonEggGroups]
+      const fix = fixPokemonEggGroups[pokemon.name as keyof typeof fixPokemonEggGroups]
 
       if (fix) {
         pokemon.eggTypes[0] = fix[0]
@@ -123,9 +117,6 @@ function parseName(name: string): string {
       pokemons.push(pokemon)
     })
     .on("end", () => {
-      fs.writeFileSync(
-        path.resolve(__dirname, "data.json"),
-        JSON.stringify(pokemons, null, 2),
-      )
+      fs.writeFileSync(path.resolve(__dirname, "data.json"), JSON.stringify(pokemons, null, 2))
     })
 })()

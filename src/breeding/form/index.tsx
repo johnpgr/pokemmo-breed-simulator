@@ -17,9 +17,13 @@ export function PokemonToBreedSelector(props: {
 }) {
   const ctx = usePokemonToBreed()
   const { toast } = useToast()
-  const [currentSelectValues, setCurrentSelectValues] = React.useState<
-    Array<IV>
-  >(["hp", "attack", "defense", "specialDefense", "speed"])
+  const [currentSelectValues, setCurrentSelectValues] = React.useState<Array<IV>>([
+    "hp",
+    "attack",
+    "defense",
+    "specialDefense",
+    "speed",
+  ])
   const [numberOf31IVs, setNumberOf31IVs] = React.useState<2 | 3 | 4 | 5>(2)
   const [pokemon, setPokemon] = React.useState<Pokemon | null>(null)
   const [ivs, setIvs] = React.useState<Array<IV>>(["hp", "attack"])
@@ -36,13 +40,7 @@ export function PokemonToBreedSelector(props: {
   function handleReset() {
     setPokemon(null)
     setIvs(["hp", "attack"])
-    setCurrentSelectValues([
-      "hp",
-      "attack",
-      "defense",
-      "specialDefense",
-      "speed",
-    ])
+    setCurrentSelectValues(["hp", "attack", "defense", "specialDefense", "speed"])
     setNumberOf31IVs(2)
     setNatured(false)
     setNature(null)
@@ -82,8 +80,7 @@ export function PokemonToBreedSelector(props: {
     } as const
 
     for (let i = 0; i < ivs.length; i++) {
-      ivMap[iterationMap[String(i) as keyof typeof iterationMap]] =
-        currentSelectValues[i]
+      ivMap[iterationMap[String(i) as keyof typeof iterationMap]] = currentSelectValues[i]
     }
 
     ctx.setIvMap(ivMap)
@@ -92,10 +89,7 @@ export function PokemonToBreedSelector(props: {
   }
 
   return (
-    <form
-      className="container max-w-6xl mx-auto flex flex-col items-center gap-4"
-      onSubmit={handleSubmit}
-    >
+    <form className="container max-w-6xl mx-auto flex flex-col items-center gap-4" onSubmit={handleSubmit}>
       <h1 className="text-2xl font-medium">Select a pokemon to breed</h1>
       <div className="flex w-full flex-col items-center gap-4">
         <div className="flex w-full flex-col gap-2">
@@ -105,12 +99,7 @@ export function PokemonToBreedSelector(props: {
             setPokemon={setPokemon}
             getPokemonByName={getPokemonByName}
           />
-          <NatureSelect
-            checked={natured}
-            onCheckedChange={setNatured}
-            nature={nature}
-            setNature={setNature}
-          />
+          <NatureSelect checked={natured} onCheckedChange={setNatured} nature={nature} setNature={setNature} />
           <Ivs
             natured={natured}
             setIvs={setIvs}

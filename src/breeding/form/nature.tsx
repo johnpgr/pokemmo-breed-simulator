@@ -1,16 +1,6 @@
 import { Button } from "@/components/ui/button"
-import {
-  Command,
-  CommandInput,
-  CommandGroup,
-  CommandEmpty,
-  CommandItem,
-} from "@/components/ui/command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+import { Command, CommandInput, CommandGroup, CommandEmpty, CommandItem } from "@/components/ui/command"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Switch } from "@/components/ui/switch"
 import { NatureType, Nature } from "@/data/types"
@@ -35,11 +25,7 @@ export function NatureSelect({
   return (
     <div className="flex gap-4">
       <div className="flex items-center gap-2">
-        <Switch
-          id="natured-switch"
-          checked={checked}
-          onCheckedChange={onCheckedChange}
-        />
+        <Switch id="natured-switch" checked={checked} onCheckedChange={onCheckedChange} />
         Natured?
       </div>
       {checked && (

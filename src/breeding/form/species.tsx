@@ -1,17 +1,7 @@
 import type { getPokemonByName } from "@/actions/pokemon-by-name"
 import { Button } from "@/components/ui/button"
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Pokemon } from "@/data/types"
@@ -63,9 +53,7 @@ export const Species = block(
                   alt={props.pokemon?.name}
                 />
               ) : null}
-              {props.pokemon
-                ? parseNames(props.pokemon.name)
-                : "Select a pokemon"}
+              {props.pokemon ? parseNames(props.pokemon.name) : "Select a pokemon"}
               <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
           </PopoverTrigger>
@@ -81,9 +69,7 @@ export const Species = block(
               <CommandGroup>
                 <ScrollArea className="h-72">
                   <For
-                    each={props.pokemons.filter((pokemon) =>
-                      pokemon.name.toLowerCase().includes(search.toLowerCase()),
-                    )}
+                    each={props.pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(search.toLowerCase()))}
                   >
                     {(pokemon) => (
                       <React.Fragment key={`pokemon_to_breed:${pokemon.name}`}>

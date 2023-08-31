@@ -10,9 +10,7 @@ export async function getPokemonByName(name: string): Promise<Pokemon | null> {
     })
   ).default
 
-  const pokemon = pokemons.find(
-    (pokemon) => pokemon.name.toLowerCase() === name.toLowerCase(),
-  )
+  const pokemon = pokemons.find((pokemon) => pokemon.name.toLowerCase() === name.toLowerCase())
 
   return (pokemon as Pokemon) ?? null
 }

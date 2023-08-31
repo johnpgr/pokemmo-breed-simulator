@@ -2,25 +2,15 @@
 import { Button } from "@/components/ui/button"
 
 import type { getPokemonByName as getPokemonByNameFunc } from "@/actions/pokemon-by-name"
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Switch } from "@/components/ui/switch"
 import { usePokemonToBreed } from "@/context/hooks"
 import { IV } from "@/context/types"
 import { Pokemon, PokemonSelectList } from "@/data/types"
-import { getSprite, isEven, parseNames, raise, randomString } from "@/lib/utils"
+import { getSprite, parseNames, raise, randomString } from "@/lib/utils"
 import { Loader } from "lucide-react"
 import { For, block } from "million/react"
 import React from "react"
@@ -47,15 +37,10 @@ const SpriteScaleByColorAmount = {
   "1": 1.5,
 } as const
 
-function filterPokemonByEggGroups(
-  list: PokemonSelectList,
-  currentPokemon: Pokemon,
-): PokemonSelectList {
+function filterPokemonByEggGroups(list: PokemonSelectList, currentPokemon: Pokemon): PokemonSelectList {
   const newList: PokemonSelectList = []
 
-  const ditto =
-    list.find((poke) => poke.name === "Ditto") ??
-    raise("Ditto should be defined")
+  const ditto = list.find((poke) => poke.name === "Ditto") ?? raise("Ditto should be defined")
 
   newList.push(ditto)
 
@@ -68,9 +53,7 @@ function filterPokemonByEggGroups(
   }
 
   list.forEach((pokemon) => {
-    const compatible = pokemon.eggTypes.some((e) =>
-      currentPokemon.eggTypes.includes(e),
-    )
+    const compatible = pokemon.eggTypes.some((e) => currentPokemon.eggTypes.includes(e))
     if (!compatible) return
 
     newList.push(pokemon)
@@ -98,17 +81,12 @@ export const PokemonSelect = block(
     const { pokemon: pokemonToBreed, ivMap } = usePokemonToBreed()
     const isPokemonToBreed = position === "0,0"
 
-    const [searchMode, setSearchMode] = React.useState<"ALL" | "EGG_GROUP">(
-      "ALL",
-    )
+    const [searchMode, setSearchMode] = React.useState<"ALL" | "EGG_GROUP">("ALL")
     const [search, setSearch] = React.useState("")
     const [isOpen, setIsOpen] = React.useState(false)
     const [gender, setGender] = React.useState<GenderType>(Gender.MALE)
-    const [selectedPokemon, setSelectedPokemon] =
-      React.useState<Pokemon | null>(null)
-    const [currentNode, setCurrentNode] = React.useState<BreedNode | undefined>(
-      undefined,
-    )
+    const [selectedPokemon, setSelectedPokemon] = React.useState<Pokemon | null>(null)
+    const [currentNode, setCurrentNode] = React.useState<BreedNode | undefined>(undefined)
     const [colors, setColors] = React.useState<Array<Color>>([])
     const [pending, startTransition] = React.useTransition()
 
@@ -155,10 +133,7 @@ export const PokemonSelect = block(
     }
 
     const pokemonList = React.useMemo(
-      () =>
-        searchMode === "ALL"
-          ? pokemons
-          : filterPokemonByEggGroups(pokemons, pokemonToBreed!),
+      () => (searchMode === "ALL" ? pokemons : filterPokemonByEggGroups(pokemons, pokemonToBreed!)),
       [searchMode],
     )
 
@@ -192,10 +167,7 @@ export const PokemonSelect = block(
             size={"icon"}
             className="relative rounded-full bg-neutral-300 dark:bg-neutral-800 overflow-hidden"
             style={{
-              scale:
-                NodeScaleByColorAmount[
-                  String(colors.length) as keyof typeof NodeScaleByColorAmount
-                ],
+              scale: NodeScaleByColorAmount[String(colors.length) as keyof typeof NodeScaleByColorAmount],
             }}
           >
             {colors.map((color) => (
@@ -211,19 +183,10 @@ export const PokemonSelect = block(
             {selectedPokemon || isPokemonToBreed ? (
               // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
               <img
-                src={getSprite(
-                  isPokemonToBreed
-                    ? pokemonToBreed!.name
-                    : selectedPokemon!.name,
-                )}
+                src={getSprite(isPokemonToBreed ? pokemonToBreed!.name : selectedPokemon!.name)}
                 style={{
                   imageRendering: "pixelated",
-                  scale:
-                    SpriteScaleByColorAmount[
-                      String(
-                        colors.length,
-                      ) as keyof typeof SpriteScaleByColorAmount
-                    ],
+                  scale: SpriteScaleByColorAmount[String(colors.length) as keyof typeof SpriteScaleByColorAmount],
                 }}
                 className="mb-1 absolute"
               />
@@ -249,10 +212,7 @@ export const PokemonSelect = block(
                 data-cy="search-pokemon-input"
               />
               <div className="flex items-center gap-2 text-xs text-foreground/80 p-1">
-                <Switch
-                  checked={searchMode === "EGG_GROUP"}
-                  onCheckedChange={handleSearchModeChange}
-                />
+                <Switch checked={searchMode === "EGG_GROUP"} onCheckedChange={handleSearchModeChange} />
                 Show only {pokemonToBreed?.name}&apos;s egg groups
               </div>
               <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
@@ -264,11 +224,7 @@ export const PokemonSelect = block(
                     </div>
                   ) : (
                     <For
-                      each={pokemonList.filter((pokemon) =>
-                        pokemon.name
-                          .toLowerCase()
-                          .includes(search.toLowerCase()),
-                      )}
+                      each={pokemonList.filter((pokemon) => pokemon.name.toLowerCase().includes(search.toLowerCase()))}
                     >
                       {(pokemon) => (
                         <React.Fragment key={`${id}:${pokemon.name}`}>

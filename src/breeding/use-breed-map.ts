@@ -13,9 +13,7 @@ export function useBreedMap(props: {
   pokemonToBreed: BreedNode
   nature: NatureType | null
 }) {
-  const map = new ObservableMap<Position, BreedNode>([
-    ["0,0", props.pokemonToBreed],
-  ])
+  const map = new ObservableMap<Position, BreedNode>([["0,0", props.pokemonToBreed]])
 
   function setLastRow(lastRowMapping: LastRowMapping) {
     Object.entries(lastRowMapping).forEach(([key, value]) => {
@@ -46,9 +44,7 @@ export function useBreedMap(props: {
    * Iterates through all rows starting from the second last row and inserts the correct IVs based on the two direct parents.
    */
   function setRemainingRows() {
-    const numberOfRows = props.nature
-      ? props.numberOf31IvPokemon + 1
-      : props.numberOf31IvPokemon
+    const numberOfRows = props.nature ? props.numberOf31IvPokemon + 1 : props.numberOf31IvPokemon
 
     // Iterate through all rows starting from the second last row.
     for (let row = numberOfRows - 2; row > 0; row--) {
