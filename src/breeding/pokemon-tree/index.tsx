@@ -55,7 +55,7 @@ function PokemonTree(props: {
         </div>
       ))}
       <Button onClick={() => console.log(breedMap.toJSON())}>Debug</Button>
-      <IvColors ivs={ivMap} />
+      <IvColors ivs={ivMap} nature={nature} />
     </div>
   )
 }

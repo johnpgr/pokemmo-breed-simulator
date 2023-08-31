@@ -1,25 +1,28 @@
 import { IVMap } from "@/context/types"
+import { NatureType } from "@/data/types"
 import { camelToSpacedPascal } from "@/lib/utils"
 import React from "react"
 
-export const IvColorMap = {
+export const ColorMap = {
   hp: "#55b651",
   attack: "#F44336",
   defense: "#f78025",
   specialAttack: "#e925f7",
   specialDefense: "#f7e225",
   speed: "#25e2f7",
+  nature: "#e0f1f4",
 } as const
-export type Color = (typeof IvColorMap)[keyof typeof IvColorMap]
 
-export function IvColors(props: { ivs: IVMap }) {
+export type Color = (typeof ColorMap)[keyof typeof ColorMap]
+
+export function IvColors(props: { ivs: IVMap; nature: NatureType | null }) {
   return (
     <div className="flex gap-4 mt-4">
       <div className="flex items-center gap-2">
         <div
           className="rounded-full p-3 h-4 w-4"
           style={{
-            backgroundColor: IvColorMap[props.ivs.a],
+            backgroundColor: ColorMap[props.ivs.a],
           }}
         />
         <span className="text-sm">{camelToSpacedPascal(props.ivs.a)}</span>
@@ -28,7 +31,7 @@ export function IvColors(props: { ivs: IVMap }) {
         <div
           className="rounded-full p-3 h-4 w-4"
           style={{
-            backgroundColor: IvColorMap[props.ivs.b],
+            backgroundColor: ColorMap[props.ivs.b],
           }}
         />
         <span className="text-sm">{camelToSpacedPascal(props.ivs.b)}</span>
@@ -38,7 +41,7 @@ export function IvColors(props: { ivs: IVMap }) {
           <div
             className="rounded-full p-3 h-4 w-4"
             style={{
-              backgroundColor: IvColorMap[props.ivs.c],
+              backgroundColor: ColorMap[props.ivs.c],
             }}
           />
           <span className="text-sm">{camelToSpacedPascal(props.ivs.c)}</span>
@@ -49,7 +52,7 @@ export function IvColors(props: { ivs: IVMap }) {
           <div
             className="rounded-full p-3 h-4 w-4"
             style={{
-              backgroundColor: IvColorMap[props.ivs.d],
+              backgroundColor: ColorMap[props.ivs.d],
             }}
           />
           <span className="text-sm">{camelToSpacedPascal(props.ivs.d)}</span>
@@ -60,10 +63,21 @@ export function IvColors(props: { ivs: IVMap }) {
           <div
             className="rounded-full p-3 h-4 w-4"
             style={{
-              backgroundColor: IvColorMap[props.ivs.e],
+              backgroundColor: ColorMap[props.ivs.e],
             }}
           />
           <span className="text-sm">{camelToSpacedPascal(props.ivs.e)}</span>
+        </div>
+      ) : null}
+      {props.nature ? (
+        <div className="flex items-center gap-2">
+          <div
+            className="rounded-full p-3 h-4 w-4"
+            style={{
+              backgroundColor: ColorMap["nature"],
+            }}
+          />
+          <span className="text-sm">{props.nature}</span>
         </div>
       ) : null}
     </div>

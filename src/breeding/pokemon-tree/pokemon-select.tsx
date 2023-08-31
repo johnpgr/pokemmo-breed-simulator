@@ -36,7 +36,7 @@ import { Gender } from "../consts"
 import type { BreedNode, GenderType, Position } from "../types"
 import type { useBreedMap } from "../use-breed-map"
 import { GenderlessPokemonEvolutionTree } from "../utils"
-import { Color, IvColorMap } from "./iv-colors"
+import { Color, ColorMap } from "./iv-colors"
 
 const NodeScaleByColorAmount = {
   "5": 1,
@@ -86,7 +86,7 @@ function filterPokemonByEggGroups(
 }
 
 function getColorsForCurrentNode(ivs: Array<IV>): Array<Color> {
-  return ivs.map((iv) => IvColorMap[iv])
+  return ivs.map((iv) => ColorMap[iv])
 }
 
 export const PokemonSelect = block(
@@ -178,8 +178,18 @@ export const PokemonSelect = block(
 
     React.useEffect(() => {
       if (!currentNode) return
-      if (!currentNode.ivs) return
-      setColors(getColorsForCurrentNode(currentNode.ivs))
+
+      const colors: Array<Color> = []
+
+      if (currentNode.nature) {
+        colors.push(ColorMap["nature"])
+      }
+
+      if (currentNode.ivs) {
+        colors.push(...getColorsForCurrentNode(currentNode.ivs))
+      }
+
+      setColors(colors)
     }, [currentNode])
 
     return (
