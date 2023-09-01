@@ -67,11 +67,13 @@ function getColorsForCurrentNode(ivs: Array<IV>): Array<Color> {
 
 export const PokemonSelect = block(
   ({
+    selectedPokemon,
     breedMap,
     getPokemonByName,
     pokemons,
     position,
   }: {
+    selectedPokemon?: Pokemon
     pokemons: PokemonSelectList
     position: Position
     breedMap: ReturnType<typeof useBreedMap>
@@ -83,9 +85,7 @@ export const PokemonSelect = block(
 
     const [searchMode, setSearchMode] = React.useState<"ALL" | "EGG_GROUP">("ALL")
     const [search, setSearch] = React.useState("")
-    const [isOpen, setIsOpen] = React.useState(false)
     const [gender, setGender] = React.useState<GenderType>(Gender.MALE)
-    const [selectedPokemon, setSelectedPokemon] = React.useState<Pokemon | null>(null)
     const [currentNode, setCurrentNode] = React.useState<BreedNode | null>(null)
     const [colors, setColors] = React.useState<Array<Color>>([])
     const [pending, startTransition] = React.useTransition()
@@ -93,8 +93,6 @@ export const PokemonSelect = block(
     async function handleSelectPokemon(name: string) {
       const pokemon = await getPokemonByName(name)
       if (!pokemon) return
-
-      setSelectedPokemon(pokemon)
 
       const node = breedMap.get(position)
       if (!node) return
@@ -109,7 +107,6 @@ export const PokemonSelect = block(
 
       breedMap.set(position, newNode)
       setCurrentNode(newNode)
-      setIsOpen(false)
     }
 
     function handleChangeGender(gender: GenderType) {
@@ -146,22 +143,23 @@ export const PokemonSelect = block(
 
     React.useEffect(() => {
       if (!currentNode) return
+      if (colors.length > 0) return
 
-      const colors: Array<Color> = []
+      const newColors: Array<Color> = []
 
       if (currentNode.nature) {
-        colors.push(ColorMap["nature"])
+        newColors.push(ColorMap["nature"])
       }
 
       if (currentNode.ivs) {
-        colors.push(...getColorsForCurrentNode(currentNode.ivs))
+        newColors.push(...getColorsForCurrentNode(currentNode.ivs))
       }
 
-      setColors(colors)
+      setColors(newColors)
     }, [currentNode])
 
     return (
-      <Popover open={isOpen} onOpenChange={setIsOpen}>
+      <Popover>
         <PopoverTrigger asChild>
           <Button
             size={"icon"}

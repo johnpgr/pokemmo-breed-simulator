@@ -80,8 +80,9 @@ export class Breeder {
     const parent1Position = parsePosition(pokemon.position)
     const parent2Position = parsePosition(partner.position)
     const childRow = parent1Position.row - 1
-    const childCol = Math.floor((parent1Position.col + parent2Position.col) / 2)
+    const childCol = Math.floor(parent1Position.col / 2)
     const childPosition = `${childRow},${childCol}`
+    console.log({ childPosition, parent1Position, parent2Position })
     return childPosition as Position
   }
 

@@ -1,15 +1,14 @@
 "use client"
 
 import type { IV, IVMap } from "@/context/types"
-import { NatureType } from "@/data/types"
+import { NatureType, Pokemon } from "@/data/types"
 import { useMount } from "@/lib/hooks/use-mount"
 import { ObservableMap, observe } from "mobx"
 import React from "react"
-import { BreedError, BreedNodeAndPosition, Breeder } from "./breeder"
+import { Breeder } from "./breeder"
 import { LastRowMapping, columnsPerRow, pokemonIVsPositions } from "./consts"
 import { BreedNode, Position } from "./types"
 import { getBreedPartnerPosition } from "./utils"
-import { raise } from "@/lib/utils"
 
 function parseLastPositionChange(pos: Array<number>): Position {
   return pos.join(",") as Position
@@ -20,11 +19,13 @@ export function useBreedMap({
   ivMap,
   nature,
   numberOf31IvPokemon,
+  setSelectedPokemons,
 }: {
   ivMap: IVMap
   numberOf31IvPokemon: 2 | 3 | 4 | 5
   pokemonToBreed: BreedNode
   nature: NatureType | null
+  setSelectedPokemons: React.Dispatch<React.SetStateAction<Array<Pokemon & { position: Position }>>>
 }) {
   const map = React.useMemo(() => new ObservableMap<Position, BreedNode>([["0,0", pokemonToBreed]]), [])
   const [lastPositionChange, setLastPositionChange] = React.useState<Array<number> | undefined>()
@@ -100,7 +101,19 @@ export function useBreedMap({
     setLastRow(lastRowMapping)
     setRemainingRows()
     observe(map, (change) => {
-      console.log("change", change)
+      // console.log("change", change)
+      if (!("newValue" in change)) return
+
+      //for the ui to update
+      setSelectedPokemons((prev) => [
+        ...prev,
+        {
+          position: change.name,
+          ...change.newValue.pokemon!,
+        },
+      ])
+
+      //for the breeder logic
       setLastPositionChange(change.name.split(",").map((n) => parseInt(n, 10)))
     })
   })
