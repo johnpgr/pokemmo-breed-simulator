@@ -5,10 +5,11 @@ import { NatureType, Pokemon } from "@/data/types"
 import { useMount } from "@/lib/hooks/use-mount"
 import { ObservableMap, observe } from "mobx"
 import React from "react"
-import { Breeder } from "./breeder"
+import { BreedError, BreedNodeAndPosition, Breeder } from "./breeder"
 import { LastRowMapping, columnsPerRow, pokemonIVsPositions } from "./consts"
-import { BreedNode, Position } from "./types"
+import { BreedNode, GenderType, Position } from "./types"
 import { getBreedPartnerPosition } from "./utils"
+import { BreedRequestFn } from "./use-breed-requester"
 
 function parseLastPositionChange(pos: Array<number>): Position {
   return pos.join(",") as Position
@@ -20,12 +21,14 @@ export function useBreedMap({
   nature,
   numberOf31IvPokemon,
   setSelectedPokemons,
+  breedRequest,
 }: {
   ivMap: IVMap
   numberOf31IvPokemon: 2 | 3 | 4 | 5
   pokemonToBreed: BreedNode
   nature: NatureType | null
   setSelectedPokemons: React.Dispatch<React.SetStateAction<Array<Pokemon & { position: Position }>>>
+  breedRequest: BreedRequestFn
 }) {
   const map = React.useMemo(() => new ObservableMap<Position, BreedNode>([["0,0", pokemonToBreed]]), [])
   const [lastPositionChange, setLastPositionChange] = React.useState<Array<number> | undefined>()
@@ -138,16 +141,16 @@ export function useBreedMap({
 
     if (!pokemon || !partner) return
 
-    const error = breeder.breed(
-      {
-        breedNode: node,
-        position: nodePositionParsed,
-      },
-      {
-        breedNode: partnerNode,
-        position: partnerPosition,
-      },
-    )
+    const pokemonBreedNode = {
+      breedNode: node,
+      position: nodePositionParsed,
+    } satisfies BreedNodeAndPosition
+    const partnerBreedNode = {
+      breedNode: partnerNode,
+      position: partnerPosition,
+    } satisfies BreedNodeAndPosition
+
+    const error = breedRequest(pokemonBreedNode, partnerBreedNode, breeder.breed)
 
     //TODO: Handle errors
     if (error) {

@@ -9,6 +9,7 @@ import { Position } from "../types"
 import { useBreedMap } from "../use-breed-map"
 import { IvColors } from "./iv-colors"
 import { PokemonSelect } from "./pokemon-select"
+import { useBreedRequester } from "../use-breed-requester"
 
 function PokemonTree(props: { pokemons: PokemonSelectList; getPokemonByName: typeof getPokemonByName }) {
   const [selectedPokemons, setSelectedPokemons] = React.useState<Array<Pokemon & { position: Position }>>([])
@@ -16,6 +17,8 @@ function PokemonTree(props: { pokemons: PokemonSelectList; getPokemonByName: typ
   const ivsArray = Object.values(ivMap).filter(Boolean)
   const numberOf31IvPokemon = ivsArray.length as 2 | 3 | 4 | 5
   const generations = (nature ? numberOf31IvPokemon! + 1 : numberOf31IvPokemon) as 2 | 3 | 4 | 5 | 6
+
+  const { breedRequest } = useBreedRequester()
 
   const breedMap = useBreedMap({
     ivMap,
@@ -30,6 +33,7 @@ function PokemonTree(props: { pokemons: PokemonSelectList; getPokemonByName: typ
     },
     numberOf31IvPokemon,
     setSelectedPokemons,
+    breedRequest,
   })
 
   return (

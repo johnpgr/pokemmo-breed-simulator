@@ -27,7 +27,11 @@ export class BreedError {
 export class Breeder {
   constructor(private readonly breedMap: ObservableMap<Position, BreedNode>) {}
 
-  public breed(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition): BreedError | null {
+  public breed(
+    pokemon: BreedNodeAndPosition,
+    partner: BreedNodeAndPosition,
+    childGender: GenderType,
+  ): BreedError | void {
     try {
       this.checkBreedability(pokemon, partner)
 
@@ -49,8 +53,6 @@ export class Breeder {
       }
       throw error
     }
-
-    return null
   }
 
   private checkBreedability(pokemon: BreedNodeAndPosition, partner: BreedNodeAndPosition) {
