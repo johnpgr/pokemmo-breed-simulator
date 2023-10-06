@@ -1,4195 +1,4195 @@
 [
-  {
-    "pokedexNumber": 1,
-    "name": "Bulbasaur",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 2,
-    "name": "Ivysaur",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 3,
-    "name": "Venusaur",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 4,
-    "name": "Charmander",
-    "types": ["Fire"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 5,
-    "name": "Charmeleon",
-    "types": ["Fire"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 6,
-    "name": "Charizard",
-    "types": ["Fire", "Flying"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 7,
-    "name": "Squirtle",
-    "types": ["Water"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 8,
-    "name": "Wartortle",
-    "types": ["Water"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 9,
-    "name": "Blastoise",
-    "types": ["Water"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 10,
-    "name": "Caterpie",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 11,
-    "name": "Metapod",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 12,
-    "name": "Butterfree",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 13,
-    "name": "Weedle",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 14,
-    "name": "Kakuna",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 15,
-    "name": "Beedrill",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 16,
-    "name": "Pidgey",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 17,
-    "name": "Pidgeotto",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 18,
-    "name": "Pidgeot",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 19,
-    "name": "Rattata",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 20,
-    "name": "Raticate",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 21,
-    "name": "Spearow",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 22,
-    "name": "Fearow",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 23,
-    "name": "Ekans",
-    "types": ["Poison"],
-    "eggTypes": ["Dragon", "Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 24,
-    "name": "Arbok",
-    "types": ["Poison"],
-    "eggTypes": ["Dragon", "Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 25,
-    "name": "Pikachu",
-    "types": ["Electric"],
-    "eggTypes": ["Fairy", "Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 26,
-    "name": "Raichu",
-    "types": ["Electric"],
-    "eggTypes": ["Fairy", "Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 27,
-    "name": "Sandshrew",
-    "types": ["Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 28,
-    "name": "Sandslash",
-    "types": ["Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 29,
-    "name": "Nidoran-f",
-    "types": ["Poison"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 30,
-    "name": "Nidorina",
-    "types": ["Poison"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 31,
-    "name": "Nidoqueen",
-    "types": ["Poison", "Ground"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 32,
-    "name": "Nidoran-m",
-    "types": ["Poison"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 33,
-    "name": "Nidorino",
-    "types": ["Poison"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 34,
-    "name": "Nidoking",
-    "types": ["Poison", "Ground"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 35,
-    "name": "Clefairy",
-    "types": ["Fairy"],
-    "eggTypes": ["Fairy"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 36,
-    "name": "Clefable",
-    "types": ["Fairy"],
-    "eggTypes": ["Fairy"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 37,
-    "name": "Vulpix",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 38,
-    "name": "Ninetales",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 39,
-    "name": "Jigglypuff",
-    "types": ["Normal", "Fairy"],
-    "eggTypes": ["Fairy"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 40,
-    "name": "Wigglytuff",
-    "types": ["Normal", "Fairy"],
-    "eggTypes": ["Fairy"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 41,
-    "name": "Zubat",
-    "types": ["Poison", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 42,
-    "name": "Golbat",
-    "types": ["Poison", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 43,
-    "name": "Oddish",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 44,
-    "name": "Gloom",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 45,
-    "name": "Vileplume",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 46,
-    "name": "Paras",
-    "types": ["Bug", "Grass"],
-    "eggTypes": ["Bug", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 47,
-    "name": "Parasect",
-    "types": ["Bug", "Grass"],
-    "eggTypes": ["Bug", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 48,
-    "name": "Venonat",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 49,
-    "name": "Venomoth",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 50,
-    "name": "Diglett",
-    "types": ["Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 51,
-    "name": "Dugtrio",
-    "types": ["Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 52,
-    "name": "Meowth",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 53,
-    "name": "Persian",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 54,
-    "name": "Psyduck",
-    "types": ["Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 55,
-    "name": "Golduck",
-    "types": ["Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 56,
-    "name": "Mankey",
-    "types": ["Fighting"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 57,
-    "name": "Primeape",
-    "types": ["Fighting"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 58,
-    "name": "Growlithe",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 59,
-    "name": "Arcanine",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 60,
-    "name": "Poliwag",
-    "types": ["Water"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 61,
-    "name": "Poliwhirl",
-    "types": ["Water"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 62,
-    "name": "Poliwrath",
-    "types": ["Water", "Fighting"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 63,
-    "name": "Abra",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 64,
-    "name": "Kadabra",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 65,
-    "name": "Alakazam",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 66,
-    "name": "Machop",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 67,
-    "name": "Machoke",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 68,
-    "name": "Machamp",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 69,
-    "name": "Bellsprout",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 70,
-    "name": "Weepinbell",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 71,
-    "name": "Victreebel",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 72,
-    "name": "Tentacool",
-    "types": ["Water", "Poison"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 73,
-    "name": "Tentacruel",
-    "types": ["Water", "Poison"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 74,
-    "name": "Geodude",
-    "types": ["Rock", "Ground"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 75,
-    "name": "Graveler",
-    "types": ["Rock", "Ground"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 76,
-    "name": "Golem",
-    "types": ["Rock", "Ground"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 77,
-    "name": "Ponyta",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 78,
-    "name": "Rapidash",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 79,
-    "name": "Slowpoke",
-    "types": ["Water", "Psychic"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 80,
-    "name": "Slowbro",
-    "types": ["Water", "Psychic"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 81,
-    "name": "Magnemite",
-    "types": ["Electric", "Steel"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 82,
-    "name": "Magneton",
-    "types": ["Electric", "Steel"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 83,
-    "name": "Farfetchd",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Field", "Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 84,
-    "name": "Doduo",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 85,
-    "name": "Dodrio",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 86,
-    "name": "Seel",
-    "types": ["Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 87,
-    "name": "Dewgong",
-    "types": ["Water", "Ice"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 88,
-    "name": "Grimer",
-    "types": ["Poison"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 89,
-    "name": "Muk",
-    "types": ["Poison"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 90,
-    "name": "Shellder",
-    "types": ["Water"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 91,
-    "name": "Cloyster",
-    "types": ["Water", "Ice"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 92,
-    "name": "Gastly",
-    "types": ["Ghost", "Poison"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 93,
-    "name": "Haunter",
-    "types": ["Ghost", "Poison"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 94,
-    "name": "Gengar",
-    "types": ["Ghost", "Poison"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 95,
-    "name": "Onix",
-    "types": ["Rock", "Ground"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 96,
-    "name": "Drowzee",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 97,
-    "name": "Hypno",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 98,
-    "name": "Krabby",
-    "types": ["Water"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 99,
-    "name": "Kingler",
-    "types": ["Water"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 100,
-    "name": "Voltorb",
-    "types": ["Electric"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 101,
-    "name": "Electrode",
-    "types": ["Electric"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 102,
-    "name": "Exeggcute",
-    "types": ["Grass", "Psychic"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 103,
-    "name": "Exeggutor",
-    "types": ["Grass", "Psychic"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 104,
-    "name": "Cubone",
-    "types": ["Ground"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 105,
-    "name": "Marowak",
-    "types": ["Ground"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 106,
-    "name": "Hitmonlee",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 107,
-    "name": "Hitmonchan",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 108,
-    "name": "Lickitung",
-    "types": ["Normal"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 109,
-    "name": "Koffing",
-    "types": ["Poison"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 110,
-    "name": "Weezing",
-    "types": ["Poison"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 111,
-    "name": "Rhyhorn",
-    "types": ["Ground", "Rock"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 112,
-    "name": "Rhydon",
-    "types": ["Ground", "Rock"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 113,
-    "name": "Chansey",
-    "types": ["Normal"],
-    "eggTypes": ["Fairy"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 114,
-    "name": "Tangela",
-    "types": ["Grass"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 115,
-    "name": "Kangaskhan",
-    "types": ["Normal"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 116,
-    "name": "Horsea",
-    "types": ["Water"],
-    "eggTypes": ["Dragon", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 117,
-    "name": "Seadra",
-    "types": ["Water"],
-    "eggTypes": ["Dragon", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 118,
-    "name": "Goldeen",
-    "types": ["Water"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 119,
-    "name": "Seaking",
-    "types": ["Water"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 120,
-    "name": "Staryu",
-    "types": ["Water"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 121,
-    "name": "Starmie",
-    "types": ["Water", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 122,
-    "name": "Mr. Mime",
-    "types": ["Psychic", "Fairy"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 123,
-    "name": "Scyther",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 124,
-    "name": "Jynx",
-    "types": ["Ice", "Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 125,
-    "name": "Electabuzz",
-    "types": ["Electric"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 126,
-    "name": "Magmar",
-    "types": ["Fire"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 127,
-    "name": "Pinsir",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 128,
-    "name": "Tauros",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 129,
-    "name": "Magikarp",
-    "types": ["Water"],
-    "eggTypes": ["Dragon", "Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 130,
-    "name": "Gyarados",
-    "types": ["Water", "Flying"],
-    "eggTypes": ["Dragon", "Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 131,
-    "name": "Lapras",
-    "types": ["Water", "Ice"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 132,
-    "name": "Ditto",
-    "types": ["Normal"],
-    "eggTypes": ["Ditto"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 133,
-    "name": "Eevee",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 134,
-    "name": "Vaporeon",
-    "types": ["Water"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 135,
-    "name": "Jolteon",
-    "types": ["Electric"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 136,
-    "name": "Flareon",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 137,
-    "name": "Porygon",
-    "types": ["Normal"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 138,
-    "name": "Omanyte",
-    "types": ["Rock", "Water"],
-    "eggTypes": ["Water A", "Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 139,
-    "name": "Omastar",
-    "types": ["Rock", "Water"],
-    "eggTypes": ["Water A", "Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 140,
-    "name": "Kabuto",
-    "types": ["Rock", "Water"],
-    "eggTypes": ["Water A", "Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 141,
-    "name": "Kabutops",
-    "types": ["Rock", "Water"],
-    "eggTypes": ["Water A", "Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 142,
-    "name": "Aerodactyl",
-    "types": ["Rock", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 143,
-    "name": "Snorlax",
-    "types": ["Normal"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 147,
-    "name": "Dratini",
-    "types": ["Dragon"],
-    "eggTypes": ["Dragon", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 148,
-    "name": "Dragonair",
-    "types": ["Dragon"],
-    "eggTypes": ["Dragon", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 149,
-    "name": "Dragonite",
-    "types": ["Dragon", "Flying"],
-    "eggTypes": ["Dragon", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 152,
-    "name": "Chikorita",
-    "types": ["Grass"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 153,
-    "name": "Bayleef",
-    "types": ["Grass"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 155,
-    "name": "Cyndaquil",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 156,
-    "name": "Quilava",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 157,
-    "name": "Typhlosion",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 158,
-    "name": "Totodile",
-    "types": ["Water"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 159,
-    "name": "Croconaw",
-    "types": ["Water"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 160,
-    "name": "Feraligatr",
-    "types": ["Water"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 161,
-    "name": "Sentret",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 162,
-    "name": "Furret",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 163,
-    "name": "Hoothoot",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 164,
-    "name": "Noctowl",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 165,
-    "name": "Ledyba",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 166,
-    "name": "Ledian",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 167,
-    "name": "Spinarak",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 168,
-    "name": "Ariados",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 169,
-    "name": "Crobat",
-    "types": ["Poison", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 170,
-    "name": "Chinchou",
-    "types": ["Water", "Electric"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 171,
-    "name": "Lanturn",
-    "types": ["Water", "Electric"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 172,
-    "name": "Pichu",
-    "types": ["Electric"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 173,
-    "name": "Cleffa",
-    "types": ["Fairy"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 174,
-    "name": "Igglybuff",
-    "types": ["Normal", "Fairy"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 175,
-    "name": "Togepi",
-    "types": ["Fairy"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 176,
-    "name": "Togetic",
-    "types": ["Fairy", "Flying"],
-    "eggTypes": ["Fairy", "Flying"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 177,
-    "name": "Natu",
-    "types": ["Psychic", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 178,
-    "name": "Xatu",
-    "types": ["Psychic", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 179,
-    "name": "Mareep",
-    "types": ["Electric"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 180,
-    "name": "Flaaffy",
-    "types": ["Electric"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 181,
-    "name": "Ampharos",
-    "types": ["Electric"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 182,
-    "name": "Bellossom",
-    "types": ["Grass"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 183,
-    "name": "Marill",
-    "types": ["Water", "Fairy"],
-    "eggTypes": ["Fairy", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 184,
-    "name": "Azumarill",
-    "types": ["Water", "Fairy"],
-    "eggTypes": ["Fairy", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 185,
-    "name": "Sudowoodo",
-    "types": ["Rock"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 186,
-    "name": "Politoed",
-    "types": ["Water"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 187,
-    "name": "Hoppip",
-    "types": ["Grass", "Flying"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 188,
-    "name": "Skiploom",
-    "types": ["Grass", "Flying"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 189,
-    "name": "Jumpluff",
-    "types": ["Grass", "Flying"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 190,
-    "name": "Aipom",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 191,
-    "name": "Sunkern",
-    "types": ["Grass"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 192,
-    "name": "Sunflora",
-    "types": ["Grass"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 193,
-    "name": "Yanma",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 194,
-    "name": "Wooper",
-    "types": ["Water", "Ground"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 195,
-    "name": "Quagsire",
-    "types": ["Water", "Ground"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 196,
-    "name": "Espeon",
-    "types": ["Psychic"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 197,
-    "name": "Umbreon",
-    "types": ["Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 198,
-    "name": "Murkrow",
-    "types": ["Dark", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 199,
-    "name": "Slowking",
-    "types": ["Water", "Psychic"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 200,
-    "name": "Misdreavus",
-    "types": ["Ghost"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 201,
-    "name": "Unown",
-    "types": ["Psychic"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 202,
-    "name": "Wobbuffet",
-    "types": ["Psychic"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 203,
-    "name": "Girafarig",
-    "types": ["Normal", "Psychic"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 204,
-    "name": "Pineco",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 205,
-    "name": "Forretress",
-    "types": ["Bug", "Steel"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 206,
-    "name": "Dunsparce",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 207,
-    "name": "Gligar",
-    "types": ["Ground", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 208,
-    "name": "Steelix",
-    "types": ["Steel", "Ground"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 209,
-    "name": "Snubbull",
-    "types": ["Fairy"],
-    "eggTypes": ["Fairy", "Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 210,
-    "name": "Granbull",
-    "types": ["Fairy"],
-    "eggTypes": ["Fairy", "Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 211,
-    "name": "Qwilfish",
-    "types": ["Water", "Poison"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 212,
-    "name": "Scizor",
-    "types": ["Bug", "Steel"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 213,
-    "name": "Shuckle",
-    "types": ["Bug", "Rock"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 214,
-    "name": "Heracross",
-    "types": ["Bug", "Fighting"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 215,
-    "name": "Sneasel",
-    "types": ["Dark", "Ice"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 216,
-    "name": "Teddiursa",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 217,
-    "name": "Ursaring",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 218,
-    "name": "Slugma",
-    "types": ["Fire"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 219,
-    "name": "Magcargo",
-    "types": ["Fire", "Rock"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 220,
-    "name": "Swinub",
-    "types": ["Ice", "Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 221,
-    "name": "Piloswine",
-    "types": ["Ice", "Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 222,
-    "name": "Corsola",
-    "types": ["Water", "Rock"],
-    "eggTypes": ["Water A", "Water C"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 223,
-    "name": "Remoraid",
-    "types": ["Water"],
-    "eggTypes": ["Water A", "Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 224,
-    "name": "Octillery",
-    "types": ["Water"],
-    "eggTypes": ["Water A", "Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 225,
-    "name": "Delibird",
-    "types": ["Ice", "Flying"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 226,
-    "name": "Mantine",
-    "types": ["Water", "Flying"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 227,
-    "name": "Skarmory",
-    "types": ["Steel", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 228,
-    "name": "Houndour",
-    "types": ["Dark", "Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 229,
-    "name": "Houndoom",
-    "types": ["Dark", "Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 230,
-    "name": "Kingdra",
-    "types": ["Water", "Dragon"],
-    "eggTypes": ["Dragon", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 231,
-    "name": "Phanpy",
-    "types": ["Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 232,
-    "name": "Donphan",
-    "types": ["Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 233,
-    "name": "Porygon2",
-    "types": ["Normal"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 234,
-    "name": "Stantler",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 235,
-    "name": "Smeargle",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 236,
-    "name": "Tyrogue",
-    "types": ["Fighting"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 237,
-    "name": "Hitmontop",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 238,
-    "name": "Smoochum",
-    "types": ["Ice", "Psychic"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 239,
-    "name": "Elekid",
-    "types": ["Electric"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 240,
-    "name": "Magby",
-    "types": ["Fire"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 241,
-    "name": "Miltank",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 242,
-    "name": "Blissey",
-    "types": ["Normal"],
-    "eggTypes": ["Fairy"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 246,
-    "name": "Larvitar",
-    "types": ["Rock", "Ground"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 247,
-    "name": "Pupitar",
-    "types": ["Rock", "Ground"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 248,
-    "name": "Tyranitar",
-    "types": ["Rock", "Dark"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 252,
-    "name": "Treecko",
-    "types": ["Grass"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 253,
-    "name": "Grovyle",
-    "types": ["Grass"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 254,
-    "name": "Sceptile",
-    "types": ["Grass"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 255,
-    "name": "Torchic",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 256,
-    "name": "Combusken",
-    "types": ["Fire", "Fighting"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 257,
-    "name": "Blaziken",
-    "types": ["Fire", "Fighting"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 258,
-    "name": "Mudkip",
-    "types": ["Water"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 259,
-    "name": "Marshtomp",
-    "types": ["Water", "Ground"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 260,
-    "name": "Swampert",
-    "types": ["Water", "Ground"],
-    "eggTypes": ["Monster", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 261,
-    "name": "Poochyena",
-    "types": ["Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 262,
-    "name": "Mightyena",
-    "types": ["Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 263,
-    "name": "Zigzagoon",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 264,
-    "name": "Linoone",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 265,
-    "name": "Wurmple",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 266,
-    "name": "Silcoon",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 267,
-    "name": "Beautifly",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 268,
-    "name": "Cascoon",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 269,
-    "name": "Dustox",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 270,
-    "name": "Lotad",
-    "types": ["Water", "Grass"],
-    "eggTypes": ["Grass", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 271,
-    "name": "Lombre",
-    "types": ["Water", "Grass"],
-    "eggTypes": ["Grass", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 272,
-    "name": "Ludicolo",
-    "types": ["Water", "Grass"],
-    "eggTypes": ["Grass", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 273,
-    "name": "Seedot",
-    "types": ["Grass"],
-    "eggTypes": ["Field", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 274,
-    "name": "Nuzleaf",
-    "types": ["Grass", "Dark"],
-    "eggTypes": ["Field", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 275,
-    "name": "Shiftry",
-    "types": ["Grass", "Dark"],
-    "eggTypes": ["Field", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 276,
-    "name": "Taillow",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 277,
-    "name": "Swellow",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 278,
-    "name": "Wingull",
-    "types": ["Water", "Flying"],
-    "eggTypes": ["Flying", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 279,
-    "name": "Pelipper",
-    "types": ["Water", "Flying"],
-    "eggTypes": ["Flying", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 280,
-    "name": "Ralts",
-    "types": ["Psychic", "Fairy"],
-    "eggTypes": ["Amorphous", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 281,
-    "name": "Kirlia",
-    "types": ["Psychic", "Fairy"],
-    "eggTypes": ["Amorphous", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 282,
-    "name": "Gardevoir",
-    "types": ["Psychic", "Fairy"],
-    "eggTypes": ["Amorphous", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 283,
-    "name": "Surskit",
-    "types": ["Bug", "Water"],
-    "eggTypes": ["Bug", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 284,
-    "name": "Masquerain",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 285,
-    "name": "Shroomish",
-    "types": ["Grass"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 286,
-    "name": "Breloom",
-    "types": ["Grass", "Fighting"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 287,
-    "name": "Slakoth",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 288,
-    "name": "Vigoroth",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 289,
-    "name": "Slaking",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 290,
-    "name": "Nincada",
-    "types": ["Bug", "Ground"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 291,
-    "name": "Ninjask",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 292,
-    "name": "Shedinja",
-    "types": ["Bug", "Ghost"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 293,
-    "name": "Whismur",
-    "types": ["Normal"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 294,
-    "name": "Loudred",
-    "types": ["Normal"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 295,
-    "name": "Exploud",
-    "types": ["Normal"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 296,
-    "name": "Makuhita",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 297,
-    "name": "Hariyama",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 298,
-    "name": "Azurill",
-    "types": ["Normal", "Fairy"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 299,
-    "name": "Nosepass",
-    "types": ["Rock"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 300,
-    "name": "Skitty",
-    "types": ["Normal"],
-    "eggTypes": ["Fairy", "Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 301,
-    "name": "Delcatty",
-    "types": ["Normal"],
-    "eggTypes": ["Fairy", "Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 302,
-    "name": "Sableye",
-    "types": ["Dark", "Ghost"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 303,
-    "name": "Mawile",
-    "types": ["Steel", "Fairy"],
-    "eggTypes": ["Fairy", "Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 304,
-    "name": "Aron",
-    "types": ["Steel", "Rock"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 305,
-    "name": "Lairon",
-    "types": ["Steel", "Rock"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 306,
-    "name": "Aggron",
-    "types": ["Steel", "Rock"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 307,
-    "name": "Meditite",
-    "types": ["Fighting", "Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 308,
-    "name": "Medicham",
-    "types": ["Fighting", "Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 309,
-    "name": "Electrike",
-    "types": ["Electric"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 310,
-    "name": "Manectric",
-    "types": ["Electric"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 311,
-    "name": "Plusle",
-    "types": ["Electric"],
-    "eggTypes": ["Fairy"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 312,
-    "name": "Minun",
-    "types": ["Electric"],
-    "eggTypes": ["Fairy"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 313,
-    "name": "Volbeat",
-    "types": ["Bug"],
-    "eggTypes": ["Bug", "Humanoid"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 314,
-    "name": "Illumise",
-    "types": ["Bug"],
-    "eggTypes": ["Bug", "Humanoid"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 315,
-    "name": "Roselia",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 316,
-    "name": "Gulpin",
-    "types": ["Poison"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 317,
-    "name": "Swalot",
-    "types": ["Poison"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 318,
-    "name": "Carvanha",
-    "types": ["Water", "Dark"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 319,
-    "name": "Sharpedo",
-    "types": ["Water", "Dark"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 320,
-    "name": "Wailmer",
-    "types": ["Water"],
-    "eggTypes": ["Field", "Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 321,
-    "name": "Wailord",
-    "types": ["Water"],
-    "eggTypes": ["Field", "Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 322,
-    "name": "Numel",
-    "types": ["Fire", "Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 323,
-    "name": "Camerupt",
-    "types": ["Fire", "Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 324,
-    "name": "Torkoal",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 325,
-    "name": "Spoink",
-    "types": ["Psychic"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 326,
-    "name": "Grumpig",
-    "types": ["Psychic"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 327,
-    "name": "Spinda",
-    "types": ["Normal"],
-    "eggTypes": ["Field", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 328,
-    "name": "Trapinch",
-    "types": ["Ground"],
-    "eggTypes": ["Bug", "Dragon"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 329,
-    "name": "Vibrava",
-    "types": ["Ground", "Dragon"],
-    "eggTypes": ["Bug", "Dragon"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 330,
-    "name": "Flygon",
-    "types": ["Ground", "Dragon"],
-    "eggTypes": ["Bug", "Dragon"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 331,
-    "name": "Cacnea",
-    "types": ["Grass"],
-    "eggTypes": ["Grass", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 332,
-    "name": "Cacturne",
-    "types": ["Grass", "Dark"],
-    "eggTypes": ["Grass", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 333,
-    "name": "Swablu",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Dragon", "Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 334,
-    "name": "Altaria",
-    "types": ["Dragon", "Flying"],
-    "eggTypes": ["Dragon", "Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 335,
-    "name": "Zangoose",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 336,
-    "name": "Seviper",
-    "types": ["Poison"],
-    "eggTypes": ["Dragon", "Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 337,
-    "name": "Lunatone",
-    "types": ["Rock", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 338,
-    "name": "Solrock",
-    "types": ["Rock", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 339,
-    "name": "Barboach",
-    "types": ["Water", "Ground"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 340,
-    "name": "Whiscash",
-    "types": ["Water", "Ground"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 341,
-    "name": "Corphish",
-    "types": ["Water"],
-    "eggTypes": ["Water A", "Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 342,
-    "name": "Crawdaunt",
-    "types": ["Water", "Dark"],
-    "eggTypes": ["Water A", "Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 343,
-    "name": "Baltoy",
-    "types": ["Ground", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 344,
-    "name": "Claydol",
-    "types": ["Ground", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 345,
-    "name": "Lileep",
-    "types": ["Rock", "Grass"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 346,
-    "name": "Cradily",
-    "types": ["Rock", "Grass"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 347,
-    "name": "Anorith",
-    "types": ["Rock", "Bug"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 348,
-    "name": "Armaldo",
-    "types": ["Rock", "Bug"],
-    "eggTypes": ["Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 349,
-    "name": "Feebas",
-    "types": ["Water"],
-    "eggTypes": ["Dragon", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 350,
-    "name": "Milotic",
-    "types": ["Water"],
-    "eggTypes": ["Dragon", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 351,
-    "name": "Castform",
-    "types": ["Normal"],
-    "eggTypes": ["Amorphous", "Fairy"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 352,
-    "name": "Kecleon",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 353,
-    "name": "Shuppet",
-    "types": ["Ghost"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 354,
-    "name": "Banette",
-    "types": ["Ghost"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 355,
-    "name": "Duskull",
-    "types": ["Ghost"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 356,
-    "name": "Dusclops",
-    "types": ["Ghost"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 357,
-    "name": "Tropius",
-    "types": ["Grass", "Flying"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 358,
-    "name": "Chimecho",
-    "types": ["Psychic"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 359,
-    "name": "Absol",
-    "types": ["Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 360,
-    "name": "Wynaut",
-    "types": ["Psychic"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 361,
-    "name": "Snorunt",
-    "types": ["Ice"],
-    "eggTypes": ["Fairy", "Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 362,
-    "name": "Glalie",
-    "types": ["Ice"],
-    "eggTypes": ["Fairy", "Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 363,
-    "name": "Spheal",
-    "types": ["Ice", "Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 364,
-    "name": "Sealeo",
-    "types": ["Ice", "Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 365,
-    "name": "Walrein",
-    "types": ["Ice", "Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 366,
-    "name": "Clamperl",
-    "types": ["Water"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 367,
-    "name": "Huntail",
-    "types": ["Water"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 368,
-    "name": "Gorebyss",
-    "types": ["Water"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 369,
-    "name": "Relicanth",
-    "types": ["Water", "Rock"],
-    "eggTypes": ["Water A", "Water B"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 370,
-    "name": "Luvdisc",
-    "types": ["Water"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 371,
-    "name": "Bagon",
-    "types": ["Dragon"],
-    "eggTypes": ["Dragon"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 372,
-    "name": "Shelgon",
-    "types": ["Dragon"],
-    "eggTypes": ["Dragon"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 373,
-    "name": "Salamence",
-    "types": ["Dragon", "Flying"],
-    "eggTypes": ["Dragon"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 374,
-    "name": "Beldum",
-    "types": ["Steel", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 375,
-    "name": "Metang",
-    "types": ["Steel", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 376,
-    "name": "Metagross",
-    "types": ["Steel", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 387,
-    "name": "Turtwig",
-    "types": ["Grass"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 388,
-    "name": "Grotle",
-    "types": ["Grass"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 389,
-    "name": "Torterra",
-    "types": ["Grass", "Ground"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 390,
-    "name": "Chimchar",
-    "types": ["Fire"],
-    "eggTypes": ["Field", "Humanoid"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 391,
-    "name": "Monferno",
-    "types": ["Fire", "Fighting"],
-    "eggTypes": ["Field", "Humanoid"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 392,
-    "name": "Infernape",
-    "types": ["Fire", "Fighting"],
-    "eggTypes": ["Field", "Humanoid"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 393,
-    "name": "Piplup",
-    "types": ["Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 394,
-    "name": "Prinplup",
-    "types": ["Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 395,
-    "name": "Empoleon",
-    "types": ["Water", "Steel"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 396,
-    "name": "Starly",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 397,
-    "name": "Staravia",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 398,
-    "name": "Staraptor",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 399,
-    "name": "Bidoof",
-    "types": ["Normal"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 400,
-    "name": "Bibarel",
-    "types": ["Normal", "Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 401,
-    "name": "Kricketot",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 402,
-    "name": "Kricketune",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 403,
-    "name": "Shinx",
-    "types": ["Electric"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 404,
-    "name": "Luxio",
-    "types": ["Electric"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 405,
-    "name": "Luxray",
-    "types": ["Electric"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 406,
-    "name": "Budew",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 407,
-    "name": "Roserade",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 408,
-    "name": "Cranidos",
-    "types": ["Rock"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 409,
-    "name": "Rampardos",
-    "types": ["Rock"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 410,
-    "name": "Shieldon",
-    "types": ["Rock", "Steel"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 411,
-    "name": "Bastiodon",
-    "types": ["Rock", "Steel"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 412,
-    "name": "Burmy",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 413,
-    "name": "Wormadam",
-    "types": ["Bug", "Grass"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 414,
-    "name": "Mothim",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 415,
-    "name": "Combee",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 416,
-    "name": "Vespiquen",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 417,
-    "name": "Pachirisu",
-    "types": ["Electric"],
-    "eggTypes": ["Fairy", "Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 418,
-    "name": "Buizel",
-    "types": ["Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 419,
-    "name": "Floatzel",
-    "types": ["Water"],
-    "eggTypes": ["Field", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 420,
-    "name": "Cherubi",
-    "types": ["Grass"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 421,
-    "name": "Cherrim",
-    "types": ["Grass"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 422,
-    "name": "Shellos",
-    "types": ["Water"],
-    "eggTypes": ["Amorphous", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 423,
-    "name": "Gastrodon",
-    "types": ["Water", "Ground"],
-    "eggTypes": ["Amorphous", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 424,
-    "name": "Ambipom",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 425,
-    "name": "Drifloon",
-    "types": ["Ghost", "Flying"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 426,
-    "name": "Drifblim",
-    "types": ["Ghost", "Flying"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 427,
-    "name": "Buneary",
-    "types": ["Normal"],
-    "eggTypes": ["Field", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 428,
-    "name": "Lopunny",
-    "types": ["Normal"],
-    "eggTypes": ["Field", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 429,
-    "name": "Mismagius",
-    "types": ["Ghost"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 430,
-    "name": "Honchkrow",
-    "types": ["Dark", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 431,
-    "name": "Glameow",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 432,
-    "name": "Purugly",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 433,
-    "name": "Chingling",
-    "types": ["Psychic"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 434,
-    "name": "Stunky",
-    "types": ["Poison", "Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 435,
-    "name": "Skuntank",
-    "types": ["Poison", "Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 436,
-    "name": "Bronzor",
-    "types": ["Steel", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 437,
-    "name": "Bronzong",
-    "types": ["Steel", "Psychic"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 438,
-    "name": "Bonsly",
-    "types": ["Rock"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 439,
-    "name": "Mime Jr.",
-    "types": ["Psychic", "Fairy"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 440,
-    "name": "Happiny",
-    "types": ["Normal"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 441,
-    "name": "Chatot",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 442,
-    "name": "Spiritomb",
-    "types": ["Ghost", "Dark"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 443,
-    "name": "Gible",
-    "types": ["Dragon", "Ground"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 444,
-    "name": "Gabite",
-    "types": ["Dragon", "Ground"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 445,
-    "name": "Garchomp",
-    "types": ["Dragon", "Ground"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 446,
-    "name": "Munchlax",
-    "types": ["Normal"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 447,
-    "name": "Riolu",
-    "types": ["Fighting"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 448,
-    "name": "Lucario",
-    "types": ["Fighting", "Steel"],
-    "eggTypes": ["Field", "Humanoid"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 449,
-    "name": "Hippopotas",
-    "types": ["Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 450,
-    "name": "Hippowdon",
-    "types": ["Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 451,
-    "name": "Skorupi",
-    "types": ["Poison", "Bug"],
-    "eggTypes": ["Bug", "Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 452,
-    "name": "Drapion",
-    "types": ["Poison", "Dark"],
-    "eggTypes": ["Bug", "Water C"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 453,
-    "name": "Croagunk",
-    "types": ["Poison", "Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 454,
-    "name": "Toxicroak",
-    "types": ["Poison", "Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 455,
-    "name": "Carnivine",
-    "types": ["Grass"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 456,
-    "name": "Finneon",
-    "types": ["Water"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 457,
-    "name": "Lumineon",
-    "types": ["Water"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 458,
-    "name": "Mantyke",
-    "types": ["Water", "Flying"],
-    "eggTypes": ["Cannot Breed"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 459,
-    "name": "Snover",
-    "types": ["Grass", "Ice"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 460,
-    "name": "Abomasnow",
-    "types": ["Grass", "Ice"],
-    "eggTypes": ["Grass", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 461,
-    "name": "Weavile",
-    "types": ["Dark", "Ice"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 462,
-    "name": "Magnezone",
-    "types": ["Electric", "Steel"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 463,
-    "name": "Lickilicky",
-    "types": ["Normal"],
-    "eggTypes": ["Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 464,
-    "name": "Rhyperior",
-    "types": ["Ground", "Rock"],
-    "eggTypes": ["Field", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 465,
-    "name": "Tangrowth",
-    "types": ["Grass"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 466,
-    "name": "Electivire",
-    "types": ["Electric"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 467,
-    "name": "Magmortar",
-    "types": ["Fire"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 468,
-    "name": "Togekiss",
-    "types": ["Fairy", "Flying"],
-    "eggTypes": ["Fairy", "Flying"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 469,
-    "name": "Yanmega",
-    "types": ["Bug", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 470,
-    "name": "Leafeon",
-    "types": ["Grass"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 471,
-    "name": "Glaceon",
-    "types": ["Ice"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 472,
-    "name": "Gliscor",
-    "types": ["Ground", "Flying"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 473,
-    "name": "Mamoswine",
-    "types": ["Ice", "Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 474,
-    "name": "Porygon-Z",
-    "types": ["Normal"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 475,
-    "name": "Gallade",
-    "types": ["Psychic", "Fighting"],
-    "eggTypes": ["Amorphous", "Humanoid"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 476,
-    "name": "Probopass",
-    "types": ["Rock", "Steel"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 477,
-    "name": "Dusknoir",
-    "types": ["Ghost"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 478,
-    "name": "Froslass",
-    "types": ["Ice", "Ghost"],
-    "eggTypes": ["Fairy", "Mineral"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 479,
-    "name": "Rotom",
-    "types": ["Electric", "Ghost"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 495,
-    "name": "Snivy",
-    "types": ["Grass"],
-    "eggTypes": ["Field", "Grass"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 496,
-    "name": "Servine",
-    "types": ["Grass"],
-    "eggTypes": ["Field", "Grass"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 497,
-    "name": "Serperior",
-    "types": ["Grass"],
-    "eggTypes": ["Field", "Grass"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 498,
-    "name": "Tepig",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 499,
-    "name": "Pignite",
-    "types": ["Fire", "Fighting"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 500,
-    "name": "Emboar",
-    "types": ["Fire", "Fighting"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 501,
-    "name": "Oshawott",
-    "types": ["Water"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 502,
-    "name": "Dewott",
-    "types": ["Water"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 503,
-    "name": "Samurott",
-    "types": ["Water"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 504,
-    "name": "Patrat",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 505,
-    "name": "Watchog",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 506,
-    "name": "Lillipup",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 507,
-    "name": "Herdier",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 508,
-    "name": "Stoutland",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 509,
-    "name": "Purrloin",
-    "types": ["Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 510,
-    "name": "Liepard",
-    "types": ["Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 511,
-    "name": "Pansage",
-    "types": ["Grass"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 512,
-    "name": "Simisage",
-    "types": ["Grass"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 513,
-    "name": "Pansear",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 514,
-    "name": "Simisear",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 515,
-    "name": "Panpour",
-    "types": ["Water"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 516,
-    "name": "Simipour",
-    "types": ["Water"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 517,
-    "name": "Munna",
-    "types": ["Psychic"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 518,
-    "name": "Musharna",
-    "types": ["Psychic"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 519,
-    "name": "Pidove",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 520,
-    "name": "Tranquill",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 521,
-    "name": "Unfezant",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 522,
-    "name": "Blitzle",
-    "types": ["Electric"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 523,
-    "name": "Zebstrika",
-    "types": ["Electric"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 524,
-    "name": "Roggenrola",
-    "types": ["Rock"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 525,
-    "name": "Boldore",
-    "types": ["Rock"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 526,
-    "name": "Gigalith",
-    "types": ["Rock"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 527,
-    "name": "Woobat",
-    "types": ["Psychic", "Flying"],
-    "eggTypes": ["Field", "Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 528,
-    "name": "Swoobat",
-    "types": ["Psychic", "Flying"],
-    "eggTypes": ["Field", "Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 529,
-    "name": "Drilbur",
-    "types": ["Ground"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 530,
-    "name": "Excadrill",
-    "types": ["Ground", "Steel"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 531,
-    "name": "Audino",
-    "types": ["Normal"],
-    "eggTypes": ["Fairy"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 532,
-    "name": "Timburr",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 533,
-    "name": "Gurdurr",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 534,
-    "name": "Conkeldurr",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 75
-  },
-  {
-    "pokedexNumber": 535,
-    "name": "Tympole",
-    "types": ["Water"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 536,
-    "name": "Palpitoad",
-    "types": ["Water", "Ground"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 537,
-    "name": "Seismitoad",
-    "types": ["Water", "Ground"],
-    "eggTypes": ["Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 538,
-    "name": "Throh",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 539,
-    "name": "Sawk",
-    "types": ["Fighting"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 540,
-    "name": "Sewaddle",
-    "types": ["Bug", "Grass"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 541,
-    "name": "Swadloon",
-    "types": ["Bug", "Grass"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 542,
-    "name": "Leavanny",
-    "types": ["Bug", "Grass"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 543,
-    "name": "Venipede",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 544,
-    "name": "Whirlipede",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 545,
-    "name": "Scolipede",
-    "types": ["Bug", "Poison"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 546,
-    "name": "Cottonee",
-    "types": ["Grass", "Fairy"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 547,
-    "name": "Whimsicott",
-    "types": ["Grass", "Fairy"],
-    "eggTypes": ["Fairy", "Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 548,
-    "name": "Petilil",
-    "types": ["Grass"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 549,
-    "name": "Lilligant",
-    "types": ["Grass"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 550,
-    "name": "Basculin",
-    "types": ["Water"],
-    "eggTypes": ["Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 551,
-    "name": "Sandile",
-    "types": ["Ground", "Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 552,
-    "name": "Krokorok",
-    "types": ["Ground", "Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 553,
-    "name": "Krookodile",
-    "types": ["Ground", "Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 554,
-    "name": "Darumaka",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 555,
-    "name": "Darmanitan",
-    "types": ["Fire"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 556,
-    "name": "Maractus",
-    "types": ["Grass"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 557,
-    "name": "Dwebble",
-    "types": ["Bug", "Rock"],
-    "eggTypes": ["Bug", "Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 558,
-    "name": "Crustle",
-    "types": ["Bug", "Rock"],
-    "eggTypes": ["Bug", "Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 559,
-    "name": "Scraggy",
-    "types": ["Dark", "Fighting"],
-    "eggTypes": ["Dragon", "Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 560,
-    "name": "Scrafty",
-    "types": ["Dark", "Fighting"],
-    "eggTypes": ["Dragon", "Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 561,
-    "name": "Sigilyph",
-    "types": ["Psychic", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 562,
-    "name": "Yamask",
-    "types": ["Ghost"],
-    "eggTypes": ["Amorphous", "Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 563,
-    "name": "Cofagrigus",
-    "types": ["Ghost"],
-    "eggTypes": ["Amorphous", "Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 564,
-    "name": "Tirtouga",
-    "types": ["Water", "Rock"],
-    "eggTypes": ["Water A", "Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 565,
-    "name": "Carracosta",
-    "types": ["Water", "Rock"],
-    "eggTypes": ["Water A", "Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 566,
-    "name": "Archen",
-    "types": ["Rock", "Flying"],
-    "eggTypes": ["Flying", "Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 567,
-    "name": "Archeops",
-    "types": ["Rock", "Flying"],
-    "eggTypes": ["Flying", "Water C"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 568,
-    "name": "Trubbish",
-    "types": ["Poison"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 569,
-    "name": "Garbodor",
-    "types": ["Poison"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 570,
-    "name": "Zorua",
-    "types": ["Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 571,
-    "name": "Zoroark",
-    "types": ["Dark"],
-    "eggTypes": ["Field"],
-    "percentageMale": 87.5
-  },
-  {
-    "pokedexNumber": 572,
-    "name": "Minccino",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 573,
-    "name": "Cinccino",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 574,
-    "name": "Gothita",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 575,
-    "name": "Gothorita",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 576,
-    "name": "Gothitelle",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 25
-  },
-  {
-    "pokedexNumber": 577,
-    "name": "Solosis",
-    "types": ["Psychic"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 578,
-    "name": "Duosion",
-    "types": ["Psychic"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 579,
-    "name": "Reuniclus",
-    "types": ["Psychic"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 580,
-    "name": "Ducklett",
-    "types": ["Water", "Flying"],
-    "eggTypes": ["Flying", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 581,
-    "name": "Swanna",
-    "types": ["Water", "Flying"],
-    "eggTypes": ["Flying", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 582,
-    "name": "Vanillite",
-    "types": ["Ice"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 583,
-    "name": "Vanillish",
-    "types": ["Ice"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 584,
-    "name": "Vanilluxe",
-    "types": ["Ice"],
-    "eggTypes": ["Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 585,
-    "name": "Deerling",
-    "types": ["Normal", "Grass"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 586,
-    "name": "Sawsbuck",
-    "types": ["Normal", "Grass"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 587,
-    "name": "Emolga",
-    "types": ["Electric", "Flying"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 588,
-    "name": "Karrablast",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 589,
-    "name": "Escavalier",
-    "types": ["Bug", "Steel"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 590,
-    "name": "Foongus",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 591,
-    "name": "Amoonguss",
-    "types": ["Grass", "Poison"],
-    "eggTypes": ["Grass"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 592,
-    "name": "Frillish",
-    "types": ["Water", "Ghost"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 593,
-    "name": "Jellicent",
-    "types": ["Water", "Ghost"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 594,
-    "name": "Alomomola",
-    "types": ["Water"],
-    "eggTypes": ["Water A", "Water B"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 595,
-    "name": "Joltik",
-    "types": ["Bug", "Electric"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 596,
-    "name": "Galvantula",
-    "types": ["Bug", "Electric"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 597,
-    "name": "Ferroseed",
-    "types": ["Grass", "Steel"],
-    "eggTypes": ["Grass", "Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 598,
-    "name": "Ferrothorn",
-    "types": ["Grass", "Steel"],
-    "eggTypes": ["Grass", "Mineral"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 599,
-    "name": "Klink",
-    "types": ["Steel"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 600,
-    "name": "Klang",
-    "types": ["Steel"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 601,
-    "name": "Klinklang",
-    "types": ["Steel"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 602,
-    "name": "Tynamo",
-    "types": ["Electric"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 603,
-    "name": "Eelektrik",
-    "types": ["Electric"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 604,
-    "name": "Eelektross",
-    "types": ["Electric"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 605,
-    "name": "Elgyem",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 606,
-    "name": "Beheeyem",
-    "types": ["Psychic"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 607,
-    "name": "Litwick",
-    "types": ["Ghost", "Fire"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 608,
-    "name": "Lampent",
-    "types": ["Ghost", "Fire"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 609,
-    "name": "Chandelure",
-    "types": ["Ghost", "Fire"],
-    "eggTypes": ["Amorphous"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 610,
-    "name": "Axew",
-    "types": ["Dragon"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 611,
-    "name": "Fraxure",
-    "types": ["Dragon"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 612,
-    "name": "Haxorus",
-    "types": ["Dragon"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 613,
-    "name": "Cubchoo",
-    "types": ["Ice"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 614,
-    "name": "Beartic",
-    "types": ["Ice"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 615,
-    "name": "Cryogonal",
-    "types": ["Ice"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 616,
-    "name": "Shelmet",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 617,
-    "name": "Accelgor",
-    "types": ["Bug"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 618,
-    "name": "Stunfisk",
-    "types": ["Ground", "Electric"],
-    "eggTypes": ["Amorphous", "Water A"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 619,
-    "name": "Mienfoo",
-    "types": ["Fighting"],
-    "eggTypes": ["Field", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 620,
-    "name": "Mienshao",
-    "types": ["Fighting"],
-    "eggTypes": ["Field", "Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 621,
-    "name": "Druddigon",
-    "types": ["Dragon"],
-    "eggTypes": ["Dragon", "Monster"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 622,
-    "name": "Golett",
-    "types": ["Ground", "Ghost"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 623,
-    "name": "Golurk",
-    "types": ["Ground", "Ghost"],
-    "eggTypes": ["Genderless"],
-    "percentageMale": null
-  },
-  {
-    "pokedexNumber": 624,
-    "name": "Pawniard",
-    "types": ["Dark", "Steel"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 625,
-    "name": "Bisharp",
-    "types": ["Dark", "Steel"],
-    "eggTypes": ["Humanoid"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 626,
-    "name": "Bouffalant",
-    "types": ["Normal"],
-    "eggTypes": ["Field"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 627,
-    "name": "Rufflet",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 628,
-    "name": "Braviary",
-    "types": ["Normal", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 100
-  },
-  {
-    "pokedexNumber": 629,
-    "name": "Vullaby",
-    "types": ["Dark", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 630,
-    "name": "Mandibuzz",
-    "types": ["Dark", "Flying"],
-    "eggTypes": ["Flying"],
-    "percentageMale": 0
-  },
-  {
-    "pokedexNumber": 632,
-    "name": "Durant",
-    "types": ["Bug", "Steel"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 633,
-    "name": "Deino",
-    "types": ["Dark", "Dragon"],
-    "eggTypes": ["Dragon"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 634,
-    "name": "Zweilous",
-    "types": ["Dark", "Dragon"],
-    "eggTypes": ["Dragon"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 635,
-    "name": "Hydreigon",
-    "types": ["Dark", "Dragon"],
-    "eggTypes": ["Dragon"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 636,
-    "name": "Larvesta",
-    "types": ["Bug", "Fire"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  },
-  {
-    "pokedexNumber": 637,
-    "name": "Volcarona",
-    "types": ["Bug", "Fire"],
-    "eggTypes": ["Bug"],
-    "percentageMale": 50
-  }
+    {
+        "pokedexNumber": 1,
+        "name": "Bulbasaur",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 2,
+        "name": "Ivysaur",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 3,
+        "name": "Venusaur",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 4,
+        "name": "Charmander",
+        "types": ["Fire"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 5,
+        "name": "Charmeleon",
+        "types": ["Fire"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 6,
+        "name": "Charizard",
+        "types": ["Fire", "Flying"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 7,
+        "name": "Squirtle",
+        "types": ["Water"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 8,
+        "name": "Wartortle",
+        "types": ["Water"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 9,
+        "name": "Blastoise",
+        "types": ["Water"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 10,
+        "name": "Caterpie",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 11,
+        "name": "Metapod",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 12,
+        "name": "Butterfree",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 13,
+        "name": "Weedle",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 14,
+        "name": "Kakuna",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 15,
+        "name": "Beedrill",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 16,
+        "name": "Pidgey",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 17,
+        "name": "Pidgeotto",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 18,
+        "name": "Pidgeot",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 19,
+        "name": "Rattata",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 20,
+        "name": "Raticate",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 21,
+        "name": "Spearow",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 22,
+        "name": "Fearow",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 23,
+        "name": "Ekans",
+        "types": ["Poison"],
+        "eggTypes": ["Dragon", "Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 24,
+        "name": "Arbok",
+        "types": ["Poison"],
+        "eggTypes": ["Dragon", "Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 25,
+        "name": "Pikachu",
+        "types": ["Electric"],
+        "eggTypes": ["Fairy", "Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 26,
+        "name": "Raichu",
+        "types": ["Electric"],
+        "eggTypes": ["Fairy", "Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 27,
+        "name": "Sandshrew",
+        "types": ["Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 28,
+        "name": "Sandslash",
+        "types": ["Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 29,
+        "name": "Nidoran-f",
+        "types": ["Poison"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 30,
+        "name": "Nidorina",
+        "types": ["Poison"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 31,
+        "name": "Nidoqueen",
+        "types": ["Poison", "Ground"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 32,
+        "name": "Nidoran-m",
+        "types": ["Poison"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 33,
+        "name": "Nidorino",
+        "types": ["Poison"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 34,
+        "name": "Nidoking",
+        "types": ["Poison", "Ground"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 35,
+        "name": "Clefairy",
+        "types": ["Fairy"],
+        "eggTypes": ["Fairy"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 36,
+        "name": "Clefable",
+        "types": ["Fairy"],
+        "eggTypes": ["Fairy"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 37,
+        "name": "Vulpix",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 38,
+        "name": "Ninetales",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 39,
+        "name": "Jigglypuff",
+        "types": ["Normal", "Fairy"],
+        "eggTypes": ["Fairy"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 40,
+        "name": "Wigglytuff",
+        "types": ["Normal", "Fairy"],
+        "eggTypes": ["Fairy"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 41,
+        "name": "Zubat",
+        "types": ["Poison", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 42,
+        "name": "Golbat",
+        "types": ["Poison", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 43,
+        "name": "Oddish",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 44,
+        "name": "Gloom",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 45,
+        "name": "Vileplume",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 46,
+        "name": "Paras",
+        "types": ["Bug", "Grass"],
+        "eggTypes": ["Bug", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 47,
+        "name": "Parasect",
+        "types": ["Bug", "Grass"],
+        "eggTypes": ["Bug", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 48,
+        "name": "Venonat",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 49,
+        "name": "Venomoth",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 50,
+        "name": "Diglett",
+        "types": ["Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 51,
+        "name": "Dugtrio",
+        "types": ["Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 52,
+        "name": "Meowth",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 53,
+        "name": "Persian",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 54,
+        "name": "Psyduck",
+        "types": ["Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 55,
+        "name": "Golduck",
+        "types": ["Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 56,
+        "name": "Mankey",
+        "types": ["Fighting"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 57,
+        "name": "Primeape",
+        "types": ["Fighting"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 58,
+        "name": "Growlithe",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 59,
+        "name": "Arcanine",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 60,
+        "name": "Poliwag",
+        "types": ["Water"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 61,
+        "name": "Poliwhirl",
+        "types": ["Water"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 62,
+        "name": "Poliwrath",
+        "types": ["Water", "Fighting"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 63,
+        "name": "Abra",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 64,
+        "name": "Kadabra",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 65,
+        "name": "Alakazam",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 66,
+        "name": "Machop",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 67,
+        "name": "Machoke",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 68,
+        "name": "Machamp",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 69,
+        "name": "Bellsprout",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 70,
+        "name": "Weepinbell",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 71,
+        "name": "Victreebel",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 72,
+        "name": "Tentacool",
+        "types": ["Water", "Poison"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 73,
+        "name": "Tentacruel",
+        "types": ["Water", "Poison"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 74,
+        "name": "Geodude",
+        "types": ["Rock", "Ground"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 75,
+        "name": "Graveler",
+        "types": ["Rock", "Ground"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 76,
+        "name": "Golem",
+        "types": ["Rock", "Ground"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 77,
+        "name": "Ponyta",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 78,
+        "name": "Rapidash",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 79,
+        "name": "Slowpoke",
+        "types": ["Water", "Psychic"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 80,
+        "name": "Slowbro",
+        "types": ["Water", "Psychic"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 81,
+        "name": "Magnemite",
+        "types": ["Electric", "Steel"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 82,
+        "name": "Magneton",
+        "types": ["Electric", "Steel"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 83,
+        "name": "Farfetchd",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Field", "Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 84,
+        "name": "Doduo",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 85,
+        "name": "Dodrio",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 86,
+        "name": "Seel",
+        "types": ["Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 87,
+        "name": "Dewgong",
+        "types": ["Water", "Ice"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 88,
+        "name": "Grimer",
+        "types": ["Poison"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 89,
+        "name": "Muk",
+        "types": ["Poison"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 90,
+        "name": "Shellder",
+        "types": ["Water"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 91,
+        "name": "Cloyster",
+        "types": ["Water", "Ice"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 92,
+        "name": "Gastly",
+        "types": ["Ghost", "Poison"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 93,
+        "name": "Haunter",
+        "types": ["Ghost", "Poison"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 94,
+        "name": "Gengar",
+        "types": ["Ghost", "Poison"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 95,
+        "name": "Onix",
+        "types": ["Rock", "Ground"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 96,
+        "name": "Drowzee",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 97,
+        "name": "Hypno",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 98,
+        "name": "Krabby",
+        "types": ["Water"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 99,
+        "name": "Kingler",
+        "types": ["Water"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 100,
+        "name": "Voltorb",
+        "types": ["Electric"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 101,
+        "name": "Electrode",
+        "types": ["Electric"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 102,
+        "name": "Exeggcute",
+        "types": ["Grass", "Psychic"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 103,
+        "name": "Exeggutor",
+        "types": ["Grass", "Psychic"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 104,
+        "name": "Cubone",
+        "types": ["Ground"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 105,
+        "name": "Marowak",
+        "types": ["Ground"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 106,
+        "name": "Hitmonlee",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 107,
+        "name": "Hitmonchan",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 108,
+        "name": "Lickitung",
+        "types": ["Normal"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 109,
+        "name": "Koffing",
+        "types": ["Poison"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 110,
+        "name": "Weezing",
+        "types": ["Poison"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 111,
+        "name": "Rhyhorn",
+        "types": ["Ground", "Rock"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 112,
+        "name": "Rhydon",
+        "types": ["Ground", "Rock"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 113,
+        "name": "Chansey",
+        "types": ["Normal"],
+        "eggTypes": ["Fairy"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 114,
+        "name": "Tangela",
+        "types": ["Grass"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 115,
+        "name": "Kangaskhan",
+        "types": ["Normal"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 116,
+        "name": "Horsea",
+        "types": ["Water"],
+        "eggTypes": ["Dragon", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 117,
+        "name": "Seadra",
+        "types": ["Water"],
+        "eggTypes": ["Dragon", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 118,
+        "name": "Goldeen",
+        "types": ["Water"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 119,
+        "name": "Seaking",
+        "types": ["Water"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 120,
+        "name": "Staryu",
+        "types": ["Water"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 121,
+        "name": "Starmie",
+        "types": ["Water", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 122,
+        "name": "Mr. Mime",
+        "types": ["Psychic", "Fairy"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 123,
+        "name": "Scyther",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 124,
+        "name": "Jynx",
+        "types": ["Ice", "Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 125,
+        "name": "Electabuzz",
+        "types": ["Electric"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 126,
+        "name": "Magmar",
+        "types": ["Fire"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 127,
+        "name": "Pinsir",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 128,
+        "name": "Tauros",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 129,
+        "name": "Magikarp",
+        "types": ["Water"],
+        "eggTypes": ["Dragon", "Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 130,
+        "name": "Gyarados",
+        "types": ["Water", "Flying"],
+        "eggTypes": ["Dragon", "Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 131,
+        "name": "Lapras",
+        "types": ["Water", "Ice"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 132,
+        "name": "Ditto",
+        "types": ["Normal"],
+        "eggTypes": ["Ditto"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 133,
+        "name": "Eevee",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 134,
+        "name": "Vaporeon",
+        "types": ["Water"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 135,
+        "name": "Jolteon",
+        "types": ["Electric"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 136,
+        "name": "Flareon",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 137,
+        "name": "Porygon",
+        "types": ["Normal"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 138,
+        "name": "Omanyte",
+        "types": ["Rock", "Water"],
+        "eggTypes": ["Water A", "Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 139,
+        "name": "Omastar",
+        "types": ["Rock", "Water"],
+        "eggTypes": ["Water A", "Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 140,
+        "name": "Kabuto",
+        "types": ["Rock", "Water"],
+        "eggTypes": ["Water A", "Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 141,
+        "name": "Kabutops",
+        "types": ["Rock", "Water"],
+        "eggTypes": ["Water A", "Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 142,
+        "name": "Aerodactyl",
+        "types": ["Rock", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 143,
+        "name": "Snorlax",
+        "types": ["Normal"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 147,
+        "name": "Dratini",
+        "types": ["Dragon"],
+        "eggTypes": ["Dragon", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 148,
+        "name": "Dragonair",
+        "types": ["Dragon"],
+        "eggTypes": ["Dragon", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 149,
+        "name": "Dragonite",
+        "types": ["Dragon", "Flying"],
+        "eggTypes": ["Dragon", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 152,
+        "name": "Chikorita",
+        "types": ["Grass"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 153,
+        "name": "Bayleef",
+        "types": ["Grass"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 155,
+        "name": "Cyndaquil",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 156,
+        "name": "Quilava",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 157,
+        "name": "Typhlosion",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 158,
+        "name": "Totodile",
+        "types": ["Water"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 159,
+        "name": "Croconaw",
+        "types": ["Water"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 160,
+        "name": "Feraligatr",
+        "types": ["Water"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 161,
+        "name": "Sentret",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 162,
+        "name": "Furret",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 163,
+        "name": "Hoothoot",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 164,
+        "name": "Noctowl",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 165,
+        "name": "Ledyba",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 166,
+        "name": "Ledian",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 167,
+        "name": "Spinarak",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 168,
+        "name": "Ariados",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 169,
+        "name": "Crobat",
+        "types": ["Poison", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 170,
+        "name": "Chinchou",
+        "types": ["Water", "Electric"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 171,
+        "name": "Lanturn",
+        "types": ["Water", "Electric"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 172,
+        "name": "Pichu",
+        "types": ["Electric"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 173,
+        "name": "Cleffa",
+        "types": ["Fairy"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 174,
+        "name": "Igglybuff",
+        "types": ["Normal", "Fairy"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 175,
+        "name": "Togepi",
+        "types": ["Fairy"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 176,
+        "name": "Togetic",
+        "types": ["Fairy", "Flying"],
+        "eggTypes": ["Fairy", "Flying"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 177,
+        "name": "Natu",
+        "types": ["Psychic", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 178,
+        "name": "Xatu",
+        "types": ["Psychic", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 179,
+        "name": "Mareep",
+        "types": ["Electric"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 180,
+        "name": "Flaaffy",
+        "types": ["Electric"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 181,
+        "name": "Ampharos",
+        "types": ["Electric"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 182,
+        "name": "Bellossom",
+        "types": ["Grass"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 183,
+        "name": "Marill",
+        "types": ["Water", "Fairy"],
+        "eggTypes": ["Fairy", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 184,
+        "name": "Azumarill",
+        "types": ["Water", "Fairy"],
+        "eggTypes": ["Fairy", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 185,
+        "name": "Sudowoodo",
+        "types": ["Rock"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 186,
+        "name": "Politoed",
+        "types": ["Water"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 187,
+        "name": "Hoppip",
+        "types": ["Grass", "Flying"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 188,
+        "name": "Skiploom",
+        "types": ["Grass", "Flying"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 189,
+        "name": "Jumpluff",
+        "types": ["Grass", "Flying"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 190,
+        "name": "Aipom",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 191,
+        "name": "Sunkern",
+        "types": ["Grass"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 192,
+        "name": "Sunflora",
+        "types": ["Grass"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 193,
+        "name": "Yanma",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 194,
+        "name": "Wooper",
+        "types": ["Water", "Ground"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 195,
+        "name": "Quagsire",
+        "types": ["Water", "Ground"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 196,
+        "name": "Espeon",
+        "types": ["Psychic"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 197,
+        "name": "Umbreon",
+        "types": ["Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 198,
+        "name": "Murkrow",
+        "types": ["Dark", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 199,
+        "name": "Slowking",
+        "types": ["Water", "Psychic"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 200,
+        "name": "Misdreavus",
+        "types": ["Ghost"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 201,
+        "name": "Unown",
+        "types": ["Psychic"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 202,
+        "name": "Wobbuffet",
+        "types": ["Psychic"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 203,
+        "name": "Girafarig",
+        "types": ["Normal", "Psychic"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 204,
+        "name": "Pineco",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 205,
+        "name": "Forretress",
+        "types": ["Bug", "Steel"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 206,
+        "name": "Dunsparce",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 207,
+        "name": "Gligar",
+        "types": ["Ground", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 208,
+        "name": "Steelix",
+        "types": ["Steel", "Ground"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 209,
+        "name": "Snubbull",
+        "types": ["Fairy"],
+        "eggTypes": ["Fairy", "Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 210,
+        "name": "Granbull",
+        "types": ["Fairy"],
+        "eggTypes": ["Fairy", "Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 211,
+        "name": "Qwilfish",
+        "types": ["Water", "Poison"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 212,
+        "name": "Scizor",
+        "types": ["Bug", "Steel"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 213,
+        "name": "Shuckle",
+        "types": ["Bug", "Rock"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 214,
+        "name": "Heracross",
+        "types": ["Bug", "Fighting"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 215,
+        "name": "Sneasel",
+        "types": ["Dark", "Ice"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 216,
+        "name": "Teddiursa",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 217,
+        "name": "Ursaring",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 218,
+        "name": "Slugma",
+        "types": ["Fire"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 219,
+        "name": "Magcargo",
+        "types": ["Fire", "Rock"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 220,
+        "name": "Swinub",
+        "types": ["Ice", "Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 221,
+        "name": "Piloswine",
+        "types": ["Ice", "Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 222,
+        "name": "Corsola",
+        "types": ["Water", "Rock"],
+        "eggTypes": ["Water A", "Water C"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 223,
+        "name": "Remoraid",
+        "types": ["Water"],
+        "eggTypes": ["Water A", "Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 224,
+        "name": "Octillery",
+        "types": ["Water"],
+        "eggTypes": ["Water A", "Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 225,
+        "name": "Delibird",
+        "types": ["Ice", "Flying"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 226,
+        "name": "Mantine",
+        "types": ["Water", "Flying"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 227,
+        "name": "Skarmory",
+        "types": ["Steel", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 228,
+        "name": "Houndour",
+        "types": ["Dark", "Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 229,
+        "name": "Houndoom",
+        "types": ["Dark", "Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 230,
+        "name": "Kingdra",
+        "types": ["Water", "Dragon"],
+        "eggTypes": ["Dragon", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 231,
+        "name": "Phanpy",
+        "types": ["Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 232,
+        "name": "Donphan",
+        "types": ["Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 233,
+        "name": "Porygon2",
+        "types": ["Normal"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 234,
+        "name": "Stantler",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 235,
+        "name": "Smeargle",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 236,
+        "name": "Tyrogue",
+        "types": ["Fighting"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 237,
+        "name": "Hitmontop",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 238,
+        "name": "Smoochum",
+        "types": ["Ice", "Psychic"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 239,
+        "name": "Elekid",
+        "types": ["Electric"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 240,
+        "name": "Magby",
+        "types": ["Fire"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 241,
+        "name": "Miltank",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 242,
+        "name": "Blissey",
+        "types": ["Normal"],
+        "eggTypes": ["Fairy"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 246,
+        "name": "Larvitar",
+        "types": ["Rock", "Ground"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 247,
+        "name": "Pupitar",
+        "types": ["Rock", "Ground"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 248,
+        "name": "Tyranitar",
+        "types": ["Rock", "Dark"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 252,
+        "name": "Treecko",
+        "types": ["Grass"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 253,
+        "name": "Grovyle",
+        "types": ["Grass"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 254,
+        "name": "Sceptile",
+        "types": ["Grass"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 255,
+        "name": "Torchic",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 256,
+        "name": "Combusken",
+        "types": ["Fire", "Fighting"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 257,
+        "name": "Blaziken",
+        "types": ["Fire", "Fighting"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 258,
+        "name": "Mudkip",
+        "types": ["Water"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 259,
+        "name": "Marshtomp",
+        "types": ["Water", "Ground"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 260,
+        "name": "Swampert",
+        "types": ["Water", "Ground"],
+        "eggTypes": ["Monster", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 261,
+        "name": "Poochyena",
+        "types": ["Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 262,
+        "name": "Mightyena",
+        "types": ["Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 263,
+        "name": "Zigzagoon",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 264,
+        "name": "Linoone",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 265,
+        "name": "Wurmple",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 266,
+        "name": "Silcoon",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 267,
+        "name": "Beautifly",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 268,
+        "name": "Cascoon",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 269,
+        "name": "Dustox",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 270,
+        "name": "Lotad",
+        "types": ["Water", "Grass"],
+        "eggTypes": ["Grass", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 271,
+        "name": "Lombre",
+        "types": ["Water", "Grass"],
+        "eggTypes": ["Grass", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 272,
+        "name": "Ludicolo",
+        "types": ["Water", "Grass"],
+        "eggTypes": ["Grass", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 273,
+        "name": "Seedot",
+        "types": ["Grass"],
+        "eggTypes": ["Field", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 274,
+        "name": "Nuzleaf",
+        "types": ["Grass", "Dark"],
+        "eggTypes": ["Field", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 275,
+        "name": "Shiftry",
+        "types": ["Grass", "Dark"],
+        "eggTypes": ["Field", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 276,
+        "name": "Taillow",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 277,
+        "name": "Swellow",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 278,
+        "name": "Wingull",
+        "types": ["Water", "Flying"],
+        "eggTypes": ["Flying", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 279,
+        "name": "Pelipper",
+        "types": ["Water", "Flying"],
+        "eggTypes": ["Flying", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 280,
+        "name": "Ralts",
+        "types": ["Psychic", "Fairy"],
+        "eggTypes": ["Amorphous", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 281,
+        "name": "Kirlia",
+        "types": ["Psychic", "Fairy"],
+        "eggTypes": ["Amorphous", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 282,
+        "name": "Gardevoir",
+        "types": ["Psychic", "Fairy"],
+        "eggTypes": ["Amorphous", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 283,
+        "name": "Surskit",
+        "types": ["Bug", "Water"],
+        "eggTypes": ["Bug", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 284,
+        "name": "Masquerain",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 285,
+        "name": "Shroomish",
+        "types": ["Grass"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 286,
+        "name": "Breloom",
+        "types": ["Grass", "Fighting"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 287,
+        "name": "Slakoth",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 288,
+        "name": "Vigoroth",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 289,
+        "name": "Slaking",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 290,
+        "name": "Nincada",
+        "types": ["Bug", "Ground"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 291,
+        "name": "Ninjask",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 292,
+        "name": "Shedinja",
+        "types": ["Bug", "Ghost"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 293,
+        "name": "Whismur",
+        "types": ["Normal"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 294,
+        "name": "Loudred",
+        "types": ["Normal"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 295,
+        "name": "Exploud",
+        "types": ["Normal"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 296,
+        "name": "Makuhita",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 297,
+        "name": "Hariyama",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 298,
+        "name": "Azurill",
+        "types": ["Normal", "Fairy"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 299,
+        "name": "Nosepass",
+        "types": ["Rock"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 300,
+        "name": "Skitty",
+        "types": ["Normal"],
+        "eggTypes": ["Fairy", "Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 301,
+        "name": "Delcatty",
+        "types": ["Normal"],
+        "eggTypes": ["Fairy", "Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 302,
+        "name": "Sableye",
+        "types": ["Dark", "Ghost"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 303,
+        "name": "Mawile",
+        "types": ["Steel", "Fairy"],
+        "eggTypes": ["Fairy", "Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 304,
+        "name": "Aron",
+        "types": ["Steel", "Rock"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 305,
+        "name": "Lairon",
+        "types": ["Steel", "Rock"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 306,
+        "name": "Aggron",
+        "types": ["Steel", "Rock"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 307,
+        "name": "Meditite",
+        "types": ["Fighting", "Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 308,
+        "name": "Medicham",
+        "types": ["Fighting", "Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 309,
+        "name": "Electrike",
+        "types": ["Electric"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 310,
+        "name": "Manectric",
+        "types": ["Electric"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 311,
+        "name": "Plusle",
+        "types": ["Electric"],
+        "eggTypes": ["Fairy"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 312,
+        "name": "Minun",
+        "types": ["Electric"],
+        "eggTypes": ["Fairy"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 313,
+        "name": "Volbeat",
+        "types": ["Bug"],
+        "eggTypes": ["Bug", "Humanoid"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 314,
+        "name": "Illumise",
+        "types": ["Bug"],
+        "eggTypes": ["Bug", "Humanoid"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 315,
+        "name": "Roselia",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 316,
+        "name": "Gulpin",
+        "types": ["Poison"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 317,
+        "name": "Swalot",
+        "types": ["Poison"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 318,
+        "name": "Carvanha",
+        "types": ["Water", "Dark"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 319,
+        "name": "Sharpedo",
+        "types": ["Water", "Dark"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 320,
+        "name": "Wailmer",
+        "types": ["Water"],
+        "eggTypes": ["Field", "Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 321,
+        "name": "Wailord",
+        "types": ["Water"],
+        "eggTypes": ["Field", "Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 322,
+        "name": "Numel",
+        "types": ["Fire", "Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 323,
+        "name": "Camerupt",
+        "types": ["Fire", "Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 324,
+        "name": "Torkoal",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 325,
+        "name": "Spoink",
+        "types": ["Psychic"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 326,
+        "name": "Grumpig",
+        "types": ["Psychic"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 327,
+        "name": "Spinda",
+        "types": ["Normal"],
+        "eggTypes": ["Field", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 328,
+        "name": "Trapinch",
+        "types": ["Ground"],
+        "eggTypes": ["Bug", "Dragon"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 329,
+        "name": "Vibrava",
+        "types": ["Ground", "Dragon"],
+        "eggTypes": ["Bug", "Dragon"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 330,
+        "name": "Flygon",
+        "types": ["Ground", "Dragon"],
+        "eggTypes": ["Bug", "Dragon"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 331,
+        "name": "Cacnea",
+        "types": ["Grass"],
+        "eggTypes": ["Grass", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 332,
+        "name": "Cacturne",
+        "types": ["Grass", "Dark"],
+        "eggTypes": ["Grass", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 333,
+        "name": "Swablu",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Dragon", "Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 334,
+        "name": "Altaria",
+        "types": ["Dragon", "Flying"],
+        "eggTypes": ["Dragon", "Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 335,
+        "name": "Zangoose",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 336,
+        "name": "Seviper",
+        "types": ["Poison"],
+        "eggTypes": ["Dragon", "Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 337,
+        "name": "Lunatone",
+        "types": ["Rock", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 338,
+        "name": "Solrock",
+        "types": ["Rock", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 339,
+        "name": "Barboach",
+        "types": ["Water", "Ground"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 340,
+        "name": "Whiscash",
+        "types": ["Water", "Ground"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 341,
+        "name": "Corphish",
+        "types": ["Water"],
+        "eggTypes": ["Water A", "Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 342,
+        "name": "Crawdaunt",
+        "types": ["Water", "Dark"],
+        "eggTypes": ["Water A", "Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 343,
+        "name": "Baltoy",
+        "types": ["Ground", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 344,
+        "name": "Claydol",
+        "types": ["Ground", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 345,
+        "name": "Lileep",
+        "types": ["Rock", "Grass"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 346,
+        "name": "Cradily",
+        "types": ["Rock", "Grass"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 347,
+        "name": "Anorith",
+        "types": ["Rock", "Bug"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 348,
+        "name": "Armaldo",
+        "types": ["Rock", "Bug"],
+        "eggTypes": ["Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 349,
+        "name": "Feebas",
+        "types": ["Water"],
+        "eggTypes": ["Dragon", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 350,
+        "name": "Milotic",
+        "types": ["Water"],
+        "eggTypes": ["Dragon", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 351,
+        "name": "Castform",
+        "types": ["Normal"],
+        "eggTypes": ["Amorphous", "Fairy"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 352,
+        "name": "Kecleon",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 353,
+        "name": "Shuppet",
+        "types": ["Ghost"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 354,
+        "name": "Banette",
+        "types": ["Ghost"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 355,
+        "name": "Duskull",
+        "types": ["Ghost"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 356,
+        "name": "Dusclops",
+        "types": ["Ghost"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 357,
+        "name": "Tropius",
+        "types": ["Grass", "Flying"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 358,
+        "name": "Chimecho",
+        "types": ["Psychic"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 359,
+        "name": "Absol",
+        "types": ["Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 360,
+        "name": "Wynaut",
+        "types": ["Psychic"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 361,
+        "name": "Snorunt",
+        "types": ["Ice"],
+        "eggTypes": ["Fairy", "Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 362,
+        "name": "Glalie",
+        "types": ["Ice"],
+        "eggTypes": ["Fairy", "Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 363,
+        "name": "Spheal",
+        "types": ["Ice", "Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 364,
+        "name": "Sealeo",
+        "types": ["Ice", "Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 365,
+        "name": "Walrein",
+        "types": ["Ice", "Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 366,
+        "name": "Clamperl",
+        "types": ["Water"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 367,
+        "name": "Huntail",
+        "types": ["Water"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 368,
+        "name": "Gorebyss",
+        "types": ["Water"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 369,
+        "name": "Relicanth",
+        "types": ["Water", "Rock"],
+        "eggTypes": ["Water A", "Water B"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 370,
+        "name": "Luvdisc",
+        "types": ["Water"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 371,
+        "name": "Bagon",
+        "types": ["Dragon"],
+        "eggTypes": ["Dragon"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 372,
+        "name": "Shelgon",
+        "types": ["Dragon"],
+        "eggTypes": ["Dragon"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 373,
+        "name": "Salamence",
+        "types": ["Dragon", "Flying"],
+        "eggTypes": ["Dragon"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 374,
+        "name": "Beldum",
+        "types": ["Steel", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 375,
+        "name": "Metang",
+        "types": ["Steel", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 376,
+        "name": "Metagross",
+        "types": ["Steel", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 387,
+        "name": "Turtwig",
+        "types": ["Grass"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 388,
+        "name": "Grotle",
+        "types": ["Grass"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 389,
+        "name": "Torterra",
+        "types": ["Grass", "Ground"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 390,
+        "name": "Chimchar",
+        "types": ["Fire"],
+        "eggTypes": ["Field", "Humanoid"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 391,
+        "name": "Monferno",
+        "types": ["Fire", "Fighting"],
+        "eggTypes": ["Field", "Humanoid"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 392,
+        "name": "Infernape",
+        "types": ["Fire", "Fighting"],
+        "eggTypes": ["Field", "Humanoid"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 393,
+        "name": "Piplup",
+        "types": ["Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 394,
+        "name": "Prinplup",
+        "types": ["Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 395,
+        "name": "Empoleon",
+        "types": ["Water", "Steel"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 396,
+        "name": "Starly",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 397,
+        "name": "Staravia",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 398,
+        "name": "Staraptor",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 399,
+        "name": "Bidoof",
+        "types": ["Normal"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 400,
+        "name": "Bibarel",
+        "types": ["Normal", "Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 401,
+        "name": "Kricketot",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 402,
+        "name": "Kricketune",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 403,
+        "name": "Shinx",
+        "types": ["Electric"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 404,
+        "name": "Luxio",
+        "types": ["Electric"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 405,
+        "name": "Luxray",
+        "types": ["Electric"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 406,
+        "name": "Budew",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 407,
+        "name": "Roserade",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 408,
+        "name": "Cranidos",
+        "types": ["Rock"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 409,
+        "name": "Rampardos",
+        "types": ["Rock"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 410,
+        "name": "Shieldon",
+        "types": ["Rock", "Steel"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 411,
+        "name": "Bastiodon",
+        "types": ["Rock", "Steel"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 412,
+        "name": "Burmy",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 413,
+        "name": "Wormadam",
+        "types": ["Bug", "Grass"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 414,
+        "name": "Mothim",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 415,
+        "name": "Combee",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 416,
+        "name": "Vespiquen",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 417,
+        "name": "Pachirisu",
+        "types": ["Electric"],
+        "eggTypes": ["Fairy", "Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 418,
+        "name": "Buizel",
+        "types": ["Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 419,
+        "name": "Floatzel",
+        "types": ["Water"],
+        "eggTypes": ["Field", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 420,
+        "name": "Cherubi",
+        "types": ["Grass"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 421,
+        "name": "Cherrim",
+        "types": ["Grass"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 422,
+        "name": "Shellos",
+        "types": ["Water"],
+        "eggTypes": ["Amorphous", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 423,
+        "name": "Gastrodon",
+        "types": ["Water", "Ground"],
+        "eggTypes": ["Amorphous", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 424,
+        "name": "Ambipom",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 425,
+        "name": "Drifloon",
+        "types": ["Ghost", "Flying"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 426,
+        "name": "Drifblim",
+        "types": ["Ghost", "Flying"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 427,
+        "name": "Buneary",
+        "types": ["Normal"],
+        "eggTypes": ["Field", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 428,
+        "name": "Lopunny",
+        "types": ["Normal"],
+        "eggTypes": ["Field", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 429,
+        "name": "Mismagius",
+        "types": ["Ghost"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 430,
+        "name": "Honchkrow",
+        "types": ["Dark", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 431,
+        "name": "Glameow",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 432,
+        "name": "Purugly",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 433,
+        "name": "Chingling",
+        "types": ["Psychic"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 434,
+        "name": "Stunky",
+        "types": ["Poison", "Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 435,
+        "name": "Skuntank",
+        "types": ["Poison", "Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 436,
+        "name": "Bronzor",
+        "types": ["Steel", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 437,
+        "name": "Bronzong",
+        "types": ["Steel", "Psychic"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 438,
+        "name": "Bonsly",
+        "types": ["Rock"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 439,
+        "name": "Mime Jr.",
+        "types": ["Psychic", "Fairy"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 440,
+        "name": "Happiny",
+        "types": ["Normal"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 441,
+        "name": "Chatot",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 442,
+        "name": "Spiritomb",
+        "types": ["Ghost", "Dark"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 443,
+        "name": "Gible",
+        "types": ["Dragon", "Ground"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 444,
+        "name": "Gabite",
+        "types": ["Dragon", "Ground"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 445,
+        "name": "Garchomp",
+        "types": ["Dragon", "Ground"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 446,
+        "name": "Munchlax",
+        "types": ["Normal"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 447,
+        "name": "Riolu",
+        "types": ["Fighting"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 448,
+        "name": "Lucario",
+        "types": ["Fighting", "Steel"],
+        "eggTypes": ["Field", "Humanoid"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 449,
+        "name": "Hippopotas",
+        "types": ["Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 450,
+        "name": "Hippowdon",
+        "types": ["Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 451,
+        "name": "Skorupi",
+        "types": ["Poison", "Bug"],
+        "eggTypes": ["Bug", "Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 452,
+        "name": "Drapion",
+        "types": ["Poison", "Dark"],
+        "eggTypes": ["Bug", "Water C"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 453,
+        "name": "Croagunk",
+        "types": ["Poison", "Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 454,
+        "name": "Toxicroak",
+        "types": ["Poison", "Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 455,
+        "name": "Carnivine",
+        "types": ["Grass"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 456,
+        "name": "Finneon",
+        "types": ["Water"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 457,
+        "name": "Lumineon",
+        "types": ["Water"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 458,
+        "name": "Mantyke",
+        "types": ["Water", "Flying"],
+        "eggTypes": ["Cannot Breed"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 459,
+        "name": "Snover",
+        "types": ["Grass", "Ice"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 460,
+        "name": "Abomasnow",
+        "types": ["Grass", "Ice"],
+        "eggTypes": ["Grass", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 461,
+        "name": "Weavile",
+        "types": ["Dark", "Ice"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 462,
+        "name": "Magnezone",
+        "types": ["Electric", "Steel"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 463,
+        "name": "Lickilicky",
+        "types": ["Normal"],
+        "eggTypes": ["Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 464,
+        "name": "Rhyperior",
+        "types": ["Ground", "Rock"],
+        "eggTypes": ["Field", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 465,
+        "name": "Tangrowth",
+        "types": ["Grass"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 466,
+        "name": "Electivire",
+        "types": ["Electric"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 467,
+        "name": "Magmortar",
+        "types": ["Fire"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 468,
+        "name": "Togekiss",
+        "types": ["Fairy", "Flying"],
+        "eggTypes": ["Fairy", "Flying"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 469,
+        "name": "Yanmega",
+        "types": ["Bug", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 470,
+        "name": "Leafeon",
+        "types": ["Grass"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 471,
+        "name": "Glaceon",
+        "types": ["Ice"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 472,
+        "name": "Gliscor",
+        "types": ["Ground", "Flying"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 473,
+        "name": "Mamoswine",
+        "types": ["Ice", "Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 474,
+        "name": "Porygon-Z",
+        "types": ["Normal"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 475,
+        "name": "Gallade",
+        "types": ["Psychic", "Fighting"],
+        "eggTypes": ["Amorphous", "Humanoid"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 476,
+        "name": "Probopass",
+        "types": ["Rock", "Steel"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 477,
+        "name": "Dusknoir",
+        "types": ["Ghost"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 478,
+        "name": "Froslass",
+        "types": ["Ice", "Ghost"],
+        "eggTypes": ["Fairy", "Mineral"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 479,
+        "name": "Rotom",
+        "types": ["Electric", "Ghost"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 495,
+        "name": "Snivy",
+        "types": ["Grass"],
+        "eggTypes": ["Field", "Grass"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 496,
+        "name": "Servine",
+        "types": ["Grass"],
+        "eggTypes": ["Field", "Grass"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 497,
+        "name": "Serperior",
+        "types": ["Grass"],
+        "eggTypes": ["Field", "Grass"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 498,
+        "name": "Tepig",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 499,
+        "name": "Pignite",
+        "types": ["Fire", "Fighting"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 500,
+        "name": "Emboar",
+        "types": ["Fire", "Fighting"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 501,
+        "name": "Oshawott",
+        "types": ["Water"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 502,
+        "name": "Dewott",
+        "types": ["Water"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 503,
+        "name": "Samurott",
+        "types": ["Water"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 504,
+        "name": "Patrat",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 505,
+        "name": "Watchog",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 506,
+        "name": "Lillipup",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 507,
+        "name": "Herdier",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 508,
+        "name": "Stoutland",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 509,
+        "name": "Purrloin",
+        "types": ["Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 510,
+        "name": "Liepard",
+        "types": ["Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 511,
+        "name": "Pansage",
+        "types": ["Grass"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 512,
+        "name": "Simisage",
+        "types": ["Grass"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 513,
+        "name": "Pansear",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 514,
+        "name": "Simisear",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 515,
+        "name": "Panpour",
+        "types": ["Water"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 516,
+        "name": "Simipour",
+        "types": ["Water"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 517,
+        "name": "Munna",
+        "types": ["Psychic"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 518,
+        "name": "Musharna",
+        "types": ["Psychic"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 519,
+        "name": "Pidove",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 520,
+        "name": "Tranquill",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 521,
+        "name": "Unfezant",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 522,
+        "name": "Blitzle",
+        "types": ["Electric"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 523,
+        "name": "Zebstrika",
+        "types": ["Electric"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 524,
+        "name": "Roggenrola",
+        "types": ["Rock"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 525,
+        "name": "Boldore",
+        "types": ["Rock"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 526,
+        "name": "Gigalith",
+        "types": ["Rock"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 527,
+        "name": "Woobat",
+        "types": ["Psychic", "Flying"],
+        "eggTypes": ["Field", "Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 528,
+        "name": "Swoobat",
+        "types": ["Psychic", "Flying"],
+        "eggTypes": ["Field", "Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 529,
+        "name": "Drilbur",
+        "types": ["Ground"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 530,
+        "name": "Excadrill",
+        "types": ["Ground", "Steel"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 531,
+        "name": "Audino",
+        "types": ["Normal"],
+        "eggTypes": ["Fairy"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 532,
+        "name": "Timburr",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 533,
+        "name": "Gurdurr",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 534,
+        "name": "Conkeldurr",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 75
+    },
+    {
+        "pokedexNumber": 535,
+        "name": "Tympole",
+        "types": ["Water"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 536,
+        "name": "Palpitoad",
+        "types": ["Water", "Ground"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 537,
+        "name": "Seismitoad",
+        "types": ["Water", "Ground"],
+        "eggTypes": ["Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 538,
+        "name": "Throh",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 539,
+        "name": "Sawk",
+        "types": ["Fighting"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 540,
+        "name": "Sewaddle",
+        "types": ["Bug", "Grass"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 541,
+        "name": "Swadloon",
+        "types": ["Bug", "Grass"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 542,
+        "name": "Leavanny",
+        "types": ["Bug", "Grass"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 543,
+        "name": "Venipede",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 544,
+        "name": "Whirlipede",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 545,
+        "name": "Scolipede",
+        "types": ["Bug", "Poison"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 546,
+        "name": "Cottonee",
+        "types": ["Grass", "Fairy"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 547,
+        "name": "Whimsicott",
+        "types": ["Grass", "Fairy"],
+        "eggTypes": ["Fairy", "Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 548,
+        "name": "Petilil",
+        "types": ["Grass"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 549,
+        "name": "Lilligant",
+        "types": ["Grass"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 550,
+        "name": "Basculin",
+        "types": ["Water"],
+        "eggTypes": ["Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 551,
+        "name": "Sandile",
+        "types": ["Ground", "Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 552,
+        "name": "Krokorok",
+        "types": ["Ground", "Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 553,
+        "name": "Krookodile",
+        "types": ["Ground", "Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 554,
+        "name": "Darumaka",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 555,
+        "name": "Darmanitan",
+        "types": ["Fire"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 556,
+        "name": "Maractus",
+        "types": ["Grass"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 557,
+        "name": "Dwebble",
+        "types": ["Bug", "Rock"],
+        "eggTypes": ["Bug", "Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 558,
+        "name": "Crustle",
+        "types": ["Bug", "Rock"],
+        "eggTypes": ["Bug", "Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 559,
+        "name": "Scraggy",
+        "types": ["Dark", "Fighting"],
+        "eggTypes": ["Dragon", "Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 560,
+        "name": "Scrafty",
+        "types": ["Dark", "Fighting"],
+        "eggTypes": ["Dragon", "Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 561,
+        "name": "Sigilyph",
+        "types": ["Psychic", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 562,
+        "name": "Yamask",
+        "types": ["Ghost"],
+        "eggTypes": ["Amorphous", "Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 563,
+        "name": "Cofagrigus",
+        "types": ["Ghost"],
+        "eggTypes": ["Amorphous", "Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 564,
+        "name": "Tirtouga",
+        "types": ["Water", "Rock"],
+        "eggTypes": ["Water A", "Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 565,
+        "name": "Carracosta",
+        "types": ["Water", "Rock"],
+        "eggTypes": ["Water A", "Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 566,
+        "name": "Archen",
+        "types": ["Rock", "Flying"],
+        "eggTypes": ["Flying", "Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 567,
+        "name": "Archeops",
+        "types": ["Rock", "Flying"],
+        "eggTypes": ["Flying", "Water C"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 568,
+        "name": "Trubbish",
+        "types": ["Poison"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 569,
+        "name": "Garbodor",
+        "types": ["Poison"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 570,
+        "name": "Zorua",
+        "types": ["Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 571,
+        "name": "Zoroark",
+        "types": ["Dark"],
+        "eggTypes": ["Field"],
+        "percentageMale": 87.5
+    },
+    {
+        "pokedexNumber": 572,
+        "name": "Minccino",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 573,
+        "name": "Cinccino",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 574,
+        "name": "Gothita",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 575,
+        "name": "Gothorita",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 576,
+        "name": "Gothitelle",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 25
+    },
+    {
+        "pokedexNumber": 577,
+        "name": "Solosis",
+        "types": ["Psychic"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 578,
+        "name": "Duosion",
+        "types": ["Psychic"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 579,
+        "name": "Reuniclus",
+        "types": ["Psychic"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 580,
+        "name": "Ducklett",
+        "types": ["Water", "Flying"],
+        "eggTypes": ["Flying", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 581,
+        "name": "Swanna",
+        "types": ["Water", "Flying"],
+        "eggTypes": ["Flying", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 582,
+        "name": "Vanillite",
+        "types": ["Ice"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 583,
+        "name": "Vanillish",
+        "types": ["Ice"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 584,
+        "name": "Vanilluxe",
+        "types": ["Ice"],
+        "eggTypes": ["Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 585,
+        "name": "Deerling",
+        "types": ["Normal", "Grass"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 586,
+        "name": "Sawsbuck",
+        "types": ["Normal", "Grass"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 587,
+        "name": "Emolga",
+        "types": ["Electric", "Flying"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 588,
+        "name": "Karrablast",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 589,
+        "name": "Escavalier",
+        "types": ["Bug", "Steel"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 590,
+        "name": "Foongus",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 591,
+        "name": "Amoonguss",
+        "types": ["Grass", "Poison"],
+        "eggTypes": ["Grass"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 592,
+        "name": "Frillish",
+        "types": ["Water", "Ghost"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 593,
+        "name": "Jellicent",
+        "types": ["Water", "Ghost"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 594,
+        "name": "Alomomola",
+        "types": ["Water"],
+        "eggTypes": ["Water A", "Water B"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 595,
+        "name": "Joltik",
+        "types": ["Bug", "Electric"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 596,
+        "name": "Galvantula",
+        "types": ["Bug", "Electric"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 597,
+        "name": "Ferroseed",
+        "types": ["Grass", "Steel"],
+        "eggTypes": ["Grass", "Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 598,
+        "name": "Ferrothorn",
+        "types": ["Grass", "Steel"],
+        "eggTypes": ["Grass", "Mineral"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 599,
+        "name": "Klink",
+        "types": ["Steel"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 600,
+        "name": "Klang",
+        "types": ["Steel"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 601,
+        "name": "Klinklang",
+        "types": ["Steel"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 602,
+        "name": "Tynamo",
+        "types": ["Electric"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 603,
+        "name": "Eelektrik",
+        "types": ["Electric"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 604,
+        "name": "Eelektross",
+        "types": ["Electric"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 605,
+        "name": "Elgyem",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 606,
+        "name": "Beheeyem",
+        "types": ["Psychic"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 607,
+        "name": "Litwick",
+        "types": ["Ghost", "Fire"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 608,
+        "name": "Lampent",
+        "types": ["Ghost", "Fire"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 609,
+        "name": "Chandelure",
+        "types": ["Ghost", "Fire"],
+        "eggTypes": ["Amorphous"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 610,
+        "name": "Axew",
+        "types": ["Dragon"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 611,
+        "name": "Fraxure",
+        "types": ["Dragon"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 612,
+        "name": "Haxorus",
+        "types": ["Dragon"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 613,
+        "name": "Cubchoo",
+        "types": ["Ice"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 614,
+        "name": "Beartic",
+        "types": ["Ice"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 615,
+        "name": "Cryogonal",
+        "types": ["Ice"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 616,
+        "name": "Shelmet",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 617,
+        "name": "Accelgor",
+        "types": ["Bug"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 618,
+        "name": "Stunfisk",
+        "types": ["Ground", "Electric"],
+        "eggTypes": ["Amorphous", "Water A"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 619,
+        "name": "Mienfoo",
+        "types": ["Fighting"],
+        "eggTypes": ["Field", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 620,
+        "name": "Mienshao",
+        "types": ["Fighting"],
+        "eggTypes": ["Field", "Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 621,
+        "name": "Druddigon",
+        "types": ["Dragon"],
+        "eggTypes": ["Dragon", "Monster"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 622,
+        "name": "Golett",
+        "types": ["Ground", "Ghost"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 623,
+        "name": "Golurk",
+        "types": ["Ground", "Ghost"],
+        "eggTypes": ["Genderless"],
+        "percentageMale": null
+    },
+    {
+        "pokedexNumber": 624,
+        "name": "Pawniard",
+        "types": ["Dark", "Steel"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 625,
+        "name": "Bisharp",
+        "types": ["Dark", "Steel"],
+        "eggTypes": ["Humanoid"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 626,
+        "name": "Bouffalant",
+        "types": ["Normal"],
+        "eggTypes": ["Field"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 627,
+        "name": "Rufflet",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 628,
+        "name": "Braviary",
+        "types": ["Normal", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 100
+    },
+    {
+        "pokedexNumber": 629,
+        "name": "Vullaby",
+        "types": ["Dark", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 630,
+        "name": "Mandibuzz",
+        "types": ["Dark", "Flying"],
+        "eggTypes": ["Flying"],
+        "percentageMale": 0
+    },
+    {
+        "pokedexNumber": 632,
+        "name": "Durant",
+        "types": ["Bug", "Steel"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 633,
+        "name": "Deino",
+        "types": ["Dark", "Dragon"],
+        "eggTypes": ["Dragon"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 634,
+        "name": "Zweilous",
+        "types": ["Dark", "Dragon"],
+        "eggTypes": ["Dragon"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 635,
+        "name": "Hydreigon",
+        "types": ["Dark", "Dragon"],
+        "eggTypes": ["Dragon"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 636,
+        "name": "Larvesta",
+        "types": ["Bug", "Fire"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    },
+    {
+        "pokedexNumber": 637,
+        "name": "Volcarona",
+        "types": ["Bug", "Fire"],
+        "eggTypes": ["Bug"],
+        "percentageMale": 50
+    }
 ]
