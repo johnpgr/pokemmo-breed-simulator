@@ -148,6 +148,9 @@ export function useBreedMap({
             position: partnerPosition,
         }
 
+        //TODO: Handle error
+        const breedRes = breeder.breed(pokemonBreedNode,partnerBreedNode)
+        if(breedRes.err) console.error(breedRes)
     }, [lastPositionChange, breeder, map])
 
     return map

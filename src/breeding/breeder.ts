@@ -32,7 +32,8 @@ export class Breeder {
         parent1: BreedNodeAndPosition,
         parent2: BreedNodeAndPosition,
     ): Result<{}, BreedError> {
-        this.checkBreedability(parent1, parent2)
+        const resBreedable = this.checkBreedability(parent1, parent2)
+        if(resBreedable.err) resBreedable
 
         const res = this.getBreedChildSpecies(parent1, parent2)
         if(res.err) return res
