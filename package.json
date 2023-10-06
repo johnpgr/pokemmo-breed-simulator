@@ -30,12 +30,13 @@
     "lucide-react": "^0.263.1",
     "million": "2.5.4-beta.0",
     "mobx": "^6.10.1",
-    "next": "13.4.19",
+    "next": "latest",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss-animate": "^1.0.6"
+    "tailwindcss-animate": "^1.0.6",
+    "ts-results": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "20.4.5",
