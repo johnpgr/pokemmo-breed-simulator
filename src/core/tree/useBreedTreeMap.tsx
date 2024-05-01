@@ -15,20 +15,18 @@ export function useBreedTreeMap(props: {
     finalPokemonIvMap: IVSet
     generations: number
 }) {
-    const { finalPokemonNode, finalPokemonIvMap, generations } = props
-
     return React.useState<PokemonBreedTreeMap>(
         run(() => {
             const map: PokemonBreedTreeMap = {}
-            map[finalPokemonNode.position.key()] = finalPokemonNode
+            map[props.finalPokemonNode.position.key()] = props.finalPokemonNode
 
-            const natured = Boolean(finalPokemonNode.nature)
+            const natured = Boolean(props.finalPokemonNode.nature)
 
-            assert.exists(finalPokemonNode.ivs, "finalPokemonNode.ivs should exist")
-            assert([2, 3, 4, 5].includes(generations), "Invalid generations number")
+            assert.exists(props.finalPokemonNode.ivs, "finalPokemonNode.ivs should exist")
+            assert([2, 3, 4, 5].includes(props.generations), "Invalid generations number")
 
             const lastRowBreeders =
-                POKEMON_BREEDTREE_LASTROW_MAPPING[generations as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING]
+                POKEMON_BREEDTREE_LASTROW_MAPPING[props.generations as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING]
             const lastRowBreedersPositions = natured ? lastRowBreeders.natured : lastRowBreeders.natureless
 
             // initialize last row
@@ -40,7 +38,7 @@ export function useBreedTreeMap(props: {
                             position,
                             undefined,
                             undefined,
-                            finalPokemonNode.nature,
+                            props.finalPokemonNode.nature,
                             undefined,
                         )
 
@@ -48,7 +46,7 @@ export function useBreedTreeMap(props: {
                     }
                     default: {
                         const position = PokemonBreedTreePosition.fromKey(k)
-                        const ivs = finalPokemonIvMap.get(v)
+                        const ivs = props.finalPokemonIvMap.get(v)
                         assert.exists(ivs, "Ivs should exist for last row breeders")
 
                         map[position.key()] = new PokemonBreedTreeNode(position, undefined, undefined, undefined, [ivs])
@@ -61,7 +59,8 @@ export function useBreedTreeMap(props: {
             // initialize the rest of the tree
             // start from the second to last row
             // stops on the first row where the final pokemon node is already set
-            let row = generations - 2
+            // -1 for natured because of the way POKEMON_BREEDTREE_LASTROW_MAPPING is defined
+            let row = natured ?  props.generations - 1 : props.generations - 2
             while (row > 0) {
                 let col = 0
                 while (col < Math.pow(2, row)) {
@@ -69,7 +68,7 @@ export function useBreedTreeMap(props: {
                     const node = new PokemonBreedTreeNode(pos, undefined, undefined, undefined, undefined)
 
                     const parentNodes = node.getParentNodes(map)
-                    assert.exists(parentNodes, "Parent nodes should exist")
+                    assert.exists(parentNodes, `Parent nodes should exist for node: ${node.position.key()}`)
 
                     const p1Node = parentNodes[0]
                     const p2Node = parentNodes[1]

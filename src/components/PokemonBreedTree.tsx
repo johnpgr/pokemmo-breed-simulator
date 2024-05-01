@@ -9,6 +9,7 @@ import { IvColors } from "./IvColors"
 import { useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { Button } from "./ui/button"
 
 export function PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     const ctx = usePokemonToBreed()
@@ -22,7 +23,7 @@ export function PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) 
 function _PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     const ctx = usePokemonToBreed()
 
-    const generations = Object.values(ctx.ivs).filter(Boolean).length
+    let generations = Object.values(ctx.ivs).filter(Boolean).length
     assert.exists(ctx.pokemon, "Pokemon must be defined in useBreedMap")
 
     const [breedTreeMap, setBreedTreeMap] = useBreedTreeMap({
@@ -41,7 +42,7 @@ function _PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
 
     return (
         <div className="flex flex-col-reverse items-center gap-8">
-            {Array.from({ length: generations }).map((_, row) => {
+            {Array.from({ length: ctx.nature ? generations + 1 : generations }).map((_, row) => {
                 const rowLength = Math.pow(2, row)
 
                 return (
@@ -72,6 +73,10 @@ function _PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     </div>
                 )
             })}
+            <div className="space-x-4">
+                <Button size={"sm"} onClick={() => console.log(breedTreeMap)}>Debug (Breed Tree)</Button>
+                <Button size={"sm"} onClick={() => console.log(ctx)}>Debug (Context)</Button>
+            </div>
             <IvColors />
         </div>
     )

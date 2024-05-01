@@ -16,19 +16,16 @@ export function CurrentNodeInfoCard(props: {
     setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
     setGender: (gender: PokemonGender) => void
 }) {
-    function getHeldItem(): HeldItem | undefined {
-        assert.exists(props.currentNode.ivs, "IVs must exist in every node")
+    function getHeldItem(): HeldItem | null {
         const breedPartner = props.currentNode.getPartnerNode(props.breedTree)
 
         if (!breedPartner) {
-            return
+            return null
         }
 
-        assert.exists(breedPartner.ivs, "IVs must exist in every node")
-
-        const ivThatDoesntExistOnBreedPartner = props.currentNode.ivs.filter((iv) => !breedPartner.ivs!.includes(iv))
+        const ivThatDoesntExistOnBreedPartner = props.currentNode.ivs?.filter((iv) => !breedPartner.ivs?.includes(iv)) ?? []
         if (ivThatDoesntExistOnBreedPartner.length === 0) {
-            return
+            return null
         }
 
         switch (ivThatDoesntExistOnBreedPartner[0]) {
@@ -45,7 +42,7 @@ export function CurrentNodeInfoCard(props: {
             case PokemonIv.Speed:
                 return HeldItem.Speed
             default:
-                return
+                return null
         }
     }
 
@@ -62,14 +59,12 @@ export function CurrentNodeInfoCard(props: {
     return (
         <Card className="w-fit h-fit relative">
             <CardHeader className="">
-                {heldItem ? (
-                    <HeldItemsView
-                        item={
-                            //if not natured, ivs must exist.
-                            props.currentNode.nature ? HeldItem.Nature : heldItem
-                        }
-                    />
-                ) : null}
+                <HeldItemsView
+                    item={
+                        //if not natured, ivs must exist.
+                        props.currentNode.nature ? HeldItem.Nature : heldItem!
+                    }
+                />
                 <CardTitle className="flex items-center">
                     {props.currentNode && props.currentNode.species ? (
                         <div className="flex gap-2 items-center">

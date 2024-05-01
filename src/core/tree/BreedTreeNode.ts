@@ -22,7 +22,7 @@ export class PokemonBreedTreeNode {
             new PokemonBreedTreePosition(0, 0),
             ctx.pokemon,
             undefined,
-            undefined,
+            ctx.nature,
             Object.values(ctx.ivs).filter(Boolean),
         )
     }
