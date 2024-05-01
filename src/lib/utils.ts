@@ -1,28 +1,16 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { BASE_SPRITES_URL } from "./consts"
+import { assert } from "./assert"
 
-export function cn(...inputs: Array<ClassValue>) {
+export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
 
-export function getSprite(name: string) {
-    return `${BASE_SPRITES_URL}/${name.toLowerCase()}.png`
-}
+export function getPokemonSpriteUrl(name: string) {
+    let nameFix = name.replace(" ♂", "-m").replace(" ♀", "-f").replace("'", "")
 
-export function raise(message: string): never {
-    throw new Error(message)
-}
-
-export function parseNames(name: string) {
-    switch (name) {
-        case "Nidoran-f":
-            return "Nidoran ♀"
-        case "Nidoran-m":
-            return "Nidoran ♂"
-        default:
-            return name
-    }
+    return `${BASE_SPRITES_URL}/${nameFix.toLowerCase()}.png`
 }
 
 export function randomString(length: number) {
@@ -31,16 +19,16 @@ export function randomString(length: number) {
         .substring(2, 2 + length)
 }
 
-export function camelToSpacedPascal(input: string) {
+export function pascalToSpacedPascal(input: string) {
     return input.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (str) => str.toUpperCase())
 }
 
 export function capitalize(input: string) {
+    assert.exists(input[0])
+
     return input[0].toUpperCase() + input.slice(1)
 }
 
-export type Keys<T> = keyof T
-
-export function isEven(num: number) {
-    return num % 2 === 0
+export function run<T>(fn: () => T): T {
+    return fn()
 }
