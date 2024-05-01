@@ -4,7 +4,7 @@ import csvParser from "csv-parser"
 import { PokemonEggGroup, PokemonSpecies } from "../core/pokemon"
 
 const csvDataPath = path.resolve(import.meta.dirname, "./data.csv")
-const jsonDataPath = path.resolve(import.meta.dirname, "./data.json")
+const jsonDataPath = path.resolve(import.meta.dirname, "../../public/data.json")
 
 const skippedPokemons = [
     "Mega",

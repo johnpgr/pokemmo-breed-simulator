@@ -1,4 +1,4 @@
-import type { usePokemonToBreed } from "../components/PokemonToBreedContext"
+import { usePokemonToBreed } from "@/components/PokemonToBreedContext"
 import type { PokemonGender, PokemonIv, PokemonNature, PokemonSpecies } from "../pokemon"
 import { PokemonBreedTreePosition } from "./BreedTreePosition"
 import type { PokemonBreedTreeMap } from "./useBreedTreeMap"

@@ -1,12 +1,10 @@
-import "@total-typescript/ts-reset"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-
-import "./globals.css"
 import { ThemeProvider } from "@/components/ui/themes/ThemeProvider"
 import { ThemeToggle } from "@/components/ui/themes/ThemeToggle"
 import { cn } from "@/lib/utils"
 import { Toaster } from "../components/ui/toaster"
+import "./globals.css"
 
 const fontSans = Inter({
     subsets: ["latin"],

@@ -8,7 +8,7 @@ import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
 import { IVSet, usePokemonToBreed } from "./PokemonToBreedContext"
 import { assert } from "@/lib/assert"
 import { DEFAULT_IV_DROPDOWN_VALUES } from "./consts"
-import type { PokemonIv, PokemonNature, PokemonSpecies } from "@/core/pokemon"
+import type { PokemonIv, PokemonNature, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 
 /**
  * This type is used to represent the state of the full pokemon node that is going to be used in the PokemonToBreedContext
@@ -20,7 +20,7 @@ export type PokemonNodeInSelect = {
     ivs: Set<PokemonIv>
 }
 
-export function PokemonToBreedSelect() {
+export function PokemonToBreedSelect(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     const { toast } = useToast()
     const ctx = usePokemonToBreed()
     const [desired31IVCount, setDesired31IVCount] = React.useState(2)
@@ -84,6 +84,7 @@ export function PokemonToBreedSelect() {
             <div className="flex w-full flex-col items-center gap-4">
                 <div className="flex w-full flex-col gap-2">
                     <PokemonSpeciesSelect
+                        pokemons={props.pokemons}
                         currentSelectedNode={currentPokemonInSelect}
                         setCurrentSelectedNode={setCurrentPokemonInSelect}
                     />

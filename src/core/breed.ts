@@ -3,7 +3,7 @@ import type { PokemonBreedTreeNode } from "./tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "./tree/BreedTreePosition"
 import { PokemonGender, PokemonSpecies } from "./pokemon"
 import { GENDERLESS_POKEMON_EVOLUTION_TREE } from "./consts"
-import type { BreedTreePositionKey } from "./tree/BreedTreeMap"
+import type { BreedTreePositionKey } from "./tree/useBreedTreeMap"
 
 export enum BreedErrorKind {
     GenderCompatibility = "GenderCompatibility",

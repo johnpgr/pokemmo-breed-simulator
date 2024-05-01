@@ -6,13 +6,12 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { getPokemonSpriteUrl } from "@/lib/utils"
-import clsx from "clsx"
 import { ChevronsUpDown } from "lucide-react"
-import { pokemons } from "@/data"
-import { PokemonSpecies } from "@/core/pokemon"
+import { PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 
 export function PokemonSpeciesSelect(props: {
+    pokemons: PokemonSpeciesUnparsed[]
     currentSelectedNode: PokemonNodeInSelect
     setCurrentSelectedNode: React.Dispatch<React.SetStateAction<PokemonNodeInSelect>>
 }) {
@@ -27,10 +26,7 @@ export function PokemonSpeciesSelect(props: {
                     <Button
                         type="button"
                         variant={"ghost"}
-                        className={clsx("border", {
-                            "pl-2": props.currentSelectedNode.species,
-                            "pl-4": !props.currentSelectedNode.species,
-                        })}
+                        className={`border ${props.currentSelectedNode.species ? "pl-2" : "pl-4"}`}
                     >
                         {props.currentSelectedNode?.species ? (
                             <img
@@ -59,7 +55,7 @@ export function PokemonSpeciesSelect(props: {
                         <CommandEmpty>No results</CommandEmpty>
                         <CommandGroup>
                             <ScrollArea className="h-72">
-                                {pokemons
+                                {props.pokemons
                                     .filter((pokemon) => pokemon.name.toLowerCase().includes(search.toLowerCase()))
                                     .map((pokemon) => (
                                         <React.Fragment key={`pokemon_to_breed:${pokemon.name}`}>

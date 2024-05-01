@@ -81,6 +81,14 @@ export enum PokemonGender {
     Genderless = "Genderless",
 }
 
+export type PokemonSpeciesUnparsed = {
+    number: number
+    name: string
+    types: string[]
+    eggGroups: string[]
+    percentageMale: number
+}
+
 export class PokemonSpecies {
     constructor(
         public number: number,
@@ -90,13 +98,7 @@ export class PokemonSpecies {
         public percentageMale: number,
     ) {}
 
-    static parse(data: {
-        number: number
-        name: string
-        types: string[]
-        eggGroups: string[]
-        percentageMale: number
-    }): PokemonSpecies {
+    static parse(data: PokemonSpeciesUnparsed): PokemonSpecies {
         const types = Object.values(PokemonType)
         const eggGroups = Object.values(PokemonEggGroup)
 

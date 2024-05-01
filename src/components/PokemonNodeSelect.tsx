@@ -6,8 +6,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { CurrentNodeInfoCard } from "./CurrentNodeInfoCard"
-import { PokemonEggGroup, PokemonGender, PokemonSpecies } from "@/core/pokemon"
-import { pokemons } from "@/data"
+import { PokemonEggGroup, PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import { type Color, getColorsByIvs, COLOR_MAP } from "./IvColors"
 import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import { usePokemonToBreed } from "./PokemonToBreedContext"
@@ -18,6 +17,7 @@ import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { Checkbox } from "@/components/ui/checkbox"
 
 export function PokemonNodeSelect(props: {
+    pokemons: PokemonSpeciesUnparsed[]
     position: PokemonBreedTreePosition
     breedTree: PokemonBreedTreeMap
     setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
@@ -32,11 +32,11 @@ export function PokemonNodeSelect(props: {
     const isPokemonToBreed = props.position.col === 0 && props.position.row === 0
     const currentNode = props.breedTree[props.position.key()]
     const pokemonList = React.useMemo(() => {
-        return searchMode === SearchMode.All ? pokemons : filterPokemonByEggGroups()
+        return searchMode === SearchMode.All ? props.pokemons : filterPokemonByEggGroups()
     }, [searchMode])
 
     function setPokemonSpecies(name: string) {
-        const pokemon = pokemons.find((p) => p.name.toLowerCase() === name)
+        const pokemon = props.pokemons.find((p) => p.name.toLowerCase() === name)
         assert.exists(pokemon, `Pokemon ${name} should exist`)
         assert.exists(currentNode, `Node at ${props.position} should exist`)
 
@@ -58,11 +58,11 @@ export function PokemonNodeSelect(props: {
         })
     }
 
-    function filterPokemonByEggGroups(): typeof pokemons {
+    function filterPokemonByEggGroups(): PokemonSpeciesUnparsed[] {
         assert.exists(ctx.pokemon, "Pokemon in context should exist")
-        const newList: typeof pokemons = []
+        const newList: PokemonSpeciesUnparsed[] = []
 
-        const ditto = pokemons.find((poke) => poke.number === 132)
+        const ditto = props.pokemons.find((poke) => poke.number === 132)
         assert.exists(ditto, "Ditto should exist")
         newList.push(ditto)
 
@@ -70,10 +70,10 @@ export function PokemonNodeSelect(props: {
             const breedable =
                 GENDERLESS_POKEMON_EVOLUTION_TREE[ctx.pokemon.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE]
 
-            return newList.concat(pokemons.filter((poke) => breedable.includes(poke.number)))
+            return newList.concat(props.pokemons.filter((poke) => breedable.includes(poke.number)))
         }
 
-        for (const poke of pokemons) {
+        for (const poke of props.pokemons) {
             const compatible = poke.eggGroups.some((e) => ctx.pokemon!.eggGroups.includes(e))
             if (!compatible) continue
 
