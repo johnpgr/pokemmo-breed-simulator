@@ -1,5 +1,6 @@
 # TODO
 
+-   [ ] Fix Fairy Pokemon type on Pokemons data.json
 -   [ ] Pokemon's gender not being set when selected and gender switch isn't touched
 -   [ ] Handle Breed Errors.
 -   [ ] Breed child doesn't get updated on the tree view. It currently only updates the breed map but the changes are not reflected on the view.

@@ -41,7 +41,7 @@ function _PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     // const breeder = React.useMemo(() => new Breeder(pokemonBreedTreeMap), [pokemonBreedTreeMap])
 
     return (
-        <div className="flex flex-col-reverse items-center gap-8">
+        <div className="flex flex-col-reverse items-center gap-8 pb-16">
             {Array.from({ length: ctx.nature ? generations + 1 : generations }).map((_, row) => {
                 const rowLength = Math.pow(2, row)
 
