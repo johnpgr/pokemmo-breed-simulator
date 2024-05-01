@@ -136,7 +136,7 @@ export function PokemonNodeSelect(props: {
                     ) : null}
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0 flex gap-4 max-w-lg w-full border-none bg-none shadow-none">
+            <PopoverContent className="p-0 flex gap-4 max-w-lg w-full border-none bg-transparent shadow-none">
                 {currentNode ? (
                     <CurrentNodeInfoCard
                         breedTree={props.breedTree}

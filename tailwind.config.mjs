@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const Config = {
-    darkMode: ["class", '[data-theme="dark"]'],
+    darkMode: ["class"],
     content: ["./src/**/*.tsx"],
     prefix: "",
     theme: {
