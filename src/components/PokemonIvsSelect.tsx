@@ -49,7 +49,7 @@ export function PokemonIvsSelect(props: {
         <div>
             <p className="text-foreground/70 text-sm pb-1">How many IV's do you want?</p>
             <PokemonIvRadioGroup
-                className="border rounded w-fit flex"
+                className="border rounded-md w-fit flex"
                 defaultValue={"2"}
                 onValueChange={handleDesired31IvCountChange}
             >

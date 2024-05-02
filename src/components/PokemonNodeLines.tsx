@@ -29,7 +29,7 @@ export function PokemonNodeLines(props: {
     }
 
     const lineDirection = partnerNode.position.col > node.position.col ? "left" : "right"
-    const color = props.isError ? "bg-red-500" : "bg-primary/50"
+    const color = props.isError ? "bg-red-500" : "bg-foreground/70"
 
     return (
         <div style={{ flexBasis: `${size}%` }} className="flex items-center justify-center relative">
@@ -41,7 +41,7 @@ export function PokemonNodeLines(props: {
                 })}
             ></div>
             {lineDirection === "left" ? (
-                <div className={`absolute h-16 w-[1px] ${color} left-full -bottom-11`}></div>
+                <div className={`absolute h-16 w-[1px] ${color} left-full -bottom-[45px]`}></div>
             ) : null}
         </div>
     )
