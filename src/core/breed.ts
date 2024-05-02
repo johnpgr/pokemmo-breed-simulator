@@ -3,14 +3,14 @@ import type { PokemonBreedTreeNode } from "./tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "./tree/BreedTreePosition"
 import { PokemonGender, PokemonSpecies } from "./pokemon"
 import { GENDERLESS_POKEMON_EVOLUTION_TREE } from "./consts"
-import type { BreedTreePositionKey } from "./tree/useBreedTreeMap"
+import type { PokemonBreedTreeMap } from "./tree/useBreedTreeMap"
 
 export enum BreedErrorKind {
     GenderCompatibility = "GenderCompatibility",
     EggGroupCompatibility = "EggGroupCompatibility",
-    GenderlessCompatibility = "GenderlessCompatibility",
-    NoFemale = "NoFemale",
-    UnknownError = "UnknownError",
+    GenderlessSpeciesCompatibility = "GenderlessSpeciesCompatibility",
+    ChildDidNotChange = "ChildDidNotChange",
+    IllegalNodePosition = "IllegalNodePosition",
 }
 
 export class BreedError {
@@ -20,10 +20,17 @@ export class BreedError {
     ) {}
 }
 
-export class Breeder {
-    constructor(private readonly breedMap: Map<BreedTreePositionKey, PokemonBreedTreeNode>) {}
+export class PokemonBreeder {
+    public breed(
+        map: PokemonBreedTreeMap,
+        parent1: PokemonBreedTreeNode,
+        parent2: PokemonBreedTreeNode,
+    ): BreedError | null {
+        const childNode = parent1.getChildNode(map)
+        if (!childNode) {
+            return new BreedError(BreedErrorKind.IllegalNodePosition, [parent1.position, parent2.position])
+        }
 
-    public breed(parent1: PokemonBreedTreeNode, parent2: PokemonBreedTreeNode): BreedError | null {
         const breedabilityError = this.checkBreedability(parent1, parent2)
         if (breedabilityError) {
             return breedabilityError
@@ -34,10 +41,11 @@ export class Breeder {
             return childSpecies
         }
 
-        const childPosition = this.getChildPosition(parent1)
+        if (childNode.species?.number === childSpecies.number) {
+            return new BreedError(BreedErrorKind.ChildDidNotChange, [parent1.position, parent2.position])
+        }
+
         const childGender = this.getChildGender(childSpecies)
-        const childNode = this.breedMap.get(childPosition.key())
-        assert.exists(childNode, "Child node should exist")
 
         childNode.species = childSpecies
         childNode.gender = childGender
@@ -57,7 +65,10 @@ export class Breeder {
                     parent1.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                 ]
             if (!parent1GenderlessEvoTree.includes(parent2.species.number)) {
-                return new BreedError(BreedErrorKind.GenderlessCompatibility, [parent1.position, parent2.position])
+                return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility, [
+                    parent1.position,
+                    parent2.position,
+                ])
             }
         }
 
@@ -67,7 +78,10 @@ export class Breeder {
                     parent2.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                 ]
             if (!parent2GenderlessEvoTree.includes(parent1.species.number)) {
-                return new BreedError(BreedErrorKind.GenderlessCompatibility, [parent1.position, parent2.position])
+                return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility, [
+                    parent1.position,
+                    parent2.position,
+                ])
             }
         }
 
@@ -87,25 +101,17 @@ export class Breeder {
     private getBreedChildSpecies(
         parent1: PokemonBreedTreeNode,
         parent2: PokemonBreedTreeNode,
-    ): PokemonSpecies | BreedError {
-        const [female] = [parent1, parent2].filter((p) => p.gender === PokemonGender.Female)
+    ): BreedError | PokemonSpecies {
+        const females = [parent1, parent2].filter((p) => p.gender === PokemonGender.Female)
 
-        if (!female) {
-            return new BreedError(BreedErrorKind.NoFemale, [parent1.position, parent2.position])
+        if (females.length !== 1) {
+            return new BreedError(BreedErrorKind.GenderCompatibility, [parent1.position, parent2.position])
         }
 
-        assert.exists(female.species)
-        const childSpecies = female.species
+        assert.exists(females[0].species)
+        const childSpecies = females[0].species
 
         return childSpecies
-    }
-
-    private getChildPosition(parent1: PokemonBreedTreeNode): PokemonBreedTreePosition {
-        const childRow = parent1.position.row - 1
-        const childCol = Math.floor(parent1.position.col / 2)
-        const childPosition = new PokemonBreedTreePosition(childRow, childCol)
-
-        return childPosition
     }
 
     private getChildGender(child: PokemonSpecies): PokemonGender {

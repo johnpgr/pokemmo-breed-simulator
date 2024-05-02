@@ -100,6 +100,8 @@ function parseEggGroup(eggGroup: string): PokemonEggGroup | undefined {
             return PokemonEggGroup.Humanoid
         case "Grass":
             return PokemonEggGroup.Plant
+        case "Amorphous":
+            return PokemonEggGroup.Chaos
         case "":
             return undefined
         default:

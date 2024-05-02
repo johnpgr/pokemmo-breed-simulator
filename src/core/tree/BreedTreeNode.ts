@@ -27,20 +27,29 @@ export class PokemonBreedTreeNode {
         )
     }
 
-    public getPartnerNode(map: PokemonBreedTreeMap): PokemonBreedTreeNode | undefined {
-        const partnerCol = (this.position.col & 1) === 0 ? this.position.col + 1 : this.position.col - 1
+    public getChildNode(map: PokemonBreedTreeMap): PokemonBreedTreeNode | null {
+        const childRow = this.position.row - 1
+        const childCol = Math.floor(this.position.col / 2)
+        const childPosition = new PokemonBreedTreePosition(childRow, childCol)
 
-        return map[new PokemonBreedTreePosition(this.position.row, partnerCol).key()]
+        return map[childPosition.key()] ?? null
     }
 
-    public getParentNodes(map: PokemonBreedTreeMap): [PokemonBreedTreeNode, PokemonBreedTreeNode] | undefined {
+    public getPartnerNode(map: PokemonBreedTreeMap): PokemonBreedTreeNode | null {
+        const partnerCol = (this.position.col & 1) === 0 ? this.position.col + 1 : this.position.col - 1
+        const partnerPos = new PokemonBreedTreePosition(this.position.row, partnerCol)
+
+        return map[partnerPos.key()] ?? null
+    }
+
+    public getParentNodes(map: PokemonBreedTreeMap): [PokemonBreedTreeNode, PokemonBreedTreeNode] | null {
         const parentRow = this.position.row + 1
         const parentCol = this.position.col * 2
 
         const parent1 = map[new PokemonBreedTreePosition(parentRow, parentCol).key()]
         const parent2 = map[new PokemonBreedTreePosition(parentRow, parentCol + 1).key()]
 
-        if (!parent1 || !parent2) return undefined
+        if (!parent1 || !parent2) return null
 
         return [parent1, parent2]
     }

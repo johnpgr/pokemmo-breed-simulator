@@ -30,7 +30,6 @@ export const POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS = {
     },
 } as const
 
-
 export const IV_COLOR_DICT = {
     Hp: "#55b651",
     Attack: "#F44336",
@@ -40,7 +39,6 @@ export const IV_COLOR_DICT = {
     Speed: "#25e2f7",
     Nature: "#e0f1f4",
 } as const
-
 export type IvColor = (typeof IV_COLOR_DICT)[keyof typeof IV_COLOR_DICT]
 
 export const NODE_SCALE_BY_COLOR_AMOUNT = {
@@ -58,3 +56,13 @@ export const SPRITE_SCALE_BY_COLOR_AMOUNT = {
     "2": "130%",
     "1": "150%",
 } as const
+
+export const GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE = {
+    87.5: 5000,
+    75: 5000,
+    50: 5000,
+    25: 9000,
+    12.5: 21000,
+    0: 0,
+    100: 0,
+}

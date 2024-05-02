@@ -8,12 +8,12 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getPokemonSpriteUrl(name: string) {
-    const nameFixed = name.replace("'", "")
+    const nameFixed = name
+        .replace("'", "")
         .replace(" ♂", "-m")
         .replace(" ♀", "-f")
         .replace("Mr. Mime", "mr-mime")
         .replace("Mime Jr.", "mime-jr")
-
 
     return `${BASE_SPRITES_URL}/${nameFixed.toLowerCase()}.png`
 }
@@ -26,6 +26,13 @@ export function randomString(length: number) {
 
 export function pascalToSpacedPascal(input: string) {
     return input.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (str) => str.toUpperCase())
+}
+
+export function kebabToSpacedPascal(input: string): string {
+    return input
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ")
 }
 
 export function capitalize(input: string) {

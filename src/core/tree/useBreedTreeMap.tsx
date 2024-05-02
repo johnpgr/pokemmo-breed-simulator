@@ -13,7 +13,7 @@ export type PokemonBreedTreeMap = Record<BreedTreePositionKey, PokemonBreedTreeN
 export function useBreedTreeMap(props: {
     finalPokemonNode: PokemonBreedTreeNode
     finalPokemonIvMap: IVSet
-    generations: number
+    desired31Ivcount: number
 }) {
     return React.useState<PokemonBreedTreeMap>(
         run(() => {
@@ -23,10 +23,12 @@ export function useBreedTreeMap(props: {
             const natured = Boolean(props.finalPokemonNode.nature)
 
             assert.exists(props.finalPokemonNode.ivs, "finalPokemonNode.ivs should exist")
-            assert([2, 3, 4, 5].includes(props.generations), "Invalid generations number")
+            assert([2, 3, 4, 5].includes(props.desired31Ivcount), "Invalid generations number")
 
             const lastRowBreeders =
-                POKEMON_BREEDTREE_LASTROW_MAPPING[props.generations as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING]
+                POKEMON_BREEDTREE_LASTROW_MAPPING[
+                    props.desired31Ivcount as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING
+                ]
             const lastRowBreedersPositions = natured ? lastRowBreeders.natured : lastRowBreeders.natureless
 
             // initialize last row
@@ -60,7 +62,7 @@ export function useBreedTreeMap(props: {
             // start from the second to last row
             // stops on the first row where the final pokemon node is already set
             // -1 for natured because of the way POKEMON_BREEDTREE_LASTROW_MAPPING is defined
-            let row = natured ? props.generations - 1 : props.generations - 2
+            let row = natured ? props.desired31Ivcount - 1 : props.desired31Ivcount - 2
             while (row > 0) {
                 let col = 0
                 while (col < Math.pow(2, row)) {

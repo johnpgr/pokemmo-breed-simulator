@@ -44,6 +44,13 @@ export function PokemonNodeSelect(props: {
         assert.exists(currentNode, `Node at ${props.position} should exist`)
 
         currentNode.species = PokemonSpecies.parse(pokemon)
+        if (currentNode.species?.percentageMale === 0) {
+            currentNode.gender = PokemonGender.Genderless
+        } else if (currentNode.gender === PokemonGender.Genderless) {
+            //this means that previously at this node there was a genderless pokemon
+            currentNode.gender = undefined
+        }
+
         props.setBreedTree((prev) => ({ ...prev }))
         setIsOpen(false)
     }
@@ -143,7 +150,7 @@ export function PokemonNodeSelect(props: {
                     ) : null}
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0 flex gap-4 max-w-xl w-full border-none bg-transparent shadow-none">
+            <PopoverContent className="p-0 flex gap-4 w-full max-w-2xl border-none bg-transparent shadow-none">
                 {currentNode ? (
                     <PokemonNodeInfo
                         breedTree={props.breedTree}
@@ -173,26 +180,26 @@ export function PokemonNodeSelect(props: {
                             <ScrollArea className="h-72 w-full">
                                 {pending
                                     ? Array.from({ length: 9 }).map((_, i) => (
-                                        <CommandItem key={`${id}:${i}`} value={""} onSelect={() => { }}></CommandItem>
-                                    ))
+                                          <CommandItem key={`${id}:${i}`} value={""} onSelect={() => {}}></CommandItem>
+                                      ))
                                     : pokemonList
-                                        .filter((pokemon) =>
-                                            pokemon.name.toLowerCase().includes(search.toLowerCase()),
-                                        )
-                                        .map((pokemon) => (
-                                            <CommandItem
-                                                key={`${id}:${pokemon.name}`}
-                                                value={pokemon.name}
-                                                onSelect={setPokemonSpecies}
-                                                data-cy={`${pokemon.name}-value`}
-                                                className="pl-8 relative"
-                                            >
-                                                {currentNode.species?.name === pokemon.name ? (
-                                                    <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
-                                                ) : null}
-                                                {pokemon.name}
-                                            </CommandItem>
-                                        ))}
+                                          .filter((pokemon) =>
+                                              pokemon.name.toLowerCase().includes(search.toLowerCase()),
+                                          )
+                                          .map((pokemon) => (
+                                              <CommandItem
+                                                  key={`${id}:${pokemon.name}`}
+                                                  value={pokemon.name}
+                                                  onSelect={setPokemonSpecies}
+                                                  data-cy={`${pokemon.name}-value`}
+                                                  className="pl-8 relative"
+                                              >
+                                                  {currentNode.species?.name === pokemon.name ? (
+                                                      <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
+                                                  ) : null}
+                                                  {pokemon.name}
+                                              </CommandItem>
+                                          ))}
                             </ScrollArea>
                         </CommandGroup>
                     </Command>
@@ -201,4 +208,3 @@ export function PokemonNodeSelect(props: {
         </Popover>
     )
 }
-
