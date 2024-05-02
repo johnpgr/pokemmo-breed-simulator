@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: "A tool to help you plan your pokemmo breeding",
 }
 
-export default function Layout(props: { children: React.ReactNode }) {
+export default function RootLayout(props: { children: React.ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={cn("min-h-screen flex flex-col", fontSans.className)}>

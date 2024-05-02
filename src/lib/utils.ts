@@ -8,9 +8,14 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getPokemonSpriteUrl(name: string) {
-    let nameFix = name.replace(" ♂", "-m").replace(" ♀", "-f").replace("'", "")
+    const nameFixed = name.replace("'", "")
+        .replace(" ♂", "-m")
+        .replace(" ♀", "-f")
+        .replace("Mr. Mime", "mr-mime")
+        .replace("Mime Jr.", "mime-jr")
 
-    return `${BASE_SPRITES_URL}/${nameFix.toLowerCase()}.png`
+
+    return `${BASE_SPRITES_URL}/${nameFixed.toLowerCase()}.png`
 }
 
 export function randomString(length: number) {

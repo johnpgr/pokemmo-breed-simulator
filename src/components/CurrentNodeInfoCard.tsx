@@ -5,7 +5,6 @@ import { pascalToSpacedPascal, getPokemonSpriteUrl, randomString } from "@/lib/u
 import { HelpCircle, Save, SquarePen } from "lucide-react"
 import { HeldItem, HeldItemsView } from "./HeldItemView"
 import type { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
-import { assert } from "@/lib/assert"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { PokemonGender, PokemonIv } from "@/core/pokemon"
 
@@ -23,7 +22,8 @@ export function CurrentNodeInfoCard(props: {
             return null
         }
 
-        const ivThatDoesntExistOnBreedPartner = props.currentNode.ivs?.filter((iv) => !breedPartner.ivs?.includes(iv)) ?? []
+        const ivThatDoesntExistOnBreedPartner =
+            props.currentNode.ivs?.filter((iv) => !breedPartner.ivs?.includes(iv)) ?? []
         if (ivThatDoesntExistOnBreedPartner.length === 0) {
             return null
         }
@@ -57,7 +57,7 @@ export function CurrentNodeInfoCard(props: {
     const heldItem = getHeldItem()
 
     return (
-        <Card className="w-fit h-fit relative">
+        <Card className="w-full max-w-sm h-fit relative">
             <CardHeader className="">
                 <HeldItemsView
                     item={
@@ -83,23 +83,28 @@ export function CurrentNodeInfoCard(props: {
                     )}
                 </CardTitle>
             </CardHeader>
-            <CardContent className="gap-4 flex flex-col">
-                <div className="flex flex-col gap-1">
-                    {Boolean(props.currentNode.ivs) ? <p>Ivs:</p> : null}
-                    {props.currentNode.ivs?.map((iv) => (
-                        <span key={randomString(4)}>31 {pascalToSpacedPascal(iv)}</span>
-                    ))}
-                </div>
-                {props.currentNode.nature && <i className="block">{props.currentNode.nature}</i>}
+            <CardContent className="gap-1 flex flex-col">
+                {props.currentNode.ivs ? (
+                    <>
+                        <p className="font-bold">Ivs:</p>
+                        {props.currentNode.ivs.map((iv) => (
+                            <span className="text-sm" key={randomString(4)}>31 {pascalToSpacedPascal(iv)}</span>
+                        ))}
+                    </>
+                ) : null}
+                {props.currentNode.nature ? (
+                    <>
+                        <p className="font-bold">Nature: </p>
+                        <span className="text-sm">{props.currentNode.nature}</span>
+                    </>
+                ) : null}
                 {props.currentNode.species ? (
-                    <React.Fragment>
-                        <div className="flex flex-col gap-1">
-                            <p>Egg Groups:</p>
-                            {props.currentNode.species.eggGroups.map((egg) => (
-                                <span key={randomString(3)}>{egg}</span>
-                            ))}
-                        </div>
-                    </React.Fragment>
+                    <>
+                        <p className="font-bold">Egg Groups:</p>
+                        {props.currentNode.species.eggGroups.map((egg) => (
+                            <span key={randomString(3)} className="text-sm">{egg}</span>
+                        ))}
+                    </>
                 ) : null}
             </CardContent>
         </Card>

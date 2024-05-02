@@ -2,4194 +2,7044 @@
     {
         "number": 1,
         "name": "Bulbasaur",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 2,
         "name": "Ivysaur",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 3,
         "name": "Venusaur",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 4,
         "name": "Charmander",
-        "types": ["Fire"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 5,
         "name": "Charmeleon",
-        "types": ["Fire"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 6,
         "name": "Charizard",
-        "types": ["Fire", "Flying"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Fire",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 7,
         "name": "Squirtle",
-        "types": ["Water"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 8,
         "name": "Wartortle",
-        "types": ["Water"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 9,
         "name": "Blastoise",
-        "types": ["Water"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 10,
         "name": "Caterpie",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 11,
         "name": "Metapod",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 12,
         "name": "Butterfree",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 13,
         "name": "Weedle",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 14,
         "name": "Kakuna",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 15,
         "name": "Beedrill",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 16,
         "name": "Pidgey",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 17,
         "name": "Pidgeotto",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 18,
         "name": "Pidgeot",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 19,
         "name": "Rattata",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 20,
         "name": "Raticate",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 21,
         "name": "Spearow",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 22,
         "name": "Fearow",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 23,
         "name": "Ekans",
-        "types": ["Poison"],
-        "eggGroups": ["Dragon", "Field"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 24,
         "name": "Arbok",
-        "types": ["Poison"],
-        "eggGroups": ["Dragon", "Field"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 25,
         "name": "Pikachu",
-        "types": ["Electric"],
-        "eggGroups": ["Fairy", "Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 26,
         "name": "Raichu",
-        "types": ["Electric"],
-        "eggGroups": ["Fairy", "Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 27,
         "name": "Sandshrew",
-        "types": ["Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 28,
         "name": "Sandslash",
-        "types": ["Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 29,
         "name": "Nidoran ♀",
-        "types": ["Poison"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 0
     },
     {
         "number": 30,
         "name": "Nidorina",
-        "types": ["Poison"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 0
     },
     {
         "number": 31,
         "name": "Nidoqueen",
-        "types": ["Poison", "Ground"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Poison",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 0
     },
     {
         "number": 32,
         "name": "Nidoran ♂",
-        "types": ["Poison"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 100
     },
     {
         "number": 33,
         "name": "Nidorino",
-        "types": ["Poison"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 100
     },
     {
         "number": 34,
         "name": "Nidoking",
-        "types": ["Poison", "Ground"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Poison",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 100
     },
     {
         "number": 35,
         "name": "Clefairy",
-        "types": ["Fairy"],
-        "eggGroups": ["Fairy"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
         "percentageMale": 25
     },
     {
         "number": 36,
         "name": "Clefable",
-        "types": ["Fairy"],
-        "eggGroups": ["Fairy"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
         "percentageMale": 25
     },
     {
         "number": 37,
         "name": "Vulpix",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 38,
         "name": "Ninetales",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 39,
         "name": "Jigglypuff",
-        "types": ["Normal", "Fairy"],
-        "eggGroups": ["Fairy"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
         "percentageMale": 25
     },
     {
         "number": 40,
         "name": "Wigglytuff",
-        "types": ["Normal", "Fairy"],
-        "eggGroups": ["Fairy"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
         "percentageMale": 25
     },
     {
         "number": 41,
         "name": "Zubat",
-        "types": ["Poison", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Poison",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 42,
         "name": "Golbat",
-        "types": ["Poison", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Poison",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 43,
         "name": "Oddish",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 44,
         "name": "Gloom",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 45,
         "name": "Vileplume",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 46,
         "name": "Paras",
-        "types": ["Bug", "Grass"],
-        "eggGroups": ["Bug", "Plant"],
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 47,
         "name": "Parasect",
-        "types": ["Bug", "Grass"],
-        "eggGroups": ["Bug", "Plant"],
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 48,
         "name": "Venonat",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 49,
         "name": "Venomoth",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 50,
         "name": "Diglett",
-        "types": ["Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 51,
         "name": "Dugtrio",
-        "types": ["Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 52,
         "name": "Meowth",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 53,
         "name": "Persian",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 54,
         "name": "Psyduck",
-        "types": ["Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 55,
         "name": "Golduck",
-        "types": ["Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 56,
         "name": "Mankey",
-        "types": ["Fighting"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 57,
         "name": "Primeape",
-        "types": ["Fighting"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 58,
         "name": "Growlithe",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 75
     },
     {
         "number": 59,
         "name": "Arcanine",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 75
     },
     {
         "number": 60,
         "name": "Poliwag",
-        "types": ["Water"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 61,
         "name": "Poliwhirl",
-        "types": ["Water"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 62,
         "name": "Poliwrath",
-        "types": ["Water", "Fighting"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 63,
         "name": "Abra",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 64,
         "name": "Kadabra",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 65,
         "name": "Alakazam",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 66,
         "name": "Machop",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 67,
         "name": "Machoke",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 68,
         "name": "Machamp",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 69,
         "name": "Bellsprout",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 70,
         "name": "Weepinbell",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 71,
         "name": "Victreebel",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 72,
         "name": "Tentacool",
-        "types": ["Water", "Poison"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Water",
+            "Poison"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 73,
         "name": "Tentacruel",
-        "types": ["Water", "Poison"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Water",
+            "Poison"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 74,
         "name": "Geodude",
-        "types": ["Rock", "Ground"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 75,
         "name": "Graveler",
-        "types": ["Rock", "Ground"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 76,
         "name": "Golem",
-        "types": ["Rock", "Ground"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 77,
         "name": "Ponyta",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 78,
         "name": "Rapidash",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 79,
         "name": "Slowpoke",
-        "types": ["Water", "Psychic"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 80,
         "name": "Slowbro",
-        "types": ["Water", "Psychic"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 81,
         "name": "Magnemite",
-        "types": ["Electric", "Steel"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Electric",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 82,
         "name": "Magneton",
-        "types": ["Electric", "Steel"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Electric",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 83,
         "name": "Farfetch'd",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Field", "Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Field",
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 84,
         "name": "Doduo",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 85,
         "name": "Dodrio",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 86,
         "name": "Seel",
-        "types": ["Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 87,
         "name": "Dewgong",
-        "types": ["Water", "Ice"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 88,
         "name": "Grimer",
-        "types": ["Poison"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 89,
         "name": "Muk",
-        "types": ["Poison"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 90,
         "name": "Shellder",
-        "types": ["Water"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 91,
         "name": "Cloyster",
-        "types": ["Water", "Ice"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Water",
+            "Ice"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 92,
         "name": "Gastly",
-        "types": ["Ghost", "Poison"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 93,
         "name": "Haunter",
-        "types": ["Ghost", "Poison"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 94,
         "name": "Gengar",
-        "types": ["Ghost", "Poison"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 95,
         "name": "Onix",
-        "types": ["Rock", "Ground"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 96,
         "name": "Drowzee",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 97,
         "name": "Hypno",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 98,
         "name": "Krabby",
-        "types": ["Water"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 99,
         "name": "Kingler",
-        "types": ["Water"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 100,
         "name": "Voltorb",
-        "types": ["Electric"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 101,
         "name": "Electrode",
-        "types": ["Electric"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 102,
         "name": "Exeggcute",
-        "types": ["Grass", "Psychic"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 103,
         "name": "Exeggutor",
-        "types": ["Grass", "Psychic"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 104,
         "name": "Cubone",
-        "types": ["Ground"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 105,
         "name": "Marowak",
-        "types": ["Ground"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 106,
         "name": "Hitmonlee",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 100
     },
     {
         "number": 107,
         "name": "Hitmonchan",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 100
     },
     {
         "number": 108,
         "name": "Lickitung",
-        "types": ["Normal"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 109,
         "name": "Koffing",
-        "types": ["Poison"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 110,
         "name": "Weezing",
-        "types": ["Poison"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 111,
         "name": "Rhyhorn",
-        "types": ["Ground", "Rock"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Ground",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 112,
         "name": "Rhydon",
-        "types": ["Ground", "Rock"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Ground",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 113,
         "name": "Chansey",
-        "types": ["Normal"],
-        "eggGroups": ["Fairy"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
         "percentageMale": 0
     },
     {
         "number": 114,
         "name": "Tangela",
-        "types": ["Grass"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 115,
         "name": "Kangaskhan",
-        "types": ["Normal"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 0
     },
     {
         "number": 116,
         "name": "Horsea",
-        "types": ["Water"],
-        "eggGroups": ["Dragon", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 117,
         "name": "Seadra",
-        "types": ["Water"],
-        "eggGroups": ["Dragon", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 118,
         "name": "Goldeen",
-        "types": ["Water"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 119,
         "name": "Seaking",
-        "types": ["Water"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 120,
         "name": "Staryu",
-        "types": ["Water"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 121,
         "name": "Starmie",
-        "types": ["Water", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Water",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 122,
         "name": "Mr. Mime",
-        "types": ["Psychic", "Fairy"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 123,
         "name": "Scyther",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 124,
         "name": "Jynx",
-        "types": ["Ice", "Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Ice",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 0
     },
     {
         "number": 125,
         "name": "Electabuzz",
-        "types": ["Electric"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 126,
         "name": "Magmar",
-        "types": ["Fire"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 127,
         "name": "Pinsir",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 128,
         "name": "Tauros",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 100
     },
     {
         "number": 129,
         "name": "Magikarp",
-        "types": ["Water"],
-        "eggGroups": ["Dragon", "WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 130,
         "name": "Gyarados",
-        "types": ["Water", "Flying"],
-        "eggGroups": ["Dragon", "WaterB"],
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 131,
         "name": "Lapras",
-        "types": ["Water", "Ice"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 132,
         "name": "Ditto",
-        "types": ["Normal"],
-        "eggGroups": ["Ditto"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Ditto"
+        ],
         "percentageMale": 0
     },
     {
         "number": 133,
         "name": "Eevee",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 134,
         "name": "Vaporeon",
-        "types": ["Water"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 135,
         "name": "Jolteon",
-        "types": ["Electric"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 136,
         "name": "Flareon",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 137,
         "name": "Porygon",
-        "types": ["Normal"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 138,
         "name": "Omanyte",
-        "types": ["Rock", "Water"],
-        "eggGroups": ["WaterA", "WaterC"],
+        "types": [
+            "Rock",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 139,
         "name": "Omastar",
-        "types": ["Rock", "Water"],
-        "eggGroups": ["WaterA", "WaterC"],
+        "types": [
+            "Rock",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 140,
         "name": "Kabuto",
-        "types": ["Rock", "Water"],
-        "eggGroups": ["WaterA", "WaterC"],
+        "types": [
+            "Rock",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 141,
         "name": "Kabutops",
-        "types": ["Rock", "Water"],
-        "eggGroups": ["WaterA", "WaterC"],
+        "types": [
+            "Rock",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 142,
         "name": "Aerodactyl",
-        "types": ["Rock", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Rock",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 143,
         "name": "Snorlax",
-        "types": ["Normal"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 147,
         "name": "Dratini",
-        "types": ["Dragon"],
-        "eggGroups": ["Dragon", "WaterA"],
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 148,
         "name": "Dragonair",
-        "types": ["Dragon"],
-        "eggGroups": ["Dragon", "WaterA"],
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 149,
         "name": "Dragonite",
-        "types": ["Dragon", "Flying"],
-        "eggGroups": ["Dragon", "WaterA"],
+        "types": [
+            "Dragon",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 152,
         "name": "Chikorita",
-        "types": ["Grass"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 153,
         "name": "Bayleef",
-        "types": ["Grass"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 155,
         "name": "Cyndaquil",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 156,
         "name": "Quilava",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 157,
         "name": "Typhlosion",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 158,
         "name": "Totodile",
-        "types": ["Water"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 159,
         "name": "Croconaw",
-        "types": ["Water"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 160,
         "name": "Feraligatr",
-        "types": ["Water"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 161,
         "name": "Sentret",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 162,
         "name": "Furret",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 163,
         "name": "Hoothoot",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 164,
         "name": "Noctowl",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 165,
         "name": "Ledyba",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 166,
         "name": "Ledian",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 167,
         "name": "Spinarak",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 168,
         "name": "Ariados",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 169,
         "name": "Crobat",
-        "types": ["Poison", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Poison",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 170,
         "name": "Chinchou",
-        "types": ["Water", "Electric"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water",
+            "Electric"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 171,
         "name": "Lanturn",
-        "types": ["Water", "Electric"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water",
+            "Electric"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 172,
         "name": "Pichu",
-        "types": ["Electric"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 50
     },
     {
         "number": 173,
         "name": "Cleffa",
-        "types": ["Fairy"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Fairy"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 25
     },
     {
         "number": 174,
         "name": "Igglybuff",
-        "types": ["Normal", "Fairy"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Normal",
+            "Fairy"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 25
     },
     {
         "number": 175,
         "name": "Togepi",
-        "types": ["Fairy"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 176,
         "name": "Togetic",
-        "types": ["Fairy", "Flying"],
-        "eggGroups": ["Fairy", "Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Flying"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 177,
         "name": "Natu",
-        "types": ["Psychic", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 178,
         "name": "Xatu",
-        "types": ["Psychic", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 179,
         "name": "Mareep",
-        "types": ["Electric"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 180,
         "name": "Flaaffy",
-        "types": ["Electric"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 181,
         "name": "Ampharos",
-        "types": ["Electric"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 182,
         "name": "Bellossom",
-        "types": ["Grass"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 183,
         "name": "Marill",
-        "types": ["Water", "Fairy"],
-        "eggGroups": ["Fairy", "WaterA"],
+        "types": [
+            "Water",
+            "Fairy"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 184,
         "name": "Azumarill",
-        "types": ["Water", "Fairy"],
-        "eggGroups": ["Fairy", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 185,
         "name": "Sudowoodo",
-        "types": ["Rock"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 186,
         "name": "Politoed",
-        "types": ["Water"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 187,
         "name": "Hoppip",
-        "types": ["Grass", "Flying"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 188,
         "name": "Skiploom",
-        "types": ["Grass", "Flying"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 189,
         "name": "Jumpluff",
-        "types": ["Grass", "Flying"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 190,
         "name": "Aipom",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 191,
         "name": "Sunkern",
-        "types": ["Grass"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 192,
         "name": "Sunflora",
-        "types": ["Grass"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 193,
         "name": "Yanma",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 194,
         "name": "Wooper",
-        "types": ["Water", "Ground"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 195,
         "name": "Quagsire",
-        "types": ["Water", "Ground"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 196,
         "name": "Espeon",
-        "types": ["Psychic"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 197,
         "name": "Umbreon",
-        "types": ["Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 198,
         "name": "Murkrow",
-        "types": ["Dark", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Dark",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 199,
         "name": "Slowking",
-        "types": ["Water", "Psychic"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 200,
         "name": "Misdreavus",
-        "types": ["Ghost"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 201,
         "name": "Unown",
-        "types": ["Psychic"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 0
     },
     {
         "number": 202,
         "name": "Wobbuffet",
-        "types": ["Psychic"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 203,
         "name": "Girafarig",
-        "types": ["Normal", "Psychic"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 204,
         "name": "Pineco",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 205,
         "name": "Forretress",
-        "types": ["Bug", "Steel"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 206,
         "name": "Dunsparce",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 207,
         "name": "Gligar",
-        "types": ["Ground", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Ground",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 208,
         "name": "Steelix",
-        "types": ["Steel", "Ground"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Steel",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 209,
         "name": "Snubbull",
-        "types": ["Fairy"],
-        "eggGroups": ["Fairy", "Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 210,
         "name": "Granbull",
-        "types": ["Fairy"],
-        "eggGroups": ["Fairy", "Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 211,
         "name": "Qwilfish",
-        "types": ["Water", "Poison"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water",
+            "Poison"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 212,
         "name": "Scizor",
-        "types": ["Bug", "Steel"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 213,
         "name": "Shuckle",
-        "types": ["Bug", "Rock"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 214,
         "name": "Heracross",
-        "types": ["Bug", "Fighting"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 215,
         "name": "Sneasel",
-        "types": ["Dark", "Ice"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 216,
         "name": "Teddiursa",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 217,
         "name": "Ursaring",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 218,
         "name": "Slugma",
-        "types": ["Fire"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 219,
         "name": "Magcargo",
-        "types": ["Fire", "Rock"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Fire",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 220,
         "name": "Swinub",
-        "types": ["Ice", "Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ice",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 221,
         "name": "Piloswine",
-        "types": ["Ice", "Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ice",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 222,
         "name": "Corsola",
-        "types": ["Water", "Rock"],
-        "eggGroups": ["WaterA", "WaterC"],
+        "types": [
+            "Water",
+            "Rock"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
         "percentageMale": 25
     },
     {
         "number": 223,
         "name": "Remoraid",
-        "types": ["Water"],
-        "eggGroups": ["WaterA", "WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 224,
         "name": "Octillery",
-        "types": ["Water"],
-        "eggGroups": ["WaterA", "WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 225,
         "name": "Delibird",
-        "types": ["Ice", "Flying"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Ice",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 226,
         "name": "Mantine",
-        "types": ["Water", "Flying"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 227,
         "name": "Skarmory",
-        "types": ["Steel", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Steel",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 228,
         "name": "Houndour",
-        "types": ["Dark", "Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 229,
         "name": "Houndoom",
-        "types": ["Dark", "Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 230,
         "name": "Kingdra",
-        "types": ["Water", "Dragon"],
-        "eggGroups": ["Dragon", "WaterA"],
+        "types": [
+            "Water",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 231,
         "name": "Phanpy",
-        "types": ["Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 232,
         "name": "Donphan",
-        "types": ["Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 233,
         "name": "Porygon2",
-        "types": ["Normal"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 234,
         "name": "Stantler",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 235,
         "name": "Smeargle",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 236,
         "name": "Tyrogue",
-        "types": ["Fighting"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 100
     },
     {
         "number": 237,
         "name": "Hitmontop",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 100
     },
     {
         "number": 238,
         "name": "Smoochum",
-        "types": ["Ice", "Psychic"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Ice",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 0
     },
     {
         "number": 239,
         "name": "Elekid",
-        "types": ["Electric"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 75
     },
     {
         "number": 240,
         "name": "Magby",
-        "types": ["Fire"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 75
     },
     {
         "number": 241,
         "name": "Miltank",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 0
     },
     {
         "number": 242,
         "name": "Blissey",
-        "types": ["Normal"],
-        "eggGroups": ["Fairy"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
         "percentageMale": 0
     },
     {
         "number": 246,
         "name": "Larvitar",
-        "types": ["Rock", "Ground"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 247,
         "name": "Pupitar",
-        "types": ["Rock", "Ground"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 248,
         "name": "Tyranitar",
-        "types": ["Rock", "Dark"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Rock",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 252,
         "name": "Treecko",
-        "types": ["Grass"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 253,
         "name": "Grovyle",
-        "types": ["Grass"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 254,
         "name": "Sceptile",
-        "types": ["Grass"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 255,
         "name": "Torchic",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 256,
         "name": "Combusken",
-        "types": ["Fire", "Fighting"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 257,
         "name": "Blaziken",
-        "types": ["Fire", "Fighting"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 258,
         "name": "Mudkip",
-        "types": ["Water"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 259,
         "name": "Marshtomp",
-        "types": ["Water", "Ground"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 260,
         "name": "Swampert",
-        "types": ["Water", "Ground"],
-        "eggGroups": ["Monster", "WaterA"],
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 261,
         "name": "Poochyena",
-        "types": ["Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 262,
         "name": "Mightyena",
-        "types": ["Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 263,
         "name": "Zigzagoon",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 264,
         "name": "Linoone",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 265,
         "name": "Wurmple",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 266,
         "name": "Silcoon",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 267,
         "name": "Beautifly",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 268,
         "name": "Cascoon",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 269,
         "name": "Dustox",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 270,
         "name": "Lotad",
-        "types": ["Water", "Grass"],
-        "eggGroups": ["Plant", "WaterA"],
+        "types": [
+            "Water",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 271,
         "name": "Lombre",
-        "types": ["Water", "Grass"],
-        "eggGroups": ["Plant", "WaterA"],
+        "types": [
+            "Water",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 272,
         "name": "Ludicolo",
-        "types": ["Water", "Grass"],
-        "eggGroups": ["Plant", "WaterA"],
+        "types": [
+            "Water",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 273,
         "name": "Seedot",
-        "types": ["Grass"],
-        "eggGroups": ["Field", "Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 274,
         "name": "Nuzleaf",
-        "types": ["Grass", "Dark"],
-        "eggGroups": ["Field", "Plant"],
+        "types": [
+            "Grass",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 275,
         "name": "Shiftry",
-        "types": ["Grass", "Dark"],
-        "eggGroups": ["Field", "Plant"],
+        "types": [
+            "Grass",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 276,
         "name": "Taillow",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 277,
         "name": "Swellow",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 278,
         "name": "Wingull",
-        "types": ["Water", "Flying"],
-        "eggGroups": ["Flying", "WaterA"],
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 279,
         "name": "Pelipper",
-        "types": ["Water", "Flying"],
-        "eggGroups": ["Flying", "WaterA"],
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 280,
         "name": "Ralts",
-        "types": ["Psychic", "Fairy"],
-        "eggGroups": ["Amorphous", "Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 281,
         "name": "Kirlia",
-        "types": ["Psychic", "Fairy"],
-        "eggGroups": ["Amorphous", "Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 282,
         "name": "Gardevoir",
-        "types": ["Psychic", "Fairy"],
-        "eggGroups": ["Amorphous", "Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 283,
         "name": "Surskit",
-        "types": ["Bug", "Water"],
-        "eggGroups": ["Bug", "WaterA"],
+        "types": [
+            "Bug",
+            "Water"
+        ],
+        "eggGroups": [
+            "Bug",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 284,
         "name": "Masquerain",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug", "WaterA"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 285,
         "name": "Shroomish",
-        "types": ["Grass"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 286,
         "name": "Breloom",
-        "types": ["Grass", "Fighting"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 287,
         "name": "Slakoth",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 288,
         "name": "Vigoroth",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 289,
         "name": "Slaking",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 290,
         "name": "Nincada",
-        "types": ["Bug", "Ground"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 291,
         "name": "Ninjask",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 292,
         "name": "Shedinja",
-        "types": ["Bug", "Ghost"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Bug",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 0
     },
     {
         "number": 293,
         "name": "Whismur",
-        "types": ["Normal"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 294,
         "name": "Loudred",
-        "types": ["Normal"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 295,
         "name": "Exploud",
-        "types": ["Normal"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 296,
         "name": "Makuhita",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 297,
         "name": "Hariyama",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 298,
         "name": "Azurill",
-        "types": ["Normal", "Fairy"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 25
     },
     {
         "number": 299,
         "name": "Nosepass",
-        "types": ["Rock"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 300,
         "name": "Skitty",
-        "types": ["Normal"],
-        "eggGroups": ["Fairy", "Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 301,
         "name": "Delcatty",
-        "types": ["Normal"],
-        "eggGroups": ["Fairy", "Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 302,
         "name": "Sableye",
-        "types": ["Dark", "Ghost"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Dark",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 303,
         "name": "Mawile",
-        "types": ["Steel", "Fairy"],
-        "eggGroups": ["Fairy", "Field"],
+        "types": [
+            "Steel"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 304,
         "name": "Aron",
-        "types": ["Steel", "Rock"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Steel",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 305,
         "name": "Lairon",
-        "types": ["Steel", "Rock"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Steel",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 306,
         "name": "Aggron",
-        "types": ["Steel", "Rock"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Steel",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 307,
         "name": "Meditite",
-        "types": ["Fighting", "Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 308,
         "name": "Medicham",
-        "types": ["Fighting", "Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 309,
         "name": "Electrike",
-        "types": ["Electric"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 310,
         "name": "Manectric",
-        "types": ["Electric"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 311,
         "name": "Plusle",
-        "types": ["Electric"],
-        "eggGroups": ["Fairy"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
         "percentageMale": 50
     },
     {
         "number": 312,
         "name": "Minun",
-        "types": ["Electric"],
-        "eggGroups": ["Fairy"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
         "percentageMale": 50
     },
     {
         "number": 313,
         "name": "Volbeat",
-        "types": ["Bug"],
-        "eggGroups": ["Bug", "Humanoid"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Humanoid"
+        ],
         "percentageMale": 100
     },
     {
         "number": 314,
         "name": "Illumise",
-        "types": ["Bug"],
-        "eggGroups": ["Bug", "Humanoid"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Humanoid"
+        ],
         "percentageMale": 0
     },
     {
         "number": 315,
         "name": "Roselia",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 316,
         "name": "Gulpin",
-        "types": ["Poison"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 317,
         "name": "Swalot",
-        "types": ["Poison"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 318,
         "name": "Carvanha",
-        "types": ["Water", "Dark"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water",
+            "Dark"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 319,
         "name": "Sharpedo",
-        "types": ["Water", "Dark"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water",
+            "Dark"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 320,
         "name": "Wailmer",
-        "types": ["Water"],
-        "eggGroups": ["Field", "WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 321,
         "name": "Wailord",
-        "types": ["Water"],
-        "eggGroups": ["Field", "WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 322,
         "name": "Numel",
-        "types": ["Fire", "Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 323,
         "name": "Camerupt",
-        "types": ["Fire", "Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 324,
         "name": "Torkoal",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 325,
         "name": "Spoink",
-        "types": ["Psychic"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 326,
         "name": "Grumpig",
-        "types": ["Psychic"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 327,
         "name": "Spinda",
-        "types": ["Normal"],
-        "eggGroups": ["Field", "Humanoid"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 328,
         "name": "Trapinch",
-        "types": ["Ground"],
-        "eggGroups": ["Bug", "Dragon"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Dragon"
+        ],
         "percentageMale": 50
     },
     {
         "number": 329,
         "name": "Vibrava",
-        "types": ["Ground", "Dragon"],
-        "eggGroups": ["Bug", "Dragon"],
+        "types": [
+            "Ground",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Dragon"
+        ],
         "percentageMale": 50
     },
     {
         "number": 330,
         "name": "Flygon",
-        "types": ["Ground", "Dragon"],
-        "eggGroups": ["Bug", "Dragon"],
+        "types": [
+            "Ground",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Dragon"
+        ],
         "percentageMale": 50
     },
     {
         "number": 331,
         "name": "Cacnea",
-        "types": ["Grass"],
-        "eggGroups": ["Plant", "Humanoid"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 332,
         "name": "Cacturne",
-        "types": ["Grass", "Dark"],
-        "eggGroups": ["Plant", "Humanoid"],
+        "types": [
+            "Grass",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 333,
         "name": "Swablu",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Dragon", "Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 334,
         "name": "Altaria",
-        "types": ["Dragon", "Flying"],
-        "eggGroups": ["Dragon", "Flying"],
+        "types": [
+            "Dragon",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 335,
         "name": "Zangoose",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 336,
         "name": "Seviper",
-        "types": ["Poison"],
-        "eggGroups": ["Dragon", "Field"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 337,
         "name": "Lunatone",
-        "types": ["Rock", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Rock",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 338,
         "name": "Solrock",
-        "types": ["Rock", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Rock",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 339,
         "name": "Barboach",
-        "types": ["Water", "Ground"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 340,
         "name": "Whiscash",
-        "types": ["Water", "Ground"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 341,
         "name": "Corphish",
-        "types": ["Water"],
-        "eggGroups": ["WaterA", "WaterC"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 342,
         "name": "Crawdaunt",
-        "types": ["Water", "Dark"],
-        "eggGroups": ["WaterA", "WaterC"],
+        "types": [
+            "Water",
+            "Dark"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 343,
         "name": "Baltoy",
-        "types": ["Ground", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Ground",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 344,
         "name": "Claydol",
-        "types": ["Ground", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Ground",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 345,
         "name": "Lileep",
-        "types": ["Rock", "Grass"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Rock",
+            "Grass"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 346,
         "name": "Cradily",
-        "types": ["Rock", "Grass"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Rock",
+            "Grass"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 347,
         "name": "Anorith",
-        "types": ["Rock", "Bug"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Rock",
+            "Bug"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 348,
         "name": "Armaldo",
-        "types": ["Rock", "Bug"],
-        "eggGroups": ["WaterC"],
+        "types": [
+            "Rock",
+            "Bug"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 349,
         "name": "Feebas",
-        "types": ["Water"],
-        "eggGroups": ["Dragon", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 350,
         "name": "Milotic",
-        "types": ["Water"],
-        "eggGroups": ["Dragon", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 351,
         "name": "Castform",
-        "types": ["Normal"],
-        "eggGroups": ["Amorphous", "Fairy"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "Fairy"
+        ],
         "percentageMale": 50
     },
     {
         "number": 352,
         "name": "Kecleon",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 353,
         "name": "Shuppet",
-        "types": ["Ghost"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 354,
         "name": "Banette",
-        "types": ["Ghost"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 355,
         "name": "Duskull",
-        "types": ["Ghost"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 356,
         "name": "Dusclops",
-        "types": ["Ghost"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 357,
         "name": "Tropius",
-        "types": ["Grass", "Flying"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 358,
         "name": "Chimecho",
-        "types": ["Psychic"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 359,
         "name": "Absol",
-        "types": ["Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 360,
         "name": "Wynaut",
-        "types": ["Psychic"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 50
     },
     {
         "number": 361,
         "name": "Snorunt",
-        "types": ["Ice"],
-        "eggGroups": ["Fairy", "Mineral"],
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 362,
         "name": "Glalie",
-        "types": ["Ice"],
-        "eggGroups": ["Fairy", "Mineral"],
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 363,
         "name": "Spheal",
-        "types": ["Ice", "Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Ice",
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 364,
         "name": "Sealeo",
-        "types": ["Ice", "Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Ice",
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 365,
         "name": "Walrein",
-        "types": ["Ice", "Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Ice",
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 366,
         "name": "Clamperl",
-        "types": ["Water"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 367,
         "name": "Huntail",
-        "types": ["Water"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 368,
         "name": "Gorebyss",
-        "types": ["Water"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 369,
         "name": "Relicanth",
-        "types": ["Water", "Rock"],
-        "eggGroups": ["WaterA", "WaterB"],
+        "types": [
+            "Water",
+            "Rock"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterB"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 370,
         "name": "Luvdisc",
-        "types": ["Water"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 25
     },
     {
         "number": 371,
         "name": "Bagon",
-        "types": ["Dragon"],
-        "eggGroups": ["Dragon"],
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
         "percentageMale": 50
     },
     {
         "number": 372,
         "name": "Shelgon",
-        "types": ["Dragon"],
-        "eggGroups": ["Dragon"],
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
         "percentageMale": 50
     },
     {
         "number": 373,
         "name": "Salamence",
-        "types": ["Dragon", "Flying"],
-        "eggGroups": ["Dragon"],
+        "types": [
+            "Dragon",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
         "percentageMale": 50
     },
     {
         "number": 374,
         "name": "Beldum",
-        "types": ["Steel", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 375,
         "name": "Metang",
-        "types": ["Steel", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 376,
         "name": "Metagross",
-        "types": ["Steel", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 387,
         "name": "Turtwig",
-        "types": ["Grass"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 388,
         "name": "Grotle",
-        "types": ["Grass"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 389,
         "name": "Torterra",
-        "types": ["Grass", "Ground"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 390,
         "name": "Chimchar",
-        "types": ["Fire"],
-        "eggGroups": ["Field", "Humanoid"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 391,
         "name": "Monferno",
-        "types": ["Fire", "Fighting"],
-        "eggGroups": ["Field", "Humanoid"],
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 392,
         "name": "Infernape",
-        "types": ["Fire", "Fighting"],
-        "eggGroups": ["Field", "Humanoid"],
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 393,
         "name": "Piplup",
-        "types": ["Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 394,
         "name": "Prinplup",
-        "types": ["Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 395,
         "name": "Empoleon",
-        "types": ["Water", "Steel"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 396,
         "name": "Starly",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 397,
         "name": "Staravia",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 398,
         "name": "Staraptor",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 399,
         "name": "Bidoof",
-        "types": ["Normal"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 400,
         "name": "Bibarel",
-        "types": ["Normal", "Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Normal",
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 401,
         "name": "Kricketot",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 402,
         "name": "Kricketune",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 403,
         "name": "Shinx",
-        "types": ["Electric"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 404,
         "name": "Luxio",
-        "types": ["Electric"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 405,
         "name": "Luxray",
-        "types": ["Electric"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 406,
         "name": "Budew",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 50
     },
     {
         "number": 407,
         "name": "Roserade",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 408,
         "name": "Cranidos",
-        "types": ["Rock"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 409,
         "name": "Rampardos",
-        "types": ["Rock"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 410,
         "name": "Shieldon",
-        "types": ["Rock", "Steel"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Rock",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 411,
         "name": "Bastiodon",
-        "types": ["Rock", "Steel"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Rock",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 412,
         "name": "Burmy",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 413,
         "name": "Wormadam",
-        "types": ["Bug", "Grass"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 0
     },
     {
         "number": 414,
         "name": "Mothim",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 100
     },
     {
         "number": 415,
         "name": "Combee",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 416,
         "name": "Vespiquen",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 0
     },
     {
         "number": 417,
         "name": "Pachirisu",
-        "types": ["Electric"],
-        "eggGroups": ["Fairy", "Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 418,
         "name": "Buizel",
-        "types": ["Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 419,
         "name": "Floatzel",
-        "types": ["Water"],
-        "eggGroups": ["Field", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 420,
         "name": "Cherubi",
-        "types": ["Grass"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 421,
         "name": "Cherrim",
-        "types": ["Grass"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 422,
         "name": "Shellos",
-        "types": ["Water"],
-        "eggGroups": ["Amorphous", "WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 423,
         "name": "Gastrodon",
-        "types": ["Water", "Ground"],
-        "eggGroups": ["Amorphous", "WaterA"],
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 424,
         "name": "Ambipom",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 425,
         "name": "Drifloon",
-        "types": ["Ghost", "Flying"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 426,
         "name": "Drifblim",
-        "types": ["Ghost", "Flying"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 427,
         "name": "Buneary",
-        "types": ["Normal"],
-        "eggGroups": ["Field", "Humanoid"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 428,
         "name": "Lopunny",
-        "types": ["Normal"],
-        "eggGroups": ["Field", "Humanoid"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 429,
         "name": "Mismagius",
-        "types": ["Ghost"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 430,
         "name": "Honchkrow",
-        "types": ["Dark", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Dark",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 431,
         "name": "Glameow",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 432,
         "name": "Purugly",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 433,
         "name": "Chingling",
-        "types": ["Psychic"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 50
     },
     {
         "number": 434,
         "name": "Stunky",
-        "types": ["Poison", "Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Poison",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 435,
         "name": "Skuntank",
-        "types": ["Poison", "Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Poison",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 436,
         "name": "Bronzor",
-        "types": ["Steel", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 437,
         "name": "Bronzong",
-        "types": ["Steel", "Psychic"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 438,
         "name": "Bonsly",
-        "types": ["Rock"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 50
     },
     {
         "number": 439,
         "name": "Mime Jr.",
-        "types": ["Psychic", "Fairy"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 50
     },
     {
         "number": 440,
         "name": "Happiny",
-        "types": ["Normal"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 0
     },
     {
         "number": 441,
         "name": "Chatot",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 442,
         "name": "Spiritomb",
-        "types": ["Ghost", "Dark"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 443,
         "name": "Gible",
-        "types": ["Dragon", "Ground"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Dragon",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 444,
         "name": "Gabite",
-        "types": ["Dragon", "Ground"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Dragon",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 445,
         "name": "Garchomp",
-        "types": ["Dragon", "Ground"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Dragon",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 446,
         "name": "Munchlax",
-        "types": ["Normal"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 447,
         "name": "Riolu",
-        "types": ["Fighting"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 448,
         "name": "Lucario",
-        "types": ["Fighting", "Steel"],
-        "eggGroups": ["Field", "Humanoid"],
+        "types": [
+            "Fighting",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 449,
         "name": "Hippopotas",
-        "types": ["Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 450,
         "name": "Hippowdon",
-        "types": ["Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 451,
         "name": "Skorupi",
-        "types": ["Poison", "Bug"],
-        "eggGroups": ["Bug", "WaterC"],
+        "types": [
+            "Poison",
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug",
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 452,
         "name": "Drapion",
-        "types": ["Poison", "Dark"],
-        "eggGroups": ["Bug", "WaterC"],
+        "types": [
+            "Poison",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Bug",
+            "WaterC"
+        ],
         "percentageMale": 50
     },
     {
         "number": 453,
         "name": "Croagunk",
-        "types": ["Poison", "Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Poison",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 454,
         "name": "Toxicroak",
-        "types": ["Poison", "Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Poison",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 455,
         "name": "Carnivine",
-        "types": ["Grass"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 456,
         "name": "Finneon",
-        "types": ["Water"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 457,
         "name": "Lumineon",
-        "types": ["Water"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 458,
         "name": "Mantyke",
-        "types": ["Water", "Flying"],
-        "eggGroups": ["CannotBreed"],
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "CannotBreed"
+        ],
         "percentageMale": 50
     },
     {
         "number": 459,
         "name": "Snover",
-        "types": ["Grass", "Ice"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 460,
         "name": "Abomasnow",
-        "types": ["Grass", "Ice"],
-        "eggGroups": ["Plant", "Monster"],
+        "types": [
+            "Grass",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 461,
         "name": "Weavile",
-        "types": ["Dark", "Ice"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 462,
         "name": "Magnezone",
-        "types": ["Electric", "Steel"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Electric",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 463,
         "name": "Lickilicky",
-        "types": ["Normal"],
-        "eggGroups": ["Monster"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 464,
         "name": "Rhyperior",
-        "types": ["Ground", "Rock"],
-        "eggGroups": ["Field", "Monster"],
+        "types": [
+            "Ground",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Field",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 465,
         "name": "Tangrowth",
-        "types": ["Grass"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 466,
         "name": "Electivire",
-        "types": ["Electric"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 467,
         "name": "Magmortar",
-        "types": ["Fire"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 468,
         "name": "Togekiss",
-        "types": ["Fairy", "Flying"],
-        "eggGroups": ["Fairy", "Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Flying"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 469,
         "name": "Yanmega",
-        "types": ["Bug", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 470,
         "name": "Leafeon",
-        "types": ["Grass"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 471,
         "name": "Glaceon",
-        "types": ["Ice"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 472,
         "name": "Gliscor",
-        "types": ["Ground", "Flying"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Ground",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 473,
         "name": "Mamoswine",
-        "types": ["Ice", "Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ice",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 474,
         "name": "Porygon-Z",
-        "types": ["Normal"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 475,
         "name": "Gallade",
-        "types": ["Psychic", "Fighting"],
-        "eggGroups": ["Amorphous", "Humanoid"],
+        "types": [
+            "Psychic",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "Humanoid"
+        ],
         "percentageMale": 100
     },
     {
         "number": 476,
         "name": "Probopass",
-        "types": ["Rock", "Steel"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 477,
         "name": "Dusknoir",
-        "types": ["Ghost"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 478,
         "name": "Froslass",
-        "types": ["Ice", "Ghost"],
-        "eggGroups": ["Fairy", "Mineral"],
+        "types": [
+            "Ice",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Mineral"
+        ],
         "percentageMale": 0
     },
     {
         "number": 479,
         "name": "Rotom",
-        "types": ["Electric", "Ghost"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Electric",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 495,
         "name": "Snivy",
-        "types": ["Grass"],
-        "eggGroups": ["Field", "Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 496,
         "name": "Servine",
-        "types": ["Grass"],
-        "eggGroups": ["Field", "Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 497,
         "name": "Serperior",
-        "types": ["Grass"],
-        "eggGroups": ["Field", "Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 498,
         "name": "Tepig",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 499,
         "name": "Pignite",
-        "types": ["Fire", "Fighting"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 500,
         "name": "Emboar",
-        "types": ["Fire", "Fighting"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 501,
         "name": "Oshawott",
-        "types": ["Water"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 502,
         "name": "Dewott",
-        "types": ["Water"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 503,
         "name": "Samurott",
-        "types": ["Water"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 504,
         "name": "Patrat",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 505,
         "name": "Watchog",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 506,
         "name": "Lillipup",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 507,
         "name": "Herdier",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 508,
         "name": "Stoutland",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 509,
         "name": "Purrloin",
-        "types": ["Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 510,
         "name": "Liepard",
-        "types": ["Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 511,
         "name": "Pansage",
-        "types": ["Grass"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 512,
         "name": "Simisage",
-        "types": ["Grass"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 513,
         "name": "Pansear",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 514,
         "name": "Simisear",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 515,
         "name": "Panpour",
-        "types": ["Water"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 516,
         "name": "Simipour",
-        "types": ["Water"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 517,
         "name": "Munna",
-        "types": ["Psychic"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 518,
         "name": "Musharna",
-        "types": ["Psychic"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 519,
         "name": "Pidove",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 520,
         "name": "Tranquill",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 521,
         "name": "Unfezant",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 522,
         "name": "Blitzle",
-        "types": ["Electric"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 523,
         "name": "Zebstrika",
-        "types": ["Electric"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 524,
         "name": "Roggenrola",
-        "types": ["Rock"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 525,
         "name": "Boldore",
-        "types": ["Rock"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 526,
         "name": "Gigalith",
-        "types": ["Rock"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 527,
         "name": "Woobat",
-        "types": ["Psychic", "Flying"],
-        "eggGroups": ["Field", "Flying"],
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Field",
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 528,
         "name": "Swoobat",
-        "types": ["Psychic", "Flying"],
-        "eggGroups": ["Field", "Flying"],
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Field",
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 529,
         "name": "Drilbur",
-        "types": ["Ground"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 530,
         "name": "Excadrill",
-        "types": ["Ground", "Steel"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 531,
         "name": "Audino",
-        "types": ["Normal"],
-        "eggGroups": ["Fairy"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
         "percentageMale": 50
     },
     {
         "number": 532,
         "name": "Timburr",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 533,
         "name": "Gurdurr",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 534,
         "name": "Conkeldurr",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 75
     },
     {
         "number": 535,
         "name": "Tympole",
-        "types": ["Water"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 536,
         "name": "Palpitoad",
-        "types": ["Water", "Ground"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 537,
         "name": "Seismitoad",
-        "types": ["Water", "Ground"],
-        "eggGroups": ["WaterA"],
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 538,
         "name": "Throh",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 100
     },
     {
         "number": 539,
         "name": "Sawk",
-        "types": ["Fighting"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 100
     },
     {
         "number": 540,
         "name": "Sewaddle",
-        "types": ["Bug", "Grass"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 541,
         "name": "Swadloon",
-        "types": ["Bug", "Grass"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 542,
         "name": "Leavanny",
-        "types": ["Bug", "Grass"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 543,
         "name": "Venipede",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 544,
         "name": "Whirlipede",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 545,
         "name": "Scolipede",
-        "types": ["Bug", "Poison"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 546,
         "name": "Cottonee",
-        "types": ["Grass", "Fairy"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass",
+            "Fairy"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 547,
         "name": "Whimsicott",
-        "types": ["Grass", "Fairy"],
-        "eggGroups": ["Fairy", "Plant"],
+        "types": [
+            "Grass",
+            "Fairy"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 548,
         "name": "Petilil",
-        "types": ["Grass"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 0
     },
     {
         "number": 549,
         "name": "Lilligant",
-        "types": ["Grass"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 0
     },
     {
         "number": 550,
         "name": "Basculin",
-        "types": ["Water"],
-        "eggGroups": ["WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 551,
         "name": "Sandile",
-        "types": ["Ground", "Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 552,
         "name": "Krokorok",
-        "types": ["Ground", "Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 553,
         "name": "Krookodile",
-        "types": ["Ground", "Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ground",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 554,
         "name": "Darumaka",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 555,
         "name": "Darmanitan",
-        "types": ["Fire"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 556,
         "name": "Maractus",
-        "types": ["Grass"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 557,
         "name": "Dwebble",
-        "types": ["Bug", "Rock"],
-        "eggGroups": ["Bug", "Mineral"],
+        "types": [
+            "Bug",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 558,
         "name": "Crustle",
-        "types": ["Bug", "Rock"],
-        "eggGroups": ["Bug", "Mineral"],
+        "types": [
+            "Bug",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 559,
         "name": "Scraggy",
-        "types": ["Dark", "Fighting"],
-        "eggGroups": ["Dragon", "Field"],
+        "types": [
+            "Dark",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 560,
         "name": "Scrafty",
-        "types": ["Dark", "Fighting"],
-        "eggGroups": ["Dragon", "Field"],
+        "types": [
+            "Dark",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 561,
         "name": "Sigilyph",
-        "types": ["Psychic", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 50
     },
     {
         "number": 562,
         "name": "Yamask",
-        "types": ["Ghost"],
-        "eggGroups": ["Amorphous", "Mineral"],
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 563,
         "name": "Cofagrigus",
-        "types": ["Ghost"],
-        "eggGroups": ["Amorphous", "Mineral"],
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 564,
         "name": "Tirtouga",
-        "types": ["Water", "Rock"],
-        "eggGroups": ["WaterA", "WaterC"],
+        "types": [
+            "Water",
+            "Rock"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 565,
         "name": "Carracosta",
-        "types": ["Water", "Rock"],
-        "eggGroups": ["WaterA", "WaterC"],
+        "types": [
+            "Water",
+            "Rock"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 566,
         "name": "Archen",
-        "types": ["Rock", "Flying"],
-        "eggGroups": ["Flying", "WaterC"],
+        "types": [
+            "Rock",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 567,
         "name": "Archeops",
-        "types": ["Rock", "Flying"],
-        "eggGroups": ["Flying", "WaterC"],
+        "types": [
+            "Rock",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "WaterC"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 568,
         "name": "Trubbish",
-        "types": ["Poison"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 569,
         "name": "Garbodor",
-        "types": ["Poison"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 570,
         "name": "Zorua",
-        "types": ["Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 571,
         "name": "Zoroark",
-        "types": ["Dark"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 87.5
     },
     {
         "number": 572,
         "name": "Minccino",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 573,
         "name": "Cinccino",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 25
     },
     {
         "number": 574,
         "name": "Gothita",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 25
     },
     {
         "number": 575,
         "name": "Gothorita",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 25
     },
     {
         "number": 576,
         "name": "Gothitelle",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 25
     },
     {
         "number": 577,
         "name": "Solosis",
-        "types": ["Psychic"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 578,
         "name": "Duosion",
-        "types": ["Psychic"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 579,
         "name": "Reuniclus",
-        "types": ["Psychic"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 580,
         "name": "Ducklett",
-        "types": ["Water", "Flying"],
-        "eggGroups": ["Flying", "WaterA"],
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 581,
         "name": "Swanna",
-        "types": ["Water", "Flying"],
-        "eggGroups": ["Flying", "WaterA"],
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 582,
         "name": "Vanillite",
-        "types": ["Ice"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 583,
         "name": "Vanillish",
-        "types": ["Ice"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 584,
         "name": "Vanilluxe",
-        "types": ["Ice"],
-        "eggGroups": ["Mineral"],
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 585,
         "name": "Deerling",
-        "types": ["Normal", "Grass"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 586,
         "name": "Sawsbuck",
-        "types": ["Normal", "Grass"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 587,
         "name": "Emolga",
-        "types": ["Electric", "Flying"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Electric",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 588,
         "name": "Karrablast",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 589,
         "name": "Escavalier",
-        "types": ["Bug", "Steel"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 590,
         "name": "Foongus",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 591,
         "name": "Amoonguss",
-        "types": ["Grass", "Poison"],
-        "eggGroups": ["Plant"],
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
         "percentageMale": 50
     },
     {
         "number": 592,
         "name": "Frillish",
-        "types": ["Water", "Ghost"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Water",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 593,
         "name": "Jellicent",
-        "types": ["Water", "Ghost"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Water",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 594,
         "name": "Alomomola",
-        "types": ["Water"],
-        "eggGroups": ["WaterA", "WaterB"],
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterB"
+        ],
         "percentageMale": 50
     },
     {
         "number": 595,
         "name": "Joltik",
-        "types": ["Bug", "Electric"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Electric"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 596,
         "name": "Galvantula",
-        "types": ["Bug", "Electric"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Electric"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 597,
         "name": "Ferroseed",
-        "types": ["Grass", "Steel"],
-        "eggGroups": ["Plant", "Mineral"],
+        "types": [
+            "Grass",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 598,
         "name": "Ferrothorn",
-        "types": ["Grass", "Steel"],
-        "eggGroups": ["Plant", "Mineral"],
+        "types": [
+            "Grass",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Mineral"
+        ],
         "percentageMale": 50
     },
     {
         "number": 599,
         "name": "Klink",
-        "types": ["Steel"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 600,
         "name": "Klang",
-        "types": ["Steel"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 601,
         "name": "Klinklang",
-        "types": ["Steel"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 602,
         "name": "Tynamo",
-        "types": ["Electric"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 603,
         "name": "Eelektrik",
-        "types": ["Electric"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 604,
         "name": "Eelektross",
-        "types": ["Electric"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 605,
         "name": "Elgyem",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 606,
         "name": "Beheeyem",
-        "types": ["Psychic"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 607,
         "name": "Litwick",
-        "types": ["Ghost", "Fire"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 608,
         "name": "Lampent",
-        "types": ["Ghost", "Fire"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 609,
         "name": "Chandelure",
-        "types": ["Ghost", "Fire"],
-        "eggGroups": ["Amorphous"],
+        "types": [
+            "Ghost",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Amorphous"
+        ],
         "percentageMale": 50
     },
     {
         "number": 610,
         "name": "Axew",
-        "types": ["Dragon"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 611,
         "name": "Fraxure",
-        "types": ["Dragon"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 612,
         "name": "Haxorus",
-        "types": ["Dragon"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 613,
         "name": "Cubchoo",
-        "types": ["Ice"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 614,
         "name": "Beartic",
-        "types": ["Ice"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 615,
         "name": "Cryogonal",
-        "types": ["Ice"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 616,
         "name": "Shelmet",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 617,
         "name": "Accelgor",
-        "types": ["Bug"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 618,
         "name": "Stunfisk",
-        "types": ["Ground", "Electric"],
-        "eggGroups": ["Amorphous", "WaterA"],
+        "types": [
+            "Ground",
+            "Electric"
+        ],
+        "eggGroups": [
+            "Amorphous",
+            "WaterA"
+        ],
         "percentageMale": 50
     },
     {
         "number": 619,
         "name": "Mienfoo",
-        "types": ["Fighting"],
-        "eggGroups": ["Field", "Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 620,
         "name": "Mienshao",
-        "types": ["Fighting"],
-        "eggGroups": ["Field", "Humanoid"],
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 621,
         "name": "Druddigon",
-        "types": ["Dragon"],
-        "eggGroups": ["Dragon", "Monster"],
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
         "percentageMale": 50
     },
     {
         "number": 622,
         "name": "Golett",
-        "types": ["Ground", "Ghost"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Ground",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 623,
         "name": "Golurk",
-        "types": ["Ground", "Ghost"],
-        "eggGroups": ["Genderless"],
+        "types": [
+            "Ground",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
         "percentageMale": 0
     },
     {
         "number": 624,
         "name": "Pawniard",
-        "types": ["Dark", "Steel"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Dark",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 625,
         "name": "Bisharp",
-        "types": ["Dark", "Steel"],
-        "eggGroups": ["Humanoid"],
+        "types": [
+            "Dark",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
         "percentageMale": 50
     },
     {
         "number": 626,
         "name": "Bouffalant",
-        "types": ["Normal"],
-        "eggGroups": ["Field"],
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
         "percentageMale": 50
     },
     {
         "number": 627,
         "name": "Rufflet",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 100
     },
     {
         "number": 628,
         "name": "Braviary",
-        "types": ["Normal", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 100
     },
     {
         "number": 629,
         "name": "Vullaby",
-        "types": ["Dark", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Dark",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 0
     },
     {
         "number": 630,
         "name": "Mandibuzz",
-        "types": ["Dark", "Flying"],
-        "eggGroups": ["Flying"],
+        "types": [
+            "Dark",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
         "percentageMale": 0
     },
     {
         "number": 632,
         "name": "Durant",
-        "types": ["Bug", "Steel"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 633,
         "name": "Deino",
-        "types": ["Dark", "Dragon"],
-        "eggGroups": ["Dragon"],
+        "types": [
+            "Dark",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
         "percentageMale": 50
     },
     {
         "number": 634,
         "name": "Zweilous",
-        "types": ["Dark", "Dragon"],
-        "eggGroups": ["Dragon"],
+        "types": [
+            "Dark",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
         "percentageMale": 50
     },
     {
         "number": 635,
         "name": "Hydreigon",
-        "types": ["Dark", "Dragon"],
-        "eggGroups": ["Dragon"],
+        "types": [
+            "Dark",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
         "percentageMale": 50
     },
     {
         "number": 636,
         "name": "Larvesta",
-        "types": ["Bug", "Fire"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     },
     {
         "number": 637,
         "name": "Volcarona",
-        "types": ["Bug", "Fire"],
-        "eggGroups": ["Bug"],
+        "types": [
+            "Bug",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
         "percentageMale": 50
     }
 ]

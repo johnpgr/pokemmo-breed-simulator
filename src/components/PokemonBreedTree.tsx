@@ -75,8 +75,12 @@ function _PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
             })}
             {process.env.NODE_ENV === "development" ? (
                 <div className="space-x-4">
-                    <Button size={"sm"} onClick={() => console.log(breedTreeMap)}>Debug (Breed Tree)</Button>
-                    <Button size={"sm"} onClick={() => console.log(ctx)}>Debug (Context)</Button>
+                    <Button size={"sm"} onClick={() => console.log(breedTreeMap)}>
+                        Debug (Breed Tree)
+                    </Button>
+                    <Button size={"sm"} onClick={() => console.log(ctx)}>
+                        Debug (Context)
+                    </Button>
                 </div>
             ) : null}
             <IvColors />

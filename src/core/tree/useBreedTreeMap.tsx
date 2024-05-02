@@ -60,7 +60,7 @@ export function useBreedTreeMap(props: {
             // start from the second to last row
             // stops on the first row where the final pokemon node is already set
             // -1 for natured because of the way POKEMON_BREEDTREE_LASTROW_MAPPING is defined
-            let row = natured ?  props.generations - 1 : props.generations - 2
+            let row = natured ? props.generations - 1 : props.generations - 2
             while (row > 0) {
                 let col = 0
                 while (col < Math.pow(2, row)) {

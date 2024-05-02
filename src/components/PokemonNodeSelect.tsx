@@ -15,6 +15,7 @@ import { GENDERLESS_POKEMON_EVOLUTION_TREE } from "@/core/consts"
 import { getPokemonSpriteUrl, randomString } from "@/lib/utils"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Check } from "lucide-react"
 
 export function PokemonNodeSelect(props: {
     pokemons: PokemonSpeciesUnparsed[]
@@ -136,7 +137,7 @@ export function PokemonNodeSelect(props: {
                     ) : null}
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0 flex gap-4 max-w-lg w-full border-none bg-transparent shadow-none">
+            <PopoverContent className="p-0 flex gap-4 max-w-xl w-full border-none bg-transparent shadow-none">
                 {currentNode ? (
                     <CurrentNodeInfoCard
                         breedTree={props.breedTree}
@@ -146,14 +147,14 @@ export function PokemonNodeSelect(props: {
                     />
                 ) : null}
                 {!isPokemonToBreed ? (
-                    <Command className="w-72 border">
+                    <Command className="w-full max-w-lg border">
                         <CommandInput
                             placeholder="Search pokemon..."
                             value={search}
                             onValueChange={setSearch}
                             data-cy="search-pokemon-input"
                         />
-                        <div className="flex items-center gap-2 text-xs text-foreground/80 p-2 border-b">
+                        <div className="flex items-center pl-3 gap-2 text-xs text-foreground/80 p-2 border-b">
                             <Checkbox
                                 className="border-foreground/50"
                                 checked={searchMode === SearchMode.EggGroupMatches}
@@ -163,30 +164,29 @@ export function PokemonNodeSelect(props: {
                         </div>
                         <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
                         <CommandGroup>
-                            <ScrollArea className="h-72">
+                            <ScrollArea className="h-72 w-full">
                                 {pending
                                     ? Array.from({ length: 9 }).map((_, i) => (
-                                          <React.Fragment key={`${id}:${i}`}>
-                                              <CommandItem value={""} onSelect={() => {}}></CommandItem>
-                                              <Separator />
-                                          </React.Fragment>
-                                      ))
+                                        <CommandItem key={`${id}:${i}`} value={""} onSelect={() => { }}></CommandItem>
+                                    ))
                                     : pokemonList
-                                          .filter((pokemon) =>
-                                              pokemon.name.toLowerCase().includes(search.toLowerCase()),
-                                          )
-                                          .map((pokemon) => (
-                                              <React.Fragment key={`${id}:${pokemon.name}`}>
-                                                  <CommandItem
-                                                      value={pokemon.name}
-                                                      onSelect={setPokemonSpecies}
-                                                      data-cy={`${pokemon.name}-value`}
-                                                  >
-                                                      {pokemon.name}
-                                                  </CommandItem>
-                                                  <Separator />
-                                              </React.Fragment>
-                                          ))}
+                                        .filter((pokemon) =>
+                                            pokemon.name.toLowerCase().includes(search.toLowerCase()),
+                                        )
+                                        .map((pokemon) => (
+                                            <CommandItem
+                                                key={`${id}:${pokemon.name}`}
+                                                value={pokemon.name}
+                                                onSelect={setPokemonSpecies}
+                                                data-cy={`${pokemon.name}-value`}
+                                                className="pl-8 relative"
+                                            >
+                                                {currentNode.species?.name === pokemon.name ? (
+                                                    <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
+                                                ) : null}
+                                                {pokemon.name}
+                                            </CommandItem>
+                                        ))}
                             </ScrollArea>
                         </CommandGroup>
                     </Command>

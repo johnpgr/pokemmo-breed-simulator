@@ -45,14 +45,14 @@
 32,Nidoran,1,Normal,Poison,,Poison Point,Rivalry,Hustle,273,46,57,40,40,40,50,Field,Monster,100.0
 33,Nidorino,1,Normal,Poison,,Poison Point,Rivalry,Hustle,365,61,72,57,55,55,65,Field,Monster,100.0
 34,Nidoking,1,Normal,Poison,Ground,Poison Point,Rivalry,Sheer Force,505,81,102,77,85,75,85,Field,Monster,100.0
-35,Clefairy,1,Normal,Fairy,,Cute Charm,Magic Guard,Friend Guard,323,70,45,48,60,65,35,Fairy,,25.0
-36,Clefable,1,Normal,Fairy,,Cute Charm,Magic Guard,Unaware,483,95,70,73,95,90,60,Fairy,,25.0
+35,Clefairy,1,Normal,Normal,,Cute Charm,Magic Guard,Friend Guard,323,70,45,48,60,65,35,Fairy,,25.0
+36,Clefable,1,Normal,Normal,,Cute Charm,Magic Guard,Unaware,483,95,70,73,95,90,60,Fairy,,25.0
 37,Vulpix,1,Normal,Fire,,Flash Fire,,Drought,299,38,41,40,50,65,65,Field,,25.0
 37,Alolan Vulpix,1,Normal,Ice,,Snow Cloak,,Snow Warning,299,38,41,40,50,65,65,Field,,25.0
 38,Ninetales,1,Normal,Fire,,Flash Fire,,Drought,505,73,76,75,81,100,100,Field,,25.0
 38,Alolan Ninetales,1,Normal,Ice,Fairy,Snow Cloak,,Snow Warning,505,73,67,75,81,100,109,Field,,25.0
-39,Jigglypuff,1,Normal,Normal,Fairy,Cute Charm,Competitive,Friend Guard,270,115,45,20,45,25,20,Fairy,,25.0
-40,Wigglytuff,1,Normal,Normal,Fairy,Cute Charm,Competitive,Frisk,435,140,70,45,85,50,45,Fairy,,25.0
+39,Jigglypuff,1,Normal,Normal,,Cute Charm,Competitive,Friend Guard,270,115,45,20,45,25,20,Fairy,,25.0
+40,Wigglytuff,1,Normal,Normal,,Cute Charm,Competitive,Frisk,435,140,70,45,85,50,45,Fairy,,25.0
 41,Zubat,1,Normal,Poison,Flying,Inner Focus,,Infiltrator,245,40,45,35,30,40,55,Flying,,50.0
 42,Golbat,1,Normal,Poison,Flying,Inner Focus,,Infiltrator,455,75,80,70,65,75,90,Flying,,50.0
 43,Oddish,1,Normal,Grass,Poison,Chlorophyll,,Run Away,320,45,50,55,75,65,30,Grass,,50.0
@@ -154,7 +154,7 @@
 119,Seaking,1,Normal,Water,,Swift Swim,Water Veil,Lightning Rod,450,80,92,65,65,80,68,Water 2,,50.0
 120,Staryu,1,Normal,Water,,Illuminate,Natural Cure,Analytic,340,30,45,55,70,55,85,Water 3,,
 121,Starmie,1,Normal,Water,Psychic,Illuminate,Natural Cure,Analytic,520,60,75,85,100,85,115,Water 3,,
-122,Mr. Mime,1,Normal,Psychic,Fairy,Soundproof,Filter,Technician,460,40,45,65,100,120,90,Human-Like,,50.0
+122,Mr. Mime,1,Normal,Psychic,,Soundproof,Filter,Technician,460,40,45,65,100,120,90,Human-Like,,50.0
 122,Galarian Mr. Mime,1,Normal,Psychic,Ice,Vital Spirit,Screen Cleaner,Ice Body,460,50,65,65,90,90,100,Human-Like,,
 123,Scyther,1,Normal,Bug,Flying,Swarm,Technician,Steadfast,500,70,110,80,55,80,105,Bug,,50.0
 124,Jynx,1,Normal,Ice,Psychic,Oblivious,Forewarn,Dry Skin,455,65,50,35,115,95,95,Human-Like,,0.0
@@ -207,8 +207,8 @@
 172,Pichu,2,Normal,Electric,,Static,,Lightning Rod,205,20,40,15,35,35,60,Undiscovered,,50.0
 173,Cleffa,2,Normal,Fairy,,Cute Charm,Magic Guard,Friend Guard,218,50,25,28,45,55,15,Undiscovered,,25.0
 174,Igglybuff,2,Normal,Normal,Fairy,Cute Charm,Competitive,Friend Guard,210,90,30,15,40,20,15,Undiscovered,,25.0
-175,Togepi,2,Normal,Fairy,,Hustle,Serene Grace,Super Luck,245,35,20,65,40,65,20,Undiscovered,,87.5
-176,Togetic,2,Normal,Fairy,Flying,Hustle,Serene Grace,Super Luck,405,55,40,85,80,105,40,Fairy,Flying,87.5
+175,Togepi,2,Normal,Normal,,Hustle,Serene Grace,Super Luck,245,35,20,65,40,65,20,Undiscovered,,87.5
+176,Togetic,2,Normal,Normal,Flying,Hustle,Serene Grace,Super Luck,405,55,40,85,80,105,40,Fairy,Flying,87.5
 177,Natu,2,Normal,Psychic,Flying,Synchronize,Early Bird,Magic Bounce,320,40,50,45,70,45,70,Flying,,50.0
 178,Xatu,2,Normal,Psychic,Flying,Synchronize,Early Bird,Magic Bounce,470,65,75,70,95,70,95,Flying,,50.0
 179,Mareep,2,Normal,Electric,,Static,,Plus,280,55,40,40,65,45,35,Field,Monster,50.0
@@ -217,7 +217,7 @@
 181,Mega Ampharos,2,Normal,Electric,Dragon,Mold Breaker,,,610,90,95,105,165,110,45,Field,Monster,50.0
 182,Bellossom,2,Normal,Grass,,Chlorophyll,,Healer,490,75,80,95,90,100,50,Grass,,50.0
 183,Marill,2,Normal,Water,Fairy,Thick Fat,Huge Power,Sap Sipper,250,70,20,50,20,50,40,Fairy,Water 1,50.0
-184,Azumarill,2,Normal,Water,Fairy,Thick Fat,Huge Power,Sap Sipper,420,100,50,80,60,80,50,Fairy,Water 1,50.0
+184,Azumarill,2,Normal,Water,,Thick Fat,Huge Power,Sap Sipper,420,100,50,80,60,80,50,Fairy,Water 1,50.0
 185,Sudowoodo,2,Normal,Rock,,Sturdy,Rock Head,Rattled,410,70,100,115,30,65,30,Mineral,,50.0
 186,Politoed,2,Normal,Water,,Water Absorb,Damp,Drizzle,500,90,75,75,90,100,70,Water 1,,50.0
 187,Hoppip,2,Normal,Grass,Flying,Chlorophyll,Leaf Guard,Infiltrator,250,35,35,40,35,55,50,Fairy,Grass,50.0
@@ -243,8 +243,8 @@
 207,Gligar,2,Normal,Ground,Flying,Hyper Cutter,Sand Veil,Immunity,430,65,75,105,35,65,85,Bug,,50.0
 208,Steelix,2,Normal,Steel,Ground,Rock Head,Sturdy,Sheer Force,510,75,85,200,55,65,30,Mineral,,50.0
 208,Mega Steelix,2,Normal,Steel,Ground,Sand Force,,,610,75,125,230,55,95,30,Mineral,,50.0
-209,Snubbull,2,Normal,Fairy,,Intimidate,Run Away,Rattled,300,60,80,50,40,40,30,Fairy,Field,25.0
-210,Granbull,2,Normal,Fairy,,Intimidate,Quick Feet,Rattled,450,90,120,75,60,60,45,Fairy,Field,25.0
+209,Snubbull,2,Normal,Normal,,Intimidate,Run Away,Rattled,300,60,80,50,40,40,30,Fairy,Field,25.0
+210,Granbull,2,Normal,Normal,,Intimidate,Quick Feet,Rattled,450,90,120,75,60,60,45,Fairy,Field,25.0
 211,Qwilfish,2,Normal,Water,Poison,Poison Point,Swift Swim,Intimidate,440,65,95,85,55,55,85,Water 2,,50.0
 212,Scizor,2,Normal,Bug,Steel,Swarm,Technician,Light Metal,500,70,130,100,55,80,65,Bug,,50.0
 212,Mega Scizor,2,Normal,Bug,Steel,Technician,,,600,70,150,140,65,100,75,Bug,,50.0
@@ -318,9 +318,9 @@
 277,Swellow,3,Normal,Normal,Flying,Guts,,Scrappy,455,60,85,60,75,50,125,Flying,,50.0
 278,Wingull,3,Normal,Water,Flying,Keen Eye,Hydration,Rain Dish,270,40,30,30,55,30,85,Flying,Water 1,50.0
 279,Pelipper,3,Normal,Water,Flying,Keen Eye,Drizzle,Rain Dish,440,60,50,100,95,70,65,Flying,Water 1,50.0
-280,Ralts,3,Normal,Psychic,Fairy,Synchronize,Trace,Telepathy,198,28,25,25,45,35,40,Amorphous,Human-Like,50.0
-281,Kirlia,3,Normal,Psychic,Fairy,Synchronize,Trace,Telepathy,278,38,35,35,65,55,50,Amorphous,Human-Like,50.0
-282,Gardevoir,3,Normal,Psychic,Fairy,Synchronize,Trace,Telepathy,518,68,65,65,125,115,80,Amorphous,Human-Like,50.0
+280,Ralts,3,Normal,Psychic,,Synchronize,Trace,Telepathy,198,28,25,25,45,35,40,Amorphous,Human-Like,50.0
+281,Kirlia,3,Normal,Psychic,,Synchronize,Trace,Telepathy,278,38,35,35,65,55,50,Amorphous,Human-Like,50.0
+282,Gardevoir,3,Normal,Psychic,,Synchronize,Trace,Telepathy,518,68,65,65,125,115,80,Amorphous,Human-Like,50.0
 282,Mega Gardevoir,3,Normal,Psychic,Fairy,Pixilate,,,618,68,85,65,165,135,100,Amorphous,,50.0
 283,Surskit,3,Normal,Bug,Water,Swift Swim,,Rain Dish,269,40,30,32,50,52,65,Bug,Water 1,50.0
 284,Masquerain,3,Normal,Bug,Flying,Intimidate,,Unnerve,454,70,60,62,100,82,80,Bug,Water 1,50.0
@@ -337,13 +337,13 @@
 295,Exploud,3,Normal,Normal,,Soundproof,,Scrappy,490,104,91,63,91,73,68,Field,Monster,50.0
 296,Makuhita,3,Normal,Fighting,,Thick Fat,Guts,Sheer Force,237,72,60,30,20,30,25,Human-Like,,75.0
 297,Hariyama,3,Normal,Fighting,,Thick Fat,Guts,Sheer Force,474,144,120,60,40,60,50,Human-Like,,75.0
-298,Azurill,3,Normal,Normal,Fairy,Thick Fat,Huge Power,Sap Sipper,190,50,20,40,20,40,20,Undiscovered,,25.0
+298,Azurill,3,Normal,Normal,,Thick Fat,Huge Power,Sap Sipper,190,50,20,40,20,40,20,Undiscovered,,25.0
 299,Nosepass,3,Normal,Rock,,Sturdy,Magnet Pull,Sand Force,375,30,45,135,45,90,30,Mineral,,50.0
 300,Skitty,3,Normal,Normal,,Cute Charm,Normalize,Wonder Skin,260,50,45,45,35,35,50,Fairy,Field,25.0
 301,Delcatty,3,Normal,Normal,,Cute Charm,Normalize,Wonder Skin,400,70,65,65,55,55,90,Fairy,Field,25.0
 302,Sableye,3,Normal,Dark,Ghost,Keen Eye,Stall,Prankster,380,50,75,75,65,65,50,Human-Like,,50.0
 302,Mega Sableye,3,Normal,Dark,Ghost,Magic Bounce,,,480,50,85,125,85,115,20,Human-Like,,50.0
-303,Mawile,3,Normal,Steel,Fairy,Hyper Cutter,Intimidate,Sheer Force,380,50,85,85,55,55,50,Fairy,Field,50.0
+303,Mawile,3,Normal,Steel,,Hyper Cutter,Intimidate,Sheer Force,380,50,85,85,55,55,50,Fairy,Field,50.0
 303,Mega Mawile,3,Normal,Steel,Fairy,Huge Power,,,480,50,105,125,55,95,50,Fairy,Field,50.0
 304,Aron,3,Normal,Steel,Rock,Sturdy,Rock Head,Heavy Metal,330,50,70,100,40,40,30,Monster,,50.0
 305,Lairon,3,Normal,Steel,Rock,Sturdy,Rock Head,Heavy Metal,430,60,90,140,50,50,40,Monster,,50.0
@@ -487,7 +487,7 @@
 436,Bronzor,4,Normal,Steel,Psychic,Levitate,Heatproof,Heavy Metal,300,57,24,86,24,86,23,Mineral,,
 437,Bronzong,4,Normal,Steel,Psychic,Levitate,Heatproof,Heavy Metal,500,67,89,116,79,116,33,Mineral,,
 438,Bonsly,4,Normal,Rock,,Sturdy,Rock Head,Rattled,290,50,80,95,10,45,10,Undiscovered,,50.0
-439,Mime Jr.,4,Normal,Psychic,Fairy,Soundproof,Filter,Technician,310,20,25,45,70,90,60,Undiscovered,,50.0
+439,Mime Jr.,4,Normal,Psychic,,Soundproof,Filter,Technician,310,20,25,45,70,90,60,Undiscovered,,50.0
 440,Happiny,4,Normal,Normal,,Natural Cure,Serene Grace,Friend Guard,220,100,5,5,15,65,30,Undiscovered,,0.0
 441,Chatot,4,Normal,Normal,Flying,Keen Eye,Tangled Feet,Big Pecks,411,76,65,45,92,42,91,Flying,,50.0
 442,Spiritomb,4,Normal,Ghost,Dark,Pressure,,Infiltrator,485,50,92,108,92,108,35,Amorphous,,50.0
@@ -519,7 +519,7 @@
 465,Tangrowth,4,Normal,Grass,,Chlorophyll,Leaf Guard,Regenerator,535,100,100,125,110,50,50,Grass,,50.0
 466,Electivire,4,Normal,Electric,,Motor Drive,,Vital Spirit,540,75,123,67,95,85,95,Human-Like,,75.0
 467,Magmortar,4,Normal,Fire,,Flame Body,,Vital Spirit,540,75,95,67,125,95,83,Human-Like,,75.0
-468,Togekiss,4,Normal,Fairy,Flying,Hustle,Serene Grace,Super Luck,545,85,50,95,120,115,80,Fairy,Flying,87.5
+468,Togekiss,4,Normal,Normal,Flying,Hustle,Serene Grace,Super Luck,545,85,50,95,120,115,80,Fairy,Flying,87.5
 469,Yanmega,4,Normal,Bug,Flying,Speed Boost,Tinted Lens,Frisk,515,86,76,86,116,56,95,Bug,,50.0
 470,Leafeon,4,Normal,Grass,,Leaf Guard,,Chlorophyll,525,65,110,130,60,65,95,Field,,87.5
 471,Glaceon,4,Normal,Ice,,Snow Cloak,,Ice Body,525,65,60,110,130,95,65,Field,,87.5

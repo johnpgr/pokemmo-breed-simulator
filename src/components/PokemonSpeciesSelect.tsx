@@ -4,9 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
 import { getPokemonSpriteUrl } from "@/lib/utils"
-import { ChevronsUpDown } from "lucide-react"
+import { Check, ChevronsUpDown } from "lucide-react"
 import { PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 
@@ -58,23 +57,24 @@ export function PokemonSpeciesSelect(props: {
                                 {props.pokemons
                                     .filter((pokemon) => pokemon.name.toLowerCase().includes(search.toLowerCase()))
                                     .map((pokemon) => (
-                                        <React.Fragment key={`pokemon_to_breed:${pokemon.name}`}>
-                                            <CommandItem
-                                                value={pokemon.name}
-                                                onSelect={() => {
-                                                    props.setCurrentSelectedNode((prev) => ({
-                                                        ...prev,
-                                                        species: PokemonSpecies.parse(pokemon),
-                                                    }))
-                                                    setIsOpen(false)
-                                                }}
-                                                data-cy={`${pokemon.name}-value`}
-                                                className="cursor-pointer"
-                                            >
-                                                {pokemon.name}
-                                            </CommandItem>
-                                            <Separator />
-                                        </React.Fragment>
+                                        <CommandItem
+                                            key={`pokemon_to_breed:${pokemon.name}`}
+                                            value={pokemon.name}
+                                            onSelect={() => {
+                                                props.setCurrentSelectedNode((prev) => ({
+                                                    ...prev,
+                                                    species: PokemonSpecies.parse(pokemon),
+                                                }))
+                                                setIsOpen(false)
+                                            }}
+                                            data-cy={`${pokemon.name}-value`}
+                                            className="pl-8 relative"
+                                        >
+                                            {props.currentSelectedNode.species?.name === pokemon.name ? (
+                                                <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
+                                            ) : null}
+                                            {pokemon.name}
+                                        </CommandItem>
                                     ))}
                             </ScrollArea>
                         </CommandGroup>
