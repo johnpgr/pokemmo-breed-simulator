@@ -6,7 +6,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { PokemonNodeInfo } from "./PokemonNodeInfo"
 import { PokemonEggGroup, PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
-import { type Color, getColorsByIvs, COLOR_MAP } from "./PokemonIvColors"
+import { getColorsByIvs } from "./PokemonIvColors"
 import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import { usePokemonToBreed } from "./PokemonToBreedContext"
 import { assert } from "@/lib/assert"
@@ -15,6 +15,12 @@ import { getPokemonSpriteUrl, randomString } from "@/lib/utils"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Check } from "lucide-react"
+import { NODE_SCALE_BY_COLOR_AMOUNT, SPRITE_SCALE_BY_COLOR_AMOUNT, IV_COLOR_DICT, IvColor } from "./consts"
+
+enum SearchMode {
+    All,
+    EggGroupMatches,
+}
 
 export function PokemonNodeSelect(props: {
     pokemons: PokemonSpeciesUnparsed[]
@@ -28,12 +34,9 @@ export function PokemonNodeSelect(props: {
     const [isOpen, setIsOpen] = React.useState(false)
     const [searchMode, setSearchMode] = React.useState(SearchMode.All)
     const [search, setSearch] = React.useState("")
-    const [colors, setColors] = React.useState<Color[]>([])
+    const [colors, setColors] = React.useState<IvColor[]>([])
     const isPokemonToBreed = props.position.col === 0 && props.position.row === 0
     const currentNode = props.breedTree[props.position.key()]
-    const pokemonList = React.useMemo(() => {
-        return searchMode === SearchMode.All ? props.pokemons : filterPokemonByEggGroups()
-    }, [searchMode])
 
     function setPokemonSpecies(name: string) {
         const pokemon = props.pokemons.find((p) => p.name.toLowerCase() === name)
@@ -58,7 +61,7 @@ export function PokemonNodeSelect(props: {
         })
     }
 
-    function filterPokemonByEggGroups(): PokemonSpeciesUnparsed[] {
+    const filterPokemonByEggGroups = React.useCallback((): PokemonSpeciesUnparsed[] => {
         assert.exists(ctx.pokemon, "Pokemon in context should exist")
         const newList: PokemonSpeciesUnparsed[] = []
 
@@ -81,16 +84,19 @@ export function PokemonNodeSelect(props: {
         }
 
         return newList
-    }
+    }, [ctx.pokemon, props.pokemons])
+
+    const pokemonList = React.useMemo(() => {
+        return searchMode === SearchMode.All ? props.pokemons : filterPokemonByEggGroups()
+    }, [filterPokemonByEggGroups, searchMode, props.pokemons])
 
     React.useEffect(() => {
-        if (!currentNode) return
-        if (colors.length > 0) return
+        if (!currentNode || colors.length > 0) return
 
-        const newColors: Color[] = []
+        const newColors: IvColor[] = []
 
         if (currentNode.nature) {
-            newColors.push(COLOR_MAP["Nature"])
+            newColors.push(IV_COLOR_DICT["Nature"])
         }
 
         if (currentNode.ivs) {
@@ -98,7 +104,7 @@ export function PokemonNodeSelect(props: {
         }
 
         setColors(newColors)
-    }, [])
+    }, [colors.length, currentNode])
 
     return (
         <Popover open={isOpen} onOpenChange={setIsOpen}>
@@ -131,6 +137,7 @@ export function PokemonNodeSelect(props: {
                                     String(colors?.length ?? 1) as keyof typeof SPRITE_SCALE_BY_COLOR_AMOUNT
                                 ],
                             }}
+                            alt={currentNode.species.name}
                             className="mb-1 absolute"
                         />
                     ) : null}
@@ -195,23 +202,3 @@ export function PokemonNodeSelect(props: {
     )
 }
 
-enum SearchMode {
-    All,
-    EggGroupMatches,
-}
-
-const NODE_SCALE_BY_COLOR_AMOUNT = {
-    "5": "100%",
-    "4": "90%",
-    "3": "80%",
-    "2": "75%",
-    "1": "66%",
-} as const
-
-const SPRITE_SCALE_BY_COLOR_AMOUNT = {
-    "5": "100%",
-    "4": "110%",
-    "3": "120%",
-    "2": "130%",
-    "1": "150%",
-} as const

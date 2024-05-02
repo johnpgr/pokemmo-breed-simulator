@@ -42,3 +42,19 @@ export const IV_COLOR_DICT = {
 } as const
 
 export type IvColor = (typeof IV_COLOR_DICT)[keyof typeof IV_COLOR_DICT]
+
+export const NODE_SCALE_BY_COLOR_AMOUNT = {
+    "5": "100%",
+    "4": "90%",
+    "3": "80%",
+    "2": "75%",
+    "1": "66%",
+} as const
+
+export const SPRITE_SCALE_BY_COLOR_AMOUNT = {
+    "5": "100%",
+    "4": "110%",
+    "3": "120%",
+    "2": "130%",
+    "1": "150%",
+} as const
