@@ -3,7 +3,6 @@ import React from "react"
 import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
-import clsx from "clsx"
 
 export function PokemonNodeLines(props: {
     position: PokemonBreedTreePosition
@@ -35,10 +34,7 @@ export function PokemonNodeLines(props: {
         <div style={{ flexBasis: `${size}%` }} className="flex items-center justify-center relative">
             {props.children}
             <div
-                className={clsx(`absolute w-1/2 h-[1px] ${color}`, {
-                    "-translate-x-1/2": lineDirection === "right",
-                    "translate-x-1/2": lineDirection === "left",
-                })}
+                className={`absolute w-1/2 h-[1px] ${color} ${lineDirection === "right" ? "-translate-x-1/2" : "translate-x-1/2"}`}
             ></div>
             {lineDirection === "left" ? (
                 <div className={`absolute h-16 w-[1px] ${color} left-full -bottom-[45px]`}></div>

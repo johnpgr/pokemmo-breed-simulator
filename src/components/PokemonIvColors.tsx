@@ -2,20 +2,9 @@
 import { usePokemonToBreed } from "./PokemonToBreedContext"
 import type { PokemonIv } from "@/core/pokemon"
 import { pascalToSpacedPascal } from "@/lib/utils"
+import { IvColor, IV_COLOR_DICT } from "./consts"
 
-export const COLOR_MAP = {
-    Hp: "#55b651",
-    Attack: "#F44336",
-    Defense: "#f78025",
-    SpecialAttack: "#e925f7",
-    SpecialDefense: "#f7e225",
-    Speed: "#25e2f7",
-    Nature: "#e0f1f4",
-} as const
-
-export type Color = (typeof COLOR_MAP)[keyof typeof COLOR_MAP]
-
-export function IvColors() {
+export function PokemonIvColors() {
     const ctx = usePokemonToBreed()
 
     return (
@@ -24,7 +13,7 @@ export function IvColors() {
                 <div
                     className="rounded-full p-3 h-4 w-4"
                     style={{
-                        backgroundColor: COLOR_MAP[ctx.ivs.A],
+                        backgroundColor: IV_COLOR_DICT[ctx.ivs.A],
                     }}
                 />
                 <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.A)}</span>
@@ -33,7 +22,7 @@ export function IvColors() {
                 <div
                     className="rounded-full p-3 h-4 w-4"
                     style={{
-                        backgroundColor: COLOR_MAP[ctx.ivs.B],
+                        backgroundColor: IV_COLOR_DICT[ctx.ivs.B],
                     }}
                 />
                 <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.B)}</span>
@@ -43,7 +32,7 @@ export function IvColors() {
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: COLOR_MAP[ctx.ivs.C],
+                            backgroundColor: IV_COLOR_DICT[ctx.ivs.C],
                         }}
                     />
                     <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.C)}</span>
@@ -54,7 +43,7 @@ export function IvColors() {
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: COLOR_MAP[ctx.ivs.D],
+                            backgroundColor: IV_COLOR_DICT[ctx.ivs.D],
                         }}
                     />
                     <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.D)}</span>
@@ -65,7 +54,7 @@ export function IvColors() {
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: COLOR_MAP[ctx.ivs.E],
+                            backgroundColor: IV_COLOR_DICT[ctx.ivs.E],
                         }}
                     />
                     <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.E)}</span>
@@ -76,7 +65,7 @@ export function IvColors() {
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: COLOR_MAP["Nature"],
+                            backgroundColor: IV_COLOR_DICT["Nature"],
                         }}
                     />
                     <span className="text-sm">{ctx.nature}</span>
@@ -86,6 +75,6 @@ export function IvColors() {
     )
 }
 
-export function getColorsByIvs(ivs: PokemonIv[]): Color[] {
-    return ivs.map((iv) => COLOR_MAP[iv])
+export function getColorsByIvs(ivs: PokemonIv[]): IvColor[] {
+    return ivs.map((iv) => IV_COLOR_DICT[iv])
 }

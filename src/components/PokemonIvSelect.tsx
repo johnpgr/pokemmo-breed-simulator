@@ -8,7 +8,7 @@ import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 import { IV_DROPDOWN_LIST_VALUES, POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "./consts"
 import { PokemonIvRadioGroup, PokemonIvRadioItem } from "./PokemonIvRadio"
 
-export function PokemonIvsSelect(props: {
+export function PokemonIvSelect(props: {
     natured: boolean
     desired31IVCount: number
     setDesired31IVCount: React.Dispatch<React.SetStateAction<number>>

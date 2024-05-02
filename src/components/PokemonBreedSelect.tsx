@@ -2,13 +2,13 @@
 import React from "react"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
-import { PokemonIvsSelect } from "./PokemonIvsSelect"
 import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
 import { IVSet, usePokemonToBreed } from "./PokemonToBreedContext"
 import { assert } from "@/lib/assert"
 import { DEFAULT_IV_DROPDOWN_VALUES } from "./consts"
 import type { PokemonIv, PokemonNature, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { PokemonIvSelect } from "./PokemonIvSelect"
 
 /**
  * This type is used to represent the state of the full pokemon node that is going to be used in the PokemonToBreedContext
@@ -92,7 +92,7 @@ export function PokemonToBreedSelect(props: { pokemons: PokemonSpeciesUnparsed[]
                         currentPokemonInSelect={currentPokemonInSelect}
                         setCurrentPokemonInSelect={setCurrentPokemonInSelect}
                     />
-                    <PokemonIvsSelect
+                    <PokemonIvSelect
                         natured={Boolean(currentPokemonInSelect.nature)}
                         desired31IVCount={desired31IVCount}
                         setDesired31IVCount={setDesired31IVCount}

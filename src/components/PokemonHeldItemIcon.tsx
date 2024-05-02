@@ -17,7 +17,7 @@ export enum HeldItem {
     Nature = "everstone",
 }
 
-export function HeldItemsView(props: { item: HeldItem }) {
+export function HeldItemIcon(props: { item: HeldItem }) {
     return (
         <div className="rounded-full border h-fit w-fit bg-secondary absolute -top-2 -right-2">
             <img

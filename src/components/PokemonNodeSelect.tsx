@@ -4,10 +4,9 @@ import { Button } from "@/components/ui/button"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import { CurrentNodeInfoCard } from "./CurrentNodeInfoCard"
+import { PokemonNodeInfo } from "./PokemonNodeInfo"
 import { PokemonEggGroup, PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
-import { type Color, getColorsByIvs, COLOR_MAP } from "./IvColors"
+import { type Color, getColorsByIvs, COLOR_MAP } from "./PokemonIvColors"
 import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import { usePokemonToBreed } from "./PokemonToBreedContext"
 import { assert } from "@/lib/assert"
@@ -139,7 +138,7 @@ export function PokemonNodeSelect(props: {
             </PopoverTrigger>
             <PopoverContent className="p-0 flex gap-4 max-w-xl w-full border-none bg-transparent shadow-none">
                 {currentNode ? (
-                    <CurrentNodeInfoCard
+                    <PokemonNodeInfo
                         breedTree={props.breedTree}
                         setBreedTree={props.setBreedTree}
                         currentNode={currentNode}

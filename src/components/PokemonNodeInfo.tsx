@@ -3,13 +3,12 @@ import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { pascalToSpacedPascal, getPokemonSpriteUrl, randomString } from "@/lib/utils"
 import { HelpCircle, Save, SquarePen } from "lucide-react"
-import { HeldItem, HeldItemsView } from "./HeldItemView"
+import { HeldItem, HeldItemIcon } from "./PokemonHeldItemIcon"
 import type { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { PokemonGender, PokemonIv } from "@/core/pokemon"
 
-//TODO: Improve the UI on this.
-export function CurrentNodeInfoCard(props: {
+export function PokemonNodeInfo(props: {
     currentNode: PokemonBreedTreeNode
     breedTree: PokemonBreedTreeMap
     setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
@@ -59,7 +58,7 @@ export function CurrentNodeInfoCard(props: {
     return (
         <Card className="w-full max-w-sm h-fit relative">
             <CardHeader className="">
-                <HeldItemsView
+                <HeldItemIcon
                     item={
                         //if not natured, ivs must exist.
                         props.currentNode.nature ? HeldItem.Nature : heldItem!
@@ -83,10 +82,10 @@ export function CurrentNodeInfoCard(props: {
                     )}
                 </CardTitle>
             </CardHeader>
-            <CardContent className="gap-1 flex flex-col">
+            <CardContent className="gap-1 flex flex-col items-center">
                 {props.currentNode.ivs ? (
                     <>
-                        <p className="font-bold">Ivs:</p>
+                        <p className="font-bold -mb-1">Ivs</p>
                         {props.currentNode.ivs.map((iv) => (
                             <span className="text-sm" key={randomString(4)}>31 {pascalToSpacedPascal(iv)}</span>
                         ))}
@@ -94,16 +93,18 @@ export function CurrentNodeInfoCard(props: {
                 ) : null}
                 {props.currentNode.nature ? (
                     <>
-                        <p className="font-bold">Nature: </p>
+                        <p className="font-bold -mb-1">Nature</p>
                         <span className="text-sm">{props.currentNode.nature}</span>
                     </>
                 ) : null}
                 {props.currentNode.species ? (
                     <>
-                        <p className="font-bold">Egg Groups:</p>
-                        {props.currentNode.species.eggGroups.map((egg) => (
-                            <span key={randomString(3)} className="text-sm">{egg}</span>
-                        ))}
+                        <p className="font-bold -mb-1">Egg Groups</p>
+                        <p>
+                            {props.currentNode.species.eggGroups.map((egg, i) => (
+                                <span key={randomString(3)} className="text-sm">{egg}{i === 1 ? "" : ", "}</span>
+                            ))}
+                        </p>
                     </>
                 ) : null}
             </CardContent>

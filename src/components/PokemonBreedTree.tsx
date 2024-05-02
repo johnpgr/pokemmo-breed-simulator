@@ -5,7 +5,7 @@ import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import { assert } from "@/lib/assert"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
-import { IvColors } from "./IvColors"
+import { PokemonIvColors } from "./PokemonIvColors"
 import { useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonSpeciesUnparsed } from "@/core/pokemon"
@@ -17,10 +17,10 @@ export function PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) 
         return null
     }
 
-    return <_PokemonBreedTree pokemons={props.pokemons} />
+    return <PokemonBreedTreeFinal pokemons={props.pokemons} />
 }
 
-function _PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
+function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     const ctx = usePokemonToBreed()
 
     let generations = Object.values(ctx.ivs).filter(Boolean).length
@@ -83,7 +83,7 @@ function _PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     </Button>
                 </div>
             ) : null}
-            <IvColors />
+            <PokemonIvColors />
         </div>
     )
 }

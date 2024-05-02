@@ -29,3 +29,16 @@ export const POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS = {
         natureless: { A: 5, B: 5, C: 3, D: 2, E: 1 },
     },
 } as const
+
+
+export const IV_COLOR_DICT = {
+    Hp: "#55b651",
+    Attack: "#F44336",
+    Defense: "#f78025",
+    SpecialAttack: "#e925f7",
+    SpecialDefense: "#f7e225",
+    Speed: "#25e2f7",
+    Nature: "#e0f1f4",
+} as const
+
+export type IvColor = (typeof IV_COLOR_DICT)[keyof typeof IV_COLOR_DICT]
