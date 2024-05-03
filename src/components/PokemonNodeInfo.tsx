@@ -12,7 +12,6 @@ import { Button } from "./ui/button"
 import { Male } from "./ui/icons/Male"
 import { Female } from "./ui/icons/Female"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
-import { Switch } from "./ui/switch"
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
 import { GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./consts"
 
@@ -66,7 +65,7 @@ export function PokemonNodeInfo(props: {
             <CardHeader>
                 <CardTitle className="flex items-center">
                     {props.currentNode && props.currentNode.species ? (
-                        <div className="flex gap-2 items-center">
+                        <div className="flex items-center">
                             <img
                                 src={getPokemonSpriteUrl(props.currentNode.species.name)}
                                 style={{
@@ -141,13 +140,13 @@ export function PokemonNodeGenderButton(props: {
     return (
         <Popover>
             <PopoverTrigger asChild>
-                <Button variant={"outline"} className="rounded-full border p-[6px] h-fit w-fit absolute -top-4 -left-2">
+                <Button variant={"outline"} className="rounded-full border p-[6px] h-fit w-fit absolute -top-4 -left-3">
                     {!gender || isGenderless ? (
                         <HelpCircle size={20} />
                     ) : gender === PokemonGender.Female ? (
-                        <Female className="h-6 w-6 fill-pink-500 antialiased" />
+                        <Female className="h-5 w-5 fill-pink-500 antialiased" />
                     ) : (
-                        <Male className="h-6 w-6 fill-blue-500 antialiased" />
+                        <Male className="h-5 w-5 fill-blue-500 antialiased" />
                     )}
                 </Button>
             </PopoverTrigger>
@@ -236,7 +235,7 @@ function PokemonNodeNickname(props: { name: string; setName: (name: string) => v
                 value={nickname}
                 onChange={(e) => setNickname(e.currentTarget.value)}
             />
-            <button className="absolute -right-3 scale-75" onClick={handleEditButton}>
+            <button className="absolute -right-3 scale-75 -top-1" onClick={handleEditButton}>
                 {isEditing ? <Save /> : <SquarePen />}
             </button>
         </div>

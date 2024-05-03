@@ -53,4 +53,8 @@ export class PokemonBreedTreeNode {
 
         return [parent1, parent2]
     }
+
+    public isRootNode(): boolean {
+        return this.position.key() === "0,0"
+    }
 }

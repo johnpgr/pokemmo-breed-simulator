@@ -45,8 +45,11 @@ export class PokemonBreeder {
             return new BreedError(BreedErrorKind.ChildDidNotChange, [parent1.position, parent2.position])
         }
 
-        childNode.species = childSpecies
+        if(childNode.isRootNode()){
+            return new BreedError(BreedErrorKind.IllegalNodePosition, [parent1.position, parent2.position])
+        }
 
+        childNode.species = childSpecies
         return null
     }
 
