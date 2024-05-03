@@ -132,7 +132,8 @@ export class PokemonSpecies {
 
 /** In Pokemmo, in breeding, you can only breed a pokemon couple once.
  * You lose the parents on a breed, and receive the offspring.
- * That's why we need a certain number of pokemon kind, grouped here by a, b, c, d, e.
+ * That's why we need a certain number of pokemon kind, grouped here by a, b, c, d, e & nature.
+ * https://pokemmo.shoutwiki.com/wiki/Breeding
  */
 export enum PokemonBreederKind {
     A = "A",

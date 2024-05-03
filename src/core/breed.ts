@@ -17,7 +17,7 @@ export class BreedError {
     constructor(
         public kind: BreedErrorKind,
         public positions: [PokemonBreedTreePosition, PokemonBreedTreePosition],
-    ) {}
+    ) { }
 }
 
 export class PokemonBreeder {
@@ -45,10 +45,7 @@ export class PokemonBreeder {
             return new BreedError(BreedErrorKind.ChildDidNotChange, [parent1.position, parent2.position])
         }
 
-        const childGender = this.getChildGender(childSpecies)
-
         childNode.species = childSpecies
-        childNode.gender = childGender
 
         return null
     }
@@ -62,7 +59,7 @@ export class PokemonBreeder {
         if (parent1.gender === PokemonGender.Genderless) {
             const parent1GenderlessEvoTree =
                 GENDERLESS_POKEMON_EVOLUTION_TREE[
-                    parent1.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
+                parent1.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                 ]
             if (!parent1GenderlessEvoTree.includes(parent2.species.number)) {
                 return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility, [
@@ -75,7 +72,7 @@ export class PokemonBreeder {
         if (parent2.gender === PokemonGender.Genderless) {
             const parent2GenderlessEvoTree =
                 GENDERLESS_POKEMON_EVOLUTION_TREE[
-                    parent2.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
+                parent2.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                 ]
             if (!parent2GenderlessEvoTree.includes(parent1.species.number)) {
                 return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility, [
@@ -114,6 +111,9 @@ export class PokemonBreeder {
         return childSpecies
     }
 
+    /**
+    * @deprecated I don't think this is going to be used
+    */
     private getChildGender(child: PokemonSpecies): PokemonGender {
         const genderlessSpeciesPkdxNrs = Object.keys(GENDERLESS_POKEMON_EVOLUTION_TREE).map(Number)
         if (genderlessSpeciesPkdxNrs.includes(child.number)) {

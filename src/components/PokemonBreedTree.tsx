@@ -23,10 +23,9 @@ export function PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) 
 
 function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     const ctx = usePokemonToBreed()
-
-    let desired31IvCount = Object.values(ctx.ivs).filter(Boolean).length
     assert.exists(ctx.pokemon, "Pokemon must be defined in useBreedMap")
 
+    const desired31IvCount = Object.values(ctx.ivs).filter(Boolean).length
     const breeder = React.useMemo(() => new PokemonBreeder(), [])
     const [breedTreeMap, setBreedTreeMap] = useBreedTreeMap({
         finalPokemonNode: PokemonBreedTreeNode.ROOT(ctx),
@@ -35,37 +34,43 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     })
 
     React.useEffect(() => {
-        const lastRow = ctx.nature ? desired31IvCount + 1 : desired31IvCount
+        const lastRow = ctx.nature ? desired31IvCount : desired31IvCount - 1
         const rowLength = Math.pow(2, lastRow)
-        const breedTreeCopy = structuredClone(breedTreeMap)
         let isTreeChanged = false
 
         //inc by 2 because we only want to breed() on one parent
         for (let col = 0; col < rowLength; col += 2) {
             const pos = new PokemonBreedTreePosition(lastRow, col)
-
-            let node: PokemonBreedTreeNode | null = breedTreeCopy[pos.key()] ?? null
-            let partnerNode = node?.getPartnerNode(breedTreeCopy)
+            let node: PokemonBreedTreeNode | undefined = breedTreeMap[pos.key()]
+            let partnerNode = node?.getPartnerNode(breedTreeMap)
 
             while (node && partnerNode) {
-                const error = breeder.breed(breedTreeCopy, node, partnerNode)
+                if (!node.gender || !partnerNode.gender || !node.species || !partnerNode.species) {
+                    break
+                }
+
+                const error = breeder.breed(breedTreeMap, node, partnerNode)
 
                 //TODO: Handle errors
                 if (error) {
-                    if (error.kind !== BreedErrorKind.ChildDidNotChange) {
-                        isTreeChanged = true
+                    if(error.kind === BreedErrorKind.ChildDidNotChange){
+                        node = node.getChildNode(breedTreeMap)
+                        partnerNode = node?.getPartnerNode(breedTreeMap)
+                        continue
                     }
-                    break //break the current tree branch
+
+                    isTreeChanged = true
+                    break
                 }
                 isTreeChanged = true
 
-                node = node.getChildNode(breedTreeCopy)
-                partnerNode = node?.getPartnerNode(breedTreeCopy) ?? null
+                node = node.getChildNode(breedTreeMap)
+                partnerNode = node?.getPartnerNode(breedTreeMap)
             }
         }
 
         if (isTreeChanged) {
-            setBreedTreeMap(breedTreeCopy)
+            setBreedTreeMap({ ...breedTreeMap })
         }
     }, [breedTreeMap, breeder, ctx.nature, desired31IvCount, setBreedTreeMap])
 
