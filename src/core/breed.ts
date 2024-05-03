@@ -17,7 +17,7 @@ export class BreedError {
     constructor(
         public kind: BreedErrorKind,
         public positions: [PokemonBreedTreePosition, PokemonBreedTreePosition],
-    ) { }
+    ) {}
 }
 
 export class PokemonBreeder {
@@ -45,7 +45,7 @@ export class PokemonBreeder {
             return new BreedError(BreedErrorKind.ChildDidNotChange, [parent1.position, parent2.position])
         }
 
-        if(childNode.isRootNode()){
+        if (childNode.isRootNode()) {
             return new BreedError(BreedErrorKind.IllegalNodePosition, [parent1.position, parent2.position])
         }
 
@@ -60,15 +60,15 @@ export class PokemonBreeder {
         assert.exists(parent2.species, "Parent 2 species should exist")
 
         if (parent1.gender === PokemonGender.Genderless) {
-            if(parent1.species.number === DITTO_PKDX_NR) {
-                if(parent2.species.number !== DITTO_PKDX_NR){
+            if (parent1.species.number === DITTO_PKDX_NR) {
+                if (parent2.species.number !== DITTO_PKDX_NR) {
                     return null
                 }
             }
 
             const parent1GenderlessEvoTree =
                 GENDERLESS_POKEMON_EVOLUTION_TREE[
-                parent1.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
+                    parent1.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                 ]
             if (!parent1GenderlessEvoTree.includes(parent2.species.number)) {
                 return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility, [
@@ -79,15 +79,15 @@ export class PokemonBreeder {
         }
 
         if (parent2.gender === PokemonGender.Genderless) {
-            if(parent2.species.number === DITTO_PKDX_NR) {
-                if(parent1.species.number !== DITTO_PKDX_NR){
+            if (parent2.species.number === DITTO_PKDX_NR) {
+                if (parent1.species.number !== DITTO_PKDX_NR) {
                     return null
                 }
             }
 
             const parent2GenderlessEvoTree =
                 GENDERLESS_POKEMON_EVOLUTION_TREE[
-                parent2.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
+                    parent2.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                 ]
             if (!parent2GenderlessEvoTree.includes(parent1.species.number)) {
                 return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility, [
@@ -119,10 +119,10 @@ export class PokemonBreeder {
         assert.exists(parent1.species, "Parent 1 species should exist")
         assert.exists(parent2.species, "Parent 2 species should exist")
 
-        if(parent1.species?.number === DITTO_PKDX_NR) {
+        if (parent1.species?.number === DITTO_PKDX_NR) {
             return parent2.species
         }
-        if(parent2.species.number === DITTO_PKDX_NR) {
+        if (parent2.species.number === DITTO_PKDX_NR) {
             return parent1.species
         }
 
@@ -132,15 +132,15 @@ export class PokemonBreeder {
             return new BreedError(BreedErrorKind.GenderCompatibility, [parent1.position, parent2.position])
         }
 
-        assert.exists(females[0].species)
-        const childSpecies = females[0].species
+        assert.exists(females[0]!.species)
+        const childSpecies = females[0]!.species
 
         return childSpecies
     }
 
     /**
-    * @deprecated I don't think this is going to be used
-    */
+     * @deprecated I don't think this is going to be used
+     */
     private getChildGender(child: PokemonSpecies): PokemonGender {
         const genderlessSpeciesPkdxNrs = Object.keys(GENDERLESS_POKEMON_EVOLUTION_TREE).map(Number)
         if (genderlessSpeciesPkdxNrs.includes(child.number)) {

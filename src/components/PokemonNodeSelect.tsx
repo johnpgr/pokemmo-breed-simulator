@@ -37,6 +37,7 @@ export function PokemonNodeSelect(props: {
     const [colors, setColors] = React.useState<IvColor[]>([])
     const isPokemonToBreed = props.position.col === 0 && props.position.row === 0
     const currentNode = props.breedTree[props.position.key()]
+    assert.exists(currentNode, "Current node should exist in PokemonNodeSelect")
 
     function setPokemonSpecies(name: string) {
         const pokemon = props.pokemons.find((p) => p.name.toLowerCase() === name)
@@ -137,6 +138,7 @@ export function PokemonNodeSelect(props: {
                         />
                     ))}
                     {currentNode?.species ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                             src={getPokemonSpriteUrl(currentNode.species.name)}
                             style={{

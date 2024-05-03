@@ -41,8 +41,12 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
         //inc by 2 because we only want to breed() on one parent
         for (let col = 0; col < rowLength; col += 2) {
             const pos = new PokemonBreedTreePosition(lastRow, col)
-            let node: PokemonBreedTreeNode | undefined = breedTreeMap[pos.key()]
+            let node = breedTreeMap[pos.key()]
             let partnerNode = node?.getPartnerNode(breedTreeMap)
+            const walkTreeBranch = () => {
+                node = node?.getChildNode(breedTreeMap)
+                partnerNode = node?.getPartnerNode(breedTreeMap)
+            }
 
             while (node && partnerNode) {
                 if (!node.gender || !partnerNode.gender || !node.species || !partnerNode.species) {
@@ -53,19 +57,17 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
 
                 //TODO: Handle errors
                 if (error) {
-                    if(error.kind === BreedErrorKind.ChildDidNotChange){
-                        node = node.getChildNode(breedTreeMap)
-                        partnerNode = node?.getPartnerNode(breedTreeMap)
+                    if (error.kind === BreedErrorKind.ChildDidNotChange) {
+                        walkTreeBranch()
                         continue
                     }
 
                     isTreeChanged = true
                     break
                 }
-                isTreeChanged = true
 
-                node = node.getChildNode(breedTreeMap)
-                partnerNode = node?.getPartnerNode(breedTreeMap)
+                isTreeChanged = true
+                walkTreeBranch()
             }
         }
 

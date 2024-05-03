@@ -28,6 +28,7 @@ export function PokemonSpeciesSelect(props: {
                         className={`border ${props.currentSelectedNode.species ? "pl-2" : "pl-4"}`}
                     >
                         {props.currentSelectedNode?.species ? (
+                            // eslint-disable-next-line @next/next/no-img-element
                             <img
                                 className="top-[1px] left-0"
                                 src={getPokemonSpriteUrl(props.currentSelectedNode.species?.name)}

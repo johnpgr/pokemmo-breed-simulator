@@ -75,6 +75,7 @@ export function PokemonNodeInfo(props: {
                 <CardTitle className="flex items-center">
                     {props.currentNode && props.currentNode.species ? (
                         <div className="flex items-center">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={getPokemonSpriteUrl(props.currentNode.species.name)}
                                 style={{
