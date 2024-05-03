@@ -87,19 +87,21 @@ export function PokemonNodeInfo(props: {
                         </div>
                     ) : null}
                 </CardTitle>
-                <PokemonNodeGenderButton
-                    currentNode={props.currentNode}
-                    breedTree={props.breedTree}
-                    setBreedTree={props.setBreedTree}
-                    setGender={props.setGender}
-                />
-                {props.currentNode.position.key() !== "0,0" ? (
-                    <PokemonNodeHeldItemIcon
-                        item={
-                            //if not natured, ivs must exist.
-                            props.currentNode.nature ? HeldItem.Nature : heldItem!
-                        }
-                    />
+                {!props.currentNode.isRootNode() ? (
+                    <div className="absolute -top-4 -left-3 flex flex-col-reverse gap-1 items-center">
+                        <PokemonNodeGenderButton
+                            currentNode={props.currentNode}
+                            breedTree={props.breedTree}
+                            setBreedTree={props.setBreedTree}
+                            setGender={props.setGender}
+                        />
+                        <PokemonNodeHeldItemIcon
+                            item={
+                                //if not natured, ivs must exist.
+                                props.currentNode.nature ? HeldItem.Nature : heldItem!
+                            }
+                        />
+                    </div>
                 ) : null}
             </CardHeader>
             <CardContent className="gap-1 flex flex-col pl-9">
@@ -154,7 +156,7 @@ export function PokemonNodeGenderButton(props: {
     return (
         <Popover>
             <PopoverTrigger asChild>
-                <Button variant={"outline"} className="rounded-full border p-[6px] h-fit w-fit absolute -top-4 -left-3">
+                <Button variant={"outline"} className="rounded-full border p-[6px] h-fit w-fit">
                     {!gender || isGenderless ? (
                         <HelpCircle size={20} />
                     ) : gender === PokemonGender.Female ? (
@@ -243,7 +245,7 @@ function PokemonNodeNickname(props: { name: string; setName: (name: string) => v
         <div className="relative">
             <input
                 ref={inputRef}
-                className="focus:outline-none border-b w-full disabled:bg-transparent pb-1"
+                className="focus:outline-none border-b w-full bg-transparent pb-1"
                 disabled={!isEditing}
                 maxLength={16}
                 value={nickname}
@@ -277,7 +279,7 @@ function PokemonNodeHeldItemIcon(props: { item: HeldItem }) {
         <TooltipProvider delayDuration={250}>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <Button variant={"outline"} className="absolute -top-4 -right-3 w-fit h-fit p-0 rounded-full">
+                    <Button variant={"outline"} className="w-fit h-fit p-0 rounded-full">
                         <img
                             src={getEvItemSprite(props.item)}
                             alt={`Held item: ${props.item}`}

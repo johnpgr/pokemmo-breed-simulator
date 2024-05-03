@@ -2,7 +2,7 @@ import { assert } from "@/lib/assert"
 import type { PokemonBreedTreeNode } from "./tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "./tree/BreedTreePosition"
 import { PokemonGender, PokemonSpecies } from "./pokemon"
-import { GENDERLESS_POKEMON_EVOLUTION_TREE } from "./consts"
+import { DITTO_PKDX_NR, GENDERLESS_POKEMON_EVOLUTION_TREE } from "./consts"
 import type { PokemonBreedTreeMap } from "./tree/useBreedTreeMap"
 
 export enum BreedErrorKind {
@@ -60,6 +60,12 @@ export class PokemonBreeder {
         assert.exists(parent2.species, "Parent 2 species should exist")
 
         if (parent1.gender === PokemonGender.Genderless) {
+            if(parent1.species.number === DITTO_PKDX_NR) {
+                if(parent2.species.number !== DITTO_PKDX_NR){
+                    return null
+                }
+            }
+
             const parent1GenderlessEvoTree =
                 GENDERLESS_POKEMON_EVOLUTION_TREE[
                 parent1.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
@@ -73,6 +79,12 @@ export class PokemonBreeder {
         }
 
         if (parent2.gender === PokemonGender.Genderless) {
+            if(parent2.species.number === DITTO_PKDX_NR) {
+                if(parent1.species.number !== DITTO_PKDX_NR){
+                    return null
+                }
+            }
+
             const parent2GenderlessEvoTree =
                 GENDERLESS_POKEMON_EVOLUTION_TREE[
                 parent2.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
@@ -102,6 +114,18 @@ export class PokemonBreeder {
         parent1: PokemonBreedTreeNode,
         parent2: PokemonBreedTreeNode,
     ): BreedError | PokemonSpecies {
+        assert.exists(parent1.gender, "Parent 1 gender should exist")
+        assert.exists(parent2.gender, "Parent 2 gender should exist")
+        assert.exists(parent1.species, "Parent 1 species should exist")
+        assert.exists(parent2.species, "Parent 2 species should exist")
+
+        if(parent1.species?.number === DITTO_PKDX_NR) {
+            return parent2.species
+        }
+        if(parent2.species.number === DITTO_PKDX_NR) {
+            return parent1.species
+        }
+
         const females = [parent1, parent2].filter((p) => p.gender === PokemonGender.Female)
 
         if (females.length !== 1) {
