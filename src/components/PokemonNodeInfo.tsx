@@ -60,11 +60,11 @@ export function PokemonNodeInfo(props: {
         }))
     }
 
-    function resetNode(){
+    function resetNode() {
         props.setGender(undefined)
         props.currentNode.species = undefined
 
-        props.setBreedTree((prev)=> ({
+        props.setBreedTree((prev) => ({
             ...prev,
         }))
     }
@@ -130,9 +130,11 @@ export function PokemonNodeInfo(props: {
                                     : null}
                             </span>
                         </p>
-                        <Button onClick={resetNode} className="mt-2" variant={"destructive"} size={"sm"}>
-                            Reset
-                        </Button>
+                        {!props.currentNode.isRootNode() ? (
+                            <Button onClick={resetNode} className="mt-2" variant={"destructive"} size={"sm"}>
+                                Reset
+                            </Button>
+                        ) : null}
                     </>
                 ) : null}
             </CardContent>
@@ -208,7 +210,7 @@ export function PokemonNodeGenderButton(props: {
                                                 .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
-                                        </i>
+                                    </i>
                                 </div>
                             ) : null}
                         </>
