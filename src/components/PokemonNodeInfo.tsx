@@ -19,7 +19,7 @@ export function PokemonNodeInfo(props: {
     currentNode: PokemonBreedTreeNode
     breedTree: PokemonBreedTreeMap
     setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
-    setGender: (gender: PokemonGender) => void
+    setGender: (gender?: PokemonGender) => void
 }) {
     const name = props.currentNode?.nickname ?? props.currentNode?.species?.name ?? ""
     const heldItem = run((): HeldItem | null => {
@@ -56,6 +56,15 @@ export function PokemonNodeInfo(props: {
     function setNickname(nick: string) {
         props.currentNode.nickname = nick
         props.setBreedTree((prev) => ({
+            ...prev,
+        }))
+    }
+
+    function resetNode(){
+        props.setGender(undefined)
+        props.currentNode.species = undefined
+
+        props.setBreedTree((prev)=> ({
             ...prev,
         }))
     }
@@ -121,6 +130,9 @@ export function PokemonNodeInfo(props: {
                                     : null}
                             </span>
                         </p>
+                        <Button onClick={resetNode} className="mt-2" variant={"destructive"} size={"sm"}>
+                            Reset
+                        </Button>
                     </>
                 ) : null}
             </CardContent>

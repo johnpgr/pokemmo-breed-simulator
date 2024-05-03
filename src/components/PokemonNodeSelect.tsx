@@ -55,7 +55,7 @@ export function PokemonNodeSelect(props: {
         setIsOpen(false)
     }
 
-    function setGender(gender: PokemonGender) {
+    function setGender(gender?: PokemonGender) {
         assert.exists(currentNode, `Node at ${props.position} should exist`)
 
         currentNode.gender = gender
@@ -84,8 +84,9 @@ export function PokemonNodeSelect(props: {
         }
 
         for (const poke of props.pokemons) {
-            const compatible = poke.eggGroups.some((e) => ctx.pokemon!.eggGroups.includes(e))
-            if (!compatible) continue
+            if (!poke.eggGroups.some((e) => ctx.pokemon!.eggGroups.includes(e))) {
+                continue
+            }
 
             newList.push(poke)
         }
