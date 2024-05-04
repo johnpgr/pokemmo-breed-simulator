@@ -1,30 +1,30 @@
 "use client"
-import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import {
-    pascalToSpacedPascal,
-    getPokemonSpriteUrl,
-    randomString,
-    run,
-    kebabToSpacedPascal,
-} from "@/lib/utils"
-import { HelpCircle, Save, SquarePen } from "lucide-react"
-import { BASE_ITEM_SPRITES_URL } from "@/lib/consts"
+import { PokemonGender, PokemonIv } from "@/core/pokemon"
 import type { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
-import { PokemonGender, PokemonIv } from "@/core/pokemon"
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
+import { BASE_ITEM_SPRITES_URL } from "@/lib/consts"
+import {
+    getPokemonSpriteUrl,
+    kebabToSpacedPascal,
+    pascalToSpacedPascal,
+    randomString,
+    run,
+} from "@/lib/utils"
+import { HelpCircle, Save, SquarePen } from "lucide-react"
+import React from "react"
+import { GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./consts"
 import { Button } from "./ui/button"
-import { Male } from "./ui/icons/Male"
 import { Female } from "./ui/icons/Female"
+import { Male } from "./ui/icons/Male"
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
+import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "./ui/tooltip"
-import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
-import { GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./consts"
 
 export function PokemonNodeInfo(props: {
     currentNode: PokemonBreedTreeNode
@@ -84,7 +84,7 @@ export function PokemonNodeInfo(props: {
     }
 
     return (
-        <Card className="w-full max-w-64 mx-auto h-fit relative">
+        <Card className="w-full max-w-64 ml-4 h-fit relative">
             <CardHeader>
                 <CardTitle className="flex items-center">
                     {props.currentNode && props.currentNode.species ? (
@@ -235,9 +235,9 @@ export function PokemonNodeGenderButton(props: {
                                         :{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                (100 -
-                                                    props.currentNode.species
-                                                        .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                            (100 -
+                                                props.currentNode.species
+                                                    .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
@@ -246,8 +246,8 @@ export function PokemonNodeGenderButton(props: {
                                         :{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                props.currentNode.species
-                                                    .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                            props.currentNode.species
+                                                .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
@@ -328,6 +328,7 @@ function PokemonNodeHeldItemIcon(props: { item: HeldItem }) {
                         variant={"outline"}
                         className="w-fit h-fit p-0 rounded-full"
                     >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src={getEvItemSprite(props.item)}
                             alt={`Held item: ${props.item}`}

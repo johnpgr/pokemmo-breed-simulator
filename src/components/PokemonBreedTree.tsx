@@ -74,7 +74,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     break
                 }
 
-                // this reallocates the current node position because walkTreeBranch() will move the node pointer before the errors are set
+                // bind the current node position because walkTreeBranch() will move the node pointer before the errors are set
                 const currentNodePos = node.position.key()
 
                 const breedResult = PokemonBreed.breed(
