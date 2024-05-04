@@ -1,5 +1,4 @@
 "use client"
-import React from "react"
 import { Button } from "@/components/ui/button"
 import {
     Command,
@@ -14,9 +13,10 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import { getPokemonSpriteUrl } from "@/lib/utils"
 import { Check, ChevronsUpDown } from "lucide-react"
-import { PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 
 export function PokemonSpeciesSelect(props: {
@@ -26,14 +26,28 @@ export function PokemonSpeciesSelect(props: {
         React.SetStateAction<PokemonNodeInSelect>
     >
 }) {
+    const [isOpen, setIsOpen] = React.useState(false)
     const [search, setSearch] = React.useState("")
+
+    function handleSpeciesSelect(pokemon: PokemonSpeciesUnparsed) {
+        props.setCurrentSelectedNode(
+            (prev) => ({
+                ...prev,
+                species:
+                    PokemonSpecies.parse(
+                        pokemon,
+                    ),
+            }),
+        )
+        setIsOpen(false)
+    }
 
     return (
         <div>
             <p className="text-foreground/70 text-sm pb-1">
                 What Pokemon species?
             </p>
-            <Popover>
+            <Popover open={isOpen} onOpenChange={setIsOpen}>
                 <PopoverTrigger asChild>
                     <Button
                         type="button"
@@ -80,17 +94,7 @@ export function PokemonSpeciesSelect(props: {
                                         <CommandItem
                                             key={`pokemon_to_breed:${pokemon.name}`}
                                             value={pokemon.name}
-                                            onSelect={() => {
-                                                props.setCurrentSelectedNode(
-                                                    (prev) => ({
-                                                        ...prev,
-                                                        species:
-                                                            PokemonSpecies.parse(
-                                                                pokemon,
-                                                            ),
-                                                    }),
-                                                )
-                                            }}
+                                            onSelect={() => handleSpeciesSelect(pokemon)}
                                             data-cy={`${pokemon.name}-value`}
                                             className="pl-8 relative"
                                         >

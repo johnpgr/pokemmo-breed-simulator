@@ -25,11 +25,13 @@ export function PokemonNatureSelect(props: {
         React.SetStateAction<PokemonNodeInSelect>
     >
 }) {
+    const [isOpen, setIsOpen] = React.useState(false)
     const [search, setSearch] = React.useState("")
     const natured = Boolean(props.currentPokemonInSelect.nature)
 
-    function handleSelectNature(value?: PokemonNature) {
+    function handleNatureSelect(value?: PokemonNature) {
         props.setCurrentPokemonInSelect((prev) => ({ ...prev, nature: value }))
+        setIsOpen(false)
     }
 
     return (
@@ -37,7 +39,7 @@ export function PokemonNatureSelect(props: {
             <p className="text-sm text-foreground/70 pb-1">
                 Consider nature in breeding project?
             </p>
-            <Popover>
+            <Popover open={isOpen} onOpenChange={setIsOpen}>
                 <PopoverTrigger asChild>
                     <Button variant={"ghost"} className="border">
                         {!natured
@@ -59,7 +61,7 @@ export function PokemonNatureSelect(props: {
                             <ScrollArea className="h-72">
                                 <CommandItem
                                     onSelect={() => {
-                                        handleSelectNature(undefined)
+                                        handleNatureSelect(undefined)
                                     }}
                                     className="pl-8 relative"
                                 >
@@ -73,7 +75,7 @@ export function PokemonNatureSelect(props: {
                                         <CommandItem
                                             value={nature}
                                             onSelect={() => {
-                                                handleSelectNature(nature)
+                                                handleNatureSelect(nature)
                                             }}
                                             data-cy={`${nature}-value`}
                                             className="pl-8 relative"
