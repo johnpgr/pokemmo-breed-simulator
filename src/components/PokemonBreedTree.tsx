@@ -1,20 +1,28 @@
 "use client"
-import { PokemonSpeciesUnparsed } from "@/core/pokemon"
+import * as PokemonBreed from "@/core/breed"
+import { PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
-import { useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
+import {
+    BreedTreePositionKey,
+    useBreedTreeMap,
+} from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import React from "react"
 import { PokemonIvColors } from "./PokemonIvColors"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
 import { usePokemonToBreed } from "./PokemonToBreedContext"
-
 import { Button } from "./ui/button"
 
-import { BreedError, BreedErrorKind, PokemonBreeder } from "@/core/breed"
+export type BreedErrors = Record<
+    BreedTreePositionKey,
+    Set<PokemonBreed.BreedError> | undefined
+>
 
-export function PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
+export function PokemonBreedTree(props: {
+    pokemons: PokemonSpeciesUnparsed[]
+}) {
     const ctx = usePokemonToBreed()
     if (!ctx.pokemon) {
         return null
@@ -28,12 +36,12 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     assert.exists(ctx.pokemon, "Pokemon must be defined in useBreedMap")
 
     const desired31IvCount = Object.values(ctx.ivs).filter(Boolean).length
-    const breeder = React.useMemo(() => new PokemonBreeder(), [])
     const [breedTreeMap, setBreedTreeMap] = useBreedTreeMap({
         finalPokemonNode: PokemonBreedTreeNode.ROOT(ctx),
         finalPokemonIvMap: ctx.ivs,
         desired31Ivcount: desired31IvCount,
     })
+    const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
 
     React.useEffect(() => {
         const lastRow = ctx.nature ? desired31IvCount : desired31IvCount - 1
@@ -52,7 +60,12 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
             }
 
             while (node && partnerNode) {
-                if (!node.gender || !partnerNode.gender || !node.species || !partnerNode.species) {
+                if (
+                    !node.gender ||
+                    !partnerNode.gender ||
+                    !node.species ||
+                    !partnerNode.species
+                ) {
                     break
                 }
 
@@ -61,23 +74,45 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     break
                 }
 
-                const breedResult = breeder.breed(node, partnerNode, childNode)
+                // this reallocates the current node position because walkTreeBranch() will move the node pointer before the errors are set
+                const currentNodePos = node.position.key()
 
-                if (breedResult instanceof BreedError) {
-                    if (breedResult.kind === BreedErrorKind.ChildDidNotChange || breedResult.kind === BreedErrorKind.IllegalNodePosition) {
+                const breedResult = PokemonBreed.breed(
+                    node,
+                    partnerNode,
+                    childNode,
+                )
+
+                if (!(breedResult instanceof PokemonSpecies)) {
+                    if (
+                        breedResult.has(
+                            PokemonBreed.BreedError.ChildDidNotChange,
+                        ) ||
+                        breedResult.has(
+                            PokemonBreed.BreedError.IllegalNodePosition,
+                        )
+                    ) {
+                        setBreedErrors((prev) => {
+                            delete prev[currentNodePos]
+                            return { ...prev }
+                        })
                         walkTreeBranch()
                         continue
                     }
 
-                    node.breedError = breedResult
-                    partnerNode.breedError = breedResult
+                    setBreedErrors((prev) => {
+                        prev[currentNodePos] = breedResult
+                        return { ...prev }
+                    })
                     break
                 }
 
-                childNode.species = breedResult
-                node.breedError = undefined
-                partnerNode.breedError = undefined
                 changed = true
+                childNode.species = breedResult
+                setBreedErrors((prev) => {
+                    delete prev[currentNodePos]
+                    return { ...prev }
+                })
                 walkTreeBranch()
             }
         }
@@ -85,11 +120,19 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
         if (changed) {
             setBreedTreeMap({ ...breedTreeMap })
         }
-    }, [breedTreeMap, breeder, ctx.nature, desired31IvCount, setBreedTreeMap])
+    }, [
+        breedTreeMap,
+        ctx.nature,
+        desired31IvCount,
+        setBreedTreeMap,
+        setBreedErrors,
+    ])
 
     return (
         <div className="flex flex-col-reverse items-center gap-8 pb-16">
-            {Array.from({ length: ctx.nature ? desired31IvCount + 1 : desired31IvCount }).map((_, row) => {
+            {Array.from({
+                length: ctx.nature ? desired31IvCount + 1 : desired31IvCount,
+            }).map((_, row) => {
                 const rowLength = Math.pow(2, row)
 
                 return (
@@ -98,14 +141,18 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                         className="flex w-full max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl items-center justify-center"
                     >
                         {Array.from({ length: rowLength }).map((_, col) => {
-                            const position = new PokemonBreedTreePosition(row, col)
+                            const position = new PokemonBreedTreePosition(
+                                row,
+                                col,
+                            )
 
                             return (
                                 <PokemonNodeLines
                                     key={`node:${position.key()}`}
                                     position={position}
-                                    breedTree={breedTreeMap}
                                     rowLength={rowLength}
+                                    breedTree={breedTreeMap}
+                                    breedErrors={breedErrors}
                                 >
                                     <PokemonNodeSelect
                                         pokemons={props.pokemons}
@@ -121,10 +168,25 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
             })}
             {process.env.NODE_ENV === "development" ? (
                 <div className="space-x-4">
-                    <Button size={"sm"} onClick={() => console.log(breedTreeMap)}>
+                    <Button
+                        variant={"secondary"}
+                        size={"sm"}
+                        onClick={() => console.log(breedTreeMap)}
+                    >
                         Debug (Breed Tree)
                     </Button>
-                    <Button size={"sm"} onClick={() => console.log(ctx)}>
+                    <Button
+                        variant={"secondary"}
+                        size={"sm"}
+                        onClick={() => console.log(breedErrors)}
+                    >
+                        Debug (Breed Errors)
+                    </Button>
+                    <Button
+                        variant={"secondary"}
+                        size={"sm"}
+                        onClick={() => console.log(ctx)}
+                    >
                         Debug (Context)
                     </Button>
                 </div>

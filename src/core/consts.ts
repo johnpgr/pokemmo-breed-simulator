@@ -47,7 +47,10 @@ export const GENDERLESS_POKEMON_EVOLUTION_TREE = {
 export const POKEMON_BREEDTREE_LASTROW_MAPPING = {
     2: {
         natured: new Map([
-            [new PokemonBreedTreePosition(2, 0).key(), PokemonBreederKind.Nature],
+            [
+                new PokemonBreedTreePosition(2, 0).key(),
+                PokemonBreederKind.Nature,
+            ],
             [new PokemonBreedTreePosition(2, 1).key(), PokemonBreederKind.A],
             [new PokemonBreedTreePosition(2, 2).key(), PokemonBreederKind.A],
             [new PokemonBreedTreePosition(2, 3).key(), PokemonBreederKind.B],
@@ -59,7 +62,10 @@ export const POKEMON_BREEDTREE_LASTROW_MAPPING = {
     },
     3: {
         natured: new Map([
-            [new PokemonBreedTreePosition(3, 0).key(), PokemonBreederKind.Nature],
+            [
+                new PokemonBreedTreePosition(3, 0).key(),
+                PokemonBreederKind.Nature,
+            ],
             [new PokemonBreedTreePosition(3, 1).key(), PokemonBreederKind.A],
             [new PokemonBreedTreePosition(3, 2).key(), PokemonBreederKind.A],
             [new PokemonBreedTreePosition(3, 3).key(), PokemonBreederKind.B],
@@ -77,7 +83,10 @@ export const POKEMON_BREEDTREE_LASTROW_MAPPING = {
     },
     4: {
         natured: new Map([
-            [new PokemonBreedTreePosition(4, 0).key(), PokemonBreederKind.Nature],
+            [
+                new PokemonBreedTreePosition(4, 0).key(),
+                PokemonBreederKind.Nature,
+            ],
             [new PokemonBreedTreePosition(4, 1).key(), PokemonBreederKind.A],
             [new PokemonBreedTreePosition(4, 2).key(), PokemonBreederKind.A],
             [new PokemonBreedTreePosition(4, 3).key(), PokemonBreederKind.B],
@@ -123,7 +132,10 @@ export const POKEMON_BREEDTREE_LASTROW_MAPPING = {
             [new PokemonBreedTreePosition(5, 13).key(), PokemonBreederKind.D],
             [new PokemonBreedTreePosition(5, 14).key(), PokemonBreederKind.C],
             [new PokemonBreedTreePosition(5, 15).key(), PokemonBreederKind.E],
-            [new PokemonBreedTreePosition(5, 16).key(), PokemonBreederKind.Nature],
+            [
+                new PokemonBreedTreePosition(5, 16).key(),
+                PokemonBreederKind.Nature,
+            ],
             [new PokemonBreedTreePosition(5, 17).key(), PokemonBreederKind.B],
             [new PokemonBreedTreePosition(5, 18).key(), PokemonBreederKind.B],
             [new PokemonBreedTreePosition(5, 19).key(), PokemonBreederKind.C],
@@ -169,48 +181,64 @@ export type PokemonCountByBreederKind = {
  * Returns a list of pokemon counts grouped by breeder kind
  * This list is used to render the pokemon breed tree depending on the number of generations that is selected
  */
-export function getPokemonCountByBreederKind(generations: number): PokemonCountByBreederKind {
+export function getPokemonCountByBreederKind(
+    generations: number,
+): PokemonCountByBreederKind {
     assert(generations >= 2 && generations <= 5, "Invalid generations number")
     const lastRowPositions =
-        POKEMON_BREEDTREE_LASTROW_MAPPING[generations as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING]
+        POKEMON_BREEDTREE_LASTROW_MAPPING[
+            generations as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING
+        ]
 
-    const natured = Array.from(lastRowPositions.natured.values()).filter((kind) => kind !== PokemonBreederKind.Nature)
+    const natured = Array.from(lastRowPositions.natured.values()).filter(
+        (kind) => kind !== PokemonBreederKind.Nature,
+    )
     const natureless = Array.from(lastRowPositions.natureless.values())
 
     return [
         {
             kind: PokemonBreederKind.A,
             count: {
-                natured: natured.filter((k) => k === PokemonBreederKind.A).length,
-                natureless: natureless.filter((k) => k === PokemonBreederKind.A).length,
+                natured: natured.filter((k) => k === PokemonBreederKind.A)
+                    .length,
+                natureless: natureless.filter((k) => k === PokemonBreederKind.A)
+                    .length,
             },
         },
         {
             kind: PokemonBreederKind.B,
             count: {
-                natured: natured.filter((k) => k === PokemonBreederKind.B).length,
-                natureless: natureless.filter((k) => k === PokemonBreederKind.B).length,
+                natured: natured.filter((k) => k === PokemonBreederKind.B)
+                    .length,
+                natureless: natureless.filter((k) => k === PokemonBreederKind.B)
+                    .length,
             },
         },
         {
             kind: PokemonBreederKind.C,
             count: {
-                natured: natured.filter((k) => k === PokemonBreederKind.C).length,
-                natureless: natureless.filter((k) => k === PokemonBreederKind.C).length,
+                natured: natured.filter((k) => k === PokemonBreederKind.C)
+                    .length,
+                natureless: natureless.filter((k) => k === PokemonBreederKind.C)
+                    .length,
             },
         },
         {
             kind: PokemonBreederKind.D,
             count: {
-                natured: natured.filter((k) => k === PokemonBreederKind.D).length,
-                natureless: natureless.filter((k) => k === PokemonBreederKind.D).length,
+                natured: natured.filter((k) => k === PokemonBreederKind.D)
+                    .length,
+                natureless: natureless.filter((k) => k === PokemonBreederKind.D)
+                    .length,
             },
         },
         {
             kind: PokemonBreederKind.E,
             count: {
-                natured: natured.filter((k) => k === PokemonBreederKind.E).length,
-                natureless: natureless.filter((k) => k === PokemonBreederKind.E).length,
+                natured: natured.filter((k) => k === PokemonBreederKind.E)
+                    .length,
+                natureless: natureless.filter((k) => k === PokemonBreederKind.E)
+                    .length,
             },
         },
     ]

@@ -25,13 +25,18 @@ export function randomString(length: number) {
 }
 
 export function pascalToSpacedPascal(input: string) {
-    return input.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (str) => str.toUpperCase())
+    return input
+        .replace(/([a-z])([A-Z])/g, "$1 $2")
+        .replace(/^./, (str) => str.toUpperCase())
 }
 
 export function kebabToSpacedPascal(input: string): string {
     return input
         .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .map(
+            (word) =>
+                word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+        )
         .join(" ")
 }
 

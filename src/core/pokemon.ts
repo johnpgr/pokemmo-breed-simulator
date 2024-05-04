@@ -109,7 +109,10 @@ export class PokemonSpecies {
             assert(types.includes(data.types[1]), "Invalid type")
         }
         //@ts-ignore
-        assert(eggGroups.includes(data.eggGroups[0]), `Invalid egg group ${data.eggGroups[0]} valids are ${eggGroups}`)
+        assert(
+            eggGroups.includes(data.eggGroups[0]),
+            `Invalid egg group ${data.eggGroups[0]} valids are ${eggGroups}`,
+        )
         if (data.eggGroups[1]) {
             //@ts-ignore
             assert(

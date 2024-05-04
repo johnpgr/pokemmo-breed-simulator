@@ -1,8 +1,18 @@
 "use client"
 import React from "react"
 import { Button } from "@/components/ui/button"
-import { Command, CommandInput, CommandGroup, CommandEmpty, CommandItem } from "@/components/ui/command"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import {
+    Command,
+    CommandInput,
+    CommandGroup,
+    CommandEmpty,
+    CommandItem,
+} from "@/components/ui/command"
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { randomString } from "@/lib/utils"
 import { Check, ChevronsUpDown } from "lucide-react"
@@ -11,10 +21,11 @@ import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 
 export function PokemonNatureSelect(props: {
     currentPokemonInSelect: PokemonNodeInSelect
-    setCurrentPokemonInSelect: React.Dispatch<React.SetStateAction<PokemonNodeInSelect>>
+    setCurrentPokemonInSelect: React.Dispatch<
+        React.SetStateAction<PokemonNodeInSelect>
+    >
 }) {
     const [search, setSearch] = React.useState("")
-    const [isOpen, setIsOpen] = React.useState(false)
     const natured = Boolean(props.currentPokemonInSelect.nature)
 
     function handleSelectNature(value?: PokemonNature) {
@@ -23,11 +34,15 @@ export function PokemonNatureSelect(props: {
 
     return (
         <div>
-            <p className="text-sm text-foreground/70 pb-1">Consider nature in breeding project?</p>
-            <Popover open={isOpen} onOpenChange={setIsOpen}>
+            <p className="text-sm text-foreground/70 pb-1">
+                Consider nature in breeding project?
+            </p>
+            <Popover>
                 <PopoverTrigger asChild>
                     <Button variant={"ghost"} className="border">
-                        {!natured ? "Select a nature" : props.currentPokemonInSelect.nature!}
+                        {!natured
+                            ? "Select a nature"
+                            : props.currentPokemonInSelect.nature!}
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                 </PopoverTrigger>
@@ -45,7 +60,6 @@ export function PokemonNatureSelect(props: {
                                 <CommandItem
                                     onSelect={() => {
                                         handleSelectNature(undefined)
-                                        setIsOpen(false)
                                     }}
                                     className="pl-8 relative"
                                 >
@@ -60,12 +74,12 @@ export function PokemonNatureSelect(props: {
                                             value={nature}
                                             onSelect={() => {
                                                 handleSelectNature(nature)
-                                                setIsOpen(false)
                                             }}
                                             data-cy={`${nature}-value`}
                                             className="pl-8 relative"
                                         >
-                                            {props.currentPokemonInSelect.nature === nature ? (
+                                            {props.currentPokemonInSelect
+                                                .nature === nature ? (
                                                 <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
                                             ) : null}
                                             {nature}

@@ -16,7 +16,9 @@ export function PokemonIvColors() {
                         backgroundColor: IV_COLOR_DICT[ctx.ivs.A],
                     }}
                 />
-                <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.A)}</span>
+                <span className="text-sm">
+                    {pascalToSpacedPascal(ctx.ivs.A)}
+                </span>
             </div>
             <div className="flex items-center gap-2">
                 <div
@@ -25,7 +27,9 @@ export function PokemonIvColors() {
                         backgroundColor: IV_COLOR_DICT[ctx.ivs.B],
                     }}
                 />
-                <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.B)}</span>
+                <span className="text-sm">
+                    {pascalToSpacedPascal(ctx.ivs.B)}
+                </span>
             </div>
             {ctx.ivs.C ? (
                 <div className="flex items-center gap-2">
@@ -35,7 +39,9 @@ export function PokemonIvColors() {
                             backgroundColor: IV_COLOR_DICT[ctx.ivs.C],
                         }}
                     />
-                    <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.C)}</span>
+                    <span className="text-sm">
+                        {pascalToSpacedPascal(ctx.ivs.C)}
+                    </span>
                 </div>
             ) : null}
             {ctx.ivs.D ? (
@@ -46,7 +52,9 @@ export function PokemonIvColors() {
                             backgroundColor: IV_COLOR_DICT[ctx.ivs.D],
                         }}
                     />
-                    <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.D)}</span>
+                    <span className="text-sm">
+                        {pascalToSpacedPascal(ctx.ivs.D)}
+                    </span>
                 </div>
             ) : null}
             {ctx.ivs.E ? (
@@ -57,7 +65,9 @@ export function PokemonIvColors() {
                             backgroundColor: IV_COLOR_DICT[ctx.ivs.E],
                         }}
                     />
-                    <span className="text-sm">{pascalToSpacedPascal(ctx.ivs.E)}</span>
+                    <span className="text-sm">
+                        {pascalToSpacedPascal(ctx.ivs.E)}
+                    </span>
                 </div>
             ) : null}
             {ctx.nature ? (

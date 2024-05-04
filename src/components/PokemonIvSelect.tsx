@@ -1,11 +1,20 @@
 "use client"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 import { pascalToSpacedPascal, randomString } from "@/lib/utils"
 import React from "react"
 import { PokemonIv } from "@/core/pokemon"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
-import { IV_DROPDOWN_LIST_VALUES, POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "./consts"
+import {
+    IV_DROPDOWN_LIST_VALUES,
+    POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS,
+} from "./consts"
 import { PokemonIvRadioGroup, PokemonIvRadioItem } from "./PokemonIvRadio"
 
 export function PokemonIvSelect(props: {
@@ -13,9 +22,13 @@ export function PokemonIvSelect(props: {
     desired31IVCount: number
     setDesired31IVCount: React.Dispatch<React.SetStateAction<number>>
     currentIVDropdownValues: PokemonIv[]
-    setCurrentIVDropdownValues: React.Dispatch<React.SetStateAction<PokemonIv[]>>
+    setCurrentIVDropdownValues: React.Dispatch<
+        React.SetStateAction<PokemonIv[]>
+    >
     currentPokemonInSelect: PokemonNodeInSelect
-    setCurrentPokemonInSelect: React.Dispatch<React.SetStateAction<PokemonNodeInSelect>>
+    setCurrentPokemonInSelect: React.Dispatch<
+        React.SetStateAction<PokemonNodeInSelect>
+    >
 }) {
     function handleDesired31IvCountChange(number: string) {
         const value = parseInt(number)
@@ -47,7 +60,9 @@ export function PokemonIvSelect(props: {
 
     return (
         <div>
-            <p className="text-foreground/70 text-sm pb-1">How many IV&apos;s do you want?</p>
+            <p className="text-foreground/70 text-sm pb-1">
+                How many IV&apos;s do you want?
+            </p>
             <PokemonIvRadioGroup
                 className="border rounded-md w-fit flex"
                 defaultValue={"2"}
@@ -69,21 +84,38 @@ export function PokemonIvSelect(props: {
             <div className="flex pt-1 flex-col md:flex-row items-center gap-2">
                 {Object.entries(pokemonCount).map(([_, value], i) => (
                     <div key={randomString(6)} className="w-full">
-                        <Label key={randomString(6)} className="text-sm text-foreground/70">
-                            <strong className="text-lg text-foreground mr-1">{value}</strong> 1x31 IV in
+                        <Label
+                            key={randomString(6)}
+                            className="text-sm text-foreground/70"
+                        >
+                            <strong className="text-lg text-foreground mr-1">
+                                {value}
+                            </strong>{" "}
+                            1x31 IV in
                         </Label>
                         <Select
                             value={props.currentIVDropdownValues[i]!}
-                            onValueChange={(v) => handleIvSelectChange(v as PokemonIv, i)}
+                            onValueChange={(v) =>
+                                handleIvSelectChange(v as PokemonIv, i)
+                            }
                         >
                             <SelectTrigger>
-                                <SelectValue aria-label={props.currentIVDropdownValues[i]}>
-                                    {pascalToSpacedPascal(props.currentIVDropdownValues[i]!)}
+                                <SelectValue
+                                    aria-label={
+                                        props.currentIVDropdownValues[i]
+                                    }
+                                >
+                                    {pascalToSpacedPascal(
+                                        props.currentIVDropdownValues[i]!,
+                                    )}
                                 </SelectValue>
                             </SelectTrigger>
                             <SelectContent>
                                 {IV_DROPDOWN_LIST_VALUES.map((iv) => (
-                                    <SelectItem key={randomString(6)} value={iv}>
+                                    <SelectItem
+                                        key={randomString(6)}
+                                        value={iv}
+                                    >
                                         {pascalToSpacedPascal(iv)}
                                     </SelectItem>
                                 ))}
