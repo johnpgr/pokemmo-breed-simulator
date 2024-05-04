@@ -1,15 +1,17 @@
 "use client"
-import React from "react"
-import { usePokemonToBreed } from "./PokemonToBreedContext"
-import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
-import { assert } from "@/lib/assert"
-import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
-import { PokemonNodeSelect } from "./PokemonNodeSelect"
-import { PokemonIvColors } from "./PokemonIvColors"
-import { useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
-import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
+import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
+import { useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
+import { assert } from "@/lib/assert"
+import React from "react"
+import { PokemonIvColors } from "./PokemonIvColors"
+import { PokemonNodeLines } from "./PokemonNodeLines"
+import { PokemonNodeSelect } from "./PokemonNodeSelect"
+import { usePokemonToBreed } from "./PokemonToBreedContext"
+
 import { Button } from "./ui/button"
+
 import { BreedError, BreedErrorKind, PokemonBreeder } from "@/core/breed"
 
 export function PokemonBreedTree(props: { pokemons: PokemonSpeciesUnparsed[] }) {
@@ -36,13 +38,14 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     React.useEffect(() => {
         const lastRow = ctx.nature ? desired31IvCount : desired31IvCount - 1
         const rowLength = Math.pow(2, lastRow)
-        let isTreeChanged = false
+        let changed = false
 
         //inc by 2 because we only want to breed() on one parent
         for (let col = 0; col < rowLength; col += 2) {
             const pos = new PokemonBreedTreePosition(lastRow, col)
             let node = breedTreeMap[pos.key()]
             let partnerNode = node?.getPartnerNode(breedTreeMap)
+
             const walkTreeBranch = () => {
                 node = node?.getChildNode(breedTreeMap)
                 partnerNode = node?.getPartnerNode(breedTreeMap)
@@ -53,25 +56,33 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     break
                 }
 
-                const error = breeder.breed(breedTreeMap, node, partnerNode)
+                const childNode = node.getChildNode(breedTreeMap)
+                if (!childNode) {
+                    break
+                }
 
-                //TODO: Handle errors
-                if (error) {
-                    if (error.kind === BreedErrorKind.ChildDidNotChange) {
+                const breedResult = breeder.breed(node, partnerNode, childNode)
+
+                if (breedResult instanceof BreedError) {
+                    if (breedResult.kind === BreedErrorKind.ChildDidNotChange || breedResult.kind === BreedErrorKind.IllegalNodePosition) {
                         walkTreeBranch()
                         continue
                     }
 
-                    isTreeChanged = true
+                    node.breedError = breedResult
+                    partnerNode.breedError = breedResult
                     break
                 }
 
-                isTreeChanged = true
+                childNode.species = breedResult
+                node.breedError = undefined
+                partnerNode.breedError = undefined
+                changed = true
                 walkTreeBranch()
             }
         }
 
-        if (isTreeChanged) {
+        if (changed) {
             setBreedTreeMap({ ...breedTreeMap })
         }
     }, [breedTreeMap, breeder, ctx.nature, desired31IvCount, setBreedTreeMap])
@@ -95,7 +106,6 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                                     position={position}
                                     breedTree={breedTreeMap}
                                     rowLength={rowLength}
-                                    isError={false}
                                 >
                                     <PokemonNodeSelect
                                         pokemons={props.pokemons}

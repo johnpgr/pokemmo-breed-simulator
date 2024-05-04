@@ -1,21 +1,21 @@
 "use client"
-import React from "react"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { PokemonNodeInfo } from "./PokemonNodeInfo"
-import { PokemonEggGroup, PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
-import { getColorsByIvs } from "./PokemonIvColors"
-import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
-import { usePokemonToBreed } from "./PokemonToBreedContext"
-import { assert } from "@/lib/assert"
 import { GENDERLESS_POKEMON_EVOLUTION_TREE } from "@/core/consts"
-import { getPokemonSpriteUrl, randomString } from "@/lib/utils"
+import { PokemonEggGroup, PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
-import { Checkbox } from "@/components/ui/checkbox"
+import { assert } from "@/lib/assert"
+import { getPokemonSpriteUrl, randomString } from "@/lib/utils"
 import { Check } from "lucide-react"
-import { NODE_SCALE_BY_COLOR_AMOUNT, SPRITE_SCALE_BY_COLOR_AMOUNT, IV_COLOR_DICT, IvColor } from "./consts"
+import React from "react"
+import { getColorsByIvs } from "./PokemonIvColors"
+import { PokemonNodeInfo } from "./PokemonNodeInfo"
+import { usePokemonToBreed } from "./PokemonToBreedContext"
+import { IV_COLOR_DICT, IvColor, NODE_SCALE_BY_COLOR_AMOUNT, SPRITE_SCALE_BY_COLOR_AMOUNT } from "./consts"
 
 enum SearchMode {
     All,
@@ -45,11 +45,21 @@ export function PokemonNodeSelect(props: {
         assert.exists(currentNode, `Node at ${props.position} should exist`)
 
         currentNode.species = PokemonSpecies.parse(pokemon)
-        if (currentNode.species?.percentageMale === 0) {
-            currentNode.gender = PokemonGender.Genderless
-        } else if (currentNode.gender === PokemonGender.Genderless) {
-            //this means that previously at this node there was a genderless pokemon
-            currentNode.gender = undefined
+
+        switch (true) {
+            case currentNode.species!.eggGroups[0] === PokemonEggGroup.Genderless:
+                currentNode.gender = PokemonGender.Genderless
+                break
+            case currentNode.species!.percentageMale === 0:
+                currentNode.gender = PokemonGender.Female
+                break
+            case currentNode.species!.percentageMale === 100:
+                currentNode.gender = PokemonGender.Male
+                break
+            case currentNode.gender === PokemonGender.Genderless:
+                //this means that previously at this node there was a genderless pokemon
+                currentNode.gender = undefined
+                break
         }
 
         props.setBreedTree((prev) => ({ ...prev }))
@@ -183,26 +193,26 @@ export function PokemonNodeSelect(props: {
                             <ScrollArea className="h-72 w-full">
                                 {pending
                                     ? Array.from({ length: 9 }).map((_, i) => (
-                                          <CommandItem key={`${id}:${i}`} value={""} onSelect={() => {}}></CommandItem>
-                                      ))
+                                        <CommandItem key={`${id}:${i}`} value={""} onSelect={() => { }}></CommandItem>
+                                    ))
                                     : pokemonList
-                                          .filter((pokemon) =>
-                                              pokemon.name.toLowerCase().includes(search.toLowerCase()),
-                                          )
-                                          .map((pokemon) => (
-                                              <CommandItem
-                                                  key={`${id}:${pokemon.name}`}
-                                                  value={pokemon.name}
-                                                  onSelect={setPokemonSpecies}
-                                                  data-cy={`${pokemon.name}-value`}
-                                                  className="pl-8 relative"
-                                              >
-                                                  {currentNode.species?.name === pokemon.name ? (
-                                                      <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
-                                                  ) : null}
-                                                  {pokemon.name}
-                                              </CommandItem>
-                                          ))}
+                                        .filter((pokemon) =>
+                                            pokemon.name.toLowerCase().includes(search.toLowerCase()),
+                                        )
+                                        .map((pokemon) => (
+                                            <CommandItem
+                                                key={`${id}:${pokemon.name}`}
+                                                value={pokemon.name}
+                                                onSelect={setPokemonSpecies}
+                                                data-cy={`${pokemon.name}-value`}
+                                                className="pl-8 relative"
+                                            >
+                                                {currentNode.species?.name === pokemon.name ? (
+                                                    <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
+                                                ) : null}
+                                                {pokemon.name}
+                                            </CommandItem>
+                                        ))}
                             </ScrollArea>
                         </CommandGroup>
                     </Command>

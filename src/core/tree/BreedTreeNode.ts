@@ -2,8 +2,11 @@ import { usePokemonToBreed } from "@/components/PokemonToBreedContext"
 import type { PokemonGender, PokemonIv, PokemonNature, PokemonSpecies } from "../pokemon"
 import { PokemonBreedTreePosition } from "./BreedTreePosition"
 import type { PokemonBreedTreeMap } from "./useBreedTreeMap"
+import type { BreedError } from "../breed"
 
 export class PokemonBreedTreeNode {
+    public breedError: BreedError | undefined
+
     constructor(
         public position: PokemonBreedTreePosition,
         public species?: PokemonSpecies,

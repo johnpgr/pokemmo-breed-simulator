@@ -1,8 +1,7 @@
 import { assert } from "@/lib/assert"
-import type { PokemonBreedTreeNode } from "./tree/BreedTreeNode"
-import { PokemonBreedTreePosition } from "./tree/BreedTreePosition"
-import { PokemonGender, PokemonSpecies } from "./pokemon"
 import { DITTO_PKDX_NR, GENDERLESS_POKEMON_EVOLUTION_TREE } from "./consts"
+import { PokemonGender, PokemonSpecies } from "./pokemon"
+import type { PokemonBreedTreeNode } from "./tree/BreedTreeNode"
 import type { PokemonBreedTreeMap } from "./tree/useBreedTreeMap"
 
 export enum BreedErrorKind {
@@ -14,23 +13,15 @@ export enum BreedErrorKind {
 }
 
 export class BreedError {
-    constructor(
-        public kind: BreedErrorKind,
-        public positions: [PokemonBreedTreePosition, PokemonBreedTreePosition],
-    ) {}
+    constructor(public kind: BreedErrorKind) {}
 }
 
 export class PokemonBreeder {
     public breed(
-        map: PokemonBreedTreeMap,
         parent1: PokemonBreedTreeNode,
         parent2: PokemonBreedTreeNode,
-    ): BreedError | null {
-        const childNode = parent1.getChildNode(map)
-        if (!childNode) {
-            return new BreedError(BreedErrorKind.IllegalNodePosition, [parent1.position, parent2.position])
-        }
-
+        child: PokemonBreedTreeNode,
+    ): BreedError | PokemonSpecies {
         const breedabilityError = this.checkBreedability(parent1, parent2)
         if (breedabilityError) {
             return breedabilityError
@@ -41,16 +32,15 @@ export class PokemonBreeder {
             return childSpecies
         }
 
-        if (childNode.species?.number === childSpecies.number) {
-            return new BreedError(BreedErrorKind.ChildDidNotChange, [parent1.position, parent2.position])
+        if (child.species?.number === childSpecies.number) {
+            return new BreedError(BreedErrorKind.ChildDidNotChange)
         }
 
-        if (childNode.isRootNode()) {
-            return new BreedError(BreedErrorKind.IllegalNodePosition, [parent1.position, parent2.position])
+        if (child.isRootNode()) {
+            return new BreedError(BreedErrorKind.IllegalNodePosition)
         }
 
-        childNode.species = childSpecies
-        return null
+        return childSpecies
     }
 
     private checkBreedability(parent1: PokemonBreedTreeNode, parent2: PokemonBreedTreeNode): BreedError | null {
@@ -71,10 +61,7 @@ export class PokemonBreeder {
                     parent1.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                 ]
             if (!parent1GenderlessEvoTree.includes(parent2.species.number)) {
-                return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility, [
-                    parent1.position,
-                    parent2.position,
-                ])
+                return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility)
             }
         }
 
@@ -90,21 +77,18 @@ export class PokemonBreeder {
                     parent2.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                 ]
             if (!parent2GenderlessEvoTree.includes(parent1.species.number)) {
-                return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility, [
-                    parent1.position,
-                    parent2.position,
-                ])
+                return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility)
             }
         }
 
         const genderCompatible = parent1.gender !== parent2.gender
         if (!genderCompatible) {
-            return new BreedError(BreedErrorKind.GenderCompatibility, [parent1.position, parent2.position])
+            return new BreedError(BreedErrorKind.GenderCompatibility)
         }
 
         const eggTypeCompatible = parent1.species.eggGroups.some((e) => parent2.species!.eggGroups.includes(e))
         if (!eggTypeCompatible) {
-            return new BreedError(BreedErrorKind.EggGroupCompatibility, [parent1.position, parent2.position])
+            return new BreedError(BreedErrorKind.EggGroupCompatibility)
         }
 
         return null
@@ -129,7 +113,7 @@ export class PokemonBreeder {
         const females = [parent1, parent2].filter((p) => p.gender === PokemonGender.Female)
 
         if (females.length !== 1) {
-            return new BreedError(BreedErrorKind.GenderCompatibility, [parent1.position, parent2.position])
+            return new BreedError(BreedErrorKind.GenderCompatibility)
         }
 
         assert.exists(females[0]!.species)

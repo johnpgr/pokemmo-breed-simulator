@@ -1,15 +1,19 @@
 "use client"
-import React from "react"
 import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
+import React from "react"
+
+enum LineDirection {
+    Left,
+    Right,
+}
 
 export function PokemonNodeLines(props: {
     position: PokemonBreedTreePosition
     breedTree: PokemonBreedTreeMap
     children: React.ReactNode
     rowLength: number
-    isError: boolean
 }) {
     const size = 100 / props.rowLength
 
@@ -27,16 +31,17 @@ export function PokemonNodeLines(props: {
         )
     }
 
-    const lineDirection = partnerNode.position.col > node.position.col ? "left" : "right"
-    const color = props.isError ? "bg-red-500" : "bg-foreground/70"
+    const lineDirection = partnerNode.position.col > node.position.col ? LineDirection.Left : LineDirection.Right
+    const hasError = Boolean(node.breedError && partnerNode.breedError)
+    const color = hasError ? "bg-red-500" : "bg-foreground/70"
 
     return (
         <div style={{ flexBasis: `${size}%` }} className="flex items-center justify-center relative">
             {props.children}
             <div
-                className={`absolute w-1/2 h-[1px] ${color} ${lineDirection === "right" ? "-translate-x-1/2" : "translate-x-1/2"}`}
+                className={`absolute w-1/2 h-[1px] ${color} ${lineDirection === LineDirection.Left ? "translate-x-1/2" : "-translate-x-1/2"}`}
             ></div>
-            {lineDirection === "left" ? (
+            {lineDirection === LineDirection.Left ? (
                 <div className={`absolute h-16 w-[1px] ${color} left-full -bottom-[45px]`}></div>
             ) : null}
         </div>
