@@ -151,7 +151,8 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     }
 
                     addErrors(currentNodePos, breedResult)
-                    break
+                    next()
+                    continue
                 }
 
                 if (childNode.isRootNode()) {
