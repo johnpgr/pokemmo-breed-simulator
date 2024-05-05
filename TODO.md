@@ -1,5 +1,7 @@
 # TODO
 
+-   [ ] Add a $ Tracker for current breed, based on the value of the gender guarantee taxes
+-   [ ] Add a color changer for PokemonIvColors
 -   [ ] Add General site info.
 -   [ ] Add sibebar menu.
 -   [ ] Add import/export for breed trees.

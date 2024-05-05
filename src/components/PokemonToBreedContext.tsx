@@ -18,7 +18,7 @@ export function PokemonToBreedContext(props: { children: React.ReactNode }) {
 
     function exportPokemonToBreed(): ExportedPokemonToBreed {
         assert.exists(species, "Attempted to export a targetPokemon before initializing context.")
-        return { species: species.number, ivs }
+        return { species: species.number, ivs, nature }
     }
 
     return (
@@ -77,7 +77,7 @@ export class IVSet {
     static DEFAULT = new IVSet(PokemonIv.HP, PokemonIv.Attack)
 }
 
-export type ExportedPokemonToBreed = { species: number, ivs: IVSet }
+export type ExportedPokemonToBreed = { species: number, ivs: IVSet, nature?: PokemonNature }
 
 export interface IPokemonToBreedContext {
     species: PokemonSpecies | undefined
