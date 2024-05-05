@@ -14,6 +14,7 @@ import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
 import { usePokemonToBreed } from "./PokemonToBreedContext"
 import { Button } from "./ui/button"
+import { toast } from "sonner"
 
 export type BreedErrors = Record<
     BreedTreePositionKey,
@@ -42,6 +43,35 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
         desired31Ivcount: desired31IvCount,
     })
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
+
+    React.useEffect(() => {
+        Object.entries(breedErrors).map(([key, errorKind]) => {
+            const poke = breedTreeMap[key]
+            assert.exists(poke)
+            const partner = poke.getPartnerNode(breedTreeMap)
+            assert.exists(partner)
+            assert.exists(errorKind)
+
+            let errorMsg = ""
+            for (const error of errorKind.values()) {
+                errorMsg += error
+                errorMsg += ", "
+            }
+
+            if (errorMsg.endsWith(", ")) {
+                errorMsg = errorMsg.slice(0, -2)
+            }
+
+            toast.error(`${poke.species?.name} cannot breed with ${partner.species?.name}.`, {
+                description: `Error codes: ${errorMsg}`,
+                action: {
+                    label: "Dismiss",
+                    onClick: () => { }
+                }
+            })
+        })
+
+    }, [breedErrors, breedTreeMap])
 
     React.useEffect(() => {
         const lastRow = ctx.nature ? desired31IvCount : desired31IvCount - 1
@@ -74,7 +104,8 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     break
                 }
 
-                // bind the current node position because walkTreeBranch() will move the node pointer before the errors are set
+                // bind the current node position because walkTreeBranch()
+                // will move the node pointer before the errors are set
                 const currentNodePos = node.position.key()
 
                 const breedResult = PokemonBreed.breed(
@@ -88,8 +119,9 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                         breedResult.has(
                             PokemonBreed.BreedError.ChildDidNotChange,
                         ) ||
+                        //FIXME: if the row 1 has error it will be removed
                         breedResult.has(
-                            PokemonBreed.BreedError.IllegalNodePosition,
+                            PokemonBreed.BreedError.ChildIsRootNode,
                         )
                     ) {
                         setBreedErrors((prev) => {

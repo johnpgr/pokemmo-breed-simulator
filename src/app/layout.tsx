@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ui/themes/ThemeProvider"
 import { ThemeToggle } from "@/components/ui/themes/ThemeToggle"
 import { cn } from "@/lib/utils"
 import { Toaster } from "../components/ui/toaster"
+import { Toaster as ToasterSonner } from "@/components/ui/sonner"
 import "./globals.css"
 
 const fontSans = Inter({
@@ -32,6 +33,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
                     </header>
                     {props.children}
                     <Toaster />
+                    <ToasterSonner />
                 </ThemeProvider>
             </body>
         </html>

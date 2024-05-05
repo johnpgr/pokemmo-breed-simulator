@@ -235,9 +235,9 @@ export function PokemonNodeGenderButton(props: {
                                         :{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                            (100 -
-                                                props.currentNode.species
-                                                    .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                                (100 -
+                                                    props.currentNode.species
+                                                        .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
@@ -246,8 +246,8 @@ export function PokemonNodeGenderButton(props: {
                                         :{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                            props.currentNode.species
-                                                .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                                props.currentNode.species
+                                                    .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>

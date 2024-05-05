@@ -42,11 +42,11 @@ export function PokemonIvSelect(props: {
 
     const pokemonCount = props.natured
         ? POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[
-            props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
-        ].natured
+              props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
+          ].natured
         : POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[
-            props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
-        ].natureless
+              props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
+          ].natureless
 
     function handleIvSelectChange(value: PokemonIv, index: number) {
         const newDropDownValues = [...props.currentIVDropdownValues]

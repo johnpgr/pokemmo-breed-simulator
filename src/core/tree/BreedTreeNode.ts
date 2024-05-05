@@ -1,5 +1,5 @@
 import { usePokemonToBreed } from "@/components/PokemonToBreedContext"
-import type {
+import {
     PokemonGender,
     PokemonIv,
     PokemonNature,
@@ -7,6 +7,7 @@ import type {
 } from "../pokemon"
 import { PokemonBreedTreePosition } from "./BreedTreePosition"
 import type { PokemonBreedTreeMap } from "./useBreedTreeMap"
+import { DITTO_PKDX_NR } from "../consts"
 
 export class PokemonBreedTreeNode {
     constructor(
@@ -77,5 +78,13 @@ export class PokemonBreedTreeNode {
 
     public isRootNode(): boolean {
         return this.position.key() === "0,0"
+    }
+
+    public isDitto(): boolean {
+        return this.species?.number === DITTO_PKDX_NR
+    }
+
+    public isGenderless(): boolean {
+        return this.gender === PokemonGender.Genderless
     }
 }

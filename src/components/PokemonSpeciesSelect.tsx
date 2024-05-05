@@ -30,15 +30,10 @@ export function PokemonSpeciesSelect(props: {
     const [search, setSearch] = React.useState("")
 
     function handleSpeciesSelect(pokemon: PokemonSpeciesUnparsed) {
-        props.setCurrentSelectedNode(
-            (prev) => ({
-                ...prev,
-                species:
-                    PokemonSpecies.parse(
-                        pokemon,
-                    ),
-            }),
-        )
+        props.setCurrentSelectedNode((prev) => ({
+            ...prev,
+            species: PokemonSpecies.parse(pokemon),
+        }))
         setIsOpen(false)
     }
 
@@ -94,7 +89,9 @@ export function PokemonSpeciesSelect(props: {
                                         <CommandItem
                                             key={`pokemon_to_breed:${pokemon.name}`}
                                             value={pokemon.name}
-                                            onSelect={() => handleSpeciesSelect(pokemon)}
+                                            onSelect={() =>
+                                                handleSpeciesSelect(pokemon)
+                                            }
                                             data-cy={`${pokemon.name}-value`}
                                             className="pl-8 relative"
                                         >
