@@ -4,7 +4,7 @@ import { PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import {
-    BreedTreePositionKey,
+    PokemonBreedTreePositionKey,
     useBreedTreeMap,
 } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
@@ -17,7 +17,7 @@ import { usePokemonToBreed } from "./PokemonToBreedContext"
 import { Button } from "./ui/button"
 
 export type BreedErrors = Record<
-    BreedTreePositionKey,
+    PokemonBreedTreePositionKey,
     Set<PokemonBreed.BreedError> | undefined
 >
 
@@ -44,15 +44,35 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     })
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
 
+    function deleteErrors(pos: PokemonBreedTreePositionKey) {
+        setBreedErrors((prev) => {
+            delete prev[pos]
+            return { ...prev }
+        })
+    }
+
+    function addErrors(pos: PokemonBreedTreePositionKey, errors: Set<PokemonBreed.BreedError>) {
+        setBreedErrors((prev) => {
+            prev[pos] = errors
+            return { ...prev }
+        })
+    }
+
     React.useEffect(() => {
         Object.entries(breedErrors).map(([key, errorKind]) => {
-            assert.exists(errorKind)
+            if (!errorKind) {
+                return
+            }
 
             const poke = breedTreeMap[key]
-            assert.exists(poke)
+            if (!poke?.species) {
+                return
+            }
 
             const partner = poke.getPartnerNode(breedTreeMap)
-            assert.exists(partner)
+            if (!partner?.species) {
+                return
+            }
 
             let errorMsg = ""
             for (const error of errorKind.values()) {
@@ -65,7 +85,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
             }
 
             toast.error(
-                `${poke.species?.name} cannot breed with ${partner.species?.name}.`,
+                `${poke.species.name} cannot breed with ${partner.species.name}.`,
                 {
                     description: `Error codes: ${errorMsg}`,
                     action: {
@@ -75,7 +95,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                 },
             )
         })
-    }, [breedErrors, breedTreeMap])
+    }, [breedErrors])
 
     React.useEffect(() => {
         const lastRow = ctx.nature ? desired31IvCount : desired31IvCount - 1
@@ -88,12 +108,16 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
             let node = breedTreeMap[pos.key()]
             let partnerNode = node?.getPartnerNode(breedTreeMap)
 
-            const next = () => {
+            function next() {
                 node = node?.getChildNode(breedTreeMap)
                 partnerNode = node?.getPartnerNode(breedTreeMap)
             }
 
             while (node && partnerNode) {
+                // bind the current node position because walkTreeBranch()
+                // will move the node pointer before the errors are set
+                const currentNodePos = node.position.key()
+
                 if (
                     !node.gender ||
                     !partnerNode.gender ||
@@ -101,10 +125,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     !partnerNode.species
                 ) {
                     if (breedErrors[pos.key()]) {
-                        setBreedErrors((prev) => {
-                            delete breedErrors[pos.key()]
-                            return { ...prev }
-                        })
+                        deleteErrors(currentNodePos)
                     }
                     break
                 }
@@ -114,42 +135,28 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     break
                 }
 
-                // bind the current node position because walkTreeBranch()
-                // will move the node pointer before the errors are set
-                const currentNodePos = node.position.key()
-
                 const breedResult = PokemonBreed.breed(
                     node,
                     partnerNode,
                     childNode,
                 )
-                console.log(breedResult)
 
                 if (!(breedResult instanceof PokemonSpecies)) {
                     if (breedResult.has(
                         PokemonBreed.BreedError.ChildDidNotChange,
                     )) {
-                        setBreedErrors((prev) => {
-                            delete prev[currentNodePos]
-                            return { ...prev }
-                        })
+                        deleteErrors(currentNodePos)
                         next()
                         continue
                     }
 
-                    setBreedErrors((prev) => {
-                        prev[currentNodePos] = breedResult
-                        return { ...prev }
-                    })
+                    addErrors(currentNodePos, breedResult)
                     break
                 }
 
                 changed = true
                 childNode.species = breedResult
-                setBreedErrors((prev) => {
-                    delete prev[currentNodePos]
-                    return { ...prev }
-                })
+                deleteErrors(currentNodePos)
                 next()
             }
         }
@@ -157,13 +164,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
         if (changed) {
             setBreedTreeMap({ ...breedTreeMap })
         }
-    }, [
-        breedTreeMap,
-        ctx.nature,
-        desired31IvCount,
-        setBreedTreeMap,
-        setBreedErrors,
-    ])
+    }, [breedTreeMap, ctx.nature, desired31IvCount, setBreedTreeMap, setBreedErrors])
 
     return (
         <div className="flex flex-col-reverse items-center gap-8 pb-16">

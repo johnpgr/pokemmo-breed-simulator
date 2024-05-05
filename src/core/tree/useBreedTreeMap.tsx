@@ -6,9 +6,9 @@ import { PokemonBreederKind } from "../pokemon"
 import { PokemonBreedTreeNode } from "./BreedTreeNode"
 import { PokemonBreedTreePosition } from "./BreedTreePosition"
 
-export type BreedTreePositionKey = string
+export type PokemonBreedTreePositionKey = string
 export type PokemonBreedTreeMap = Record<
-    BreedTreePositionKey,
+    PokemonBreedTreePositionKey,
     PokemonBreedTreeNode
 >
 
@@ -34,7 +34,7 @@ export function useBreedTreeMap(props: {
 
         const lastRowBreeders =
             POKEMON_BREEDTREE_LASTROW_MAPPING[
-                props.desired31Ivcount as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING
+            props.desired31Ivcount as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING
             ]
         const lastRowBreedersPositions = natured
             ? lastRowBreeders.natured
