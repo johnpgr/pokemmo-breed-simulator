@@ -34,11 +34,20 @@ export function breed(
     if (!(childSpecies instanceof PokemonSpecies)) {
         errors.add(childSpecies)
     } else {
-        if (
-            child.isRootNode() &&
-            child.species?.number !== childSpecies.number
-        ) {
-            errors.add(BreedError.RootNodeSpeciesMismatch)
+        if (child.isRootNode()) {
+            if (child.isGenderless()) {
+                const rootNodeGenderlessTree =
+                    GENDERLESS_POKEMON_EVOLUTION_TREE[
+                        child.species!
+                            .number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
+                    ]
+
+                if (!rootNodeGenderlessTree.includes(childSpecies.number)) {
+                    errors.add(BreedError.RootNodeSpeciesMismatch)
+                }
+            } else if (child.species?.number !== childSpecies.number) {
+                errors.add(BreedError.RootNodeSpeciesMismatch)
+            }
         } else {
             if (child.species?.number === childSpecies.number) {
                 errors.add(BreedError.ChildDidNotChange)

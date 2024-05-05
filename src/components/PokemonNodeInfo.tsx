@@ -189,7 +189,7 @@ export function PokemonNodeGenderButton(props: {
                     variant={"outline"}
                     className="rounded-full border p-[6px] h-fit w-fit"
                 >
-                    {!gender || props.currentNode.isGenderless() ? (
+                    {!gender || props.currentNode.isGenderless() || props.currentNode.isDitto() ? (
                         <HelpCircle size={20} />
                     ) : gender === PokemonGender.Female ? (
                         <Female className="h-5 w-5 fill-pink-500 antialiased" />
@@ -200,7 +200,7 @@ export function PokemonNodeGenderButton(props: {
             </PopoverTrigger>
             <PopoverContent className="max-w-xs w-full">
                 <div className="flex flex-col items-center gap-6">
-                    {props.currentNode.isGenderless() ? (
+                    {props.currentNode.isGenderless() || props.currentNode.isDitto() ? (
                         <i className="text-sm text-foreground/70">
                             This Pokemon species can&apos;t have a gender
                         </i>
