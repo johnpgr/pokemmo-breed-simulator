@@ -102,19 +102,16 @@ export class PokemonSpecies {
         const types = Object.values(PokemonType)
         const eggGroups = Object.values(PokemonEggGroup)
 
-        //@ts-ignore
-        assert(types.includes(data.types[0]), "Invalid type")
+        assert(types.includes(data.types[0]!), "Invalid type")
         if (data.types[1]) {
-            //@ts-ignore
             assert(types.includes(data.types[1]), "Invalid type")
         }
-        //@ts-ignore
+
         assert(
-            eggGroups.includes(data.eggGroups[0]),
+            eggGroups.includes(data.eggGroups[0]!),
             `Invalid egg group ${data.eggGroups[0]} valids are ${eggGroups}`,
         )
         if (data.eggGroups[1]) {
-            //@ts-ignore
             assert(
                 eggGroups.includes(data.eggGroups[1]),
                 `Invalid egg group ${data.eggGroups[1]} valids are ${eggGroups}`,
@@ -124,10 +121,11 @@ export class PokemonSpecies {
         return new PokemonSpecies(
             data.number,
             data.name,
-            //@ts-ignore
-            [data.types[0], data.types[1]],
-            //@ts-ignore
-            [data.eggGroups[0], data.eggGroups[1]],
+            [data.types[0] as PokemonType, data.types[1] as PokemonType],
+            [
+                data.eggGroups[0] as PokemonEggGroup,
+                data.eggGroups[1] as PokemonEggGroup | undefined,
+            ],
             data.percentageMale,
         )
     }
