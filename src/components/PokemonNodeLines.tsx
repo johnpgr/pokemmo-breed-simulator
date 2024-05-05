@@ -2,6 +2,7 @@
 import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
+import { run } from "@/lib/utils"
 import React from "react"
 import { BreedErrors } from "./PokemonBreedTree"
 
@@ -20,7 +21,7 @@ export function PokemonNodeLines(props: {
     const size = 100 / props.rowLength
 
     const node = props.breedTree[props.position.key()]
-    assert.exists(node, "Node exists")
+    assert.exists(node, "Node should exist in PokemonNodeLines")
 
     const partnerNode = node.getPartnerNode(props.breedTree)
 
@@ -43,7 +44,16 @@ export function PokemonNodeLines(props: {
     const hasError =
         props.breedErrors[node.position.key()] ||
         props.breedErrors[partnerNode.position.key()]
-    const color = hasError ? "bg-red-500" : "bg-foreground/70"
+
+    const color = run(() => {
+        if (hasError) {
+            return "bg-red-500"
+        }
+        if (node.species && node.gender && partnerNode.species && partnerNode.gender) {
+            return "bg-green-500"
+        }
+        return "bg-foreground/70"
+    })
 
     return (
         <div
