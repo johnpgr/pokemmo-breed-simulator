@@ -96,6 +96,10 @@ export function PokemonToBreedSelect(props: {
         ctx.setPokemon(currentPokemonInSelect.species)
     }
 
+    if (ctx.pokemon) {
+        return null
+    }
+
     return (
         <form
             className="mb-4 container max-w-screen-xl mx-auto flex flex-col items-center gap-4"
