@@ -64,12 +64,12 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                 return
             }
 
-            const poke = breedTreeMap[key]
-            if (!poke?.species) {
+            const node = breedTreeMap[key]
+            if (!node?.species) {
                 return
             }
 
-            const partner = poke.getPartnerNode(breedTreeMap)
+            const partner = node.getPartnerNode(breedTreeMap)
             if (!partner?.species) {
                 return
             }
@@ -85,7 +85,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
             }
 
             toast.error(
-                `${poke.species.name} cannot breed with ${partner.species.name}.`,
+                `${node.species.name} cannot breed with ${partner.species.name}.`,
                 {
                     description: `Error codes: ${errorMsg}`,
                     action: {
@@ -114,7 +114,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
             }
 
             while (node && partnerNode) {
-                // bind the current node position because walkTreeBranch()
+                // bind the current node position because next()
                 // will move the node pointer before the errors are set
                 const currentNodePos = node.position.key()
 
@@ -152,6 +152,12 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
 
                     addErrors(currentNodePos, breedResult)
                     break
+                }
+
+                if (childNode.isRootNode()) {
+                    deleteErrors(currentNodePos)
+                    next()
+                    continue
                 }
 
                 changed = true
