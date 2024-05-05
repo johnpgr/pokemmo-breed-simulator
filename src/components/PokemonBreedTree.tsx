@@ -1,6 +1,6 @@
 "use client"
 import * as PokemonBreed from "@/core/breed"
-import { PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import {
@@ -156,6 +156,13 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
 
                 changed = true
                 childNode.species = breedResult
+                if (childNode.species.percentageMale === 0) {
+                    childNode.gender = PokemonGender.Female
+                } else if (childNode.species.percentageMale === 100) {
+                    childNode.gender = PokemonGender.Male
+                } else if (childNode.isGenderless()) {
+                    childNode.gender = PokemonGender.Genderless
+                }
                 deleteErrors(currentNodePos)
                 next()
             }

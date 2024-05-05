@@ -2,8 +2,6 @@ import { assert } from "@/lib/assert"
 import { PokemonBreederKind } from "./pokemon"
 import { PokemonBreedTreePosition } from "./tree/BreedTreePosition"
 
-export const DITTO_PKDX_NR = 132
-
 /// This represents the evolution tree of a genderless egg group pokemon
 export type GenderlessPokemonEvolutionTree = Readonly<[number, number, number?]>
 

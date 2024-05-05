@@ -1,5 +1,5 @@
 import { assert } from "@/lib/assert"
-import { DITTO_PKDX_NR, GENDERLESS_POKEMON_EVOLUTION_TREE } from "./consts"
+import { GENDERLESS_POKEMON_EVOLUTION_TREE } from "./consts"
 import { PokemonGender, PokemonSpecies } from "./pokemon"
 import type { PokemonBreedTreeNode } from "./tree/BreedTreeNode"
 
