@@ -100,6 +100,12 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     !node.species ||
                     !partnerNode.species
                 ) {
+                    if (breedErrors[pos.key()]) {
+                        setBreedErrors((prev) => {
+                            delete breedErrors[pos.key()]
+                            return { ...prev }
+                        })
+                    }
                     break
                 }
 
@@ -117,6 +123,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     partnerNode,
                     childNode,
                 )
+                console.log(breedResult)
 
                 if (!(breedResult instanceof PokemonSpecies)) {
                     if (breedResult.has(
