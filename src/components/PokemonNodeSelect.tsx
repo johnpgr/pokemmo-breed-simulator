@@ -109,17 +109,17 @@ export function PokemonNodeSelect(props: {
 
     const filterPokemonByEggGroups =
         React.useCallback((): PokemonSpeciesUnparsed[] => {
-            assert.exists(ctx.pokemon, "Pokemon in context should exist")
+            assert.exists(ctx.species, "Pokemon in context should exist")
             const newList: PokemonSpeciesUnparsed[] = []
 
             const ditto = props.pokemons.find((poke) => poke.number === 132)
             assert.exists(ditto, "Ditto should exist")
             newList.push(ditto)
 
-            if (ctx.pokemon.eggGroups.includes(PokemonEggGroup.Genderless)) {
+            if (ctx.species.eggGroups.includes(PokemonEggGroup.Genderless)) {
                 const breedable =
                     GENDERLESS_POKEMON_EVOLUTION_TREE[
-                    ctx.pokemon
+                    ctx.species
                         .number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                     ]
 
@@ -133,7 +133,7 @@ export function PokemonNodeSelect(props: {
             for (const poke of props.pokemons) {
                 if (
                     !poke.eggGroups.some((e) =>
-                        ctx.pokemon!.eggGroups.includes(e),
+                        ctx.species!.eggGroups.includes(e),
                     )
                 ) {
                     continue
@@ -143,7 +143,7 @@ export function PokemonNodeSelect(props: {
             }
 
             return newList
-        }, [ctx.pokemon, props.pokemons])
+        }, [ctx.species, props.pokemons])
 
     const pokemonList = React.useMemo(() => {
         return searchMode === SearchMode.All
@@ -234,7 +234,7 @@ export function PokemonNodeSelect(props: {
                                 }
                                 onCheckedChange={handleSearchModeChange}
                             />
-                            Show only {ctx.pokemon?.name}&apos;s egg groups
+                            Show only {ctx.species?.name}&apos;s egg groups
                         </div>
                         <CommandEmpty>
                             {!pending ? "No results" : ""}

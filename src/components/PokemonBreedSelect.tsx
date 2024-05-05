@@ -93,10 +93,10 @@ export function PokemonToBreedSelect(props: {
             ),
         )
         ctx.setNature(currentPokemonInSelect.nature)
-        ctx.setPokemon(currentPokemonInSelect.species)
+        ctx.setSpecies(currentPokemonInSelect.species)
     }
 
-    if (ctx.pokemon) {
+    if (ctx.species) {
         return null
     }
 

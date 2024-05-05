@@ -12,19 +12,25 @@ export const PokemonToBreedContextPrimitive =
     React.createContext<IPokemonToBreedContext | null>(null)
 
 export function PokemonToBreedContext(props: { children: React.ReactNode }) {
-    const [pokemon, setPokemon] = React.useState<PokemonSpecies>()
+    const [species, setSpecies] = React.useState<PokemonSpecies>()
     const [nature, setNature] = React.useState<PokemonNature>()
     const [ivs, setIvs] = React.useState<IVSet>(IVSet.DEFAULT)
+
+    function exportPokemonToBreed(): ExportedPokemonToBreed {
+        assert.exists(species, "Attempted to export a targetPokemon before initializing context.")
+        return { species: species.number, ivs }
+    }
 
     return (
         <PokemonToBreedContextPrimitive.Provider
             value={{
-                pokemon,
-                setPokemon,
+                species,
+                setSpecies,
                 nature,
                 setNature,
                 ivs,
                 setIvs,
+                exportPokemonToBreed,
             }}
         >
             {props.children}
@@ -49,7 +55,7 @@ export class IVSet {
         public C?: PokemonIv,
         public D?: PokemonIv,
         public E?: PokemonIv,
-    ) {}
+    ) { }
 
     public get(kind: PokemonBreederKind): PokemonIv | undefined {
         switch (kind) {
@@ -71,11 +77,14 @@ export class IVSet {
     static DEFAULT = new IVSet(PokemonIv.HP, PokemonIv.Attack)
 }
 
+export type ExportedPokemonToBreed = { species: number, ivs: IVSet }
+
 export interface IPokemonToBreedContext {
-    pokemon: PokemonSpecies | undefined
-    setPokemon: React.Dispatch<React.SetStateAction<PokemonSpecies | undefined>>
+    species: PokemonSpecies | undefined
+    setSpecies: React.Dispatch<React.SetStateAction<PokemonSpecies | undefined>>
     ivs: IVSet
     setIvs: React.Dispatch<React.SetStateAction<IVSet>>
     nature: PokemonNature | undefined
     setNature: React.Dispatch<React.SetStateAction<PokemonNature | undefined>>
+    exportPokemonToBreed: () => ExportedPokemonToBreed
 }

@@ -2,8 +2,8 @@ import type { IVSet } from "@/components/PokemonToBreedContext"
 import { assert } from "@/lib/assert"
 import React from "react"
 import { POKEMON_BREEDTREE_LASTROW_MAPPING } from "../consts"
-import { PokemonBreederKind } from "../pokemon"
-import { PokemonBreedTreeNode } from "./BreedTreeNode"
+import { PokemonBreederKind, PokemonGender } from "../pokemon"
+import { ExportedNode, PokemonBreedTreeNode } from "./BreedTreeNode"
 import { PokemonBreedTreePosition } from "./BreedTreePosition"
 
 export type PokemonBreedTreePositionKey = string
@@ -11,13 +11,14 @@ export type PokemonBreedTreeMap = Record<
     PokemonBreedTreePositionKey,
     PokemonBreedTreeNode
 >
+export type ExportedBreedTree = Record<PokemonBreedTreePositionKey, ExportedNode>
 
 export function useBreedTreeMap(props: {
     finalPokemonNode: PokemonBreedTreeNode
     finalPokemonIvMap: IVSet
     desired31Ivcount: number
 }) {
-    return React.useState<PokemonBreedTreeMap>(() => {
+    const [breedTree, setBreedTree] = React.useState<PokemonBreedTreeMap>(() => {
         const map: PokemonBreedTreeMap = {}
         map[props.finalPokemonNode.position.key()] = props.finalPokemonNode
 
@@ -118,4 +119,17 @@ export function useBreedTreeMap(props: {
 
         return map
     })
+
+    function exportTree(): ExportedBreedTree {
+        const exported: ExportedBreedTree = {}
+        for (const [key, node] of Object.entries(breedTree)) {
+            if (node.isRootNode()) {
+                continue
+            }
+            exported[key] = node.exportNode()
+        }
+        return exported
+    }
+
+    return [breedTree, setBreedTree, exportTree] as const
 }

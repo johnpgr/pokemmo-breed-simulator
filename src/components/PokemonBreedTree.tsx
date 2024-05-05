@@ -25,7 +25,7 @@ export function PokemonBreedTree(props: {
     pokemons: PokemonSpeciesUnparsed[]
 }) {
     const ctx = usePokemonToBreed()
-    if (!ctx.pokemon) {
+    if (!ctx.species) {
         return null
     }
 
@@ -34,10 +34,10 @@ export function PokemonBreedTree(props: {
 
 function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     const ctx = usePokemonToBreed()
-    assert.exists(ctx.pokemon, "Pokemon must be defined in useBreedMap")
+    assert.exists(ctx.species, "PokemonSpecies must be defined in useBreedMap")
 
     const desired31IvCount = Object.values(ctx.ivs).filter(Boolean).length
-    const [breedTreeMap, setBreedTreeMap] = useBreedTreeMap({
+    const [breedTreeMap, setBreedTreeMap, exportTree] = useBreedTreeMap({
         finalPokemonNode: PokemonBreedTreeNode.ROOT(ctx),
         finalPokemonIvMap: ctx.ivs,
         desired31Ivcount: desired31IvCount,
@@ -56,6 +56,12 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
             prev[pos] = errors
             return { ...prev }
         })
+    }
+
+    function handleExport() {
+        const breedTarget = ctx.exportPokemonToBreed()
+        const breedTree = exportTree()
+        console.log(JSON.stringify({ breedTarget, breedTree }, null, 4))
     }
 
     React.useEffect(() => {
@@ -240,6 +246,13 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                         onClick={() => console.log(ctx)}
                     >
                         Debug (Context)
+                    </Button>
+                    <Button
+                        variant={"secondary"}
+                        size={"sm"}
+                        onClick={handleExport}
+                    >
+                        Export as JSON
                     </Button>
                 </div>
             ) : null}

@@ -9,6 +9,12 @@ import {
 import { PokemonBreedTreePosition } from "./BreedTreePosition"
 import type { PokemonBreedTreeMap } from "./useBreedTreeMap"
 
+export type ExportedNode = {
+    species?: number
+    gender?: PokemonGender
+    nickname?: string
+}
+
 export class PokemonBreedTreeNode {
     constructor(
         public position: PokemonBreedTreePosition,
@@ -28,11 +34,19 @@ export class PokemonBreedTreeNode {
     ): PokemonBreedTreeNode {
         return new PokemonBreedTreeNode(
             new PokemonBreedTreePosition(0, 0),
-            ctx.pokemon,
+            ctx.species,
             undefined,
             ctx.nature,
             Object.values(ctx.ivs).filter(Boolean),
         )
+    }
+
+    public exportNode(): ExportedNode {
+        return {
+            species: this.species?.number,
+            gender: this.gender,
+            nickname: this.nickname,
+        }
     }
 
     public getChildNode(
