@@ -9,12 +9,12 @@ import {
 } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import React from "react"
+import { toast } from "sonner"
 import { PokemonIvColors } from "./PokemonIvColors"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
 import { usePokemonToBreed } from "./PokemonToBreedContext"
 import { Button } from "./ui/button"
-import { toast } from "sonner"
 
 export type BreedErrors = Record<
     BreedTreePositionKey,
@@ -46,11 +46,13 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
 
     React.useEffect(() => {
         Object.entries(breedErrors).map(([key, errorKind]) => {
+            assert.exists(errorKind)
+
             const poke = breedTreeMap[key]
             assert.exists(poke)
+
             const partner = poke.getPartnerNode(breedTreeMap)
             assert.exists(partner)
-            assert.exists(errorKind)
 
             let errorMsg = ""
             for (const error of errorKind.values()) {
@@ -62,15 +64,17 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                 errorMsg = errorMsg.slice(0, -2)
             }
 
-            toast.error(`${poke.species?.name} cannot breed with ${partner.species?.name}.`, {
-                description: `Error codes: ${errorMsg}`,
-                action: {
-                    label: "Dismiss",
-                    onClick: () => { }
-                }
-            })
+            toast.error(
+                `${poke.species?.name} cannot breed with ${partner.species?.name}.`,
+                {
+                    description: `Error codes: ${errorMsg}`,
+                    action: {
+                        label: "Dismiss",
+                        onClick: () => { },
+                    },
+                },
+            )
         })
-
     }, [breedErrors, breedTreeMap])
 
     React.useEffect(() => {
@@ -84,7 +88,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
             let node = breedTreeMap[pos.key()]
             let partnerNode = node?.getPartnerNode(breedTreeMap)
 
-            const walkTreeBranch = () => {
+            const next = () => {
                 node = node?.getChildNode(breedTreeMap)
                 partnerNode = node?.getPartnerNode(breedTreeMap)
             }
@@ -115,20 +119,14 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                 )
 
                 if (!(breedResult instanceof PokemonSpecies)) {
-                    if (
-                        breedResult.has(
-                            PokemonBreed.BreedError.ChildDidNotChange,
-                        ) ||
-                        //FIXME: if the row 1 has error it will be removed
-                        breedResult.has(
-                            PokemonBreed.BreedError.ChildIsRootNode,
-                        )
-                    ) {
+                    if (breedResult.has(
+                        PokemonBreed.BreedError.ChildDidNotChange,
+                    )) {
                         setBreedErrors((prev) => {
                             delete prev[currentNodePos]
                             return { ...prev }
                         })
-                        walkTreeBranch()
+                        next()
                         continue
                     }
 
@@ -145,7 +143,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                     delete prev[currentNodePos]
                     return { ...prev }
                 })
-                walkTreeBranch()
+                next()
             }
         }
 

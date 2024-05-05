@@ -8,7 +8,7 @@ export enum BreedError {
     EggGroupCompatibility = "EggGroupCompatibility",
     GenderlessSpeciesCompatibility = "GenderlessSpeciesCompatibility",
     ChildDidNotChange = "ChildDidNotChange",
-    ChildIsRootNode = "ChildIsRootNode",
+    RootNodeSpeciesMismatch = "RootNodeSpeciesMismatch",
 }
 
 export function breed(
@@ -34,12 +34,15 @@ export function breed(
     if (!(childSpecies instanceof PokemonSpecies)) {
         errors.add(childSpecies)
     } else {
-        if (child.species?.number === childSpecies.number) {
-            errors.add(BreedError.ChildDidNotChange)
-        }
-
-        if (child.isRootNode()) {
-            errors.add(BreedError.ChildIsRootNode)
+        if (
+            child.isRootNode() &&
+            child.species?.number !== childSpecies.number
+        ) {
+            errors.add(BreedError.RootNodeSpeciesMismatch)
+        } else {
+            if (child.species?.number === childSpecies.number) {
+                errors.add(BreedError.ChildDidNotChange)
+            }
         }
 
         if (errors.size === 0) {
@@ -147,9 +150,13 @@ function getChildSpecies(
         return parent1.species!
     }
 
-    const [female] = [parent1, parent2].filter(
+    const females = [parent1, parent2].filter(
         (p) => p.gender === PokemonGender.Female,
     )
 
-    return female!.species!
+    if (females.length !== 1) {
+        return BreedError.GenderCompatibility
+    }
+
+    return females[0]!.species!
 }
