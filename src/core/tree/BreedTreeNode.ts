@@ -1,4 +1,4 @@
-import { IVSet } from "@/components/PokemonToBreedContext"
+import { IVSet } from "@/components/PokemonBreedTreeContext"
 import { z } from "zod"
 import {
     PokemonEggGroup,
