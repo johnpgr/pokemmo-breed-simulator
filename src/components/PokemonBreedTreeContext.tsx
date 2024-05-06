@@ -12,7 +12,6 @@ import { ExportedBreedTree } from "@/core/tree/useBreedTreeMap"
 import { ExportedJsonObj } from "./PokemonBreedTree"
 
 export type ExportedTargetPokemon = {
-    species: number
     ivs: IVSet
     nature?: PokemonNature
 }
@@ -51,12 +50,15 @@ export function BreedTreeContext(props: {
             species,
             "Attempted to export a targetPokemon before initializing context.",
         )
-        return { species: species.number, ivs, nature }
+        return { ivs, nature }
     }
 
     function importTargetPokemon(args: ExportedJsonObj) {
+        const rootNode = args.breedTree["0,0"]
+        assert.exists(rootNode, "Failed to import. rootNode not found.")
+
         const speciesUnparsed = props.pokemonSpeciesUnparsed.find(
-            (p) => p.number === args.breedTarget.species,
+            (p) => p.number === rootNode.species,
         )
         assert.exists(
             speciesUnparsed,

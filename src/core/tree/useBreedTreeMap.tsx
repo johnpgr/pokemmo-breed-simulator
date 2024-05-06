@@ -143,9 +143,6 @@ export function useBreedTreeMap(props: {
     function exportTree(): ExportedBreedTree {
         const exported: ExportedBreedTree = {}
         for (const [key, node] of Object.entries(breedTreeMap)) {
-            if (node.isRootNode()) {
-                continue
-            }
             exported[key] = node.exportNode()
         }
         return exported

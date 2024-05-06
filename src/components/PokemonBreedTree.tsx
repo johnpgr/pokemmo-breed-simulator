@@ -45,7 +45,6 @@ export type BreedErrors = Record<
 
 export const ExportedJsonObjSchema = z.object({
     breedTarget: z.object({
-        species: z.number(),
         ivs: z.object({
             A: PokemonIvSchema,
             B: PokemonIvSchema,
