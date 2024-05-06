@@ -19,6 +19,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { Textarea } from "./ui/textarea"
 import { ArchiveRestore, Import, Save } from "lucide-react"
 import { ScrollArea } from "./ui/scroll-area"
+import { generateErrorMessage } from "zod-error"
 
 /**
  * This type is used to represent the state of the full pokemon node that is going to be used in the PokemonToBreedContext
@@ -102,18 +103,28 @@ export function PokemonToBreedSelect(props: {
     }
 
     function handleImportJson(json: string) {
-        const unparsed = JSON.parse(json)
-        const res = ExportedJsonObjSchema.safeParse(unparsed)
-        if (res.error) {
+        let dataUnparsed
+
+        try {
+            dataUnparsed = JSON.parse(json)
+        } catch (error) {
             toast({
                 title: "Failed to import the breed tree JSON content.",
-                description: (
-                    <p>
-                        {res.error.format()._errors.map((error, i) => (
-                            <p key={`error:${i}`}>{error}</p>
-                        ))}
-                    </p>
-                ),
+                description: (error as Error).message,
+                variant: "destructive",
+            })
+            return
+
+        }
+
+        const res = ExportedJsonObjSchema.safeParse(dataUnparsed)
+
+        if (res.error) {
+            const errorMsg = generateErrorMessage(res.error.issues)
+
+            toast({
+                title: "Failed to import the breed tree JSON content.",
+                description: errorMsg,
                 variant: "destructive",
             })
             return

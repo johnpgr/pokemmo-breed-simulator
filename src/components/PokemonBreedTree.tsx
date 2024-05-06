@@ -1,5 +1,6 @@
 "use client"
 import * as PokemonBreed from "@/core/breed"
+import { generateErrorMessage } from "zod-error"
 import {
     PokemonGender,
     PokemonIvSchema,
@@ -317,7 +318,7 @@ function PokemonBreedTreeFinal(props: {
                     </Button>
                 </div>
             ) : null}
-            <ExportJsonButton
+            <ImportExportButton
                 handleExportJson={handleExport}
                 setHasImported={setHasImported}
                 importTree={importTree}
@@ -327,7 +328,7 @@ function PokemonBreedTreeFinal(props: {
     )
 }
 
-function ExportJsonButton(props: {
+function ImportExportButton(props: {
     handleExportJson: () => string
     setHasImported: React.Dispatch<React.SetStateAction<boolean>>
     importTree: (exportedTree?: ExportedBreedTree) => void
@@ -340,23 +341,27 @@ function ExportJsonButton(props: {
         const unparsed = JSON.parse(jsonData)
         const res = ExportedJsonObjSchema.safeParse(unparsed)
         if (res.error) {
+            const errorMsg = generateErrorMessage(res.error.issues)
+
             toast({
                 title: "Failed to save the breed tree JSON content.",
-                description: (
-                    <p>
-                        {res.error.format()._errors.map((error, i) => (
-                            <p key={`error:${i}`}>{error}</p>
-                        ))}
-                    </p>
-                ),
+                description: errorMsg,
                 variant: "destructive",
             })
             return
         }
+        try {
+            ctx.importTargetPokemon(res.data)
+            props.setHasImported(false)
+            props.importTree(ctx.importedTree)
+        } catch (error) {
+            toast({
+                title: "Failed to save the breed tree JSON content.",
+                description: (error as Error).message ?? "",
+                variant: "destructive",
+            })
+        }
 
-        ctx.importTargetPokemon(res.data)
-        props.setHasImported(false)
-        props.importTree(ctx.importedTree)
     }
 
     return (
