@@ -1,4 +1,5 @@
 import { assert } from "@/lib/assert"
+import { z } from "zod"
 
 export enum PokemonType {
     Fire = "Fire",
@@ -47,6 +48,7 @@ export enum PokemonNature {
     Careful = "Careful",
     Quirky = "Quirky",
 }
+export const PokemonNatureSchema = z.nativeEnum(PokemonNature)
 
 export enum PokemonEggGroup {
     Monster = "Monster",
@@ -74,12 +76,14 @@ export enum PokemonIv {
     SpecialDefense = "SpecialDefense",
     Speed = "Speed",
 }
+export const PokemonIvSchema = z.nativeEnum(PokemonIv)
 
 export enum PokemonGender {
     Female = "Female",
     Male = "Male",
     Genderless = "Genderless",
 }
+export const PokemonGenderSchema = z.nativeEnum(PokemonGender)
 
 export type PokemonSpeciesUnparsed = {
     number: number

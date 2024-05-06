@@ -1,19 +1,29 @@
 "use client"
 import * as PokemonBreed from "@/core/breed"
-import { PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
-import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
+import {
+    PokemonGender,
+    PokemonIvSchema,
+    PokemonNatureSchema,
+    PokemonSpecies,
+    PokemonSpeciesUnparsed,
+} from "@/core/pokemon"
+import {
+    ExportedNodeSchema,
+    PokemonBreedTreeNode,
+} from "@/core/tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import {
     PokemonBreedTreePositionKey,
-    useBreedTreeMap,
+    useBreedTreeMap
 } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import React from "react"
 import { toast } from "sonner"
+import { z } from "zod"
+import { useBreedTreeContext } from "./PokemonBreedTreeContext"
 import { PokemonIvColors } from "./PokemonIvColors"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
-import { usePokemonToBreed } from "./PokemonToBreedContext"
 import { Button } from "./ui/button"
 
 export type BreedErrors = Record<
@@ -21,28 +31,58 @@ export type BreedErrors = Record<
     Set<PokemonBreed.BreedError> | undefined
 >
 
+export const ExportedJsonObjSchema = z.object({
+    breedTarget: z.object({
+        species: z.number(),
+        ivs: z.object({
+            A: PokemonIvSchema,
+            B: PokemonIvSchema,
+            C: PokemonIvSchema.optional(),
+            D: PokemonIvSchema.optional(),
+            E: PokemonIvSchema.optional(),
+        }),
+        nature: PokemonNatureSchema.optional(),
+    }),
+    breedTree: z.record(z.string(), ExportedNodeSchema),
+})
+export type ExportedJsonObj = z.infer<typeof ExportedJsonObjSchema>
+
 export function PokemonBreedTree(props: {
-    pokemons: PokemonSpeciesUnparsed[]
+    pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
 }) {
-    const ctx = usePokemonToBreed()
+    const ctx = useBreedTreeContext()
     if (!ctx.species) {
         return null
     }
 
-    return <PokemonBreedTreeFinal pokemons={props.pokemons} />
+    return (
+        <PokemonBreedTreeFinal
+            pokemonSpeciesUnparsed={props.pokemonSpeciesUnparsed}
+        />
+    )
 }
 
-function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
-    const ctx = usePokemonToBreed()
+function PokemonBreedTreeFinal(props: {
+    pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
+}) {
+    const ctx = useBreedTreeContext()
     assert.exists(ctx.species, "PokemonSpecies must be defined in useBreedMap")
 
     const desired31IvCount = Object.values(ctx.ivs).filter(Boolean).length
-    const [breedTreeMap, setBreedTreeMap, exportTree] = useBreedTreeMap({
-        finalPokemonNode: PokemonBreedTreeNode.ROOT(ctx),
-        finalPokemonIvMap: ctx.ivs,
-        desired31Ivcount: desired31IvCount,
-    })
+
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
+    const { breedTreeMap, setBreedTreeMap, exportTree, importTree } =
+        useBreedTreeMap({
+            finalPokemonNode: PokemonBreedTreeNode.ROOT({
+                ivs: ctx.ivs,
+                nature: ctx.nature,
+                species: ctx.species,
+            }),
+            finalPokemonIvSet: ctx.ivs,
+            desired31IvCount,
+            pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
+        })
+    importTree(ctx.importedTree)
 
     function deleteErrors(pos: PokemonBreedTreePositionKey) {
         setBreedErrors((prev) => {
@@ -51,7 +91,10 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
         })
     }
 
-    function addErrors(pos: PokemonBreedTreePositionKey, errors: Set<PokemonBreed.BreedError>) {
+    function addErrors(
+        pos: PokemonBreedTreePositionKey,
+        errors: Set<PokemonBreed.BreedError>,
+    ) {
         setBreedErrors((prev) => {
             prev[pos] = errors
             return { ...prev }
@@ -59,9 +102,10 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
     }
 
     function handleExport() {
-        const breedTarget = ctx.exportPokemonToBreed()
+        const breedTarget = ctx.exportTargetPokemon()
         const breedTree = exportTree()
-        console.log(JSON.stringify({ breedTarget, breedTree }, null, 4))
+        const json = { breedTarget, breedTree } satisfies ExportedJsonObj
+        console.log(JSON.stringify(json, null, 4))
     }
 
     React.useEffect(() => {
@@ -148,9 +192,11 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                 )
 
                 if (!(breedResult instanceof PokemonSpecies)) {
-                    if (breedResult.has(
-                        PokemonBreed.BreedError.ChildDidNotChange,
-                    )) {
+                    if (
+                        breedResult.has(
+                            PokemonBreed.BreedError.ChildDidNotChange,
+                        )
+                    ) {
                         deleteErrors(currentNodePos)
                         next()
                         continue
@@ -184,7 +230,13 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
         if (changed) {
             setBreedTreeMap({ ...breedTreeMap })
         }
-    }, [breedTreeMap, ctx.nature, desired31IvCount, setBreedTreeMap, setBreedErrors])
+    }, [
+        breedTreeMap,
+        ctx.nature,
+        desired31IvCount,
+        setBreedTreeMap,
+        setBreedErrors,
+    ])
 
     return (
         <div className="flex flex-col-reverse items-center gap-8 pb-16">
@@ -213,7 +265,7 @@ function PokemonBreedTreeFinal(props: { pokemons: PokemonSpeciesUnparsed[] }) {
                                     breedErrors={breedErrors}
                                 >
                                     <PokemonNodeSelect
-                                        pokemons={props.pokemons}
+                                        pokemons={props.pokemonSpeciesUnparsed}
                                         position={position}
                                         breedTree={breedTreeMap}
                                         setBreedTree={setBreedTreeMap}

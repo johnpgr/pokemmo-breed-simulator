@@ -1,11 +1,11 @@
 "use client"
-import { usePokemonToBreed } from "./PokemonToBreedContext"
+import { useBreedTreeContext } from "./PokemonBreedTreeContext"
 import type { PokemonIv } from "@/core/pokemon"
 import { pascalToSpacedPascal } from "@/lib/utils"
 import { IvColor, IV_COLOR_DICT } from "./consts"
 
 export function PokemonIvColors() {
-    const ctx = usePokemonToBreed()
+    const ctx = useBreedTreeContext()
 
     return (
         <div className="flex gap-4 mt-4">

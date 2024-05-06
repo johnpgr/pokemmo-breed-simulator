@@ -1,7 +1,9 @@
-import { usePokemonToBreed } from "@/components/PokemonToBreedContext"
+import { IVSet } from "@/components/PokemonToBreedContext"
+import { z } from "zod"
 import {
     PokemonEggGroup,
     PokemonGender,
+    PokemonGenderSchema,
     PokemonIv,
     PokemonNature,
     PokemonSpecies,
@@ -14,6 +16,11 @@ export type ExportedNode = {
     gender?: PokemonGender
     nickname?: string
 }
+export const ExportedNodeSchema = z.object({
+    species: z.number().optional(),
+    gender: PokemonGenderSchema.optional(),
+    nickname: z.string().optional(),
+})
 
 export class PokemonBreedTreeNode {
     constructor(
@@ -29,9 +36,11 @@ export class PokemonBreedTreeNode {
         return new PokemonBreedTreeNode(pos)
     }
 
-    static ROOT(
-        ctx: ReturnType<typeof usePokemonToBreed>,
-    ): PokemonBreedTreeNode {
+    static ROOT(ctx: {
+        species: PokemonSpecies
+        nature?: PokemonNature
+        ivs: IVSet
+    }): PokemonBreedTreeNode {
         return new PokemonBreedTreeNode(
             new PokemonBreedTreePosition(0, 0),
             ctx.species,

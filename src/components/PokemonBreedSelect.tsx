@@ -1,19 +1,22 @@
 "use client"
-import React from "react"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
-import { PokemonNatureSelect } from "./PokemonNatureSelect"
-import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
-import { IVSet, usePokemonToBreed } from "./PokemonToBreedContext"
-import { assert } from "@/lib/assert"
-import { DEFAULT_IV_DROPDOWN_VALUES } from "./consts"
 import type {
     PokemonIv,
     PokemonNature,
     PokemonSpecies,
     PokemonSpeciesUnparsed,
 } from "@/core/pokemon"
+import { assert } from "@/lib/assert"
+import React from "react"
+import { ExportedJsonObjSchema } from "./PokemonBreedTree"
+import { IVSet, useBreedTreeContext } from "./PokemonBreedTreeContext"
 import { PokemonIvSelect } from "./PokemonIvSelect"
+import { PokemonNatureSelect } from "./PokemonNatureSelect"
+import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
+import { DEFAULT_IV_DROPDOWN_VALUES } from "./consts"
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
+import { Textarea } from "./ui/textarea"
 
 /**
  * This type is used to represent the state of the full pokemon node that is going to be used in the PokemonToBreedContext
@@ -26,10 +29,10 @@ export type PokemonNodeInSelect = {
 }
 
 export function PokemonToBreedSelect(props: {
-    pokemons: PokemonSpeciesUnparsed[]
+    pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
 }) {
     const { toast } = useToast()
-    const ctx = usePokemonToBreed()
+    const ctx = useBreedTreeContext()
     const [desired31IVCount, setDesired31IVCount] = React.useState(2)
     const [currentIVDropdownValues, setCurrentIVDropdownValues] =
         React.useState(DEFAULT_IV_DROPDOWN_VALUES)
@@ -96,6 +99,27 @@ export function PokemonToBreedSelect(props: {
         ctx.setSpecies(currentPokemonInSelect.species)
     }
 
+    function handleImportJson(json: string) {
+        const unparsed = JSON.parse(json)
+        const res = ExportedJsonObjSchema.safeParse(unparsed)
+        if (res.error) {
+            toast({
+                title: "Failed to import the breed tree JSON content.",
+                description: (
+                    <p>
+                        {res.error.format()._errors.map((error, i) => (
+                            <p key={`error:${i}`}>{error}</p>
+                        ))}
+                    </p>
+                ),
+                variant: "destructive",
+            })
+            return
+        }
+
+        ctx.importTargetPokemon(res.data)
+    }
+
     if (ctx.species) {
         return null
     }
@@ -109,7 +133,7 @@ export function PokemonToBreedSelect(props: {
             <div className="flex w-full flex-col items-center gap-4">
                 <div className="flex w-full flex-col gap-2">
                     <PokemonSpeciesSelect
-                        pokemons={props.pokemons}
+                        pokemons={props.pokemonSpeciesUnparsed}
                         currentSelectedNode={currentPokemonInSelect}
                         setCurrentSelectedNode={setCurrentPokemonInSelect}
                     />
@@ -137,7 +161,22 @@ export function PokemonToBreedSelect(props: {
                 >
                     Reset
                 </Button>
+                <JsonImportButton handleImportJson={handleImportJson} />
             </div>
         </form>
     )
+}
+
+function JsonImportButton(props: { handleImportJson: (data: string) => void }) {
+    const [jsonData, setJsonData] = React.useState("")
+
+    return <Popover>
+        <PopoverTrigger asChild>
+            <Button type="button" variant={"secondary"}>Import from JSON</Button>
+        </PopoverTrigger>
+        <PopoverContent className="flex flex-col gap-4 w-96">
+            <Textarea className="w-full" rows={10} value={jsonData} onChange={(e) => setJsonData(e.currentTarget?.value ?? "")} />
+            <Button onClick={() => props.handleImportJson(jsonData)}>Submit</Button>
+        </PopoverContent>
+    </Popover>
 }

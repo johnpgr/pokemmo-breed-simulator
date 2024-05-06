@@ -29,7 +29,7 @@ import { Check } from "lucide-react"
 import React from "react"
 import { getColorsByIvs } from "./PokemonIvColors"
 import { PokemonNodeInfo } from "./PokemonNodeInfo"
-import { usePokemonToBreed } from "./PokemonToBreedContext"
+import { useBreedTreeContext } from "./PokemonBreedTreeContext"
 import {
     IV_COLOR_DICT,
     IvColor,
@@ -49,7 +49,7 @@ export function PokemonNodeSelect(props: {
     setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
 }) {
     const id = React.useId()
-    const ctx = usePokemonToBreed()
+    const ctx = useBreedTreeContext()
     const [pending, startTransition] = React.useTransition()
     const [searchMode, setSearchMode] = React.useState(SearchMode.All)
     const [search, setSearch] = React.useState("")

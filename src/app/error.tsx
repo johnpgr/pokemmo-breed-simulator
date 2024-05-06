@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React from "react"
 
 export default function Error(props: {
     error: Error & { digest?: string }
@@ -7,14 +7,11 @@ export default function Error(props: {
 }) {
     React.useEffect(() => {
         console.error(props.error)
-
     }, [props.error])
     return (
         <div>
             <h2>Something went wrong!</h2>
-            <button>
-                Try again
-            </button>
-        </div>)
+            <button>Try again</button>
+        </div>
+    )
 }
-

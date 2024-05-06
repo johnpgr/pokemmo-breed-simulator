@@ -1,8 +1,15 @@
-import type { IVSet } from "@/components/PokemonToBreedContext"
+import type {
+    ExportedTargetPokemon,
+    IVSet,
+} from "@/components/PokemonBreedTreeContext"
 import { assert } from "@/lib/assert"
 import React from "react"
 import { POKEMON_BREEDTREE_LASTROW_MAPPING } from "../consts"
-import { PokemonBreederKind, PokemonGender } from "../pokemon"
+import {
+    PokemonBreederKind,
+    PokemonSpecies,
+    PokemonSpeciesUnparsed,
+} from "../pokemon"
 import { ExportedNode, PokemonBreedTreeNode } from "./BreedTreeNode"
 import { PokemonBreedTreePosition } from "./BreedTreePosition"
 
@@ -11,31 +18,46 @@ export type PokemonBreedTreeMap = Record<
     PokemonBreedTreePositionKey,
     PokemonBreedTreeNode
 >
-export type ExportedBreedTree = Record<PokemonBreedTreePositionKey, ExportedNode>
+export type ExportedBreedTree = Record<
+    PokemonBreedTreePositionKey,
+    ExportedNode
+>
 
 export function useBreedTreeMap(props: {
     finalPokemonNode: PokemonBreedTreeNode
-    finalPokemonIvMap: IVSet
-    desired31Ivcount: number
+    finalPokemonIvSet: IVSet
+    desired31IvCount: number
+    pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
 }) {
-    const [breedTree, setBreedTree] = React.useState<PokemonBreedTreeMap>(() => {
+    const [hasImported, setHasImported] = React.useState(false)
+    const [breedTreeMap, setBreedTreeMap] = React.useState<PokemonBreedTreeMap>(
+        () =>
+            initBreedTree(
+                props.finalPokemonNode,
+                props.finalPokemonIvSet,
+                props.desired31IvCount,
+            ),
+    )
+
+    function initBreedTree(
+        finalPokemonNode: PokemonBreedTreeNode,
+        finalPokemonIvSet: IVSet,
+        desired31Ivcount: number,
+    ): PokemonBreedTreeMap {
         const map: PokemonBreedTreeMap = {}
-        map[props.finalPokemonNode.position.key()] = props.finalPokemonNode
+        map[finalPokemonNode.position.key()] = finalPokemonNode
 
-        const natured = Boolean(props.finalPokemonNode.nature)
+        const natured = Boolean(finalPokemonNode.nature)
 
-        assert.exists(
-            props.finalPokemonNode.ivs,
-            "finalPokemonNode.ivs should exist",
-        )
+        assert.exists(finalPokemonNode.ivs, "finalPokemonNode.ivs should exist")
         assert(
-            [2, 3, 4, 5].includes(props.desired31Ivcount),
+            [2, 3, 4, 5].includes(desired31Ivcount),
             "Invalid generations number",
         )
 
         const lastRowBreeders =
             POKEMON_BREEDTREE_LASTROW_MAPPING[
-            props.desired31Ivcount as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING
+            desired31Ivcount as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING
             ]
         const lastRowBreedersPositions = natured
             ? lastRowBreeders.natured
@@ -50,7 +72,7 @@ export function useBreedTreeMap(props: {
                         position,
                         undefined,
                         undefined,
-                        props.finalPokemonNode.nature,
+                        finalPokemonNode.nature,
                         undefined,
                     )
 
@@ -58,7 +80,7 @@ export function useBreedTreeMap(props: {
                 }
                 default: {
                     const position = PokemonBreedTreePosition.fromKey(k)
-                    const ivs = props.finalPokemonIvMap.get(v)
+                    const ivs = finalPokemonIvSet.get(v)
                     assert.exists(ivs, "Ivs should exist for last row breeders")
 
                     map[position.key()] = new PokemonBreedTreeNode(
@@ -78,9 +100,7 @@ export function useBreedTreeMap(props: {
         // start from the second to last row
         // stops on the first row where the final pokemon node is already set
         // -1 for natured because of the way POKEMON_BREEDTREE_LASTROW_MAPPING is defined
-        let row = natured
-            ? props.desired31Ivcount - 1
-            : props.desired31Ivcount - 2
+        let row = natured ? desired31Ivcount - 1 : desired31Ivcount - 2
         while (row > 0) {
             let col = 0
             while (col < Math.pow(2, row)) {
@@ -118,11 +138,11 @@ export function useBreedTreeMap(props: {
         }
 
         return map
-    })
+    }
 
     function exportTree(): ExportedBreedTree {
         const exported: ExportedBreedTree = {}
-        for (const [key, node] of Object.entries(breedTree)) {
+        for (const [key, node] of Object.entries(breedTreeMap)) {
             if (node.isRootNode()) {
                 continue
             }
@@ -131,5 +151,41 @@ export function useBreedTreeMap(props: {
         return exported
     }
 
-    return [breedTree, setBreedTree, exportTree] as const
+    function importTree(
+        exportedTree?: ExportedBreedTree,
+    ) {
+        if (!exportedTree) {
+            return
+        }
+
+        if (hasImported) {
+            return
+        }
+
+        const breedTreeMapCopy = { ...breedTreeMap }
+
+        for (const [pos, value] of Object.entries(exportedTree)) {
+            const node = breedTreeMapCopy[pos]
+            assert.exists(
+                node,
+                "Failed to import breed tree. Exported tree contains invalid position.",
+            )
+
+            const unparsedSpecies = props.pokemonSpeciesUnparsed.find(
+                (p) => p.number === value.species,
+            )
+            if (unparsedSpecies) {
+                const species = PokemonSpecies.parse(unparsedSpecies)
+                node.species = species
+            }
+
+            node.nickname = value.nickname
+            node.gender = value.gender
+        }
+
+        setBreedTreeMap(breedTreeMapCopy)
+        setHasImported(true)
+    }
+
+    return { breedTreeMap, setBreedTreeMap, exportTree, importTree } as const
 }

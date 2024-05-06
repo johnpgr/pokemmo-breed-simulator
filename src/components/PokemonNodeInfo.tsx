@@ -189,7 +189,9 @@ export function PokemonNodeGenderButton(props: {
                     variant={"outline"}
                     className="rounded-full border p-[6px] h-fit w-fit"
                 >
-                    {!gender || props.currentNode.isGenderless() || props.currentNode.isDitto() ? (
+                    {!gender ||
+                    props.currentNode.isGenderless() ||
+                    props.currentNode.isDitto() ? (
                         <HelpCircle size={20} />
                     ) : gender === PokemonGender.Female ? (
                         <Female className="h-5 w-5 fill-pink-500 antialiased" />
@@ -200,7 +202,8 @@ export function PokemonNodeGenderButton(props: {
             </PopoverTrigger>
             <PopoverContent className="max-w-xs w-full">
                 <div className="flex flex-col items-center gap-6">
-                    {props.currentNode.isGenderless() || props.currentNode.isDitto() ? (
+                    {props.currentNode.isGenderless() ||
+                    props.currentNode.isDitto() ? (
                         <i className="text-sm text-foreground/70">
                             This Pokemon species can&apos;t have a gender
                         </i>
@@ -209,7 +212,10 @@ export function PokemonNodeGenderButton(props: {
                             <ToggleGroup
                                 type="single"
                                 value={gender}
-                                disabled={percentageMale === 100 || percentageMale === 0}
+                                disabled={
+                                    percentageMale === 100 ||
+                                    percentageMale === 0
+                                }
                                 onValueChange={(value) =>
                                     props.setGender(value as PokemonGender)
                                 }
@@ -230,15 +236,17 @@ export function PokemonNodeGenderButton(props: {
                                 </ToggleGroupItem>
                             </ToggleGroup>
                             {props.currentNode.species ? (
-                                <div className={`space-y-2 ${percentageMale === 100 || percentageMale === 0 ? "opacity-50" : ""}`}>
+                                <div
+                                    className={`space-y-2 ${percentageMale === 100 || percentageMale === 0 ? "opacity-50" : ""}`}
+                                >
                                     <i className="text-sm text-foreground/70 flex">
                                         <Female className="h-4 w-4 fill-pink-500 antialiased" />
                                         :{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                            (100 -
-                                                props.currentNode.species
-                                                    .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                                (100 -
+                                                    props.currentNode.species
+                                                        .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
@@ -247,8 +255,8 @@ export function PokemonNodeGenderButton(props: {
                                         :{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                            props.currentNode.species
-                                                .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                                props.currentNode.species
+                                                    .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
