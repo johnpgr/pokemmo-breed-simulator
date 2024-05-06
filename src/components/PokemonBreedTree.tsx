@@ -13,8 +13,9 @@ import {
 } from "@/core/tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import {
+    ExportedBreedTree,
     PokemonBreedTreePositionKey,
-    useBreedTreeMap
+    useBreedTreeMap,
 } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import React from "react"
@@ -25,6 +26,17 @@ import { PokemonIvColors } from "./PokemonIvColors"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
 import { Button } from "./ui/button"
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
+import { Textarea } from "./ui/textarea"
+import { ClipboardCopy, Import, Save } from "lucide-react"
+import { useToast } from "./ui/use-toast"
+import { ScrollArea } from "./ui/scroll-area"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "./ui/tooltip"
 
 export type BreedErrors = Record<
     PokemonBreedTreePositionKey,
@@ -71,17 +83,22 @@ function PokemonBreedTreeFinal(props: {
     const desired31IvCount = Object.values(ctx.ivs).filter(Boolean).length
 
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
-    const { breedTreeMap, setBreedTreeMap, exportTree, importTree } =
-        useBreedTreeMap({
-            finalPokemonNode: PokemonBreedTreeNode.ROOT({
-                ivs: ctx.ivs,
-                nature: ctx.nature,
-                species: ctx.species,
-            }),
-            finalPokemonIvSet: ctx.ivs,
-            desired31IvCount,
-            pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
-        })
+    const {
+        breedTreeMap,
+        setBreedTreeMap,
+        exportTree,
+        importTree,
+        setHasImported,
+    } = useBreedTreeMap({
+        finalPokemonNode: PokemonBreedTreeNode.ROOT({
+            ivs: ctx.ivs,
+            nature: ctx.nature,
+            species: ctx.species,
+        }),
+        finalPokemonIvSet: ctx.ivs,
+        desired31IvCount,
+        pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
+    })
     importTree(ctx.importedTree)
 
     function deleteErrors(pos: PokemonBreedTreePositionKey) {
@@ -101,11 +118,11 @@ function PokemonBreedTreeFinal(props: {
         })
     }
 
-    function handleExport() {
+    function handleExport(): string {
         const breedTarget = ctx.exportTargetPokemon()
         const breedTree = exportTree()
         const json = { breedTarget, breedTree } satisfies ExportedJsonObj
-        console.log(JSON.stringify(json, null, 4))
+        return JSON.stringify(json, null, 4)
     }
 
     React.useEffect(() => {
@@ -299,16 +316,115 @@ function PokemonBreedTreeFinal(props: {
                     >
                         Debug (Context)
                     </Button>
-                    <Button
-                        variant={"secondary"}
-                        size={"sm"}
-                        onClick={handleExport}
-                    >
-                        Export as JSON
-                    </Button>
                 </div>
             ) : null}
+            <ExportJsonButton
+                handleExportJson={handleExport}
+                setHasImported={setHasImported}
+                importTree={importTree}
+            />
             <PokemonIvColors />
         </div>
+    )
+}
+
+function ExportJsonButton(props: {
+    handleExportJson: () => string
+    setHasImported: React.Dispatch<React.SetStateAction<boolean>>
+    importTree: (exportedTree?: ExportedBreedTree) => void
+}) {
+    const [jsonData, setJsonData] = React.useState("")
+    const ctx = useBreedTreeContext()
+    const { toast } = useToast()
+
+    function handleSave() {
+        const unparsed = JSON.parse(jsonData)
+        const res = ExportedJsonObjSchema.safeParse(unparsed)
+        if (res.error) {
+            toast({
+                title: "Failed to save the breed tree JSON content.",
+                description: (
+                    <p>
+                        {res.error.format()._errors.map((error, i) => (
+                            <p key={`error:${i}`}>{error}</p>
+                        ))}
+                    </p>
+                ),
+                variant: "destructive",
+            })
+            return
+        }
+
+        ctx.importTargetPokemon(res.data)
+        props.setHasImported(false)
+        props.importTree(ctx.importedTree)
+    }
+
+    return (
+        <Popover>
+            <PopoverTrigger asChild>
+                <Button
+                    type="button"
+                    className="gap-1"
+                    variant={"secondary"}
+                    onClick={() => setJsonData(props.handleExportJson())}
+                >
+                    <Import size={16} />
+                    Import/Export
+                </Button>
+            </PopoverTrigger>
+            <PopoverContent className="relative flex flex-col gap-4 w-96">
+                <pre spellCheck={false}>
+                    <code>
+                        <ScrollArea className="w-full h-64 rounded-md">
+                            <Textarea
+                                rows={80}
+                                className="w-full resize-none border-none rounded-none"
+                                value={jsonData}
+                                onChange={(e) =>
+                                    setJsonData(e.currentTarget?.value ?? "")
+                                }
+                            />
+                        </ScrollArea>
+                    </code>
+                </pre>
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Button
+                                variant={"outline"}
+                                size={"icon"}
+                                className="absolute top-6 right-8 h-8 w-8"
+                                onClick={() => {
+                                    navigator.clipboard
+                                        .writeText(jsonData)
+                                        .then(() => {
+                                            toast({
+                                                title: "Copy success.",
+                                                description:
+                                                    "The current breed state was copied to your clipboard.",
+                                            })
+                                        })
+                                        .catch(() => {
+                                            toast({
+                                                title: "Copy failed.",
+                                                description:
+                                                    "Failed to copy breed contents.",
+                                            })
+                                        })
+                                }}
+                            >
+                                <ClipboardCopy size={16} />
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>Copy to clipboard</TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+                <Button onClick={handleSave} className="gap-1">
+                    <Save size={16} />
+                    Save
+                </Button>
+            </PopoverContent>
+        </Popover>
     )
 }

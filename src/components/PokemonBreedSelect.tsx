@@ -17,6 +17,8 @@ import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
 import { DEFAULT_IV_DROPDOWN_VALUES } from "./consts"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { Textarea } from "./ui/textarea"
+import { ArchiveRestore, Import, Save } from "lucide-react"
+import { ScrollArea } from "./ui/scroll-area"
 
 /**
  * This type is used to represent the state of the full pokemon node that is going to be used in the PokemonToBreedContext
@@ -154,13 +156,6 @@ export function PokemonToBreedSelect(props: {
             </div>
             <div className="flex items-center gap-2">
                 <Button type="submit">Start Breeding</Button>
-                <Button
-                    type="reset"
-                    variant={"destructive"}
-                    onClick={handleResetFields}
-                >
-                    Reset
-                </Button>
                 <JsonImportButton handleImportJson={handleImportJson} />
             </div>
         </form>
@@ -170,13 +165,37 @@ export function PokemonToBreedSelect(props: {
 function JsonImportButton(props: { handleImportJson: (data: string) => void }) {
     const [jsonData, setJsonData] = React.useState("")
 
-    return <Popover>
-        <PopoverTrigger asChild>
-            <Button type="button" variant={"secondary"}>Import from JSON</Button>
-        </PopoverTrigger>
-        <PopoverContent className="flex flex-col gap-4 w-96">
-            <Textarea className="w-full" rows={10} value={jsonData} onChange={(e) => setJsonData(e.currentTarget?.value ?? "")} />
-            <Button onClick={() => props.handleImportJson(jsonData)}>Submit</Button>
-        </PopoverContent>
-    </Popover>
+    return (
+        <Popover>
+            <PopoverTrigger asChild>
+                <Button className="gap-1" type="button" variant={"secondary"}>
+                    <Import size={16} />
+                    Import
+                </Button>
+            </PopoverTrigger>
+            <PopoverContent className="flex flex-col gap-4 w-96">
+                <pre spellCheck={false}>
+                    <code>
+                        <ScrollArea className="w-full h-64 rounded-md">
+                            <Textarea
+                                className="w-full resize-none border-none rounded-none"
+                                rows={80}
+                                value={jsonData}
+                                onChange={(e) =>
+                                    setJsonData(e.currentTarget?.value ?? "")
+                                }
+                            />
+                        </ScrollArea>
+                    </code>
+                </pre>
+                <Button
+                    className="gap-1"
+                    onClick={() => props.handleImportJson(jsonData)}
+                >
+                    <Save size={16} />
+                    Save
+                </Button>
+            </PopoverContent>
+        </Popover>
+    )
 }

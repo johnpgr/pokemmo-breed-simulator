@@ -25,7 +25,9 @@ export interface BreedTreeContext {
     nature: PokemonNature | undefined
     setNature: React.Dispatch<React.SetStateAction<PokemonNature | undefined>>
     importedTree: ExportedBreedTree | undefined
-    setImportedTree: React.Dispatch<React.SetStateAction<ExportedBreedTree | undefined>>
+    setImportedTree: React.Dispatch<
+        React.SetStateAction<ExportedBreedTree | undefined>
+    >
     exportTargetPokemon: () => ExportedTargetPokemon
     importTargetPokemon: (args: ExportedJsonObj) => void
 }
@@ -37,7 +39,9 @@ export function BreedTreeContext(props: {
     pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
     children: React.ReactNode
 }) {
-    const [importedTree, setImportedTree] = React.useState<ExportedBreedTree | undefined>(undefined)
+    const [importedTree, setImportedTree] = React.useState<
+        ExportedBreedTree | undefined
+    >(undefined)
     const [species, setSpecies] = React.useState<PokemonSpecies>()
     const [nature, setNature] = React.useState<PokemonNature>()
     const [ivs, setIvs] = React.useState<IVSet>(IVSet.DEFAULT)

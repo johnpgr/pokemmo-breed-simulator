@@ -151,9 +151,7 @@ export function useBreedTreeMap(props: {
         return exported
     }
 
-    function importTree(
-        exportedTree?: ExportedBreedTree,
-    ) {
+    function importTree(exportedTree?: ExportedBreedTree) {
         if (!exportedTree) {
             return
         }
@@ -187,5 +185,12 @@ export function useBreedTreeMap(props: {
         setHasImported(true)
     }
 
-    return { breedTreeMap, setBreedTreeMap, exportTree, importTree } as const
+    return {
+        breedTreeMap,
+        setBreedTreeMap,
+        exportTree,
+        importTree,
+        hasImported,
+        setHasImported,
+    } as const
 }
