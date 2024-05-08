@@ -1,21 +1,9 @@
 "use client"
 import { PokemonBreed } from "@/core/breed"
-import {
-    PokemonGender,
-    PokemonIvSchema,
-    PokemonNatureSchema,
-    PokemonSpeciesUnparsed,
-} from "@/core/pokemon"
-import {
-    ExportedNodeSchema,
-    PokemonBreedTreeNode,
-} from "@/core/tree/BreedTreeNode"
+import { PokemonGender, PokemonIvSchema, PokemonNatureSchema, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { ExportedNodeSchema, PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
-import {
-    ExportedBreedTree,
-    PokemonBreedTreePositionKey,
-    useBreedTreeMap,
-} from "@/core/tree/useBreedTreeMap"
+import { ExportedBreedTree, PokemonBreedTreePositionKey, useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import { ClipboardCopy, Import, Save } from "lucide-react"
 import React from "react"
@@ -30,18 +18,10 @@ import { Button } from "./ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { ScrollArea } from "./ui/scroll-area"
 import { Textarea } from "./ui/textarea"
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "./ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
 import { useToast } from "./ui/use-toast"
 
-export type BreedErrors = Record<
-    PokemonBreedTreePositionKey,
-    Set<PokemonBreed.BreedError> | undefined
->
+export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.BreedError> | undefined>
 
 export const ExportedJsonObjSchema = z.object({
     breedTarget: z.object({
@@ -58,37 +38,23 @@ export const ExportedJsonObjSchema = z.object({
 })
 export type ExportedJsonObj = z.infer<typeof ExportedJsonObjSchema>
 
-export function PokemonBreedTree(props: {
-    pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
-}) {
+export function PokemonBreedTree(props: { pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[] }) {
     const ctx = useBreedTreeContext()
     if (!ctx.species) {
         return null
     }
 
-    return (
-        <PokemonBreedTreeFinal
-            pokemonSpeciesUnparsed={props.pokemonSpeciesUnparsed}
-        />
-    )
+    return <PokemonBreedTreeFinal pokemonSpeciesUnparsed={props.pokemonSpeciesUnparsed} />
 }
 
-function PokemonBreedTreeFinal(props: {
-    pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
-}) {
+function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[] }) {
     const ctx = useBreedTreeContext()
     assert.exists(ctx.species, "PokemonSpecies must be defined in useBreedMap")
 
     const desired31IvCount = Object.values(ctx.ivs).filter(Boolean).length
 
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
-    const {
-        breedTreeMap,
-        setBreedTreeMap,
-        exportTree,
-        importTree,
-        setHasImported,
-    } = useBreedTreeMap({
+    const { breedTreeMap, setBreedTreeMap, exportTree, importTree, setHasImported } = useBreedTreeMap({
         finalPokemonNode: PokemonBreedTreeNode.ROOT({
             ivs: ctx.ivs,
             nature: ctx.nature,
@@ -107,10 +73,7 @@ function PokemonBreedTreeFinal(props: {
         })
     }
 
-    function addErrors(
-        pos: PokemonBreedTreePositionKey,
-        errors: Set<PokemonBreed.BreedError>,
-    ) {
+    function addErrors(pos: PokemonBreedTreePositionKey, errors: Set<PokemonBreed.BreedError>) {
         setBreedErrors((prev) => {
             prev[pos] = errors
             return { ...prev }
@@ -150,16 +113,13 @@ function PokemonBreedTreeFinal(props: {
                 errorMsg = errorMsg.slice(0, -2)
             }
 
-            toast.error(
-                `${node.species.name} cannot breed with ${partner.species.name}.`,
-                {
-                    description: `Error codes: ${errorMsg}`,
-                    action: {
-                        label: "Dismiss",
-                        onClick: () => {},
-                    },
+            toast.error(`${node.species.name} cannot breed with ${partner.species.name}.`, {
+                description: `Error codes: ${errorMsg}`,
+                action: {
+                    label: "Dismiss",
+                    onClick: () => {},
                 },
-            )
+            })
         })
     }, [breedErrors])
 
@@ -184,12 +144,7 @@ function PokemonBreedTreeFinal(props: {
                 // will move the node pointer before the errors are set
                 const currentNodePos = node.position.key()
 
-                if (
-                    !node.gender ||
-                    !partnerNode.gender ||
-                    !node.species ||
-                    !partnerNode.species
-                ) {
+                if (!node.gender || !partnerNode.gender || !node.species || !partnerNode.species) {
                     if (breedErrors[pos.key()]) {
                         deleteErrors(currentNodePos)
                     }
@@ -201,18 +156,10 @@ function PokemonBreedTreeFinal(props: {
                     break
                 }
 
-                const breedResult = PokemonBreed.breed(
-                    node,
-                    partnerNode,
-                    childNode,
-                )
+                const breedResult = PokemonBreed.breed(node, partnerNode, childNode)
 
                 if (!breedResult.ok) {
-                    if (
-                        breedResult.error.has(
-                            PokemonBreed.BreedError.ChildDidNotChange,
-                        )
-                    ) {
+                    if (breedResult.error.has(PokemonBreed.BreedError.ChildDidNotChange)) {
                         next()
                         continue
                     }
@@ -247,13 +194,7 @@ function PokemonBreedTreeFinal(props: {
         if (changed) {
             setBreedTreeMap({ ...breedTreeMap })
         }
-    }, [
-        breedTreeMap,
-        ctx.nature,
-        desired31IvCount,
-        setBreedTreeMap,
-        setBreedErrors,
-    ])
+    }, [breedTreeMap, ctx.nature, desired31IvCount, setBreedTreeMap, setBreedErrors])
 
     return (
         <div className="flex flex-col-reverse items-center gap-8 pb-16">
@@ -268,10 +209,7 @@ function PokemonBreedTreeFinal(props: {
                         className="flex w-full max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl items-center justify-center"
                     >
                         {Array.from({ length: rowLength }).map((_, col) => {
-                            const position = new PokemonBreedTreePosition(
-                                row,
-                                col,
-                            )
+                            const position = new PokemonBreedTreePosition(row, col)
 
                             return (
                                 <PokemonNodeLines
@@ -295,25 +233,13 @@ function PokemonBreedTreeFinal(props: {
             })}
             {process.env.NODE_ENV === "development" ? (
                 <div className="space-x-4">
-                    <Button
-                        variant={"secondary"}
-                        size={"sm"}
-                        onClick={() => console.log(breedTreeMap)}
-                    >
+                    <Button variant={"secondary"} size={"sm"} onClick={() => console.log(breedTreeMap)}>
                         Debug (Breed Tree)
                     </Button>
-                    <Button
-                        variant={"secondary"}
-                        size={"sm"}
-                        onClick={() => console.log(breedErrors)}
-                    >
+                    <Button variant={"secondary"} size={"sm"} onClick={() => console.log(breedErrors)}>
                         Debug (Breed Errors)
                     </Button>
-                    <Button
-                        variant={"secondary"}
-                        size={"sm"}
-                        onClick={() => console.log(ctx)}
-                    >
+                    <Button variant={"secondary"} size={"sm"} onClick={() => console.log(ctx)}>
                         Debug (Context)
                     </Button>
                 </div>
@@ -384,9 +310,7 @@ function ImportExportButton(props: {
                                 rows={80}
                                 className="w-full resize-none border-none rounded-none"
                                 value={jsonData}
-                                onChange={(e) =>
-                                    setJsonData(e.currentTarget?.value ?? "")
-                                }
+                                onChange={(e) => setJsonData(e.currentTarget?.value ?? "")}
                             />
                         </ScrollArea>
                     </code>
@@ -404,15 +328,13 @@ function ImportExportButton(props: {
                                         .then(() => {
                                             toast({
                                                 title: "Copy success.",
-                                                description:
-                                                    "The current breed state was copied to your clipboard.",
+                                                description: "The current breed state was copied to your clipboard.",
                                             })
                                         })
                                         .catch(() => {
                                             toast({
                                                 title: "Copy failed.",
-                                                description:
-                                                    "Failed to copy breed contents.",
+                                                description: "Failed to copy breed contents.",
                                             })
                                         })
                                 }}

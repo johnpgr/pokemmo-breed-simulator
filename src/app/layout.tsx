@@ -20,14 +20,8 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body
-                className={cn("min-h-screen flex flex-col", fontSans.className)}
-            >
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                >
+            <body className={cn("min-h-screen flex flex-col", fontSans.className)}>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <header className="mb-4">
                         <ThemeToggle />
                     </header>

@@ -1,34 +1,21 @@
 "use client"
 import { Label } from "@/components/ui/label"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { PokemonIv } from "@/core/pokemon"
 import { Strings } from "@/lib/utils"
 import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 import { PokemonIvRadioGroup, PokemonIvRadioItem } from "./PokemonIvRadio"
-import {
-    IV_DROPDOWN_LIST_VALUES,
-    POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS,
-} from "./consts"
+import { IV_DROPDOWN_LIST_VALUES, POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "./consts"
 
 export function PokemonIvSelect(props: {
     natured: boolean
     desired31IVCount: number
     setDesired31IVCount: React.Dispatch<React.SetStateAction<number>>
     currentIVDropdownValues: PokemonIv[]
-    setCurrentIVDropdownValues: React.Dispatch<
-        React.SetStateAction<PokemonIv[]>
-    >
+    setCurrentIVDropdownValues: React.Dispatch<React.SetStateAction<PokemonIv[]>>
     currentPokemonInSelect: PokemonNodeInSelect
-    setCurrentPokemonInSelect: React.Dispatch<
-        React.SetStateAction<PokemonNodeInSelect>
-    >
+    setCurrentPokemonInSelect: React.Dispatch<React.SetStateAction<PokemonNodeInSelect>>
 }) {
     function handleDesired31IvCountChange(number: string) {
         const value = parseInt(number)
@@ -60,9 +47,7 @@ export function PokemonIvSelect(props: {
 
     return (
         <div>
-            <p className="text-foreground/70 text-sm pb-1">
-                How many IV&apos;s do you want?
-            </p>
+            <p className="text-foreground/70 text-sm pb-1">How many IV&apos;s do you want?</p>
             <PokemonIvRadioGroup
                 className="border rounded-md w-fit flex"
                 defaultValue={"2"}
@@ -85,34 +70,20 @@ export function PokemonIvSelect(props: {
                 {Object.entries(pokemonCount).map(([_, value], i) => (
                     <div key={`PokemonIvSelect:${i}`} className="w-full">
                         <Label className="text-sm text-foreground/70">
-                            <strong className="text-lg text-foreground mr-1">
-                                {value}
-                            </strong>{" "}
-                            1x31 IV in
+                            <strong className="text-lg text-foreground mr-1">{value}</strong> 1x31 IV in
                         </Label>
                         <Select
                             value={props.currentIVDropdownValues[i]!}
-                            onValueChange={(v) =>
-                                handleIvSelectChange(v as PokemonIv, i)
-                            }
+                            onValueChange={(v) => handleIvSelectChange(v as PokemonIv, i)}
                         >
                             <SelectTrigger>
-                                <SelectValue
-                                    aria-label={
-                                        props.currentIVDropdownValues[i]
-                                    }
-                                >
-                                    {Strings.pascalToSpacedPascal(
-                                        props.currentIVDropdownValues[i]!,
-                                    )}
+                                <SelectValue aria-label={props.currentIVDropdownValues[i]}>
+                                    {Strings.pascalToSpacedPascal(props.currentIVDropdownValues[i]!)}
                                 </SelectValue>
                             </SelectTrigger>
                             <SelectContent>
                                 {IV_DROPDOWN_LIST_VALUES.map((iv) => (
-                                    <SelectItem
-                                        key={`PokemonIvSelect:${i}:${iv}`}
-                                        value={iv}
-                                    >
+                                    <SelectItem key={`PokemonIvSelect:${i}:${iv}`} value={iv}>
                                         {Strings.pascalToSpacedPascal(iv)}
                                     </SelectItem>
                                 ))}

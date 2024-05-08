@@ -1,7 +1,5 @@
-export const BASE_SPRITES_URL =
-    "https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular"
-export const BASE_ITEM_SPRITES_URL =
-    "https://raw.githubusercontent.com/msikma/pokesprite/master/items"
+export const BASE_SPRITES_URL = "https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular"
+export const BASE_ITEM_SPRITES_URL = "https://raw.githubusercontent.com/msikma/pokesprite/master/items"
 
 export function getPokemonSpriteUrl(name: string) {
     const nameFixed = name
@@ -15,8 +13,7 @@ export function getPokemonSpriteUrl(name: string) {
 }
 
 export function getEvItemSpriteUrl(item: string) {
-    if (item === "everstone")
-        return `${BASE_ITEM_SPRITES_URL}/hold-item/${item}.png`
+    if (item === "everstone") return `${BASE_ITEM_SPRITES_URL}/hold-item/${item}.png`
 
     return `${BASE_ITEM_SPRITES_URL}/ev-item/${item}.png`
 }

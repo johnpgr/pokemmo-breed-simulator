@@ -1,12 +1,6 @@
 "use client"
 import React from "react"
-import {
-    PokemonBreederKind,
-    PokemonIv,
-    PokemonNature,
-    PokemonSpecies,
-    PokemonSpeciesUnparsed,
-} from "@/core/pokemon"
+import { PokemonBreederKind, PokemonIv, PokemonNature, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { ExportedBreedTree } from "@/core/tree/useBreedTreeMap"
 import { ExportedJsonObj } from "./PokemonBreedTree"
@@ -24,32 +18,24 @@ export interface BreedTreeContext {
     nature: PokemonNature | undefined
     setNature: React.Dispatch<React.SetStateAction<PokemonNature | undefined>>
     importedTree: ExportedBreedTree | undefined
-    setImportedTree: React.Dispatch<
-        React.SetStateAction<ExportedBreedTree | undefined>
-    >
+    setImportedTree: React.Dispatch<React.SetStateAction<ExportedBreedTree | undefined>>
     exportTargetPokemon: () => ExportedTargetPokemon
     importTargetPokemon: (args: ExportedJsonObj) => void
 }
 
-export const BreedTreeContextPrimitive =
-    React.createContext<BreedTreeContext | null>(null)
+export const BreedTreeContextPrimitive = React.createContext<BreedTreeContext | null>(null)
 
 export function BreedTreeContext(props: {
     pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
     children: React.ReactNode
 }) {
-    const [importedTree, setImportedTree] = React.useState<
-        ExportedBreedTree | undefined
-    >(undefined)
+    const [importedTree, setImportedTree] = React.useState<ExportedBreedTree | undefined>(undefined)
     const [species, setSpecies] = React.useState<PokemonSpecies>()
     const [nature, setNature] = React.useState<PokemonNature>()
     const [ivs, setIvs] = React.useState<IVSet>(IVSet.DEFAULT)
 
     function exportTargetPokemon(): ExportedTargetPokemon {
-        assert.exists(
-            species,
-            "Attempted to export a targetPokemon before initializing context.",
-        )
+        assert.exists(species, "Attempted to export a targetPokemon before initializing context.")
         return { ivs, nature }
     }
 
@@ -57,13 +43,8 @@ export function BreedTreeContext(props: {
         const rootNode = args.breedTree["0,0"]
         assert.exists(rootNode, "Failed to import. rootNode not found.")
 
-        const speciesUnparsed = props.pokemonSpeciesUnparsed.find(
-            (p) => p.number === rootNode.species,
-        )
-        assert.exists(
-            speciesUnparsed,
-            "Failed to import Pokemon to breed target species. Invalid Pokemon number",
-        )
+        const speciesUnparsed = props.pokemonSpeciesUnparsed.find((p) => p.number === rootNode.species)
+        assert.exists(speciesUnparsed, "Failed to import Pokemon to breed target species. Invalid Pokemon number")
         const species = PokemonSpecies.parse(speciesUnparsed)
         const ivs = new IVSet(
             args.breedTarget.ivs.A,
@@ -101,10 +82,7 @@ export function BreedTreeContext(props: {
 
 export function useBreedTreeContext() {
     const ctx = React.useContext(BreedTreeContextPrimitive)
-    assert.exists(
-        ctx,
-        "usePokemonToBreed must be used within a PokemonToBreedContextProvider",
-    )
+    assert.exists(ctx, "usePokemonToBreed must be used within a PokemonToBreedContextProvider")
 
     return ctx
 }

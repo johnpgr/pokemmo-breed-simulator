@@ -23,9 +23,7 @@ const skippedPokemons = [
     "Darmanitan Zen Mode",
 ]
 
-function fixPokemonEggGroups(
-    pokemon: PokemonSpecies,
-): [PokemonEggGroup, PokemonEggGroup?] {
+function fixPokemonEggGroups(pokemon: PokemonSpecies): [PokemonEggGroup, PokemonEggGroup?] {
     switch (pokemon.name) {
         case "Nidorina":
             return [PokemonEggGroup.Field, PokemonEggGroup.Monster]
@@ -137,11 +135,7 @@ fs.createReadStream(csvDataPath, "utf8")
         }),
     )
     .on("data", (row) => {
-        if (
-            skippedPokemons.some((name) =>
-                (row["name"] as string).startsWith(name),
-            )
-        ) {
+        if (skippedPokemons.some((name) => (row["name"] as string).startsWith(name))) {
             return
         }
 

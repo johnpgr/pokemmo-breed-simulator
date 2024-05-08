@@ -1,12 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
-import type {
-    PokemonIv,
-    PokemonNature,
-    PokemonSpecies,
-    PokemonSpeciesUnparsed,
-} from "@/core/pokemon"
+import type { PokemonIv, PokemonNature, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { Import, Save } from "lucide-react"
 import React from "react"
@@ -32,25 +27,18 @@ export type PokemonNodeInSelect = {
     ivs: Set<PokemonIv>
 }
 
-export function PokemonToBreedSelect(props: {
-    pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
-}) {
+export function PokemonToBreedSelect(props: { pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[] }) {
     const { toast } = useToast()
     const ctx = useBreedTreeContext()
     const [desired31IVCount, setDesired31IVCount] = React.useState(2)
-    const [currentIVDropdownValues, setCurrentIVDropdownValues] =
-        React.useState(DEFAULT_IV_DROPDOWN_VALUES)
-    const [currentPokemonInSelect, setCurrentPokemonInSelect] =
-        React.useState<PokemonNodeInSelect>({
-            ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, desired31IVCount)),
-        })
+    const [currentIVDropdownValues, setCurrentIVDropdownValues] = React.useState(DEFAULT_IV_DROPDOWN_VALUES)
+    const [currentPokemonInSelect, setCurrentPokemonInSelect] = React.useState<PokemonNodeInSelect>({
+        ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, desired31IVCount)),
+    })
 
     //TODO: Maybe Provide the path to the incorrect fields
     function validateIvFields() {
-        const selectedValues = currentIVDropdownValues.slice(
-            0,
-            desired31IVCount,
-        )
+        const selectedValues = currentIVDropdownValues.slice(0, desired31IVCount)
         const uniques = new Set(selectedValues)
         return uniques.size === selectedValues.length
     }
@@ -70,8 +58,7 @@ export function PokemonToBreedSelect(props: {
         if (!validateIvFields()) {
             toast({
                 title: "Invalid IVs",
-                description:
-                    "You can't have the same stats in multiple IVs field.",
+                description: "You can't have the same stats in multiple IVs field.",
                 variant: "destructive",
             })
             return
@@ -82,15 +69,7 @@ export function PokemonToBreedSelect(props: {
         assert.exists(finalIvs[0], "At least 2 IV fields must be selected")
         assert.exists(finalIvs[1], "At least 2 IV fields must be selected")
 
-        ctx.setIvs(
-            new IVSet(
-                finalIvs[0],
-                finalIvs[1],
-                finalIvs[2],
-                finalIvs[3],
-                finalIvs[4],
-            ),
-        )
+        ctx.setIvs(new IVSet(finalIvs[0], finalIvs[1], finalIvs[2], finalIvs[3], finalIvs[4]))
         ctx.setNature(currentPokemonInSelect.nature)
         ctx.setSpecies(currentPokemonInSelect.species)
     }
@@ -182,17 +161,12 @@ function JsonImportButton(props: { handleImportJson: (data: string) => void }) {
                                 className="w-full resize-none border-none rounded-none"
                                 rows={80}
                                 value={jsonData}
-                                onChange={(e) =>
-                                    setJsonData(e.currentTarget?.value ?? "")
-                                }
+                                onChange={(e) => setJsonData(e.currentTarget?.value ?? "")}
                             />
                         </ScrollArea>
                     </code>
                 </pre>
-                <Button
-                    className="gap-1"
-                    onClick={() => props.handleImportJson(jsonData)}
-                >
+                <Button className="gap-1" onClick={() => props.handleImportJson(jsonData)}>
                     <Save size={16} />
                     Save
                 </Button>

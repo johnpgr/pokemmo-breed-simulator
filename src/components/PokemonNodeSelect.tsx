@@ -1,26 +1,11 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
-import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-} from "@/components/ui/command"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { GENDERLESS_POKEMON_EVOLUTION_TREE } from "@/core/consts"
-import {
-    PokemonEggGroup,
-    PokemonGender,
-    PokemonSpecies,
-    PokemonSpeciesUnparsed,
-} from "@/core/pokemon"
+import { PokemonEggGroup, PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
@@ -30,12 +15,7 @@ import React from "react"
 import { useBreedTreeContext } from "./PokemonBreedTreeContext"
 import { getColorsByIvs } from "./PokemonIvColors"
 import { PokemonNodeInfo } from "./PokemonNodeInfo"
-import {
-    IV_COLOR_DICT,
-    IvColor,
-    NODE_SCALE_BY_COLOR_AMOUNT,
-    SPRITE_SCALE_BY_COLOR_AMOUNT,
-} from "./consts"
+import { IV_COLOR_DICT, IvColor, NODE_SCALE_BY_COLOR_AMOUNT, SPRITE_SCALE_BY_COLOR_AMOUNT } from "./consts"
 
 enum SearchMode {
     All,
@@ -54,15 +34,12 @@ export function PokemonNodeSelect(props: {
     const [searchMode, setSearchMode] = React.useState(SearchMode.All)
     const [search, setSearch] = React.useState("")
     const [colors, setColors] = React.useState<IvColor[]>([])
-    const isPokemonToBreed =
-        props.position.col === 0 && props.position.row === 0
+    const isPokemonToBreed = props.position.col === 0 && props.position.row === 0
     const currentNode = props.breedTree[props.position.key()]
     assert.exists(currentNode, "Current node should exist in PokemonNodeSelect")
 
     function setPokemonSpecies(name: string) {
-        const pokemon = props.pokemons.find(
-            (p) => p.name.toLowerCase() === name,
-        )
+        const pokemon = props.pokemons.find((p) => p.name.toLowerCase() === name)
         assert.exists(pokemon, `Pokemon ${name} should exist`)
         assert.exists(currentNode, `Node at ${props.position} should exist`)
 
@@ -99,56 +76,38 @@ export function PokemonNodeSelect(props: {
 
     function handleSearchModeChange() {
         startTransition(() => {
-            setSearchMode((prev) =>
-                prev === SearchMode.All
-                    ? SearchMode.EggGroupMatches
-                    : SearchMode.All,
-            )
+            setSearchMode((prev) => (prev === SearchMode.All ? SearchMode.EggGroupMatches : SearchMode.All))
         })
     }
 
-    const filterPokemonByEggGroups =
-        React.useCallback((): PokemonSpeciesUnparsed[] => {
-            assert.exists(ctx.species, "Pokemon in context should exist")
-            const newList: PokemonSpeciesUnparsed[] = []
+    const filterPokemonByEggGroups = React.useCallback((): PokemonSpeciesUnparsed[] => {
+        assert.exists(ctx.species, "Pokemon in context should exist")
+        const newList: PokemonSpeciesUnparsed[] = []
 
-            const ditto = props.pokemons.find((poke) => poke.number === 132)
-            assert.exists(ditto, "Ditto should exist")
-            newList.push(ditto)
+        const ditto = props.pokemons.find((poke) => poke.number === 132)
+        assert.exists(ditto, "Ditto should exist")
+        newList.push(ditto)
 
-            if (ctx.species.eggGroups.includes(PokemonEggGroup.Genderless)) {
-                const breedable =
-                    GENDERLESS_POKEMON_EVOLUTION_TREE[
-                        ctx.species
-                            .number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
-                    ]
+        if (ctx.species.eggGroups.includes(PokemonEggGroup.Genderless)) {
+            const breedable =
+                GENDERLESS_POKEMON_EVOLUTION_TREE[ctx.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE]
 
-                return newList.concat(
-                    props.pokemons.filter((poke) =>
-                        breedable.includes(poke.number),
-                    ),
-                )
+            return newList.concat(props.pokemons.filter((poke) => breedable.includes(poke.number)))
+        }
+
+        for (const poke of props.pokemons) {
+            if (!poke.eggGroups.some((e) => ctx.species!.eggGroups.includes(e))) {
+                continue
             }
 
-            for (const poke of props.pokemons) {
-                if (
-                    !poke.eggGroups.some((e) =>
-                        ctx.species!.eggGroups.includes(e),
-                    )
-                ) {
-                    continue
-                }
+            newList.push(poke)
+        }
 
-                newList.push(poke)
-            }
-
-            return newList
-        }, [ctx.species, props.pokemons])
+        return newList
+    }, [ctx.species, props.pokemons])
 
     const pokemonList = React.useMemo(() => {
-        return searchMode === SearchMode.All
-            ? props.pokemons
-            : filterPokemonByEggGroups()
+        return searchMode === SearchMode.All ? props.pokemons : filterPokemonByEggGroups()
     }, [filterPokemonByEggGroups, searchMode, props.pokemons])
 
     React.useEffect(() => {
@@ -175,9 +134,7 @@ export function PokemonNodeSelect(props: {
                     className="z-10 relative rounded-full bg-neutral-300 dark:bg-neutral-800 overflow-hidden"
                     style={{
                         scale: NODE_SCALE_BY_COLOR_AMOUNT[
-                            String(
-                                colors?.length ?? 1,
-                            ) as keyof typeof NODE_SCALE_BY_COLOR_AMOUNT
+                            String(colors?.length ?? 1) as keyof typeof NODE_SCALE_BY_COLOR_AMOUNT
                         ],
                     }}
                 >
@@ -198,9 +155,7 @@ export function PokemonNodeSelect(props: {
                             style={{
                                 imageRendering: "pixelated",
                                 scale: SPRITE_SCALE_BY_COLOR_AMOUNT[
-                                    String(
-                                        colors?.length ?? 1,
-                                    ) as keyof typeof SPRITE_SCALE_BY_COLOR_AMOUNT
+                                    String(colors?.length ?? 1) as keyof typeof SPRITE_SCALE_BY_COLOR_AMOUNT
                                 ],
                             }}
                             alt={currentNode.species.name}
@@ -229,16 +184,12 @@ export function PokemonNodeSelect(props: {
                         <div className="flex items-center pl-3 gap-2 text-xs text-foreground/80 p-2 border-b">
                             <Checkbox
                                 className="border-foreground/50"
-                                checked={
-                                    searchMode === SearchMode.EggGroupMatches
-                                }
+                                checked={searchMode === SearchMode.EggGroupMatches}
                                 onCheckedChange={handleSearchModeChange}
                             />
                             Show only {ctx.species?.name}&apos;s egg groups
                         </div>
-                        <CommandEmpty>
-                            {!pending ? "No results" : ""}
-                        </CommandEmpty>
+                        <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
                         <CommandGroup>
                             <ScrollArea className="h-72 w-full">
                                 {pending
@@ -251,11 +202,7 @@ export function PokemonNodeSelect(props: {
                                       ))
                                     : pokemonList
                                           .filter((pokemon) =>
-                                              pokemon.name
-                                                  .toLowerCase()
-                                                  .includes(
-                                                      search.toLowerCase(),
-                                                  ),
+                                              pokemon.name.toLowerCase().includes(search.toLowerCase()),
                                           )
                                           .map((pokemon) => (
                                               <CommandItem
@@ -265,8 +212,7 @@ export function PokemonNodeSelect(props: {
                                                   data-cy={`${pokemon.name}-value`}
                                                   className="pl-8 relative"
                                               >
-                                                  {currentNode.species?.name ===
-                                                  pokemon.name ? (
+                                                  {currentNode.species?.name === pokemon.name ? (
                                                       <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
                                                   ) : null}
                                                   {pokemon.name}

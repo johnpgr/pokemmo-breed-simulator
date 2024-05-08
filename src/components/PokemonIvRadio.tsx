@@ -8,13 +8,7 @@ const PokemonIvRadioGroup = React.forwardRef<
     React.ElementRef<typeof RadioGroupPrimitive.Root>,
     React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
 >(({ className, ...props }, ref) => {
-    return (
-        <RadioGroupPrimitive.Root
-            className={cn("grid gap-2 overflow-hidden", className)}
-            {...props}
-            ref={ref}
-        />
-    )
+    return <RadioGroupPrimitive.Root className={cn("grid gap-2 overflow-hidden", className)} {...props} ref={ref} />
 })
 PokemonIvRadioGroup.displayName = RadioGroupPrimitive.Root.displayName
 

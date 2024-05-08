@@ -1,6 +1,4 @@
-export type Result<T, E> =
-    | (T & { readonly ok: true })
-    | { readonly ok: false; error: E }
+export type Result<T, E> = (T & { readonly ok: true }) | { readonly ok: false; error: E }
 
 export type WithoutOk<T> = T extends { ok: any } ? never : T
 
@@ -51,7 +49,6 @@ export function isPromise(x: any): x is Promise<any> {
         x instanceof Promise ||
         (typeof x === "object" &&
             "then" in x &&
-            (x[Symbol.toStringTag] === "PrismaPromise" ||
-                x[Symbol.toStringTag] === "Promise"))
+            (x[Symbol.toStringTag] === "PrismaPromise" || x[Symbol.toStringTag] === "Promise"))
     )
 }

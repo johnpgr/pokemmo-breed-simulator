@@ -28,51 +28,33 @@ export function PokemonNodeLines(props: {
     // Root node
     if (!partnerNode) {
         return (
-            <div
-                style={{ flexBasis: `${size}%` }}
-                className="flex items-center justify-center relative"
-            >
+            <div style={{ flexBasis: `${size}%` }} className="flex items-center justify-center relative">
                 {props.children}
             </div>
         )
     }
 
-    const lineDirection =
-        partnerNode.position.col > node.position.col
-            ? LineDirection.Left
-            : LineDirection.Right
-    const hasError =
-        props.breedErrors[node.position.key()] ||
-        props.breedErrors[partnerNode.position.key()]
+    const lineDirection = partnerNode.position.col > node.position.col ? LineDirection.Left : LineDirection.Right
+    const hasError = props.breedErrors[node.position.key()] || props.breedErrors[partnerNode.position.key()]
 
     const color = run(() => {
         if (hasError) {
             return "bg-red-500"
         }
-        if (
-            node.species &&
-            node.gender &&
-            partnerNode.species &&
-            partnerNode.gender
-        ) {
+        if (node.species && node.gender && partnerNode.species && partnerNode.gender) {
             return "bg-green-500"
         }
         return "bg-foreground/70"
     })
 
     return (
-        <div
-            style={{ flexBasis: `${size}%` }}
-            className="flex items-center justify-center relative"
-        >
+        <div style={{ flexBasis: `${size}%` }} className="flex items-center justify-center relative">
             {props.children}
             <div
                 className={`absolute w-1/2 h-[1px] ${color} ${lineDirection === LineDirection.Left ? "translate-x-1/2" : "-translate-x-1/2"}`}
             ></div>
             {lineDirection === LineDirection.Left ? (
-                <div
-                    className={`absolute h-16 w-[1px] ${color} left-full -bottom-[45px]`}
-                ></div>
+                <div className={`absolute h-16 w-[1px] ${color} left-full -bottom-[45px]`}></div>
             ) : null}
         </div>
     )

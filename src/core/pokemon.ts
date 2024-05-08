@@ -111,10 +111,7 @@ export class PokemonSpecies {
             assert(types.includes(data.types[1]), "Invalid type")
         }
 
-        assert(
-            eggGroups.includes(data.eggGroups[0]!),
-            `Invalid egg group ${data.eggGroups[0]} valids are ${eggGroups}`,
-        )
+        assert(eggGroups.includes(data.eggGroups[0]!), `Invalid egg group ${data.eggGroups[0]} valids are ${eggGroups}`)
         if (data.eggGroups[1]) {
             assert(
                 eggGroups.includes(data.eggGroups[1]),
@@ -126,10 +123,7 @@ export class PokemonSpecies {
             data.number,
             data.name,
             [data.types[0] as PokemonType, data.types[1] as PokemonType],
-            [
-                data.eggGroups[0] as PokemonEggGroup,
-                data.eggGroups[1] as PokemonEggGroup | undefined,
-            ],
+            [data.eggGroups[0] as PokemonEggGroup, data.eggGroups[1] as PokemonEggGroup | undefined],
             data.percentageMale,
         )
     }
