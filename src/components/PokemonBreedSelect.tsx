@@ -132,7 +132,7 @@ export function PokemonToBreedSelect(props: {
             className="mb-4 container max-w-screen-xl mx-auto flex flex-col items-center gap-4"
             onSubmit={handleSubmit}
         >
-            <h1 className="text-2xl font-medium">Select a pokemon to breed</h1>
+            <h1 className="text-2xl font-medium">Select a Pokemon to breed</h1>
             <div className="flex w-full flex-col items-center gap-4">
                 <div className="flex w-full flex-col gap-2">
                     <PokemonSpeciesSelect

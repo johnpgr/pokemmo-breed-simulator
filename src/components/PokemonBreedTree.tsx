@@ -1,11 +1,9 @@
 "use client"
 import { PokemonBreed } from "@/core/breed"
-import { generateErrorMessage } from "zod-error"
 import {
     PokemonGender,
     PokemonIvSchema,
     PokemonNatureSchema,
-    PokemonSpecies,
     PokemonSpeciesUnparsed,
 } from "@/core/pokemon"
 import {
@@ -19,25 +17,26 @@ import {
     useBreedTreeMap,
 } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
+import { ClipboardCopy, Import, Save } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
 import { z } from "zod"
+import { generateErrorMessage } from "zod-error"
 import { useBreedTreeContext } from "./PokemonBreedTreeContext"
 import { PokemonIvColors } from "./PokemonIvColors"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
 import { Button } from "./ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
-import { Textarea } from "./ui/textarea"
-import { ClipboardCopy, Import, Save } from "lucide-react"
-import { useToast } from "./ui/use-toast"
 import { ScrollArea } from "./ui/scroll-area"
+import { Textarea } from "./ui/textarea"
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "./ui/tooltip"
+import { useToast } from "./ui/use-toast"
 
 export type BreedErrors = Record<
     PokemonBreedTreePositionKey,
@@ -157,7 +156,7 @@ function PokemonBreedTreeFinal(props: {
                     description: `Error codes: ${errorMsg}`,
                     action: {
                         label: "Dismiss",
-                        onClick: () => { },
+                        onClick: () => {},
                     },
                 },
             )
@@ -208,18 +207,17 @@ function PokemonBreedTreeFinal(props: {
                     childNode,
                 )
 
-                if (!(breedResult instanceof PokemonSpecies)) {
+                if (!breedResult.ok) {
                     if (
-                        breedResult.has(
+                        breedResult.error.has(
                             PokemonBreed.BreedError.ChildDidNotChange,
                         )
                     ) {
-                        deleteErrors(currentNodePos)
                         next()
                         continue
                     }
 
-                    addErrors(currentNodePos, breedResult)
+                    addErrors(currentNodePos, breedResult.error)
                     next()
                     continue
                 }
@@ -232,6 +230,7 @@ function PokemonBreedTreeFinal(props: {
 
                 changed = true
                 childNode.species = breedResult
+
                 if (childNode.species.percentageMale === 0) {
                     childNode.gender = PokemonGender.Female
                 } else if (childNode.species.percentageMale === 100) {
@@ -239,6 +238,7 @@ function PokemonBreedTreeFinal(props: {
                 } else if (childNode.isGenderless()) {
                     childNode.gender = PokemonGender.Genderless
                 }
+
                 deleteErrors(currentNodePos)
                 next()
             }
@@ -361,7 +361,6 @@ function ImportExportButton(props: {
                 variant: "destructive",
             })
         }
-
     }
 
     return (

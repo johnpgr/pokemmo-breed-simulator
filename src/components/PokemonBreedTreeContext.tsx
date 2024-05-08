@@ -116,7 +116,7 @@ export class IVSet {
         public C?: PokemonIv,
         public D?: PokemonIv,
         public E?: PokemonIv,
-    ) { }
+    ) {}
 
     public get(kind: PokemonBreederKind): PokemonIv | undefined {
         switch (kind) {

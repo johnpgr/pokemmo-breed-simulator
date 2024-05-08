@@ -70,7 +70,9 @@ export function PokemonNatureSelect(props: {
                                     No nature
                                 </CommandItem>
                                 {Object.values(PokemonNature).map((nature) => (
-                                    <React.Fragment key={`PokemonNatureSelect:${nature}`}>
+                                    <React.Fragment
+                                        key={`PokemonNatureSelect:${nature}`}
+                                    >
                                         <CommandItem
                                             value={nature}
                                             onSelect={() => {

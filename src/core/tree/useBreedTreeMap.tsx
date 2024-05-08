@@ -57,7 +57,7 @@ export function useBreedTreeMap(props: {
 
         const lastRowBreeders =
             POKEMON_BREEDTREE_LASTROW_MAPPING[
-            desired31Ivcount as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING
+                desired31Ivcount as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING
             ]
         const lastRowBreedersPositions = natured
             ? lastRowBreeders.natured

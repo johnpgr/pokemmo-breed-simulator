@@ -1,4 +1,5 @@
 import { assert } from "@/lib/assert"
+import { Err, Ok, Result } from "@/lib/results"
 import { GENDERLESS_POKEMON_EVOLUTION_TREE } from "./consts"
 import { PokemonGender, PokemonSpecies } from "./pokemon"
 import type { PokemonBreedTreeNode } from "./tree/BreedTreeNode"
@@ -16,7 +17,7 @@ export namespace PokemonBreed {
         parent1: PokemonBreedTreeNode,
         parent2: PokemonBreedTreeNode,
         child: PokemonBreedTreeNode,
-    ): Set<BreedError> | PokemonSpecies {
+    ): Result<PokemonSpecies, Set<BreedError>> {
         assert.exists(parent1.gender, "Parent 1 gender should exist")
         assert.exists(parent2.gender, "Parent 2 gender should exist")
         assert.exists(parent1.species, "Parent 1 species should exist")
@@ -24,51 +25,61 @@ export namespace PokemonBreed {
 
         const errors = new Set<BreedError>()
 
-        const genderlessError = checkGenderless(parent1, parent2)
-        genderlessError && errors.add(genderlessError)
-        const eggGroupError = checkEggGroups(parent1, parent2)
-        eggGroupError && errors.add(eggGroupError)
-        const genderError = checkGenders(parent1, parent2)
-        genderError && errors.add(genderError)
+        const genderlessCheck = checkGenderless(parent1, parent2)
+        if (!genderlessCheck.ok) {
+            errors.add(genderlessCheck.error)
+        }
+
+        const eggGroupCheck = checkEggGroups(parent1, parent2)
+        if (!eggGroupCheck.ok) {
+            errors.add(eggGroupCheck.error)
+        }
+
+        const genderCheck = checkGenders(parent1, parent2)
+        if (!genderCheck.ok) {
+            errors.add(genderCheck.error)
+        }
 
         const childSpecies = getChildSpecies(parent1, parent2)
-        if (!(childSpecies instanceof PokemonSpecies)) {
-            errors.add(childSpecies)
-        } else {
-            if (child.isRootNode()) {
-                if (child.isGenderless()) {
-                    const rootNodeGenderlessTree =
-                        GENDERLESS_POKEMON_EVOLUTION_TREE[
-                            child.species!
-                                .number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
-                        ]
 
-                    if (!rootNodeGenderlessTree.includes(childSpecies.number)) {
-                        errors.add(BreedError.RootNodeSpeciesMismatch)
-                    }
-                } else if (child.species?.number !== childSpecies.number) {
+        if (!childSpecies.ok) {
+            errors.add(childSpecies.error)
+            return Err(errors)
+        }
+
+        if (child.isRootNode()) {
+            if (child.isGenderless()) {
+                const rootNodeGenderlessTree =
+                    GENDERLESS_POKEMON_EVOLUTION_TREE[
+                        child.species!
+                            .number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
+                    ]
+
+                if (!rootNodeGenderlessTree.includes(childSpecies.number)) {
                     errors.add(BreedError.RootNodeSpeciesMismatch)
                 }
-            } else {
-                if (child.species?.number === childSpecies.number) {
-                    errors.add(BreedError.ChildDidNotChange)
-                }
+            } else if (child.species?.number !== childSpecies.number) {
+                errors.add(BreedError.RootNodeSpeciesMismatch)
             }
-
-            if (errors.size === 0) {
-                return childSpecies
+        } else {
+            if (child.species?.number === childSpecies.number) {
+                errors.add(BreedError.ChildDidNotChange)
             }
         }
 
-        return errors
+        if (errors.size === 0) {
+            return Ok(childSpecies as PokemonSpecies)
+        }
+
+        return Err(errors)
     }
 
     function checkEggGroups(
         parent1: PokemonBreedTreeNode,
         parent2: PokemonBreedTreeNode,
-    ): BreedError | null {
+    ): Result<{}, BreedError> {
         if (parent1.isDitto() || parent2.isDitto()) {
-            return null
+            return Ok({})
         }
 
         if (
@@ -76,38 +87,38 @@ export namespace PokemonBreed {
                 parent2.species!.eggGroups.includes(e),
             )
         ) {
-            return BreedError.EggGroupCompatibility
+            return Err(BreedError.EggGroupCompatibility)
         }
 
-        return null
+        return Ok({})
     }
 
     function checkGenders(
         parent1: PokemonBreedTreeNode,
         parent2: PokemonBreedTreeNode,
-    ): BreedError | null {
+    ): Result<{}, BreedError> {
         if (parent1.isGenderless() && parent2.isGenderless()) {
-            return null
+            return Ok({})
         }
 
         if (parent1.gender === parent2.gender) {
-            return BreedError.GenderCompatibility
+            return Err(BreedError.GenderCompatibility)
         }
 
-        return null
+        return Ok({})
     }
 
     function checkGenderless(
         parent1: PokemonBreedTreeNode,
         parent2: PokemonBreedTreeNode,
-    ): BreedError | null {
+    ): Result<{}, BreedError> {
         if (parent1.gender === PokemonGender.Genderless) {
             if (parent1.isDitto()) {
                 if (!parent2.isDitto()) {
-                    return null
+                    return Ok({})
                 }
 
-                return BreedError.GenderlessSpeciesCompatibility
+                return Err(BreedError.GenderlessSpeciesCompatibility)
             }
 
             const parent1GenderlessEvoTree =
@@ -117,17 +128,17 @@ export namespace PokemonBreed {
                 ]
 
             if (!parent1GenderlessEvoTree.includes(parent2.species!.number)) {
-                return BreedError.GenderlessSpeciesCompatibility
+                return Err(BreedError.GenderlessSpeciesCompatibility)
             }
         }
 
         if (parent2.gender === PokemonGender.Genderless) {
             if (parent2.isDitto()) {
                 if (!parent1.isDitto()) {
-                    return null
+                    return Ok({})
                 }
 
-                return BreedError.GenderlessSpeciesCompatibility
+                return Err(BreedError.GenderlessSpeciesCompatibility)
             }
 
             const parent2GenderlessEvoTree =
@@ -137,27 +148,27 @@ export namespace PokemonBreed {
                 ]
 
             if (!parent2GenderlessEvoTree.includes(parent1.species!.number)) {
-                return BreedError.GenderlessSpeciesCompatibility
+                return Err(BreedError.GenderlessSpeciesCompatibility)
             }
         }
 
-        return null
+        return Ok({})
     }
 
     function getChildSpecies(
         parent1: PokemonBreedTreeNode,
         parent2: PokemonBreedTreeNode,
-    ): BreedError | PokemonSpecies {
+    ): Result<PokemonSpecies, BreedError> {
         if (parent1.isDitto()) {
-            return parent2.species!
+            return Ok(parent2.species!)
         }
         if (parent2.isDitto()) {
-            return parent1.species!
+            return Ok(parent1.species!)
         }
 
         if (parent1.isGenderless() && parent2.isGenderless()) {
             //assume that both parents are correctly in the same GenderlessEvolutionTree
-            return parent1.species!
+            return Ok(parent1.species!)
         }
 
         const females = [parent1, parent2].filter(
@@ -165,9 +176,9 @@ export namespace PokemonBreed {
         )
 
         if (females.length !== 1) {
-            return BreedError.GenderCompatibility
+            return Err(BreedError.GenderCompatibility)
         }
 
-        return females[0]!.species!
+        return Ok(females[0]!.species!)
     }
 }
