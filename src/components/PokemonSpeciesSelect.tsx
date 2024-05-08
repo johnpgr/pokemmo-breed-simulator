@@ -48,7 +48,7 @@ export function PokemonSpeciesSelect(props: {
                         ) : null}
                         {props.currentSelectedNode?.species
                             ? props.currentSelectedNode.species.name
-                            : "Select a pokemon"}
+                            : "Select a Pokemon"}
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                 </PopoverTrigger>

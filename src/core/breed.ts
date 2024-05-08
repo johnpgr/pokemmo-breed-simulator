@@ -47,6 +47,19 @@ export namespace PokemonBreed {
             return Err(errors)
         }
 
+        const childCheck = checkChild(child, childSpecies)
+        if (!childCheck.ok) {
+            errors.add(childCheck.error)
+        }
+
+        if (errors.size === 0) {
+            return Ok(childSpecies as PokemonSpecies)
+        }
+
+        return Err(errors)
+    }
+
+    function checkChild(child: PokemonBreedTreeNode, childSpecies: PokemonSpecies): Result<{}, BreedError> {
         if (child.isRootNode()) {
             if (child.isGenderless()) {
                 const rootNodeGenderlessTree =
@@ -55,22 +68,18 @@ export namespace PokemonBreed {
                     ]
 
                 if (!rootNodeGenderlessTree.includes(childSpecies.number)) {
-                    errors.add(BreedError.RootNodeSpeciesMismatch)
+                    return Err(BreedError.RootNodeSpeciesMismatch)
                 }
             } else if (child.species?.number !== childSpecies.number) {
-                errors.add(BreedError.RootNodeSpeciesMismatch)
+                return Err(BreedError.RootNodeSpeciesMismatch)
             }
         } else {
             if (child.species?.number === childSpecies.number) {
-                errors.add(BreedError.ChildDidNotChange)
+                return Err(BreedError.ChildDidNotChange)
             }
         }
 
-        if (errors.size === 0) {
-            return Ok(childSpecies as PokemonSpecies)
-        }
-
-        return Err(errors)
+        return Ok({})
     }
 
     function checkEggGroups(parent1: PokemonBreedTreeNode, parent2: PokemonBreedTreeNode): Result<{}, BreedError> {

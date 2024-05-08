@@ -117,7 +117,7 @@ function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUn
                 description: `Error codes: ${errorMsg}`,
                 action: {
                     label: "Dismiss",
-                    onClick: () => {},
+                    onClick: () => { },
                 },
             })
         })
@@ -159,7 +159,8 @@ function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUn
                 const breedResult = PokemonBreed.breed(node, partnerNode, childNode)
 
                 if (!breedResult.ok) {
-                    if (breedResult.error.has(PokemonBreed.BreedError.ChildDidNotChange)) {
+                    if (breedResult.error.size === 1 && breedResult.error.has(PokemonBreed.BreedError.ChildDidNotChange)) {
+                        deleteErrors(currentNodePos)
                         next()
                         continue
                     }
