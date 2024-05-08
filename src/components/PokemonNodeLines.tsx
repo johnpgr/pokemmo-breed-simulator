@@ -44,7 +44,7 @@ export function PokemonNodeLines(props: {
         if (node.species && node.gender && partnerNode.species && partnerNode.gender) {
             return "bg-green-500"
         }
-        return "bg-foreground/70"
+        return "bg-foreground"
     })
 
     return (
@@ -54,7 +54,7 @@ export function PokemonNodeLines(props: {
                 className={`absolute w-1/2 h-[1px] ${color} ${lineDirection === LineDirection.Left ? "translate-x-1/2" : "-translate-x-1/2"}`}
             ></div>
             {lineDirection === LineDirection.Left ? (
-                <div className={`absolute h-16 w-[1px] ${color} left-full -bottom-[45px]`}></div>
+                <div className={`absolute h-16 w-[1px] ${color} left-full -bottom-[44px]`}></div>
             ) : null}
         </div>
     )
