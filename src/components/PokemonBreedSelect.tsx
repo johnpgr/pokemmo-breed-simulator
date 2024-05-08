@@ -8,7 +8,9 @@ import type {
     PokemonSpeciesUnparsed,
 } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
+import { Import, Save } from "lucide-react"
 import React from "react"
+import { generateErrorMessage } from "zod-error"
 import { ExportedJsonObjSchema } from "./PokemonBreedTree"
 import { IVSet, useBreedTreeContext } from "./PokemonBreedTreeContext"
 import { PokemonIvSelect } from "./PokemonIvSelect"
@@ -16,10 +18,9 @@ import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
 import { DEFAULT_IV_DROPDOWN_VALUES } from "./consts"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
-import { Textarea } from "./ui/textarea"
-import { ArchiveRestore, Import, Save } from "lucide-react"
 import { ScrollArea } from "./ui/scroll-area"
-import { generateErrorMessage } from "zod-error"
+import { Textarea } from "./ui/textarea"
+import { Try } from "@/lib/results"
 
 /**
  * This type is used to represent the state of the full pokemon node that is going to be used in the PokemonToBreedContext
@@ -54,21 +55,13 @@ export function PokemonToBreedSelect(props: {
         return uniques.size === selectedValues.length
     }
 
-    function handleResetFields() {
-        setDesired31IVCount(2)
-        setCurrentIVDropdownValues(DEFAULT_IV_DROPDOWN_VALUES)
-        setCurrentPokemonInSelect({
-            ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, 2)),
-        })
-    }
-
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
         if (!currentPokemonInSelect.species) {
             toast({
-                title: "No pokemon was selected",
-                description: "You must select a pokemon to breed.",
+                title: "No Pokemon was selected",
+                description: "You must select a Pokemon to breed.",
                 variant: "destructive",
             })
             return
@@ -103,18 +96,15 @@ export function PokemonToBreedSelect(props: {
     }
 
     function handleImportJson(json: string) {
-        let dataUnparsed
+        const dataUnparsed = Try(() => JSON.parse(json))
 
-        try {
-            dataUnparsed = JSON.parse(json)
-        } catch (error) {
+        if (!dataUnparsed.ok) {
             toast({
                 title: "Failed to import the breed tree JSON content.",
-                description: (error as Error).message,
+                description: (dataUnparsed.error as Error).message,
                 variant: "destructive",
             })
             return
-
         }
 
         const res = ExportedJsonObjSchema.safeParse(dataUnparsed)

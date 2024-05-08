@@ -1,7 +1,7 @@
 "use client"
 import { useBreedTreeContext } from "./PokemonBreedTreeContext"
 import type { PokemonIv } from "@/core/pokemon"
-import { pascalToSpacedPascal } from "@/lib/utils"
+import { Strings } from "@/lib/utils"
 import { IvColor, IV_COLOR_DICT } from "./consts"
 
 export function PokemonIvColors() {
@@ -17,7 +17,7 @@ export function PokemonIvColors() {
                     }}
                 />
                 <span className="text-sm">
-                    {pascalToSpacedPascal(ctx.ivs.A)}
+                    {Strings.pascalToSpacedPascal(ctx.ivs.A)}
                 </span>
             </div>
             <div className="flex items-center gap-2">
@@ -28,7 +28,7 @@ export function PokemonIvColors() {
                     }}
                 />
                 <span className="text-sm">
-                    {pascalToSpacedPascal(ctx.ivs.B)}
+                    {Strings.pascalToSpacedPascal(ctx.ivs.B)}
                 </span>
             </div>
             {ctx.ivs.C ? (
@@ -40,7 +40,7 @@ export function PokemonIvColors() {
                         }}
                     />
                     <span className="text-sm">
-                        {pascalToSpacedPascal(ctx.ivs.C)}
+                        {Strings.pascalToSpacedPascal(ctx.ivs.C)}
                     </span>
                 </div>
             ) : null}
@@ -53,7 +53,7 @@ export function PokemonIvColors() {
                         }}
                     />
                     <span className="text-sm">
-                        {pascalToSpacedPascal(ctx.ivs.D)}
+                        {Strings.pascalToSpacedPascal(ctx.ivs.D)}
                     </span>
                 </div>
             ) : null}
@@ -66,7 +66,7 @@ export function PokemonIvColors() {
                         }}
                     />
                     <span className="text-sm">
-                        {pascalToSpacedPascal(ctx.ivs.E)}
+                        {Strings.pascalToSpacedPascal(ctx.ivs.E)}
                     </span>
                 </div>
             ) : null}

@@ -1,5 +1,5 @@
 "use client"
-import * as PokemonBreed from "@/core/breed"
+import { PokemonBreed } from "@/core/breed"
 import { generateErrorMessage } from "zod-error"
 import {
     PokemonGender,

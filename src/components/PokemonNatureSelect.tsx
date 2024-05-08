@@ -1,11 +1,10 @@
 "use client"
-import React from "react"
 import { Button } from "@/components/ui/button"
 import {
     Command,
-    CommandInput,
-    CommandGroup,
     CommandEmpty,
+    CommandGroup,
+    CommandInput,
     CommandItem,
 } from "@/components/ui/command"
 import {
@@ -14,9 +13,9 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { randomString } from "@/lib/utils"
-import { Check, ChevronsUpDown } from "lucide-react"
 import { PokemonNature } from "@/core/pokemon"
+import { Check, ChevronsUpDown } from "lucide-react"
+import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 
 export function PokemonNatureSelect(props: {
@@ -71,7 +70,7 @@ export function PokemonNatureSelect(props: {
                                     No nature
                                 </CommandItem>
                                 {Object.values(PokemonNature).map((nature) => (
-                                    <React.Fragment key={randomString(6)}>
+                                    <React.Fragment key={`PokemonNatureSelect:${nature}`}>
                                         <CommandItem
                                             value={nature}
                                             onSelect={() => {

@@ -7,15 +7,15 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { pascalToSpacedPascal, randomString } from "@/lib/utils"
-import React from "react"
 import { PokemonIv } from "@/core/pokemon"
+import { Strings } from "@/lib/utils"
+import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
+import { PokemonIvRadioGroup, PokemonIvRadioItem } from "./PokemonIvRadio"
 import {
     IV_DROPDOWN_LIST_VALUES,
     POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS,
 } from "./consts"
-import { PokemonIvRadioGroup, PokemonIvRadioItem } from "./PokemonIvRadio"
 
 export function PokemonIvSelect(props: {
     natured: boolean
@@ -42,11 +42,11 @@ export function PokemonIvSelect(props: {
 
     const pokemonCount = props.natured
         ? POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[
-              props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
-          ].natured
+            props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
+        ].natured
         : POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[
-              props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
-          ].natureless
+            props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
+        ].natureless
 
     function handleIvSelectChange(value: PokemonIv, index: number) {
         const newDropDownValues = [...props.currentIVDropdownValues]
@@ -83,9 +83,8 @@ export function PokemonIvSelect(props: {
             </PokemonIvRadioGroup>
             <div className="flex pt-1 flex-col md:flex-row items-center gap-2">
                 {Object.entries(pokemonCount).map(([_, value], i) => (
-                    <div key={randomString(6)} className="w-full">
+                    <div key={`PokemonIvSelect:${i}`} className="w-full">
                         <Label
-                            key={randomString(6)}
                             className="text-sm text-foreground/70"
                         >
                             <strong className="text-lg text-foreground mr-1">
@@ -105,7 +104,7 @@ export function PokemonIvSelect(props: {
                                         props.currentIVDropdownValues[i]
                                     }
                                 >
-                                    {pascalToSpacedPascal(
+                                    {Strings.pascalToSpacedPascal(
                                         props.currentIVDropdownValues[i]!,
                                     )}
                                 </SelectValue>
@@ -113,10 +112,10 @@ export function PokemonIvSelect(props: {
                             <SelectContent>
                                 {IV_DROPDOWN_LIST_VALUES.map((iv) => (
                                     <SelectItem
-                                        key={randomString(6)}
+                                        key={`PokemonIvSelect:${i}:${iv}`}
                                         value={iv}
                                     >
-                                        {pascalToSpacedPascal(iv)}
+                                        {Strings.pascalToSpacedPascal(iv)}
                                     </SelectItem>
                                 ))}
                             </SelectContent>

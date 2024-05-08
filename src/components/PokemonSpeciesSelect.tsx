@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
-import { getPokemonSpriteUrl } from "@/lib/utils"
+import { getPokemonSpriteUrl } from "@/lib/sprites"
 import { Check, ChevronsUpDown } from "lucide-react"
 import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"

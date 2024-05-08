@@ -3,12 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { PokemonGender, PokemonIv } from "@/core/pokemon"
 import type { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
-import { BASE_ITEM_SPRITES_URL } from "@/lib/consts"
+import { getEvItemSpriteUrl, getPokemonSpriteUrl } from "@/lib/sprites"
 import {
-    getPokemonSpriteUrl,
-    kebabToSpacedPascal,
-    pascalToSpacedPascal,
-    randomString,
+    Strings,
     run,
 } from "@/lib/utils"
 import { HelpCircle, Save, SquarePen } from "lucide-react"
@@ -131,8 +128,8 @@ export function PokemonNodeInfo(props: {
                     <>
                         <p className="font-bold -mb-1">Ivs</p>
                         {props.currentNode.ivs.map((iv) => (
-                            <span className="text-sm" key={randomString(4)}>
-                                31 {pascalToSpacedPascal(iv)}
+                            <span className="text-sm" key={Strings.random(4)}>
+                                31 {Strings.pascalToSpacedPascal(iv)}
                             </span>
                         ))}
                     </>
@@ -190,8 +187,8 @@ export function PokemonNodeGenderButton(props: {
                     className="rounded-full border p-[6px] h-fit w-fit"
                 >
                     {!gender ||
-                    props.currentNode.isGenderless() ||
-                    props.currentNode.isDitto() ? (
+                        props.currentNode.isGenderless() ||
+                        props.currentNode.isDitto() ? (
                         <HelpCircle size={20} />
                     ) : gender === PokemonGender.Female ? (
                         <Female className="h-5 w-5 fill-pink-500 antialiased" />
@@ -203,7 +200,7 @@ export function PokemonNodeGenderButton(props: {
             <PopoverContent className="max-w-xs w-full">
                 <div className="flex flex-col items-center gap-6">
                     {props.currentNode.isGenderless() ||
-                    props.currentNode.isDitto() ? (
+                        props.currentNode.isDitto() ? (
                         <i className="text-sm text-foreground/70">
                             This Pokemon species can&apos;t have a gender
                         </i>
@@ -244,9 +241,9 @@ export function PokemonNodeGenderButton(props: {
                                         :{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                (100 -
-                                                    props.currentNode.species
-                                                        .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                            (100 -
+                                                props.currentNode.species
+                                                    .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
@@ -255,8 +252,8 @@ export function PokemonNodeGenderButton(props: {
                                         :{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                props.currentNode.species
-                                                    .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                            props.currentNode.species
+                                                .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
@@ -311,12 +308,6 @@ function PokemonNodeNickname(props: {
     )
 }
 
-function getEvItemSprite(item: string) {
-    if (item === "everstone")
-        return `${BASE_ITEM_SPRITES_URL}/hold-item/${item}.png`
-
-    return `${BASE_ITEM_SPRITES_URL}/ev-item/${item}.png`
-}
 
 export enum HeldItem {
     HP = "power-weight",
@@ -339,7 +330,7 @@ function PokemonNodeHeldItemIcon(props: { item: HeldItem }) {
                     >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                            src={getEvItemSprite(props.item)}
+                            src={getEvItemSpriteUrl(props.item)}
                             alt={`Held item: ${props.item}`}
                             style={{
                                 imageRendering: "pixelated",
@@ -348,7 +339,7 @@ function PokemonNodeHeldItemIcon(props: { item: HeldItem }) {
                     </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                    <p>{kebabToSpacedPascal(props.item)}</p>
+                    <p>{Strings.kebabToSpacedPascal(props.item)}</p>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>
