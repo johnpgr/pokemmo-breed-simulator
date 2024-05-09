@@ -151,14 +151,14 @@ function PokemonBreedTreeFinal() {
                 }
 
                 changed = true
-                childNode.species = breedResult
+                childNode.setSpecies(breedResult)
 
-                if (childNode.species.percentageMale === 0) {
-                    childNode.gender = PokemonGender.Female
-                } else if (childNode.species.percentageMale === 100) {
-                    childNode.gender = PokemonGender.Male
+                if (childNode.species?.percentageMale === 0) {
+                    childNode.setGender(PokemonGender.Female)
+                } else if (childNode.species?.percentageMale === 100) {
+                    childNode.setGender(PokemonGender.Male)
                 } else if (childNode.isGenderless()) {
-                    childNode.gender = PokemonGender.Genderless
+                    childNode.setGender(PokemonGender.Genderless)
                 }
 
                 deleteErrors(currentNodePos)

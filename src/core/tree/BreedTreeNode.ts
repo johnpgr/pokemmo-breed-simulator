@@ -18,31 +18,46 @@ export const PokemonBreedTreeNodeSerializedSchema = z.object({
 })
 export type PokemonBreedTreeNodeSerialized = z.infer<typeof PokemonBreedTreeNodeSerializedSchema>
 
-export class PokemonBreedTreeNode {
-    constructor(
-        public position: PokemonBreedTreePosition,
-        public species?: PokemonSpecies,
-        public gender?: PokemonGender,
-        public nature?: PokemonNature,
-        public ivs?: PokemonIv[],
-        public nickname?: string,
-    ) {}
+export type IPokemonBreedTreeNode = {
+    position: PokemonBreedTreePosition
+    species?: PokemonSpecies
+    gender?: PokemonGender
+    nature?: PokemonNature
+    ivs?: PokemonIv[]
+    nickname?: string
+}
+
+export class PokemonBreedTreeNode implements IPokemonBreedTreeNode {
+    position: PokemonBreedTreePosition
+    species?: PokemonSpecies | undefined
+    gender?: PokemonGender | undefined
+    nature?: PokemonNature | undefined
+    ivs?: PokemonIv[] | undefined
+    nickname?: string | undefined
+
+    constructor(p: IPokemonBreedTreeNode) {
+        this.position = p.position
+        this.species = p.species
+        this.gender = p.gender
+        this.nature = p.nature
+        this.ivs = p.ivs
+        this.nickname = p.nickname
+    }
 
     static EMPTY(pos: PokemonBreedTreePosition): PokemonBreedTreeNode {
-        return new PokemonBreedTreeNode(pos)
+        return new PokemonBreedTreeNode({ position: pos })
     }
 
-    static ROOT(ctx: { species?: PokemonSpecies; nature?: PokemonNature; ivs: IVSet }): PokemonBreedTreeNode {
-        return new PokemonBreedTreeNode(
-            new PokemonBreedTreePosition(0, 0),
-            ctx.species,
-            undefined,
-            ctx.nature,
-            Object.values(ctx.ivs).filter(Boolean),
-        )
+    static ROOT(breedTarget: { species?: PokemonSpecies; nature?: PokemonNature; ivs: IVSet }): PokemonBreedTreeNode {
+        return new PokemonBreedTreeNode({
+            position: new PokemonBreedTreePosition(0, 0),
+            species: breedTarget.species,
+            ivs: Object.values(breedTarget.ivs).filter(Boolean),
+            nature: breedTarget.nature,
+        })
     }
 
-    public exportNode(): PokemonBreedTreeNodeSerialized {
+    public toSerialized(): PokemonBreedTreeNodeSerialized {
         return {
             species: this.species?.number,
             gender: this.gender,
@@ -87,5 +102,30 @@ export class PokemonBreedTreeNode {
 
     public isGenderless(): boolean {
         return this.species?.eggGroups[0] === PokemonEggGroup.Genderless
+    }
+
+    public setSpecies(species?: PokemonSpecies): PokemonBreedTreeNode {
+        this.species = species
+        return this
+    }
+
+    public setNature(nature?: PokemonNature): PokemonBreedTreeNode {
+        this.nature = nature
+        return this
+    }
+
+    public setIvs(ivs?: PokemonIv[]): PokemonBreedTreeNode {
+        this.ivs = ivs
+        return this
+    }
+
+    public setGender(gender?: PokemonGender): PokemonBreedTreeNode {
+        this.gender = gender
+        return this
+    }
+
+    public setNickname(nickname?: string): PokemonBreedTreeNode {
+        this.nickname = nickname
+        return this
     }
 }

@@ -39,13 +39,7 @@ export function useBreedTreeMap(props: {
             switch (v) {
                 case PokemonBreederKind.Nature: {
                     const position = PokemonBreedTreePosition.fromKey(k)
-                    _map[position.key()] = new PokemonBreedTreeNode(
-                        position,
-                        undefined,
-                        undefined,
-                        finalPokemonNode.nature,
-                        undefined,
-                    )
+                    _map[position.key()] = new PokemonBreedTreeNode({ nature: finalPokemonNode.nature, position })
 
                     break
                 }
@@ -54,7 +48,7 @@ export function useBreedTreeMap(props: {
                     const ivs = finalPokemonIvSet.get(v)
                     assert.exists(ivs, "Ivs should exist for last row breeders")
 
-                    _map[position.key()] = new PokemonBreedTreeNode(position, undefined, undefined, undefined, [ivs])
+                    _map[position.key()] = new PokemonBreedTreeNode({ position, ivs: [ivs] })
 
                     break
                 }
@@ -69,8 +63,8 @@ export function useBreedTreeMap(props: {
         while (row > 0) {
             let col = 0
             while (col < Math.pow(2, row)) {
-                const pos = new PokemonBreedTreePosition(row, col)
-                const node = new PokemonBreedTreeNode(pos, undefined, undefined, undefined, undefined)
+                const position = new PokemonBreedTreePosition(row, col)
+                const node = new PokemonBreedTreeNode({ position })
 
                 const parentNodes = node.getParentNodes(_map)
                 assert.exists(parentNodes, `Parent nodes should exist for node: ${node.position.key()}`)
@@ -82,9 +76,8 @@ export function useBreedTreeMap(props: {
                 const ivs = [...new Set([...(p1Node.ivs ?? []), ...(p2Node.ivs ?? [])])]
                 const nature = p1Node.nature ?? p2Node.nature ?? undefined
 
-                node.nature = nature
-                node.ivs = ivs
-                _map[pos.key()] = node
+                node.setNature(nature).setIvs(ivs)
+                _map[position.key()] = node
 
                 col = col + 1
             }
@@ -97,7 +90,7 @@ export function useBreedTreeMap(props: {
     function serialize(): PokemonBreedTreeMapSerialized {
         const exported: PokemonBreedTreeMapSerialized = {}
         for (const [key, node] of Object.entries(map)) {
-            exported[key] = node.exportNode()
+            exported[key] = node.toSerialized()
         }
         return exported
     }
@@ -116,11 +109,10 @@ export function useBreedTreeMap(props: {
             const unparsedSpecies = props.pokemonSpeciesUnparsed.find((p) => p.number === value.species)
             if (unparsedSpecies) {
                 const species = PokemonSpecies.parse(unparsedSpecies)
-                node.species = species
+                node.setSpecies(species)
             }
 
-            node.nickname = value.nickname
-            node.gender = value.gender
+            node.setNickname(value.nickname).setGender(value.gender)
         }
 
         setMap(breedTreeMapCopy)
