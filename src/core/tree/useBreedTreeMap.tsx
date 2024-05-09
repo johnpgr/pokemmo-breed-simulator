@@ -105,9 +105,13 @@ export function useBreedTreeMap(props: {
     function deserialize(serializedTreeMap: PokemonBreedTreeMapSerialized) {
         const breedTreeMapCopy = { ...map }
 
+        if (Object.keys(breedTreeMapCopy).length < 1) {
+            return
+        }
+
         for (const [pos, value] of Object.entries(serializedTreeMap)) {
             const node = breedTreeMapCopy[pos]
-            assert.exists(node, "Failed to import breed tree. Exported tree contains invalid position.")
+            assert.exists(node, `Failed to import breed tree. Exported tree contains invalid position. (${pos})`)
 
             const unparsedSpecies = props.pokemonSpeciesUnparsed.find((p) => p.number === value.species)
             if (unparsedSpecies) {
@@ -126,6 +130,7 @@ export function useBreedTreeMap(props: {
         if (!props.finalPokemonNode.species) {
             return
         }
+
         if (Object.keys(map).length > 0) {
             return
         }

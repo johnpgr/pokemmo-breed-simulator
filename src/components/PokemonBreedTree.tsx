@@ -1,13 +1,13 @@
 "use client"
+import React from "react"
 import { PokemonBreed } from "@/core/breed"
 import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
-import { PokemonGender, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { PokemonGender } from "@/core/pokemon"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import { PokemonBreedTreePositionKey } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import { PokemonBreedTreeSerializedSchema } from "@/persistence/schema"
 import { ClipboardCopy, Import, Save } from "lucide-react"
-import React from "react"
 import { toast } from "sonner"
 import { generateErrorMessage } from "zod-error"
 import { PokemonIvColors } from "./PokemonIvColors"
@@ -36,7 +36,6 @@ function PokemonBreedTreeFinal() {
     assert.exists(ctx.breedTarget.species, "PokemonSpecies must be defined in useBreedMap")
 
     const desired31IvCount = Object.values(ctx.breedTarget.ivs).filter(Boolean).length
-
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
 
     function deleteErrors(pos: PokemonBreedTreePositionKey) {
@@ -88,7 +87,7 @@ function PokemonBreedTreeFinal() {
                 description: `Error codes: ${errorMsg}`,
                 action: {
                     label: "Dismiss",
-                    onClick: () => {},
+                    onClick: () => { },
                 },
             })
         })
