@@ -1,5 +1,5 @@
 "use client"
-import { useBreedTreeContext } from "./PokemonBreedTreeContext"
+import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 import type { PokemonIv } from "@/core/pokemon"
 import { Strings } from "@/lib/utils"
 import { IvColor, IV_COLOR_DICT } from "./consts"
@@ -13,54 +13,54 @@ export function PokemonIvColors() {
                 <div
                     className="rounded-full p-3 h-4 w-4"
                     style={{
-                        backgroundColor: IV_COLOR_DICT[ctx.ivs.A],
+                        backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.A],
                     }}
                 />
-                <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.ivs.A)}</span>
+                <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.A)}</span>
             </div>
             <div className="flex items-center gap-2">
                 <div
                     className="rounded-full p-3 h-4 w-4"
                     style={{
-                        backgroundColor: IV_COLOR_DICT[ctx.ivs.B],
+                        backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.B],
                     }}
                 />
-                <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.ivs.B)}</span>
+                <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.B)}</span>
             </div>
-            {ctx.ivs.C ? (
+            {ctx.breedTarget.ivs.C ? (
                 <div className="flex items-center gap-2">
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: IV_COLOR_DICT[ctx.ivs.C],
+                            backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.C],
                         }}
                     />
-                    <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.ivs.C)}</span>
+                    <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.C)}</span>
                 </div>
             ) : null}
-            {ctx.ivs.D ? (
+            {ctx.breedTarget.ivs.D ? (
                 <div className="flex items-center gap-2">
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: IV_COLOR_DICT[ctx.ivs.D],
+                            backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.D],
                         }}
                     />
-                    <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.ivs.D)}</span>
+                    <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.D)}</span>
                 </div>
             ) : null}
-            {ctx.ivs.E ? (
+            {ctx.breedTarget.ivs.E ? (
                 <div className="flex items-center gap-2">
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: IV_COLOR_DICT[ctx.ivs.E],
+                            backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.E],
                         }}
                     />
-                    <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.ivs.E)}</span>
+                    <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.E)}</span>
                 </div>
             ) : null}
-            {ctx.nature ? (
+            {ctx.breedTarget.nature ? (
                 <div className="flex items-center gap-2">
                     <div
                         className="rounded-full p-3 h-4 w-4"
@@ -68,7 +68,7 @@ export function PokemonIvColors() {
                             backgroundColor: IV_COLOR_DICT["Nature"],
                         }}
                     />
-                    <span className="text-sm">{ctx.nature}</span>
+                    <span className="text-sm">{ctx.breedTarget.nature}</span>
                 </div>
             ) : null}
         </div>

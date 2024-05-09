@@ -5,6 +5,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { GENDERLESS_POKEMON_EVOLUTION_TREE } from "@/core/consts"
+import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 import { PokemonEggGroup, PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
@@ -12,7 +13,6 @@ import { assert } from "@/lib/assert"
 import { getPokemonSpriteUrl } from "@/lib/sprites"
 import { Check } from "lucide-react"
 import React from "react"
-import { useBreedTreeContext } from "./PokemonBreedTreeContext"
 import { getColorsByIvs } from "./PokemonIvColors"
 import { PokemonNodeInfo } from "./PokemonNodeInfo"
 import { IV_COLOR_DICT, IvColor, NODE_SCALE_BY_COLOR_AMOUNT, SPRITE_SCALE_BY_COLOR_AMOUNT } from "./consts"
@@ -23,7 +23,6 @@ enum SearchMode {
 }
 
 export function PokemonNodeSelect(props: {
-    pokemons: PokemonSpeciesUnparsed[]
     position: PokemonBreedTreePosition
     breedTree: PokemonBreedTreeMap
     setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
@@ -39,7 +38,7 @@ export function PokemonNodeSelect(props: {
     assert.exists(currentNode, "Current node should exist in PokemonNodeSelect")
 
     function setPokemonSpecies(name: string) {
-        const pokemon = props.pokemons.find((p) => p.name.toLowerCase() === name)
+        const pokemon = ctx.pokemonSpeciesUnparsed.find((p) => p.name.toLowerCase() === name)
         assert.exists(pokemon, `Pokemon ${name} should exist`)
         assert.exists(currentNode, `Node at ${props.position} should exist`)
 
@@ -81,22 +80,24 @@ export function PokemonNodeSelect(props: {
     }
 
     const filterPokemonByEggGroups = React.useCallback((): PokemonSpeciesUnparsed[] => {
-        assert.exists(ctx.species, "Pokemon in context should exist")
+        assert.exists(ctx.breedTarget.species, "Pokemon in context should exist")
         const newList: PokemonSpeciesUnparsed[] = []
 
-        const ditto = props.pokemons.find((poke) => poke.number === 132)
+        const ditto = ctx.pokemonSpeciesUnparsed.find((poke) => poke.number === 132)
         assert.exists(ditto, "Ditto should exist")
         newList.push(ditto)
 
-        if (ctx.species.eggGroups.includes(PokemonEggGroup.Genderless)) {
+        if (ctx.breedTarget.species.eggGroups.includes(PokemonEggGroup.Genderless)) {
             const breedable =
-                GENDERLESS_POKEMON_EVOLUTION_TREE[ctx.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE]
+                GENDERLESS_POKEMON_EVOLUTION_TREE[
+                    ctx.breedTarget.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
+                ]
 
-            return newList.concat(props.pokemons.filter((poke) => breedable.includes(poke.number)))
+            return newList.concat(ctx.pokemonSpeciesUnparsed.filter((poke) => breedable.includes(poke.number)))
         }
 
-        for (const poke of props.pokemons) {
-            if (!poke.eggGroups.some((e) => ctx.species!.eggGroups.includes(e))) {
+        for (const poke of ctx.pokemonSpeciesUnparsed) {
+            if (!poke.eggGroups.some((e) => ctx.breedTarget.species!.eggGroups.includes(e))) {
                 continue
             }
 
@@ -104,11 +105,11 @@ export function PokemonNodeSelect(props: {
         }
 
         return newList
-    }, [ctx.species, props.pokemons])
+    }, [ctx.breedTarget.species, ctx.pokemonSpeciesUnparsed])
 
     const pokemonList = React.useMemo(() => {
-        return searchMode === SearchMode.All ? props.pokemons : filterPokemonByEggGroups()
-    }, [filterPokemonByEggGroups, searchMode, props.pokemons])
+        return searchMode === SearchMode.All ? ctx.pokemonSpeciesUnparsed : filterPokemonByEggGroups()
+    }, [filterPokemonByEggGroups, searchMode, ctx.pokemonSpeciesUnparsed])
 
     React.useEffect(() => {
         if (!currentNode || colors.length > 0) return
@@ -187,7 +188,7 @@ export function PokemonNodeSelect(props: {
                                 checked={searchMode === SearchMode.EggGroupMatches}
                                 onCheckedChange={handleSearchModeChange}
                             />
-                            Show only {ctx.species?.name}&apos;s egg groups
+                            Show only {ctx.breedTarget.species?.name}&apos;s egg groups
                         </div>
                         <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
                         <CommandGroup>

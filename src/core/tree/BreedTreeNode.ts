@@ -1,4 +1,4 @@
-import { IVSet } from "@/components/PokemonBreedTreeContext"
+import { IVSet } from "@/core/ctx/PokemonBreedTreeContext"
 import { z } from "zod"
 import {
     PokemonEggGroup,
@@ -32,7 +32,7 @@ export class PokemonBreedTreeNode {
         return new PokemonBreedTreeNode(pos)
     }
 
-    static ROOT(ctx: { species: PokemonSpecies; nature?: PokemonNature; ivs: IVSet }): PokemonBreedTreeNode {
+    static ROOT(ctx: { species?: PokemonSpecies; nature?: PokemonNature; ivs: IVSet }): PokemonBreedTreeNode {
         return new PokemonBreedTreeNode(
             new PokemonBreedTreePosition(0, 0),
             ctx.species,

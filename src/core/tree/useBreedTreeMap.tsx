@@ -1,4 +1,4 @@
-import type { IVSet } from "@/components/PokemonBreedTreeContext"
+import type { IVSet } from "@/core/ctx/PokemonBreedTreeContext"
 import { assert } from "@/lib/assert"
 import React from "react"
 import { POKEMON_BREEDTREE_LASTROW_MAPPING } from "../consts"
@@ -13,21 +13,17 @@ export type PokemonBreedTreeMapSerialized = Record<PokemonBreedTreePositionKey, 
 export function useBreedTreeMap(props: {
     finalPokemonNode: PokemonBreedTreeNode
     finalPokemonIvSet: IVSet
-    desired31IvCount: number
     pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
 }) {
-    const [hasImported, setHasImported] = React.useState(false)
-    const [breedTreeMap, setBreedTreeMap] = React.useState<PokemonBreedTreeMap>(() =>
-        init(props.finalPokemonNode, props.finalPokemonIvSet, props.desired31IvCount),
+    const desired31IvCount = React.useMemo(
+        () => Object.values(props.finalPokemonIvSet).filter(Boolean).length,
+        [props.finalPokemonIvSet],
     )
+    const [map, setMap] = React.useState<PokemonBreedTreeMap>({})
 
-    function init(
-        finalPokemonNode: PokemonBreedTreeNode,
-        finalPokemonIvSet: IVSet,
-        desired31Ivcount: number,
-    ): PokemonBreedTreeMap {
-        const map: PokemonBreedTreeMap = {}
-        map[finalPokemonNode.position.key()] = finalPokemonNode
+    function init(finalPokemonNode: PokemonBreedTreeNode, finalPokemonIvSet: IVSet, desired31Ivcount: number) {
+        const _map: PokemonBreedTreeMap = {}
+        _map[finalPokemonNode.position.key()] = finalPokemonNode
 
         const natured = Boolean(finalPokemonNode.nature)
 
@@ -43,7 +39,7 @@ export function useBreedTreeMap(props: {
             switch (v) {
                 case PokemonBreederKind.Nature: {
                     const position = PokemonBreedTreePosition.fromKey(k)
-                    map[position.key()] = new PokemonBreedTreeNode(
+                    _map[position.key()] = new PokemonBreedTreeNode(
                         position,
                         undefined,
                         undefined,
@@ -58,7 +54,7 @@ export function useBreedTreeMap(props: {
                     const ivs = finalPokemonIvSet.get(v)
                     assert.exists(ivs, "Ivs should exist for last row breeders")
 
-                    map[position.key()] = new PokemonBreedTreeNode(position, undefined, undefined, undefined, [ivs])
+                    _map[position.key()] = new PokemonBreedTreeNode(position, undefined, undefined, undefined, [ivs])
 
                     break
                 }
@@ -76,7 +72,7 @@ export function useBreedTreeMap(props: {
                 const pos = new PokemonBreedTreePosition(row, col)
                 const node = new PokemonBreedTreeNode(pos, undefined, undefined, undefined, undefined)
 
-                const parentNodes = node.getParentNodes(map)
+                const parentNodes = node.getParentNodes(_map)
                 assert.exists(parentNodes, `Parent nodes should exist for node: ${node.position.key()}`)
 
                 const p1Node = parentNodes[0]
@@ -88,34 +84,26 @@ export function useBreedTreeMap(props: {
 
                 node.nature = nature
                 node.ivs = ivs
-                map[pos.key()] = node
+                _map[pos.key()] = node
 
                 col = col + 1
             }
             row = row - 1
         }
 
-        return map
+        setMap(_map)
     }
 
     function serialize(): PokemonBreedTreeMapSerialized {
         const exported: PokemonBreedTreeMapSerialized = {}
-        for (const [key, node] of Object.entries(breedTreeMap)) {
+        for (const [key, node] of Object.entries(map)) {
             exported[key] = node.exportNode()
         }
         return exported
     }
 
-    function deserialize(serializedTreeMap?: PokemonBreedTreeMapSerialized) {
-        if (!serializedTreeMap) {
-            return
-        }
-
-        if (hasImported) {
-            return
-        }
-
-        const breedTreeMapCopy = { ...breedTreeMap }
+    function deserialize(serializedTreeMap: PokemonBreedTreeMapSerialized) {
+        const breedTreeMapCopy = { ...map }
 
         for (const [pos, value] of Object.entries(serializedTreeMap)) {
             const node = breedTreeMapCopy[pos]
@@ -131,16 +119,26 @@ export function useBreedTreeMap(props: {
             node.gender = value.gender
         }
 
-        setBreedTreeMap(breedTreeMapCopy)
-        setHasImported(true)
+        setMap(breedTreeMapCopy)
     }
 
+    React.useEffect(() => {
+        if (!props.finalPokemonNode.species) {
+            return
+        }
+        if (Object.keys(map).length > 0) {
+            return
+        }
+
+        init(props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount)
+    }, [props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, map])
+
     return {
-        breedTreeMap,
-        setBreedTreeMap,
+        map,
+        setMap,
         serialize,
         deserialize,
-        hasImported,
-        setHasImported,
     } as const
 }
+
+export type UseBreedTreeMap = ReturnType<typeof useBreedTreeMap>

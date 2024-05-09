@@ -1,12 +1,14 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
-import type { PokemonIv, PokemonNature, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { IVSet, useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
+import type { PokemonIv, PokemonNature, PokemonSpecies } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
+import { Try } from "@/lib/results"
+import { PokemonBreedTreeSerializedSchema } from "@/persistence/schema"
 import { Import, Save } from "lucide-react"
 import React from "react"
 import { generateErrorMessage } from "zod-error"
-import { IVSet, useBreedTreeContext } from "./PokemonBreedTreeContext"
 import { PokemonIvSelect } from "./PokemonIvSelect"
 import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
@@ -14,8 +16,6 @@ import { DEFAULT_IV_DROPDOWN_VALUES } from "./consts"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { ScrollArea } from "./ui/scroll-area"
 import { Textarea } from "./ui/textarea"
-import { Try } from "@/lib/results"
-import { PokemonBreedTreeSerializedSchema } from "@/persistence/schema"
 
 /**
  * This type is used to represent the state of the full pokemon node that is going to be used in the PokemonToBreedContext
@@ -27,7 +27,7 @@ export type PokemonNodeInSelect = {
     ivs: Set<PokemonIv>
 }
 
-export function PokemonToBreedSelect(props: { pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[] }) {
+export function PokemonToBreedSelect() {
     const { toast } = useToast()
     const ctx = useBreedTreeContext()
     const [desired31IVCount, setDesired31IVCount] = React.useState(2)
@@ -69,9 +69,9 @@ export function PokemonToBreedSelect(props: { pokemonSpeciesUnparsed: PokemonSpe
         assert.exists(finalIvs[0], "At least 2 IV fields must be selected")
         assert.exists(finalIvs[1], "At least 2 IV fields must be selected")
 
-        ctx.setIvs(new IVSet(finalIvs[0], finalIvs[1], finalIvs[2], finalIvs[3], finalIvs[4]))
-        ctx.setNature(currentPokemonInSelect.nature)
-        ctx.setSpecies(currentPokemonInSelect.species)
+        ctx.breedTarget.setIvs(new IVSet(finalIvs[0], finalIvs[1], finalIvs[2], finalIvs[3], finalIvs[4]))
+        ctx.breedTarget.setNature(currentPokemonInSelect.nature)
+        ctx.breedTarget.setSpecies(currentPokemonInSelect.species)
     }
 
     function handleImportJson(json: string) {
@@ -99,10 +99,10 @@ export function PokemonToBreedSelect(props: { pokemonSpeciesUnparsed: PokemonSpe
             return
         }
 
-        ctx.deserializeTargetPokemon(res.data)
+        ctx.deserialize(res.data)
     }
 
-    if (ctx.species) {
+    if (ctx.breedTarget.species) {
         return null
     }
 
@@ -115,7 +115,6 @@ export function PokemonToBreedSelect(props: { pokemonSpeciesUnparsed: PokemonSpe
             <div className="flex w-full flex-col items-center gap-4">
                 <div className="flex w-full flex-col gap-2">
                     <PokemonSpeciesSelect
-                        pokemons={props.pokemonSpeciesUnparsed}
                         currentSelectedNode={currentPokemonInSelect}
                         setCurrentSelectedNode={setCurrentPokemonInSelect}
                     />

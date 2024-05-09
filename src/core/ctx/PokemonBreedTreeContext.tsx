@@ -1,27 +1,31 @@
 "use client"
-import React from "react"
 import { PokemonBreederKind, PokemonIv, PokemonNature, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
+import { UseBreedTreeMap, useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
-import { PokemonBreedTreeMapSerialized } from "@/core/tree/useBreedTreeMap"
 import { PokemonBreedTreeSerialized } from "@/persistence/schema"
+import React from "react"
 
-
-export type TargetPokemonSerialized = {
+export type BreedTargetSerialized = {
     ivs: IVSet
     nature?: PokemonNature
 }
 
-export interface BreedTreeContext {
+export type BreedTarget = {
     species: PokemonSpecies | undefined
     setSpecies: React.Dispatch<React.SetStateAction<PokemonSpecies | undefined>>
     ivs: IVSet
     setIvs: React.Dispatch<React.SetStateAction<IVSet>>
     nature: PokemonNature | undefined
     setNature: React.Dispatch<React.SetStateAction<PokemonNature | undefined>>
-    serializedTree: PokemonBreedTreeMapSerialized | undefined
-    setSerializedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMapSerialized | undefined>>
-    serializeTargetPokemon: () => TargetPokemonSerialized
-    deserializeTargetPokemon: (args: PokemonBreedTreeSerialized) => void
+}
+
+export interface BreedTreeContext {
+    pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
+    breedTarget: BreedTarget
+    breedTree: UseBreedTreeMap
+    serialize: () => PokemonBreedTreeSerialized
+    deserialize: (serialized: PokemonBreedTreeSerialized) => void
 }
 
 export const BreedTreeContextPrimitive = React.createContext<BreedTreeContext | null>(null)
@@ -30,51 +34,68 @@ export function BreedTreeContext(props: {
     pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
     children: React.ReactNode
 }) {
-    const [importedTree, setImportedTree] = React.useState<PokemonBreedTreeMapSerialized | undefined>(undefined)
+    const pokemonSpeciesUnparsed = React.useMemo(() => props.pokemonSpeciesUnparsed, [props.pokemonSpeciesUnparsed])
     const [species, setSpecies] = React.useState<PokemonSpecies>()
     const [nature, setNature] = React.useState<PokemonNature>()
     const [ivs, setIvs] = React.useState<IVSet>(IVSet.DEFAULT)
+    const breedTree = useBreedTreeMap({
+        finalPokemonNode: PokemonBreedTreeNode.ROOT({
+            ivs: ivs,
+            nature: nature,
+            species: species,
+        }),
+        finalPokemonIvSet: ivs,
+        pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
+    })
 
-    function serializeTargetPokemon(): TargetPokemonSerialized {
+    function serialize(): PokemonBreedTreeSerialized {
         assert.exists(species, "Attempted to serialize target Pokemon before initializing context.")
-        return { ivs, nature }
+        const breedTargetSerialized = { ivs, nature } satisfies BreedTargetSerialized
+        const breedTreeSerialized = breedTree.serialize()
+
+        return {
+            breedTarget: breedTargetSerialized,
+            breedTree: breedTreeSerialized,
+        }
     }
 
-    function deserializeTargetPokemon(args: PokemonBreedTreeSerialized) {
-        const rootNode = args.breedTree["0,0"]
-        assert.exists(rootNode, "Failed to import. rootNode not found.")
+    function deserialize(serialized: PokemonBreedTreeSerialized) {
+        const rootNode = serialized.breedTree["0,0"]
+        assert.exists(rootNode, "Deserialize failed. Root node not found.")
 
         const speciesUnparsed = props.pokemonSpeciesUnparsed.find((p) => p.number === rootNode.species)
         assert.exists(speciesUnparsed, "Failed to import Pokemon to breed target species. Invalid Pokemon number")
 
         const species = PokemonSpecies.parse(speciesUnparsed)
         const ivs = new IVSet(
-            args.breedTarget.ivs.A,
-            args.breedTarget.ivs.B,
-            args.breedTarget.ivs.C,
-            args.breedTarget.ivs.D,
-            args.breedTarget.ivs.E,
+            serialized.breedTarget.ivs.A,
+            serialized.breedTarget.ivs.B,
+            serialized.breedTarget.ivs.C,
+            serialized.breedTarget.ivs.D,
+            serialized.breedTarget.ivs.E,
         )
 
         setIvs(ivs)
         setSpecies(species)
-        setNature(args.breedTarget.nature)
-        setImportedTree(args.breedTree)
+        setNature(serialized.breedTarget.nature)
+        breedTree.deserialize(serialized.breedTree)
     }
 
     return (
         <BreedTreeContextPrimitive.Provider
             value={{
-                species,
-                setSpecies,
-                nature,
-                setNature,
-                ivs,
-                setIvs,
-                serializedTree: importedTree,
-                setSerializedTree: setImportedTree,
-                serializeTargetPokemon,
-                deserializeTargetPokemon,
+                pokemonSpeciesUnparsed,
+                breedTree,
+                breedTarget: {
+                    species,
+                    setSpecies,
+                    nature,
+                    setNature,
+                    ivs,
+                    setIvs,
+                },
+                serialize,
+                deserialize,
             }}
         >
             {props.children}
