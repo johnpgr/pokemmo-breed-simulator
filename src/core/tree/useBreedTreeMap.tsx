@@ -1,14 +1,14 @@
-import type { ExportedTargetPokemon, IVSet } from "@/components/PokemonBreedTreeContext"
+import type { IVSet } from "@/components/PokemonBreedTreeContext"
 import { assert } from "@/lib/assert"
 import React from "react"
 import { POKEMON_BREEDTREE_LASTROW_MAPPING } from "../consts"
 import { PokemonBreederKind, PokemonSpecies, PokemonSpeciesUnparsed } from "../pokemon"
-import { ExportedNode, PokemonBreedTreeNode } from "./BreedTreeNode"
+import { PokemonBreedTreeNode, PokemonBreedTreeNodeSerialized } from "./BreedTreeNode"
 import { PokemonBreedTreePosition } from "./BreedTreePosition"
 
 export type PokemonBreedTreePositionKey = string
 export type PokemonBreedTreeMap = Record<PokemonBreedTreePositionKey, PokemonBreedTreeNode>
-export type ExportedBreedTree = Record<PokemonBreedTreePositionKey, ExportedNode>
+export type PokemonBreedTreeMapSerialized = Record<PokemonBreedTreePositionKey, PokemonBreedTreeNodeSerialized>
 
 export function useBreedTreeMap(props: {
     finalPokemonNode: PokemonBreedTreeNode
@@ -18,10 +18,10 @@ export function useBreedTreeMap(props: {
 }) {
     const [hasImported, setHasImported] = React.useState(false)
     const [breedTreeMap, setBreedTreeMap] = React.useState<PokemonBreedTreeMap>(() =>
-        initBreedTree(props.finalPokemonNode, props.finalPokemonIvSet, props.desired31IvCount),
+        init(props.finalPokemonNode, props.finalPokemonIvSet, props.desired31IvCount),
     )
 
-    function initBreedTree(
+    function init(
         finalPokemonNode: PokemonBreedTreeNode,
         finalPokemonIvSet: IVSet,
         desired31Ivcount: number,
@@ -98,16 +98,16 @@ export function useBreedTreeMap(props: {
         return map
     }
 
-    function exportTree(): ExportedBreedTree {
-        const exported: ExportedBreedTree = {}
+    function serialize(): PokemonBreedTreeMapSerialized {
+        const exported: PokemonBreedTreeMapSerialized = {}
         for (const [key, node] of Object.entries(breedTreeMap)) {
             exported[key] = node.exportNode()
         }
         return exported
     }
 
-    function importTree(exportedTree?: ExportedBreedTree) {
-        if (!exportedTree) {
+    function deserialize(serializedTreeMap?: PokemonBreedTreeMapSerialized) {
+        if (!serializedTreeMap) {
             return
         }
 
@@ -117,7 +117,7 @@ export function useBreedTreeMap(props: {
 
         const breedTreeMapCopy = { ...breedTreeMap }
 
-        for (const [pos, value] of Object.entries(exportedTree)) {
+        for (const [pos, value] of Object.entries(serializedTreeMap)) {
             const node = breedTreeMapCopy[pos]
             assert.exists(node, "Failed to import breed tree. Exported tree contains invalid position.")
 
@@ -138,8 +138,8 @@ export function useBreedTreeMap(props: {
     return {
         breedTreeMap,
         setBreedTreeMap,
-        exportTree,
-        importTree,
+        serialize,
+        deserialize,
         hasImported,
         setHasImported,
     } as const

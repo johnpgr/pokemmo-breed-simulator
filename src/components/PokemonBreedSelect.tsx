@@ -6,7 +6,6 @@ import { assert } from "@/lib/assert"
 import { Import, Save } from "lucide-react"
 import React from "react"
 import { generateErrorMessage } from "zod-error"
-import { ExportedJsonObjSchema } from "./PokemonBreedTree"
 import { IVSet, useBreedTreeContext } from "./PokemonBreedTreeContext"
 import { PokemonIvSelect } from "./PokemonIvSelect"
 import { PokemonNatureSelect } from "./PokemonNatureSelect"
@@ -16,6 +15,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { ScrollArea } from "./ui/scroll-area"
 import { Textarea } from "./ui/textarea"
 import { Try } from "@/lib/results"
+import { PokemonBreedTreeSerializedSchema } from "@/persistence/schema"
 
 /**
  * This type is used to represent the state of the full pokemon node that is going to be used in the PokemonToBreedContext
@@ -86,7 +86,7 @@ export function PokemonToBreedSelect(props: { pokemonSpeciesUnparsed: PokemonSpe
             return
         }
 
-        const res = ExportedJsonObjSchema.safeParse(dataUnparsed)
+        const res = PokemonBreedTreeSerializedSchema.safeParse(dataUnparsed)
 
         if (res.error) {
             const errorMsg = generateErrorMessage(res.error.issues)
@@ -99,7 +99,7 @@ export function PokemonToBreedSelect(props: { pokemonSpeciesUnparsed: PokemonSpe
             return
         }
 
-        ctx.importTargetPokemon(res.data)
+        ctx.deserializeTargetPokemon(res.data)
     }
 
     if (ctx.species) {

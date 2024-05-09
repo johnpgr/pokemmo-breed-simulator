@@ -1,14 +1,13 @@
 "use client"
 import { PokemonBreed } from "@/core/breed"
-import { PokemonGender, PokemonIvSchema, PokemonNatureSchema, PokemonSpeciesUnparsed } from "@/core/pokemon"
-import { ExportedNodeSchema, PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
+import { PokemonGender, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
-import { ExportedBreedTree, PokemonBreedTreePositionKey, useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
+import { PokemonBreedTreeMapSerialized, PokemonBreedTreePositionKey, useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import { ClipboardCopy, Import, Save } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
-import { z } from "zod"
 import { generateErrorMessage } from "zod-error"
 import { useBreedTreeContext } from "./PokemonBreedTreeContext"
 import { PokemonIvColors } from "./PokemonIvColors"
@@ -20,23 +19,10 @@ import { ScrollArea } from "./ui/scroll-area"
 import { Textarea } from "./ui/textarea"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
 import { useToast } from "./ui/use-toast"
+import { PokemonBreedTreeSerializedSchema } from "@/persistence/schema"
+import { z } from "zod"
 
 export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.BreedError> | undefined>
-
-export const ExportedJsonObjSchema = z.object({
-    breedTarget: z.object({
-        ivs: z.object({
-            A: PokemonIvSchema,
-            B: PokemonIvSchema,
-            C: PokemonIvSchema.optional(),
-            D: PokemonIvSchema.optional(),
-            E: PokemonIvSchema.optional(),
-        }),
-        nature: PokemonNatureSchema.optional(),
-    }),
-    breedTree: z.record(z.string(), ExportedNodeSchema),
-})
-export type ExportedJsonObj = z.infer<typeof ExportedJsonObjSchema>
 
 export function PokemonBreedTree(props: { pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[] }) {
     const ctx = useBreedTreeContext()
@@ -54,7 +40,7 @@ function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUn
     const desired31IvCount = Object.values(ctx.ivs).filter(Boolean).length
 
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
-    const { breedTreeMap, setBreedTreeMap, exportTree, importTree, setHasImported } = useBreedTreeMap({
+    const { breedTreeMap, setBreedTreeMap, serialize, deserialize, setHasImported } = useBreedTreeMap({
         finalPokemonNode: PokemonBreedTreeNode.ROOT({
             ivs: ctx.ivs,
             nature: ctx.nature,
@@ -64,7 +50,7 @@ function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUn
         desired31IvCount,
         pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
     })
-    importTree(ctx.importedTree)
+    deserialize(ctx.serializedTree)
 
     function deleteErrors(pos: PokemonBreedTreePositionKey) {
         setBreedErrors((prev) => {
@@ -81,9 +67,9 @@ function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUn
     }
 
     function handleExport(): string {
-        const breedTarget = ctx.exportTargetPokemon()
-        const breedTree = exportTree()
-        const json = { breedTarget, breedTree } satisfies ExportedJsonObj
+        const breedTarget = ctx.serializeTargetPokemon()
+        const breedTree = serialize()
+        const json = { breedTarget, breedTree } satisfies z.infer<typeof PokemonBreedTreeSerializedSchema>
         return JSON.stringify(json, null, 4)
     }
 
@@ -121,6 +107,7 @@ function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUn
                 },
             })
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [breedErrors])
 
     React.useEffect(() => {
@@ -195,6 +182,7 @@ function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUn
         if (changed) {
             setBreedTreeMap({ ...breedTreeMap })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [breedTreeMap, ctx.nature, desired31IvCount, setBreedTreeMap, setBreedErrors])
 
     return (
@@ -248,7 +236,7 @@ function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUn
             <ImportExportButton
                 handleExportJson={handleExport}
                 setHasImported={setHasImported}
-                importTree={importTree}
+                deserialize={deserialize}
             />
             <PokemonIvColors />
         </div>
@@ -258,7 +246,7 @@ function PokemonBreedTreeFinal(props: { pokemonSpeciesUnparsed: PokemonSpeciesUn
 function ImportExportButton(props: {
     handleExportJson: () => string
     setHasImported: React.Dispatch<React.SetStateAction<boolean>>
-    importTree: (exportedTree?: ExportedBreedTree) => void
+    deserialize: (serializedTreeMap?: PokemonBreedTreeMapSerialized) => void
 }) {
     const [jsonData, setJsonData] = React.useState("")
     const ctx = useBreedTreeContext()
@@ -266,7 +254,7 @@ function ImportExportButton(props: {
 
     function handleSave() {
         const unparsed = JSON.parse(jsonData)
-        const res = ExportedJsonObjSchema.safeParse(unparsed)
+        const res = PokemonBreedTreeSerializedSchema.safeParse(unparsed)
         if (res.error) {
             const errorMsg = generateErrorMessage(res.error.issues)
 
@@ -278,9 +266,9 @@ function ImportExportButton(props: {
             return
         }
         try {
-            ctx.importTargetPokemon(res.data)
+            ctx.deserializeTargetPokemon(res.data)
             props.setHasImported(false)
-            props.importTree(ctx.importedTree)
+            props.deserialize(ctx.serializedTree)
         } catch (error) {
             toast({
                 title: "Failed to save the breed tree JSON content.",

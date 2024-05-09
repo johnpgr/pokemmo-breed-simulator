@@ -11,16 +11,12 @@ import {
 import { PokemonBreedTreePosition } from "./BreedTreePosition"
 import type { PokemonBreedTreeMap } from "./useBreedTreeMap"
 
-export type ExportedNode = {
-    species?: number
-    gender?: PokemonGender
-    nickname?: string
-}
-export const ExportedNodeSchema = z.object({
+export const PokemonBreedTreeNodeSerializedSchema = z.object({
     species: z.number().optional(),
     gender: PokemonGenderSchema.optional(),
     nickname: z.string().optional(),
 })
+export type PokemonBreedTreeNodeSerialized = z.infer<typeof PokemonBreedTreeNodeSerializedSchema>
 
 export class PokemonBreedTreeNode {
     constructor(
@@ -46,7 +42,7 @@ export class PokemonBreedTreeNode {
         )
     }
 
-    public exportNode(): ExportedNode {
+    public exportNode(): PokemonBreedTreeNodeSerialized {
         return {
             species: this.species?.number,
             gender: this.gender,

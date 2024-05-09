@@ -2,10 +2,11 @@
 import React from "react"
 import { PokemonBreederKind, PokemonIv, PokemonNature, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
-import { ExportedBreedTree } from "@/core/tree/useBreedTreeMap"
-import { ExportedJsonObj } from "./PokemonBreedTree"
+import { PokemonBreedTreeMapSerialized } from "@/core/tree/useBreedTreeMap"
+import { PokemonBreedTreeSerialized } from "@/persistence/schema"
 
-export type ExportedTargetPokemon = {
+
+export type TargetPokemonSerialized = {
     ivs: IVSet
     nature?: PokemonNature
 }
@@ -17,10 +18,10 @@ export interface BreedTreeContext {
     setIvs: React.Dispatch<React.SetStateAction<IVSet>>
     nature: PokemonNature | undefined
     setNature: React.Dispatch<React.SetStateAction<PokemonNature | undefined>>
-    importedTree: ExportedBreedTree | undefined
-    setImportedTree: React.Dispatch<React.SetStateAction<ExportedBreedTree | undefined>>
-    exportTargetPokemon: () => ExportedTargetPokemon
-    importTargetPokemon: (args: ExportedJsonObj) => void
+    serializedTree: PokemonBreedTreeMapSerialized | undefined
+    setSerializedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMapSerialized | undefined>>
+    serializeTargetPokemon: () => TargetPokemonSerialized
+    deserializeTargetPokemon: (args: PokemonBreedTreeSerialized) => void
 }
 
 export const BreedTreeContextPrimitive = React.createContext<BreedTreeContext | null>(null)
@@ -29,22 +30,23 @@ export function BreedTreeContext(props: {
     pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
     children: React.ReactNode
 }) {
-    const [importedTree, setImportedTree] = React.useState<ExportedBreedTree | undefined>(undefined)
+    const [importedTree, setImportedTree] = React.useState<PokemonBreedTreeMapSerialized | undefined>(undefined)
     const [species, setSpecies] = React.useState<PokemonSpecies>()
     const [nature, setNature] = React.useState<PokemonNature>()
     const [ivs, setIvs] = React.useState<IVSet>(IVSet.DEFAULT)
 
-    function exportTargetPokemon(): ExportedTargetPokemon {
-        assert.exists(species, "Attempted to export a targetPokemon before initializing context.")
+    function serializeTargetPokemon(): TargetPokemonSerialized {
+        assert.exists(species, "Attempted to serialize target Pokemon before initializing context.")
         return { ivs, nature }
     }
 
-    function importTargetPokemon(args: ExportedJsonObj) {
+    function deserializeTargetPokemon(args: PokemonBreedTreeSerialized) {
         const rootNode = args.breedTree["0,0"]
         assert.exists(rootNode, "Failed to import. rootNode not found.")
 
         const speciesUnparsed = props.pokemonSpeciesUnparsed.find((p) => p.number === rootNode.species)
         assert.exists(speciesUnparsed, "Failed to import Pokemon to breed target species. Invalid Pokemon number")
+
         const species = PokemonSpecies.parse(speciesUnparsed)
         const ivs = new IVSet(
             args.breedTarget.ivs.A,
@@ -69,10 +71,10 @@ export function BreedTreeContext(props: {
                 setNature,
                 ivs,
                 setIvs,
-                importedTree,
-                setImportedTree,
-                exportTargetPokemon,
-                importTargetPokemon,
+                serializedTree: importedTree,
+                setSerializedTree: setImportedTree,
+                serializeTargetPokemon,
+                deserializeTargetPokemon,
             }}
         >
             {props.children}
@@ -94,7 +96,7 @@ export class IVSet {
         public C?: PokemonIv,
         public D?: PokemonIv,
         public E?: PokemonIv,
-    ) {}
+    ) { }
 
     public get(kind: PokemonBreederKind): PokemonIv | undefined {
         switch (kind) {
