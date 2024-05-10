@@ -6,7 +6,7 @@ import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import { PokemonBreedTreePositionKey } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import { PokemonBreedTreeSerializedSchema } from "@/persistence/schema"
-import { ClipboardCopy, Import, Save } from "lucide-react"
+import { ClipboardCopy, Import, RotateCcw, Save } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
 import { generateErrorMessage } from "zod-error"
@@ -14,11 +14,31 @@ import { PokemonIvColors } from "./PokemonIvColors"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
 import { Button } from "./ui/button"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "./ui/dialog"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { ScrollArea } from "./ui/scroll-area"
 import { Textarea } from "./ui/textarea"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
 import { useToast } from "./ui/use-toast"
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from "./ui/drawer"
+import { useMediaQuery } from "usehooks-ts"
 
 export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.BreedError> | undefined>
 
@@ -66,6 +86,11 @@ function PokemonBreedTreeFinal() {
     function handleExport(): string {
         const serialized = ctx.serialize()
         return JSON.stringify(serialized, null, 4)
+    }
+
+    function handleRestartBreed() {
+        ctx.resetLocalStorage()
+        window.location.reload()
     }
 
     React.useEffect(() => {
@@ -230,7 +255,10 @@ function PokemonBreedTreeFinal() {
                     </Button>
                 </div>
             ) : null}
-            <ImportExportButton handleExport={handleExport} />
+            <div className="flex items-center gap-2">
+                <ImportExportButton handleExport={handleExport} />
+                <ResetBreedButton handleRestartBreed={handleRestartBreed} />
+            </div>
             <PokemonIvColors />
         </div>
     )
@@ -327,5 +355,64 @@ function ImportExportButton(props: { handleExport: () => string }) {
                 </Button>
             </PopoverContent>
         </Popover>
+    )
+}
+
+function ResetBreedButton(props: { handleRestartBreed: () => void }) {
+    const isDesktop = useMediaQuery("(min-width: 768px)")
+
+    if (isDesktop) {
+        return (
+            <Dialog>
+                <DialogTrigger asChild>
+                    <Button variant={"destructive"} className="gap-1">
+                        <RotateCcw size={16} />
+                        Reset
+                    </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                        <DialogTitle>Reset current breed</DialogTitle>
+                        <DialogDescription>
+                            Are you sure you want to reset the current breed?
+                            <br />
+                            All progress will be lost.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                        <Button variant={"destructive"} onClick={props.handleRestartBreed}>
+                            Confirm
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
+        )
+    }
+
+    return (
+        <Drawer>
+            <DrawerTrigger asChild>
+                <Button variant={"destructive"} className="gap-1">
+                    <RotateCcw size={16} />
+                    Reset
+                </Button>
+            </DrawerTrigger>
+            <DrawerContent>
+                <DrawerHeader className="text-left">
+                    <DrawerTitle>Reset current breed</DrawerTitle>
+                    <DrawerDescription>
+                        Are you sure you want to reset the current breed?
+                        All progress will be lost.
+                    </DrawerDescription>
+                </DrawerHeader>
+                <DrawerFooter className="pt-2">
+                    <DrawerClose asChild>
+                        <Button variant={"destructive"} onClick={props.handleRestartBreed}>
+                            Confirm
+                        </Button>
+                    </DrawerClose>
+                </DrawerFooter>
+            </DrawerContent>
+        </Drawer >
     )
 }

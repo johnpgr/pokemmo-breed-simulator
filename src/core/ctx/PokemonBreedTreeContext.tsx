@@ -3,7 +3,7 @@ import { PokemonBreederKind, PokemonIv, PokemonNature, PokemonSpecies, PokemonSp
 import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import { UseBreedTreeMap, useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
-import { useLocalStorage } from "@/lib/hooks/useLocalStorage"
+import { useLocalStorage } from "usehooks-ts"
 import { PokemonBreedTreeSerialized } from "@/persistence/schema"
 import React from "react"
 
@@ -29,6 +29,7 @@ export interface BreedTreeContext {
     deserialize: (serialized: PokemonBreedTreeSerialized) => void
     saveToLocalStorage: () => void
     loadFromLocalStorage: () => void
+    resetLocalStorage: () => void
 }
 
 export const BreedTreeContextPrimitive = React.createContext<BreedTreeContext | null>(null)
@@ -104,6 +105,10 @@ export function BreedTreeContext(props: {
         }
     }
 
+    function resetLocalStorage() {
+        setLocalStorageTree(undefined)
+    }
+
     return (
         <BreedTreeContextPrimitive.Provider
             value={{
@@ -121,6 +126,7 @@ export function BreedTreeContext(props: {
                 deserialize,
                 saveToLocalStorage,
                 loadFromLocalStorage,
+                resetLocalStorage,
             }}
         >
             {props.children}
