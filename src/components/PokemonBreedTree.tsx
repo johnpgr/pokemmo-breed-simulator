@@ -1,5 +1,4 @@
 "use client"
-import React from "react"
 import { PokemonBreed } from "@/core/breed"
 import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 import { PokemonGender } from "@/core/pokemon"
@@ -8,6 +7,7 @@ import { PokemonBreedTreePositionKey } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import { PokemonBreedTreeSerializedSchema } from "@/persistence/schema"
 import { ClipboardCopy, Import, Save } from "lucide-react"
+import React from "react"
 import { toast } from "sonner"
 import { generateErrorMessage } from "zod-error"
 import { PokemonIvColors } from "./PokemonIvColors"
@@ -23,8 +23,19 @@ import { useToast } from "./ui/use-toast"
 export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.BreedError> | undefined>
 
 export function PokemonBreedTree() {
+    const loadedFromLocal = React.useRef(false)
     const ctx = useBreedTreeContext()
-    if (!ctx.breedTarget.species || Object.values(ctx.breedTree.map).length < 1) {
+
+    React.useEffect(() => {
+        if (loadedFromLocal.current) {
+            return
+        }
+
+        ctx.loadFromLocalStorage()
+        loadedFromLocal.current = true
+    }, [ctx])
+
+    if (!ctx.breedTarget.species || !ctx.breedTree.map["0,0"]) {
         return null
     }
 

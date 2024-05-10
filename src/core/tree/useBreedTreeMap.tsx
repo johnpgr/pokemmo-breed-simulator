@@ -14,6 +14,7 @@ export function useBreedTreeMap(props: {
     finalPokemonNode: PokemonBreedTreeNode
     finalPokemonIvSet: IVSet
     pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
+    breedTreeMapInLocalStorage: PokemonBreedTreeMapSerialized | undefined
 }) {
     const desired31IvCount = React.useMemo(
         () => Object.values(props.finalPokemonIvSet).filter(Boolean).length,
@@ -21,7 +22,12 @@ export function useBreedTreeMap(props: {
     )
     const [map, setMap] = React.useState<PokemonBreedTreeMap>({})
 
-    function init(finalPokemonNode: PokemonBreedTreeNode, finalPokemonIvSet: IVSet, desired31Ivcount: number) {
+    function init(
+        finalPokemonNode: PokemonBreedTreeNode,
+        finalPokemonIvSet: IVSet,
+        desired31Ivcount: number,
+        breedTreeMapInLocalStorage?: PokemonBreedTreeMapSerialized,
+    ) {
         const _map: PokemonBreedTreeMap = {}
         _map[finalPokemonNode.position.key()] = finalPokemonNode
 
@@ -39,8 +45,8 @@ export function useBreedTreeMap(props: {
             switch (v) {
                 case PokemonBreederKind.Nature: {
                     const position = PokemonBreedTreePosition.fromKey(k)
-                    _map[position.key()] = new PokemonBreedTreeNode({ nature: finalPokemonNode.nature, position })
 
+                    _map[position.key()] = new PokemonBreedTreeNode({ nature: finalPokemonNode.nature, position })
                     break
                 }
                 default: {
@@ -49,7 +55,6 @@ export function useBreedTreeMap(props: {
                     assert.exists(ivs, "Ivs should exist for last row breeders")
 
                     _map[position.key()] = new PokemonBreedTreeNode({ position, ivs: [ivs] })
-
                     break
                 }
             }
@@ -84,6 +89,10 @@ export function useBreedTreeMap(props: {
             row = row - 1
         }
 
+        if (breedTreeMapInLocalStorage) {
+            deserialize(breedTreeMapInLocalStorage, _map)
+        }
+
         setMap(_map)
     }
 
@@ -95,9 +104,7 @@ export function useBreedTreeMap(props: {
         return exported
     }
 
-    function deserialize(serializedTreeMap: PokemonBreedTreeMapSerialized) {
-        const breedTreeMapCopy = { ...map }
-
+    function deserialize(serializedTreeMap: PokemonBreedTreeMapSerialized, breedTreeMapCopy: PokemonBreedTreeMap) {
         if (Object.keys(breedTreeMapCopy).length < 1) {
             return
         }
@@ -127,8 +134,8 @@ export function useBreedTreeMap(props: {
             return
         }
 
-        init(props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount)
-    }, [props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, map])
+        init(props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, props.breedTreeMapInLocalStorage)
+    }, [props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, map, props.breedTreeMapInLocalStorage])
 
     return {
         map,

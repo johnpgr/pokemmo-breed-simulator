@@ -46,24 +46,25 @@ export function PokemonNodeSelect(props: {
 
         switch (true) {
             case currentNode.isDitto():
-                currentNode.gender = PokemonGender.Genderless
+                currentNode.setGender(PokemonGender.Genderless)
                 break
             case currentNode.isGenderless():
-                currentNode.gender = PokemonGender.Genderless
+                currentNode.setGender(PokemonGender.Genderless)
                 break
             case currentNode.species!.percentageMale === 0:
-                currentNode.gender = PokemonGender.Female
+                currentNode.setGender(PokemonGender.Female)
                 break
             case currentNode.species!.percentageMale === 100:
-                currentNode.gender = PokemonGender.Male
+                currentNode.setGender(PokemonGender.Male)
                 break
             case currentNode.gender === PokemonGender.Genderless:
                 //this means that previously at this node there was a genderless pokemon
-                currentNode.gender = undefined
+                currentNode.setGender(undefined)
                 break
         }
 
         props.setBreedTree((prev) => ({ ...prev }))
+        ctx.saveToLocalStorage()
     }
 
     function setGender(gender?: PokemonGender) {
@@ -71,6 +72,7 @@ export function PokemonNodeSelect(props: {
 
         currentNode.gender = gender
         props.setBreedTree((prev) => ({ ...prev }))
+        ctx.saveToLocalStorage()
     }
 
     function handleSearchModeChange() {

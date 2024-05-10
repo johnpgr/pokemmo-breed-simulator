@@ -14,6 +14,7 @@ import { Male } from "./ui/icons/Male"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
+import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 
 export function PokemonNodeInfo(props: {
     currentNode: PokemonBreedTreeNode
@@ -21,6 +22,7 @@ export function PokemonNodeInfo(props: {
     setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
     setGender: (gender?: PokemonGender) => void
 }) {
+    const ctx = useBreedTreeContext()
     const name = props.currentNode?.nickname ?? props.currentNode?.species?.name ?? ""
     const heldItem = run((): HeldItem | null => {
         const breedPartner = props.currentNode.getPartnerNode(props.breedTree)
@@ -54,19 +56,20 @@ export function PokemonNodeInfo(props: {
     })
 
     function setNickname(nick: string) {
-        props.currentNode.nickname = nick
+        props.currentNode.setNickname(nick)
         props.setBreedTree((prev) => ({
             ...prev,
         }))
+        ctx.saveToLocalStorage()
     }
 
     function resetNode() {
         props.setGender(undefined)
-        props.currentNode.species = undefined
-
+        props.currentNode.setSpecies(undefined)
         props.setBreedTree((prev) => ({
             ...prev,
         }))
+        ctx.saveToLocalStorage()
     }
 
     return (

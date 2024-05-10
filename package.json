@@ -8,6 +8,7 @@
         "start": "next start",
         "lint": "next lint",
         "format": "prettier -w .",
+        "clean": "rm -rf .next",
         "parse-data": "bun run ./src/data/parse.ts"
     },
     "dependencies": {

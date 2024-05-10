@@ -3,6 +3,7 @@ import { PokemonBreederKind, PokemonIv, PokemonNature, PokemonSpecies, PokemonSp
 import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import { UseBreedTreeMap, useBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
+import { useLocalStorage } from "@/lib/hooks/useLocalStorage"
 import { PokemonBreedTreeSerialized } from "@/persistence/schema"
 import React from "react"
 
@@ -26,6 +27,8 @@ export interface BreedTreeContext {
     breedTree: UseBreedTreeMap
     serialize: () => PokemonBreedTreeSerialized
     deserialize: (serialized: PokemonBreedTreeSerialized) => void
+    saveToLocalStorage: () => void
+    loadFromLocalStorage: () => void
 }
 
 export const BreedTreeContextPrimitive = React.createContext<BreedTreeContext | null>(null)
@@ -35,6 +38,10 @@ export function BreedTreeContext(props: {
     children: React.ReactNode
 }) {
     const pokemonSpeciesUnparsed = React.useMemo(() => props.pokemonSpeciesUnparsed, [props.pokemonSpeciesUnparsed])
+    const [localStorageTree, setLocalStorageTree] = useLocalStorage<PokemonBreedTreeSerialized | undefined>(
+        "last-tree",
+        undefined,
+    )
     const [species, setSpecies] = React.useState<PokemonSpecies>()
     const [nature, setNature] = React.useState<PokemonNature>()
     const [ivs, setIvs] = React.useState<IVSet>(IVSet.DEFAULT)
@@ -46,6 +53,7 @@ export function BreedTreeContext(props: {
         }),
         finalPokemonIvSet: ivs,
         pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
+        breedTreeMapInLocalStorage: localStorageTree?.breedTree,
     })
 
     function serialize(): PokemonBreedTreeSerialized {
@@ -78,7 +86,16 @@ export function BreedTreeContext(props: {
         setIvs(ivs)
         setSpecies(species)
         setNature(serialized.breedTarget.nature)
-        breedTree.deserialize(serialized.breedTree)
+    }
+
+    function saveToLocalStorage() {
+        setLocalStorageTree(serialize())
+    }
+
+    function loadFromLocalStorage() {
+        if (localStorageTree) {
+            deserialize(localStorageTree)
+        }
     }
 
     return (
@@ -96,6 +113,8 @@ export function BreedTreeContext(props: {
                 },
                 serialize,
                 deserialize,
+                saveToLocalStorage,
+                loadFromLocalStorage,
             }}
         >
             {props.children}
