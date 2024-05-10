@@ -147,15 +147,13 @@ function PokemonBreedTreeFinal() {
             }
 
             while (node && partnerNode) {
-                // bind the current node position because next()
-                // will move the node pointer before the errors are set
+                // bind the current node position because next() will move the node pointer before the errors are set
                 const currentNodePos = node.position.key()
 
                 if (!node.gender || !partnerNode.gender || !node.species || !partnerNode.species) {
-                    if (breedErrors[pos.key()]) {
-                        deleteErrors(currentNodePos)
-                    }
-                    break
+                    deleteErrors(currentNodePos)
+                    next()
+                    continue
                 }
 
                 const childNode = node.getChildNode(ctx.breedTree.map)

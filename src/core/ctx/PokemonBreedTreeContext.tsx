@@ -72,7 +72,6 @@ export function BreedTreeContext(props: {
     }
 
     function deserialize(serialized: PokemonBreedTreeSerialized) {
-        console.log("Deserializing", serialized)
         const rootNode = serialized.breedTree["0,0"]
         assert.exists(rootNode, "Deserialize failed. Root node not found.")
 
