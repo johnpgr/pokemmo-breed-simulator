@@ -45,6 +45,7 @@ export function BreedTreeContext(props: {
     const [species, setSpecies] = React.useState<PokemonSpecies>()
     const [nature, setNature] = React.useState<PokemonNature>()
     const [ivs, setIvs] = React.useState<IVSet>(IVSet.DEFAULT)
+    const [initMap, setInitMap] = React.useState(true)
     const breedTree = useBreedTreeMap({
         finalPokemonNode: PokemonBreedTreeNode.ROOT({
             ivs: ivs,
@@ -54,6 +55,8 @@ export function BreedTreeContext(props: {
         finalPokemonIvSet: ivs,
         pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
         breedTreeMapInLocalStorage: localStorageTree?.breedTree,
+        init: initMap,
+        setInit: setInitMap,
     })
 
     function serialize(): PokemonBreedTreeSerialized {
@@ -68,6 +71,7 @@ export function BreedTreeContext(props: {
     }
 
     function deserialize(serialized: PokemonBreedTreeSerialized) {
+        console.log("Deserializing", serialized)
         const rootNode = serialized.breedTree["0,0"]
         assert.exists(rootNode, "Deserialize failed. Root node not found.")
 
@@ -86,6 +90,8 @@ export function BreedTreeContext(props: {
         setIvs(ivs)
         setSpecies(species)
         setNature(serialized.breedTarget.nature)
+        setLocalStorageTree(serialized)
+        setInitMap(true)
     }
 
     function saveToLocalStorage() {

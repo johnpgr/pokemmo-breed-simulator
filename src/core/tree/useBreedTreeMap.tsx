@@ -15,6 +15,8 @@ export function useBreedTreeMap(props: {
     finalPokemonIvSet: IVSet
     pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
     breedTreeMapInLocalStorage: PokemonBreedTreeMapSerialized | undefined
+    init: boolean
+    setInit: React.Dispatch<React.SetStateAction<boolean>>
 }) {
     const desired31IvCount = React.useMemo(
         () => Object.values(props.finalPokemonIvSet).filter(Boolean).length,
@@ -130,11 +132,12 @@ export function useBreedTreeMap(props: {
             return
         }
 
-        if (Object.keys(map).length > 0) {
+        if (!props.init) {
             return
         }
 
         init(props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, props.breedTreeMapInLocalStorage)
+        props.setInit(false)
     }, [props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, map, props.breedTreeMapInLocalStorage])
 
     return {
