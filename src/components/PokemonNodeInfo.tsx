@@ -73,7 +73,7 @@ export function PokemonNodeInfo(props: {
     }
 
     return (
-        <Card className="w-full max-w-64 md:ml-4 h-fit relative">
+        <Card className="w-full md:max-w-64 md:ml-4 h-fit relative">
             <CardHeader>
                 <CardTitle className="flex items-center">
                     {props.currentNode && props.currentNode.species ? (

@@ -17,7 +17,7 @@ import { useMediaQuery } from "usehooks-ts"
 import { getColorsByIvs } from "./PokemonIvColors"
 import { PokemonNodeInfo } from "./PokemonNodeInfo"
 import { IV_COLOR_DICT, IvColor, NODE_SCALE_BY_COLOR_AMOUNT, SPRITE_SCALE_BY_COLOR_AMOUNT } from "./consts"
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
+import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer"
 
 enum SearchMode {
     All,
@@ -235,8 +235,8 @@ export function PokemonNodeSelect(props: {
     }
 
     return (
-        <Dialog>
-            <DialogTrigger asChild>
+        <Drawer>
+            <DrawerTrigger asChild>
                 <Button
                     size={"icon"}
                     className="z-10 relative rounded-full bg-neutral-300 dark:bg-neutral-800 overflow-hidden"
@@ -271,18 +271,10 @@ export function PokemonNodeSelect(props: {
                         />
                     ) : null}
                 </Button>
-            </DialogTrigger>
-            <DialogContent className="p-0 flex flex-col-reverse gap-4 border-none max-w-56 bg-transparent" noCloseButton>
-                {currentNode ? (
-                    <PokemonNodeInfo
-                        breedTree={props.breedTree}
-                        setBreedTree={props.setBreedTree}
-                        currentNode={currentNode}
-                        setGender={setGender}
-                    />
-                ) : null}
+            </DrawerTrigger>
+            <DrawerContent className="p-4 flex flex-col border-none gap-4 bg-transparent">
                 {!isPokemonToBreed ? (
-                    <Command className="w-full max-w-lg border">
+                    <Command className="w-full border">
                         <CommandInput
                             placeholder="Search pokemon..."
                             value={search}
@@ -299,7 +291,7 @@ export function PokemonNodeSelect(props: {
                         </div>
                         <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
                         <CommandGroup>
-                            <ScrollArea className="h-72 w-full">
+                            <ScrollArea className="h-52 w-full">
                                 {pending
                                     ? Array.from({ length: 9 }).map((_, i) => (
                                         <CommandItem
@@ -330,8 +322,16 @@ export function PokemonNodeSelect(props: {
                         </CommandGroup>
                     </Command>
                 ) : null}
-            </DialogContent>
-        </Dialog>
+                {currentNode ? (
+                    <PokemonNodeInfo
+                        breedTree={props.breedTree}
+                        setBreedTree={props.setBreedTree}
+                        currentNode={currentNode}
+                        setGender={setGender}
+                    />
+                ) : null}
+            </DrawerContent>
+        </Drawer>
     )
 
 }
