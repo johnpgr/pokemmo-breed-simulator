@@ -253,11 +253,11 @@ function PokemonBreedTreeFinal() {
                     </Button>
                 </div>
             ) : null}
+            <PokemonIvColors />
             <div className="flex items-center gap-2">
                 <ImportExportButton handleExport={handleExport} />
                 <ResetBreedButton handleRestartBreed={handleRestartBreed} />
             </div>
-            <PokemonIvColors />
         </div>
     )
 }

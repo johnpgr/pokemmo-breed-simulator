@@ -73,7 +73,7 @@ export function PokemonNodeInfo(props: {
     }
 
     return (
-        <Card className="w-full max-w-64 ml-4 h-fit relative">
+        <Card className="w-full max-w-64 md:ml-4 h-fit relative">
             <CardHeader>
                 <CardTitle className="flex items-center">
                     {props.currentNode && props.currentNode.species ? (
@@ -205,9 +205,9 @@ export function PokemonNodeGenderButton(props: {
                                         <Female className="h-4 w-4 fill-pink-500 antialiased" />:{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                (100 -
-                                                    props.currentNode.species
-                                                        .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                            (100 -
+                                                props.currentNode.species
+                                                    .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
@@ -215,8 +215,8 @@ export function PokemonNodeGenderButton(props: {
                                         <Male className="fill-blue-500 h-4 w-4 antialiased" />:{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                props.currentNode.species
-                                                    .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                            props.currentNode.species
+                                                .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
