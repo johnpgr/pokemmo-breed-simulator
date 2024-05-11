@@ -5,7 +5,7 @@ import { IVSet, useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 import type { PokemonIv, PokemonNature, PokemonSpecies } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { Try } from "@/lib/results"
-import { PokemonBreedTreeSerializedSchema } from "@/persistence/schema"
+import { PokemonBreedTreeSerializedSchema } from "@/core/ctx/PokemonBreedTreeContext"
 import { Import, Save } from "lucide-react"
 import React from "react"
 import { generateErrorMessage } from "zod-error"
@@ -18,7 +18,7 @@ import { ScrollArea } from "./ui/scroll-area"
 import { Textarea } from "./ui/textarea"
 
 /**
- * This type is used to represent the state of the full pokemon node that is going to be used in the PokemonToBreedContext
+ * This type is used to represent the state of the full Pokemon node that is going to be used in the PokemonToBreedContext
  * It is a state object that will change as the user changes the select fields
  */
 export type PokemonNodeInSelect = {

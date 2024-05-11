@@ -298,7 +298,7 @@ export function PokemonNodeSelect(props: {
                                             key={`PokemonNodeSelectCommandItemPending${id}:${i}`}
                                             value={""}
                                             onSelect={() => { }}
-                                        ></CommandItem>
+                                        />
                                     ))
                                     : pokemonList
                                         .filter((pokemon) =>

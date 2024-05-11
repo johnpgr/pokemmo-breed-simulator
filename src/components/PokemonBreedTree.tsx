@@ -1,15 +1,14 @@
 "use client"
 import { PokemonBreed } from "@/core/breed"
-import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
+import { PokemonBreedTreeSerializedSchema, useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 import { PokemonGender } from "@/core/pokemon"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import { PokemonBreedTreePositionKey } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
-import { PokemonBreedTreeSerializedSchema } from "@/persistence/schema"
 import { ClipboardCopy, Import, RotateCcw, Save } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
-import { generateErrorMessage } from "zod-error"
+import { generateErrorMessage as generateZodErrorMessage } from "zod-error"
 import { PokemonIvColors } from "./PokemonIvColors"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
@@ -39,6 +38,7 @@ import {
     DrawerTrigger,
 } from "./ui/drawer"
 import { useMediaQuery } from "usehooks-ts"
+import { Try } from "@/lib/results"
 
 export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.BreedError> | undefined>
 
@@ -63,16 +63,16 @@ export function PokemonBreedTree() {
 }
 
 function PokemonBreedTreeFinal() {
-    const fromEffect = React.useRef(false)
+    const updateFromBreedEffect = React.useRef(false)
     const ctx = useBreedTreeContext()
     assert.exists(ctx.breedTarget.species, "PokemonSpecies must be defined in useBreedMap")
 
     const desired31IvCount = Object.values(ctx.breedTarget.ivs).filter(Boolean).length
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
 
-    function updateBreedTree() {
+    function updateBreedTree(fromBreedEffect = false) {
         ctx.breedTree.setMap((prev) => ({ ...prev }))
-        fromEffect.current = false
+        updateFromBreedEffect.current = fromBreedEffect
     }
 
     function deleteErrors(pos: PokemonBreedTreePositionKey) {
@@ -137,7 +137,7 @@ function PokemonBreedTreeFinal() {
     }, [breedErrors])
 
     React.useEffect(() => {
-        if (fromEffect.current) {
+        if (updateFromBreedEffect.current) {
             return
         }
 
@@ -211,8 +211,7 @@ function PokemonBreedTreeFinal() {
         }
 
         if (changed) {
-            ctx.breedTree.setMap({ ...ctx.breedTree.map })
-            fromEffect.current = true
+            updateBreedTree(true)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ctx.breedTree.map, ctx.breedTarget.nature, desired31IvCount, ctx.breedTree.setMap, setBreedErrors])
@@ -280,9 +279,10 @@ function ImportExportButton(props: { handleExport: () => string }) {
 
     function handleSave() {
         const unparsed = JSON.parse(jsonData)
+
         const res = PokemonBreedTreeSerializedSchema.safeParse(unparsed)
         if (res.error) {
-            const errorMsg = generateErrorMessage(res.error.issues)
+            const errorMsg = generateZodErrorMessage(res.error.issues)
 
             toast({
                 title: "Failed to save the breed tree JSON content.",
@@ -291,12 +291,12 @@ function ImportExportButton(props: { handleExport: () => string }) {
             })
             return
         }
-        try {
-            ctx.deserialize(res.data)
-        } catch (error) {
+
+        const deserialized = Try(() => ctx.deserialize(res.data))
+        if (!deserialized.ok) {
             toast({
                 title: "Failed to save the breed tree JSON content.",
-                description: (error as Error).message ?? "",
+                description: (deserialized.error as Error).message ?? "",
                 variant: "destructive",
             })
         }
