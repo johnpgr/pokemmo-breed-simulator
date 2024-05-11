@@ -323,14 +323,12 @@ function ImportExportButton(props: { handleExport: () => string }) {
             <PopoverContent className="relative flex flex-col gap-4 w-96">
                 <pre spellCheck={false}>
                     <code>
-                        <ScrollArea className="w-full h-64 rounded-md">
-                            <Textarea
-                                rows={80}
-                                className="w-full resize-none border-none rounded-none"
-                                value={jsonData}
-                                onChange={(e) => setJsonData(e.currentTarget?.value ?? "")}
-                            />
-                        </ScrollArea>
+                        <Textarea
+                            rows={16}
+                            className="w-full resize-none border-none"
+                            value={jsonData}
+                            onChange={(e) => setJsonData(e.currentTarget?.value ?? "")}
+                        />
                     </code>
                 </pre>
                 <TooltipProvider>
@@ -339,7 +337,7 @@ function ImportExportButton(props: { handleExport: () => string }) {
                             <Button
                                 variant={"outline"}
                                 size={"icon"}
-                                className="absolute top-6 right-8 h-8 w-8"
+                                className="absolute top-6 right-8 md:right-10 h-8 w-8"
                                 onClick={() => {
                                     navigator.clipboard
                                         .writeText(jsonData)

@@ -154,14 +154,12 @@ function JsonImportButton(props: { handleImportJson: (data: string) => void }) {
             <PopoverContent className="flex flex-col gap-4 w-96">
                 <pre spellCheck={false}>
                     <code>
-                        <ScrollArea className="w-full h-64 rounded-md">
-                            <Textarea
-                                className="w-full resize-none border-none rounded-none"
-                                rows={80}
-                                value={jsonData}
-                                onChange={(e) => setJsonData(e.currentTarget?.value ?? "")}
-                            />
-                        </ScrollArea>
+                        <Textarea
+                            className="w-full resize-none border-none"
+                            rows={16}
+                            value={jsonData}
+                            onChange={(e) => setJsonData(e.currentTarget?.value ?? "")}
+                        />
                     </code>
                 </pre>
                 <Button className="gap-1" onClick={() => props.handleImportJson(jsonData)}>
