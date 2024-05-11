@@ -8,7 +8,7 @@ export function PokemonIvColors() {
     const ctx = useBreedTreeContext()
 
     return (
-        <div className="flex gap-4 mt-4">
+        <div className="flex flex-wrap justify-center gap-4 mx-auto">
             <div className="flex items-center gap-2">
                 <div
                     className="rounded-full p-3 h-4 w-4"

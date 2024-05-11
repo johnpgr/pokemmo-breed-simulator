@@ -5,9 +5,11 @@ import { PokemonGender } from "@/core/pokemon"
 import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import { PokemonBreedTreePositionKey } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
+import { Try } from "@/lib/results"
 import { ClipboardCopy, Import, RotateCcw, Save } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
+import { useMediaQuery } from "usehooks-ts"
 import { generateErrorMessage as generateZodErrorMessage } from "zod-error"
 import { PokemonIvColors } from "./PokemonIvColors"
 import { PokemonNodeLines } from "./PokemonNodeLines"
@@ -22,11 +24,6 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "./ui/dialog"
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
-import { ScrollArea } from "./ui/scroll-area"
-import { Textarea } from "./ui/textarea"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
-import { useToast } from "./ui/use-toast"
 import {
     Drawer,
     DrawerClose,
@@ -37,8 +34,11 @@ import {
     DrawerTitle,
     DrawerTrigger,
 } from "./ui/drawer"
-import { useMediaQuery } from "usehooks-ts"
-import { Try } from "@/lib/results"
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
+import { ScrollArea, ScrollBar } from "./ui/scroll-area"
+import { Textarea } from "./ui/textarea"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
+import { useToast } from "./ui/use-toast"
 
 export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.BreedError> | undefined>
 
@@ -217,57 +217,62 @@ function PokemonBreedTreeFinal() {
     }, [ctx.breedTree.map, ctx.breedTarget.nature, desired31IvCount, ctx.breedTree.setMap, setBreedErrors])
 
     return (
-        <div className="flex flex-col-reverse items-center gap-8 pb-16">
-            {Array.from({
-                length: ctx.breedTarget.nature ? desired31IvCount + 1 : desired31IvCount,
-            }).map((_, row) => {
-                const rowLength = Math.pow(2, row)
-
-                return (
-                    <div
-                        key={`row:${row}`}
-                        className="flex w-full max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl items-center justify-center"
-                    >
-                        {Array.from({ length: rowLength }).map((_, col) => {
-                            const position = new PokemonBreedTreePosition(row, col)
-
-                            return (
-                                <PokemonNodeLines
-                                    key={`node:${position.key()}`}
-                                    position={position}
-                                    rowLength={rowLength}
-                                    breedTree={ctx.breedTree.map}
-                                    breedErrors={breedErrors}
-                                >
-                                    <PokemonNodeSelect
-                                        position={position}
-                                        breedTree={ctx.breedTree.map}
-                                        updateBreedTree={updateBreedTree}
-                                    />
-                                </PokemonNodeLines>
-                            )
-                        })}
+        <div className="flex flex-col gap-8">
+            <div className="flex items-center gap-2 mx-auto">
+                {process.env.DEBUG_BUTTONS ? (
+                    <div className="space-x-4">
+                        <Button variant={"secondary"} size={"sm"} onClick={() => console.log(ctx.breedTree.map)}>
+                            Debug (Breed Tree)
+                        </Button>
+                        <Button variant={"secondary"} size={"sm"} onClick={() => console.log(breedErrors)}>
+                            Debug (Breed Errors)
+                        </Button>
+                        <Button variant={"secondary"} size={"sm"} onClick={() => console.log(ctx)}>
+                            Debug (Context)
+                        </Button>
                     </div>
-                )
-            })}
-            {process.env.NODE_ENV === "development" ? (
-                <div className="space-x-4">
-                    <Button variant={"secondary"} size={"sm"} onClick={() => console.log(ctx.breedTree.map)}>
-                        Debug (Breed Tree)
-                    </Button>
-                    <Button variant={"secondary"} size={"sm"} onClick={() => console.log(breedErrors)}>
-                        Debug (Breed Errors)
-                    </Button>
-                    <Button variant={"secondary"} size={"sm"} onClick={() => console.log(ctx)}>
-                        Debug (Context)
-                    </Button>
-                </div>
-            ) : null}
-            <PokemonIvColors />
-            <div className="flex items-center gap-2">
+                ) : null}
                 <ImportExportButton handleExport={handleExport} />
                 <ResetBreedButton handleRestartBreed={handleRestartBreed} />
             </div>
+            <PokemonIvColors />
+            <ScrollArea className="max-w-screen-xl w-full 2xl:max-w-screen-2xl mx-auto">
+                <div className="w-full flex flex-col-reverse items-center gap-8">
+                    {Array.from({
+                        length: ctx.breedTarget.nature ? desired31IvCount + 1 : desired31IvCount,
+                    }).map((_, row) => {
+                        const rowLength = Math.pow(2, row)
+
+                        return (
+                            <div
+                                key={`row:${row}`}
+                                className="flex w-full items-center justify-center"
+                            >
+                                {Array.from({ length: rowLength }).map((_, col) => {
+                                    const position = new PokemonBreedTreePosition(row, col)
+
+                                    return (
+                                        <PokemonNodeLines
+                                            key={`node:${position.key()}`}
+                                            position={position}
+                                            rowLength={rowLength}
+                                            breedTree={ctx.breedTree.map}
+                                            breedErrors={breedErrors}
+                                        >
+                                            <PokemonNodeSelect
+                                                position={position}
+                                                breedTree={ctx.breedTree.map}
+                                                updateBreedTree={updateBreedTree}
+                                            />
+                                        </PokemonNodeLines>
+                                    )
+                                })}
+                            </div>
+                        )
+                    })}
+                </div>
+                <ScrollBar orientation="horizontal" />
+            </ScrollArea>
         </div>
     )
 }
