@@ -40,12 +40,9 @@ export function PokemonNodeSelect(props: {
     const currentNode = props.breedTree[props.position.key()]
     assert.exists(currentNode, "Current node should exist in PokemonNodeSelect")
 
-    function setPokemonSpecies(name: string) {
-        const pokemon = ctx.pokemonSpeciesUnparsed.find((p) => p.name.toLowerCase() === name)
-        assert.exists(pokemon, `Pokemon ${name} should exist`)
+    function setPokemonSpecies(species: PokemonSpeciesUnparsed) {
         assert.exists(currentNode, `Node at ${props.position} should exist`)
-
-        currentNode.species = PokemonSpecies.parse(pokemon)
+        currentNode.setSpecies(PokemonSpecies.parse(species))
 
         switch (true) {
             case currentNode.isDitto():
@@ -61,7 +58,7 @@ export function PokemonNodeSelect(props: {
                 currentNode.setGender(PokemonGender.Male)
                 break
             case currentNode.gender === PokemonGender.Genderless:
-                //this means that previously at this node there was a genderless pokemon
+                //this means that previously at this node there was a Genderless Pokemon
                 currentNode.setGender(undefined)
                 break
         }
@@ -184,7 +181,7 @@ export function PokemonNodeSelect(props: {
                         <Command className="w-full max-w-lg border">
                             <CommandInput
                                 placeholder="Search pokemon..."
-                                value={search}
+                                defaultValue={search}
                                 onValueChange={setSearch}
                                 data-cy="search-pokemon-input"
                             />
@@ -215,7 +212,7 @@ export function PokemonNodeSelect(props: {
                                                 <CommandItem
                                                     key={`PokemonNodeSelectCommandItem${id}:${pokemon.name}`}
                                                     value={pokemon.name}
-                                                    onSelect={setPokemonSpecies}
+                                                    onSelect={() => setPokemonSpecies(pokemon)}
                                                     data-cy={`${pokemon.name}-value`}
                                                     className="pl-8 relative"
                                                 >
@@ -308,7 +305,7 @@ export function PokemonNodeSelect(props: {
                                             <CommandItem
                                                 key={`PokemonNodeSelectCommandItem${id}:${pokemon.name}`}
                                                 value={pokemon.name}
-                                                onSelect={setPokemonSpecies}
+                                                onSelect={() => setPokemonSpecies(pokemon)}
                                                 data-cy={`${pokemon.name}-value`}
                                                 className="pl-8 relative"
                                             >

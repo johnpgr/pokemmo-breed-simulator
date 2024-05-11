@@ -1,4 +1,5 @@
 "use client"
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
 import { IVSet, useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
@@ -7,7 +8,6 @@ import { assert } from "@/lib/assert"
 import { Try } from "@/lib/results"
 import { PokemonBreedTreeSerializedSchema } from "@/core/ctx/PokemonBreedTreeContext"
 import { Import, Save } from "lucide-react"
-import React from "react"
 import { generateErrorMessage } from "zod-error"
 import { PokemonIvSelect } from "./PokemonIvSelect"
 import { PokemonNatureSelect } from "./PokemonNatureSelect"
@@ -36,8 +36,7 @@ export function PokemonToBreedSelect() {
         ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, desired31IVCount)),
     })
 
-    //TODO: Maybe Provide the path to the incorrect fields
-    function validateIvFields() {
+    function validateIvFieldsUniqueness() {
         const selectedValues = currentIVDropdownValues.slice(0, desired31IVCount)
         const uniques = new Set(selectedValues)
         return uniques.size === selectedValues.length
@@ -55,7 +54,7 @@ export function PokemonToBreedSelect() {
             return
         }
 
-        if (!validateIvFields()) {
+        if (!validateIvFieldsUniqueness()) {
             toast({
                 title: "Invalid IVs",
                 description: "You can't have the same stats in multiple IVs field.",
