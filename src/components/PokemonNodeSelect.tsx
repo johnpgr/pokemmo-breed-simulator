@@ -27,7 +27,7 @@ enum SearchMode {
 export function PokemonNodeSelect(props: {
     position: PokemonBreedTreePosition
     breedTree: PokemonBreedTreeMap
-    setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
+    updateBreedTree: () => void
 }) {
     const id = React.useId()
     const ctx = useBreedTreeContext()
@@ -66,7 +66,7 @@ export function PokemonNodeSelect(props: {
                 break
         }
 
-        props.setBreedTree((prev) => ({ ...prev }))
+        props.updateBreedTree()
         ctx.saveToLocalStorage()
     }
 
@@ -74,7 +74,7 @@ export function PokemonNodeSelect(props: {
         assert.exists(currentNode, `Node at ${props.position} should exist`)
 
         currentNode.gender = gender
-        props.setBreedTree((prev) => ({ ...prev }))
+        props.updateBreedTree()
         ctx.saveToLocalStorage()
     }
 
@@ -175,7 +175,7 @@ export function PokemonNodeSelect(props: {
                     {currentNode ? (
                         <PokemonNodeInfo
                             breedTree={props.breedTree}
-                            setBreedTree={props.setBreedTree}
+                            updateBreedTree={props.updateBreedTree}
                             currentNode={currentNode}
                             setGender={setGender}
                         />
@@ -325,7 +325,7 @@ export function PokemonNodeSelect(props: {
                 {currentNode ? (
                     <PokemonNodeInfo
                         breedTree={props.breedTree}
-                        setBreedTree={props.setBreedTree}
+                        updateBreedTree={props.updateBreedTree}
                         currentNode={currentNode}
                         setGender={setGender}
                     />

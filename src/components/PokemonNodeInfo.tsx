@@ -19,7 +19,7 @@ import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 export function PokemonNodeInfo(props: {
     currentNode: PokemonBreedTreeNode
     breedTree: PokemonBreedTreeMap
-    setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
+    updateBreedTree: () => void
     setGender: (gender?: PokemonGender) => void
 }) {
     const ctx = useBreedTreeContext()
@@ -57,18 +57,14 @@ export function PokemonNodeInfo(props: {
 
     function setNickname(nick: string) {
         props.currentNode.setNickname(nick)
-        props.setBreedTree((prev) => ({
-            ...prev,
-        }))
+        props.updateBreedTree()
         ctx.saveToLocalStorage()
     }
 
     function resetNode() {
         props.setGender(undefined)
         props.currentNode.setSpecies(undefined)
-        props.setBreedTree((prev) => ({
-            ...prev,
-        }))
+        props.updateBreedTree()
         ctx.saveToLocalStorage()
     }
 
@@ -96,7 +92,7 @@ export function PokemonNodeInfo(props: {
                         <PokemonNodeGenderButton
                             currentNode={props.currentNode}
                             breedTree={props.breedTree}
-                            setBreedTree={props.setBreedTree}
+                            updateBreedTree={props.updateBreedTree}
                             setGender={props.setGender}
                         />
                         <PokemonNodeHeldItemIcon
@@ -151,7 +147,7 @@ export function PokemonNodeInfo(props: {
 export function PokemonNodeGenderButton(props: {
     currentNode: PokemonBreedTreeNode
     breedTree: PokemonBreedTreeMap
-    setBreedTree: React.Dispatch<React.SetStateAction<PokemonBreedTreeMap>>
+    updateBreedTree: () => void
     setGender: (gender: PokemonGender) => void
 }) {
     const gender = props.currentNode.gender

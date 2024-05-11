@@ -63,11 +63,17 @@ export function PokemonBreedTree() {
 }
 
 function PokemonBreedTreeFinal() {
+    const fromEffect = React.useRef(false)
     const ctx = useBreedTreeContext()
     assert.exists(ctx.breedTarget.species, "PokemonSpecies must be defined in useBreedMap")
 
     const desired31IvCount = Object.values(ctx.breedTarget.ivs).filter(Boolean).length
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
+
+    function updateBreedTree() {
+        ctx.breedTree.setMap((prev) => ({ ...prev }))
+        fromEffect.current = false
+    }
 
     function deleteErrors(pos: PokemonBreedTreePositionKey) {
         setBreedErrors((prev) => {
@@ -131,6 +137,10 @@ function PokemonBreedTreeFinal() {
     }, [breedErrors])
 
     React.useEffect(() => {
+        if (fromEffect.current) {
+            return
+        }
+
         const lastRow = ctx.breedTarget.nature ? desired31IvCount : desired31IvCount - 1
         const rowLength = Math.pow(2, lastRow)
         let changed = false
@@ -202,6 +212,7 @@ function PokemonBreedTreeFinal() {
 
         if (changed) {
             ctx.breedTree.setMap({ ...ctx.breedTree.map })
+            fromEffect.current = true
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ctx.breedTree.map, ctx.breedTarget.nature, desired31IvCount, ctx.breedTree.setMap, setBreedErrors])
@@ -232,7 +243,7 @@ function PokemonBreedTreeFinal() {
                                     <PokemonNodeSelect
                                         position={position}
                                         breedTree={ctx.breedTree.map}
-                                        setBreedTree={ctx.breedTree.setMap}
+                                        updateBreedTree={updateBreedTree}
                                     />
                                 </PokemonNodeLines>
                             )
