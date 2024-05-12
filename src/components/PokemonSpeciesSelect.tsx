@@ -28,7 +28,7 @@ export function PokemonSpeciesSelect(props: {
 
     return (
         <div>
-            <p className="text-foreground/70 text-sm pb-1">What Pokemon species?</p>
+            <p className="text-foreground/70 text-sm pb-1">What Pokémon species?</p>
             <Popover open={isOpen} onOpenChange={setIsOpen}>
                 <PopoverTrigger asChild>
                     <Button

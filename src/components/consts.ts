@@ -17,7 +17,29 @@ export const IV_DROPDOWN_LIST_VALUES = [
     PokemonIv.Speed,
 ]
 
-export const POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS = {
+export const BREED_EXPECTED_COSTS: Record<number, { natured: number; natureless: number }> = {
+    2: {
+        natured: 75000,
+        natureless: 20000,
+    },
+    3: {
+        natured: 170000,
+        natureless: 65000,
+    },
+    4: {
+        natured: 355000,
+        natureless: 155000,
+    },
+    5: {
+        natured: 715000,
+        natureless: 340000,
+    },
+}
+
+export const POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS: Record<
+    number,
+    { natured: Record<string, number>; natureless: Record<string, number> }
+> = {
     2: { natured: { A: 2, B: 1 }, natureless: { A: 1, B: 1 } },
     3: { natured: { A: 4, B: 2, C: 1 }, natureless: { A: 2, B: 1, C: 1 } },
     4: {
@@ -28,7 +50,7 @@ export const POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS = {
         natured: { A: 11, B: 10, C: 6, D: 2, E: 2 },
         natureless: { A: 5, B: 5, C: 3, D: 2, E: 1 },
     },
-} as const
+}
 
 export const IV_COLOR_DICT = {
     Hp: "#55b651",

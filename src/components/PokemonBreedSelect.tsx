@@ -5,15 +5,17 @@ import { IVSet, PokemonBreedTreeSerializedSchema, useBreedTreeContext } from "@/
 import type { PokemonIv, PokemonNature, PokemonSpecies } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { Try } from "@/lib/results"
-import { Import, Save } from "lucide-react"
+import { Import, Info, PlayIcon, RotateCcw, Save } from "lucide-react"
 import React from "react"
 import { generateErrorMessage } from "zod-error"
 import { PokemonIvSelect } from "./PokemonIvSelect"
 import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
-import { DEFAULT_IV_DROPDOWN_VALUES } from "./consts"
+import { BREED_EXPECTED_COSTS, DEFAULT_IV_DROPDOWN_VALUES, POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "./consts"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { Textarea } from "./ui/textarea"
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert"
+import { run } from "@/lib/utils"
 
 /**
  * This type is used to represent the state of the full Pokemon node that is going to be used in the PokemonToBreedContext
@@ -33,6 +35,31 @@ export function PokemonToBreedSelect() {
     const [currentPokemonInSelect, setCurrentPokemonInSelect] = React.useState<PokemonNodeInSelect>({
         ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, desired31IVCount)),
     })
+    const expectedCost = run(() => {
+        const costsTable = BREED_EXPECTED_COSTS[desired31IVCount]
+        assert.exists(costsTable, "Expected cost must be defined")
+
+        if (currentPokemonInSelect.nature) {
+            return costsTable.natured
+        }
+
+        return costsTable.natureless
+    })
+
+    const breederKindCountTable = run(() => {
+        const table = POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[
+            desired31IVCount
+        ]
+        assert.exists(table, "POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS accessed with an invalid key.")
+
+        if (currentPokemonInSelect.nature) {
+            return table.natured
+        }
+
+        return table.natureless
+    })
+
+    const totalBreedPokemonCount = Object.values(breederKindCountTable).reduce((acc, val) => acc + val, 0)
 
     function validateIvFieldsUniqueness() {
         const selectedValues = currentIVDropdownValues.slice(0, desired31IVCount)
@@ -69,6 +96,14 @@ export function PokemonToBreedSelect() {
         ctx.breedTarget.setIvs(new IVSet(finalIvs[0], finalIvs[1], finalIvs[2], finalIvs[3], finalIvs[4]))
         ctx.breedTarget.setNature(currentPokemonInSelect.nature)
         ctx.breedTarget.setSpecies(currentPokemonInSelect.species)
+    }
+
+    function handleResetFields() {
+        setCurrentPokemonInSelect({
+            ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, desired31IVCount)),
+        })
+        setDesired31IVCount(2)
+        setCurrentIVDropdownValues(DEFAULT_IV_DROPDOWN_VALUES)
     }
 
     function handleImportJson(json: string) {
@@ -108,19 +143,22 @@ export function PokemonToBreedSelect() {
             className="mb-4 container max-w-screen-xl mx-auto flex flex-col items-center gap-4"
             onSubmit={handleSubmit}
         >
-            <h1 className="text-2xl font-medium">Select a Pokemon to breed</h1>
+            <h1 className="text-2xl font-medium">Select a Pokémon to breed</h1>
             <div className="flex w-full flex-col items-center gap-4">
                 <div className="flex w-full flex-col gap-2">
-                    <PokemonSpeciesSelect
-                        currentSelectedNode={currentPokemonInSelect}
-                        setCurrentSelectedNode={setCurrentPokemonInSelect}
-                    />
+                    <div className="flex justify-between items-end">
+                        <PokemonSpeciesSelect
+                            currentSelectedNode={currentPokemonInSelect}
+                            setCurrentSelectedNode={setCurrentPokemonInSelect}
+                        />
+                        <JsonImportButton handleImportJson={handleImportJson} />
+                    </div>
                     <PokemonNatureSelect
                         currentPokemonInSelect={currentPokemonInSelect}
                         setCurrentPokemonInSelect={setCurrentPokemonInSelect}
                     />
                     <PokemonIvSelect
-                        natured={Boolean(currentPokemonInSelect.nature)}
+                        breederKindCountTable={breederKindCountTable}
                         desired31IVCount={desired31IVCount}
                         setDesired31IVCount={setDesired31IVCount}
                         currentPokemonInSelect={currentPokemonInSelect}
@@ -130,10 +168,21 @@ export function PokemonToBreedSelect() {
                     />
                 </div>
             </div>
-            <div className="flex items-center gap-2">
-                <Button type="submit">Start Breeding</Button>
-                <JsonImportButton handleImportJson={handleImportJson} />
-            </div>
+            <Alert className="w-fit space-y-4 mt-4">
+                <AlertTitle className="flex items-center gap-2">
+                    <Info size={20} />
+                    For this Pokémon breed you will spend ≈ ${expectedCost} and you may need {totalBreedPokemonCount} Pokémon.
+                </AlertTitle>
+                <AlertDescription className="flex items-center justify-center gap-2">
+                    <Button className="gap-2" type="submit">
+                        <PlayIcon size={16} />
+                        Start Breeding</Button>
+                    <Button className="gap-2" type="reset" variant={"destructive"} onClick={handleResetFields}>
+                        <RotateCcw size={16} />
+                        Reset
+                    </Button>
+                </AlertDescription>
+            </Alert>
         </form>
     )
 }
@@ -144,7 +193,7 @@ function JsonImportButton(props: { handleImportJson: (data: string) => void }) {
     return (
         <Popover>
             <PopoverTrigger asChild>
-                <Button className="gap-1" type="button" variant={"secondary"}>
+                <Button className="gap-2" type="button" variant={"secondary"}>
                     <Import size={16} />
                     Import
                 </Button>

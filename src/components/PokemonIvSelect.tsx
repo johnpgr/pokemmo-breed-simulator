@@ -6,11 +6,11 @@ import { Strings } from "@/lib/utils"
 import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 import { PokemonIvRadioGroup, PokemonIvRadioItem } from "./PokemonIvRadio"
-import { IV_DROPDOWN_LIST_VALUES, POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "./consts"
+import { IV_DROPDOWN_LIST_VALUES } from "./consts"
 
 export function PokemonIvSelect(props: {
-    natured: boolean
     desired31IVCount: number
+    breederKindCountTable: Record<string, number>
     setDesired31IVCount: React.Dispatch<React.SetStateAction<number>>
     currentIVDropdownValues: PokemonIv[]
     setCurrentIVDropdownValues: React.Dispatch<React.SetStateAction<PokemonIv[]>>
@@ -27,13 +27,6 @@ export function PokemonIvSelect(props: {
         props.setDesired31IVCount(ivSet.size)
     }
 
-    const pokemonCount = props.natured
-        ? POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[
-              props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
-          ].natured
-        : POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[
-              props.desired31IVCount as keyof typeof POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS
-          ].natureless
 
     function handleIvSelectChange(value: PokemonIv, index: number) {
         const newDropDownValues = [...props.currentIVDropdownValues]
@@ -67,7 +60,7 @@ export function PokemonIvSelect(props: {
                 </PokemonIvRadioItem>
             </PokemonIvRadioGroup>
             <div className="flex pt-1 flex-col md:flex-row items-center gap-2">
-                {Object.entries(pokemonCount).map(([_, value], i) => (
+                {Object.entries(props.breederKindCountTable).map(([_, value], i) => (
                     <div key={`PokemonIvSelect:${i}`} className="w-full">
                         <Label className="text-sm text-foreground/70">
                             <strong className="text-lg text-foreground mr-1">{value}</strong> 1x31 IV in
