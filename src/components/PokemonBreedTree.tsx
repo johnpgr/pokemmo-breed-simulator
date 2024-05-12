@@ -117,6 +117,9 @@ function PokemonBreedTreeFinal() {
 
             let errorMsg = ""
             for (const error of errorKind.values()) {
+                if (error === PokemonBreed.BreedError.ChildDidNotChange) {
+                    continue
+                }
                 errorMsg += error
                 errorMsg += ", "
             }

@@ -87,7 +87,11 @@ export namespace PokemonBreed {
             return Ok({})
         }
 
-        if (!parent1.species!.eggGroups.some((e) => parent2.species!.eggGroups.includes(e))) {
+        const eggGroupsMatch = parent1
+            .species!.eggGroups.filter(Boolean)
+            .some((eggGroup) => parent2.species!.eggGroups.filter(Boolean).includes(eggGroup))
+
+        if (!eggGroupsMatch) {
             return Err(BreedError.EggGroupCompatibility)
         }
 
