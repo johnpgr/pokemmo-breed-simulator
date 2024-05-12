@@ -27,7 +27,6 @@ export function PokemonIvSelect(props: {
         props.setDesired31IVCount(ivSet.size)
     }
 
-
     function handleIvSelectChange(value: PokemonIv, index: number) {
         const newDropDownValues = [...props.currentIVDropdownValues]
         newDropDownValues[index] = value

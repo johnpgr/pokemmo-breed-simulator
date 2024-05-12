@@ -6,7 +6,7 @@
 -   [ ] Add General site info.
 -   [ ] Add sibebar menu.
 -   [x] Add import/export for breed trees.
--   [x] Add persistence for breed trees. 
+-   [x] Add persistence for breed trees.
 -   [ ] Add multiple saved breed trees per user.
 -   [x] Fix infinite loop when the 2nd last parents breed correctly.
 -   [x] Fix Fairy Pokemon type on Pokemons data.json

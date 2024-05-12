@@ -47,9 +47,7 @@ export function PokemonToBreedSelect() {
     })
 
     const breederKindCountTable = run(() => {
-        const table = POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[
-            desired31IVCount
-        ]
+        const table = POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[desired31IVCount]
         assert.exists(table, "POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS accessed with an invalid key.")
 
         if (currentPokemonInSelect.nature) {
@@ -171,12 +169,14 @@ export function PokemonToBreedSelect() {
             <Alert className="w-fit space-y-4 mt-4">
                 <AlertTitle className="flex items-center gap-2">
                     <Info size={20} />
-                    For this Pokémon breed you will spend ≈ ${expectedCost} and you may need {totalBreedPokemonCount} Pokémon.
+                    For this Pokémon breed you will spend ≈ ${expectedCost} and you may need {totalBreedPokemonCount}{" "}
+                    Pokémon.
                 </AlertTitle>
                 <AlertDescription className="flex items-center justify-center gap-2">
                     <Button className="gap-2" type="submit">
                         <PlayIcon size={16} />
-                        Start Breeding</Button>
+                        Start Breeding
+                    </Button>
                     <Button className="gap-2" type="reset" variant={"destructive"} onClick={handleResetFields}>
                         <RotateCcw size={16} />
                         Reset

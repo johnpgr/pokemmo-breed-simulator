@@ -132,7 +132,7 @@ function PokemonBreedTreeFinal() {
                 description: `Error codes: ${errorMsg}`,
                 action: {
                     label: "Dismiss",
-                    onClick: () => { },
+                    onClick: () => {},
                 },
             })
         })
@@ -247,10 +247,7 @@ function PokemonBreedTreeFinal() {
                         const rowLength = Math.pow(2, row)
 
                         return (
-                            <div
-                                key={`row:${row}`}
-                                className="flex w-full items-center justify-center"
-                            >
+                            <div key={`row:${row}`} className="flex w-full items-center justify-center">
                                 {Array.from({ length: rowLength }).map((_, col) => {
                                     const position = new PokemonBreedTreePosition(row, col)
 
@@ -416,8 +413,7 @@ function ResetBreedButton(props: { handleRestartBreed: () => void }) {
                 <DrawerHeader className="text-left">
                     <DrawerTitle>Reset current breed</DrawerTitle>
                     <DrawerDescription>
-                        Are you sure you want to reset the current breed?
-                        All progress will be lost.
+                        Are you sure you want to reset the current breed? All progress will be lost.
                     </DrawerDescription>
                 </DrawerHeader>
                 <DrawerFooter className="pt-2">
@@ -428,6 +424,6 @@ function ResetBreedButton(props: { handleRestartBreed: () => void }) {
                     </DrawerClose>
                 </DrawerFooter>
             </DrawerContent>
-        </Drawer >
+        </Drawer>
     )
 }
