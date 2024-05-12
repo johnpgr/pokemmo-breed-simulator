@@ -167,7 +167,7 @@ export function PokemonToBreedSelect() {
                 </div>
             </div>
             <Alert className="w-fit space-y-4 mt-4">
-                <AlertTitle className="flex items-center gap-2">
+                <AlertTitle className="flex items-center text-sm gap-2">
                     <Info size={20} />
                     For this Pokémon breed you will spend ≈ ${expectedCost} and you may need {totalBreedPokemonCount}{" "}
                     Pokémon.
