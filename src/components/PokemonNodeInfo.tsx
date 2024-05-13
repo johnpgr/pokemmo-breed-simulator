@@ -1,10 +1,11 @@
 "use client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 import { PokemonGender, PokemonIv } from "@/core/pokemon"
 import type { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { getEvItemSpriteUrl, getPokemonSpriteUrl } from "@/lib/sprites"
-import { Strings, run } from "@/lib/utils"
+import { Strings } from "@/lib/utils"
 import { HelpCircle, Save, SquarePen } from "lucide-react"
 import React from "react"
 import { GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./consts"
@@ -14,7 +15,6 @@ import { Male } from "./ui/icons/Male"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
-import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 
 export function PokemonNodeInfo(props: {
     currentNode: PokemonBreedTreeNode
@@ -24,36 +24,7 @@ export function PokemonNodeInfo(props: {
 }) {
     const ctx = useBreedTreeContext()
     const name = props.currentNode?.nickname ?? props.currentNode?.species?.name ?? ""
-    const heldItem = run((): HeldItem | null => {
-        const breedPartner = props.currentNode.getPartnerNode(props.breedTree)
-
-        if (!breedPartner) {
-            return null
-        }
-
-        const ivThatDoesntExistOnBreedPartner =
-            props.currentNode.ivs?.filter((iv) => !breedPartner.ivs?.includes(iv)) ?? []
-        if (ivThatDoesntExistOnBreedPartner.length === 0) {
-            return null
-        }
-
-        switch (ivThatDoesntExistOnBreedPartner[0]) {
-            case PokemonIv.HP:
-                return HeldItem.HP
-            case PokemonIv.Attack:
-                return HeldItem.Attack
-            case PokemonIv.Defense:
-                return HeldItem.Defense
-            case PokemonIv.SpecialAttack:
-                return HeldItem.SpecialAttack
-            case PokemonIv.SpecialDefense:
-                return HeldItem.SpecialDefense
-            case PokemonIv.Speed:
-                return HeldItem.Speed
-            default:
-                return null
-        }
-    })
+    const heldItem = getHeldItemForNode(props.currentNode, props.breedTree)
 
     function setNickname(nick: string) {
         props.currentNode.setNickname(nick)
@@ -201,9 +172,9 @@ export function PokemonNodeGenderButton(props: {
                                         <Female className="h-4 w-4 fill-pink-500 antialiased" />:{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                (100 -
-                                                    props.currentNode.species
-                                                        .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                            (100 -
+                                                props.currentNode.species
+                                                    .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
@@ -211,8 +182,8 @@ export function PokemonNodeGenderButton(props: {
                                         <Male className="fill-blue-500 h-4 w-4 antialiased" />:{" $"}
                                         {
                                             GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                props.currentNode.species
-                                                    .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                            props.currentNode.species
+                                                .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                             ]
                                         }
                                     </i>
@@ -269,6 +240,36 @@ export enum HeldItem {
     SpecialDefense = "power-band",
     Speed = "power-anklet",
     Nature = "everstone",
+}
+
+export function getHeldItemForNode(node: PokemonBreedTreeNode, breedTree: PokemonBreedTreeMap): HeldItem | null {
+    const breedPartner = node.getPartnerNode(breedTree)
+
+    if (!breedPartner) {
+        return null
+    }
+
+    const ivThatDoesntExistOnBreedPartner = node.ivs?.filter((iv) => !breedPartner.ivs?.includes(iv)) ?? []
+    if (ivThatDoesntExistOnBreedPartner.length === 0) {
+        return null
+    }
+
+    switch (ivThatDoesntExistOnBreedPartner[0]) {
+        case PokemonIv.HP:
+            return HeldItem.HP
+        case PokemonIv.Attack:
+            return HeldItem.Attack
+        case PokemonIv.Defense:
+            return HeldItem.Defense
+        case PokemonIv.SpecialAttack:
+            return HeldItem.SpecialAttack
+        case PokemonIv.SpecialDefense:
+            return HeldItem.SpecialDefense
+        case PokemonIv.Speed:
+            return HeldItem.Speed
+        default:
+            return null
+    }
 }
 
 function PokemonNodeHeldItemIcon(props: { item: HeldItem }) {

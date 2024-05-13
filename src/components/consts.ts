@@ -17,6 +17,11 @@ export const IV_DROPDOWN_LIST_VALUES = [
     PokemonIv.Speed,
 ]
 
+export const BREED_ITEM_COSTS = {
+    iv: 10000,
+    nature: 6000,
+} as const
+
 export const BREED_EXPECTED_COSTS: Record<number, { natured: number; natureless: number }> = {
     2: {
         natured: 75000,
@@ -87,4 +92,4 @@ export const GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE = {
     12.5: 21000,
     0: 0,
     100: 0,
-}
+} as const

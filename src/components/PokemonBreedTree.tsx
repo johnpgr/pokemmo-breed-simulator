@@ -6,14 +6,17 @@ import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
 import { PokemonBreedTreePositionKey } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import { Try } from "@/lib/results"
+import { run } from "@/lib/utils"
 import { ClipboardCopy, Import, RotateCcw, Save } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
 import { useMediaQuery } from "usehooks-ts"
 import { generateErrorMessage as generateZodErrorMessage } from "zod-error"
 import { PokemonIvColors } from "./PokemonIvColors"
+import { HeldItem, getHeldItemForNode } from "./PokemonNodeInfo"
 import { PokemonNodeLines } from "./PokemonNodeLines"
 import { PokemonNodeSelect } from "./PokemonNodeSelect"
+import { BREED_ITEM_COSTS, GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./consts"
 import { Button } from "./ui/button"
 import {
     Dialog,
@@ -69,6 +72,44 @@ function PokemonBreedTreeFinal() {
 
     const desired31IvCount = Object.values(ctx.breedTarget.ivs).filter(Boolean).length
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
+    const currentBreedCost = run(() => {
+        let cost = 0
+        const nodes = Object.values(ctx.breedTree.map)
+
+        for (const node of nodes) {
+            if (!node.species) {
+                continue
+            }
+
+            if (node.gender && !node.genderCostIgnored) {
+                if (node.gender === PokemonGender.Male) {
+                    cost +=
+                        GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
+                        node.species.percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                        ]
+                } else if (node.gender === PokemonGender.Female) {
+                    cost +=
+                        GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
+                        (100 - node.species.percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                        ]
+                }
+            }
+
+            const heldItem = getHeldItemForNode(node, ctx.breedTree.map)
+            if (!heldItem) {
+                continue
+            }
+
+            if (heldItem === HeldItem.Nature) {
+                cost += BREED_ITEM_COSTS.nature
+                continue
+            }
+
+            cost += BREED_ITEM_COSTS.iv
+        }
+
+        return cost
+    })
 
     function updateBreedTree(fromBreedEffect = false) {
         ctx.breedTree.setMap((prev) => ({ ...prev }))
@@ -99,6 +140,7 @@ function PokemonBreedTreeFinal() {
         window.location.reload()
     }
 
+    // Show toast notifications for breed errors
     React.useEffect(() => {
         Object.entries(breedErrors).map(([key, errorKind]) => {
             if (!errorKind) {
@@ -132,13 +174,14 @@ function PokemonBreedTreeFinal() {
                 description: `Error codes: ${errorMsg}`,
                 action: {
                     label: "Dismiss",
-                    onClick: () => {},
+                    onClick: () => { },
                 },
             })
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [breedErrors])
 
+    // Iterate through the breed tree and breed() the nodes
     React.useEffect(() => {
         if (updateFromBreedEffect.current) {
             return
@@ -239,6 +282,7 @@ function PokemonBreedTreeFinal() {
                 <ResetBreedButton handleRestartBreed={handleRestartBreed} />
             </div>
             <PokemonIvColors />
+            <div className="mx-auto">Current breed cost: ${currentBreedCost}</div>
             <ScrollArea className="max-w-screen-xl w-full 2xl:max-w-screen-2xl mx-auto">
                 <div className="w-full flex flex-col-reverse items-center gap-8">
                     {Array.from({

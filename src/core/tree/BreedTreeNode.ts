@@ -25,6 +25,7 @@ export type IPokemonBreedTreeNode = {
     nature?: PokemonNature
     ivs?: PokemonIv[]
     nickname?: string
+    genderCostIgnored?: boolean
 }
 
 export class PokemonBreedTreeNode implements IPokemonBreedTreeNode {
@@ -34,6 +35,7 @@ export class PokemonBreedTreeNode implements IPokemonBreedTreeNode {
     nature?: PokemonNature | undefined
     ivs?: PokemonIv[] | undefined
     nickname?: string | undefined
+    genderCostIgnored?: boolean
 
     constructor(p: IPokemonBreedTreeNode) {
         this.position = p.position
@@ -126,6 +128,11 @@ export class PokemonBreedTreeNode implements IPokemonBreedTreeNode {
 
     public setNickname(nickname?: string): PokemonBreedTreeNode {
         this.nickname = nickname
+        return this
+    }
+
+    public setGenderCostIgnored(ignored: boolean): PokemonBreedTreeNode {
+        this.genderCostIgnored = ignored
         return this
     }
 }
