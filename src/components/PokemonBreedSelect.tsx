@@ -5,17 +5,16 @@ import { IVSet, PokemonBreedTreeSerializedSchema, useBreedTreeContext } from "@/
 import type { PokemonIv, PokemonNature, PokemonSpecies } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { Try } from "@/lib/results"
-import { Import, Info, PlayIcon, RotateCcw, Save } from "lucide-react"
+import { run } from "@/lib/utils"
+import { Info, PlayIcon, RotateCcw } from "lucide-react"
 import React from "react"
 import { generateErrorMessage } from "zod-error"
 import { PokemonIvSelect } from "./PokemonIvSelect"
 import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
 import { BREED_EXPECTED_COSTS, DEFAULT_IV_DROPDOWN_VALUES, POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "./consts"
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
-import { Textarea } from "./ui/textarea"
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert"
-import { run } from "@/lib/utils"
+import { JsonImportButton } from "./Buttons"
 
 /**
  * This type is used to represent the state of the full Pokemon node that is going to be used in the PokemonToBreedContext
@@ -35,17 +34,7 @@ export function PokemonToBreedSelect() {
     const [currentPokemonInSelect, setCurrentPokemonInSelect] = React.useState<PokemonNodeInSelect>({
         ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, desired31IVCount)),
     })
-    const expectedCost = run(() => {
-        const costsTable = BREED_EXPECTED_COSTS[desired31IVCount]
-        assert.exists(costsTable, "Expected cost must be defined")
-
-        if (currentPokemonInSelect.nature) {
-            return costsTable.natured
-        }
-
-        return costsTable.natureless
-    })
-
+    const expectedCost = getExpectedBreedCost(desired31IVCount, Boolean(currentPokemonInSelect.nature))
     const breederKindCountTable = run(() => {
         const table = POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[desired31IVCount]
         assert.exists(table, "POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS accessed with an invalid key.")
@@ -56,7 +45,6 @@ export function PokemonToBreedSelect() {
 
         return table.natureless
     })
-
     const totalBreedPokemonCount = Object.values(breederKindCountTable).reduce((acc, val) => acc + val, 0)
 
     function validateIvFieldsUniqueness() {
@@ -187,33 +175,13 @@ export function PokemonToBreedSelect() {
     )
 }
 
-function JsonImportButton(props: { handleImportJson: (data: string) => void }) {
-    const [jsonData, setJsonData] = React.useState("")
+export function getExpectedBreedCost(desired31IVCount: number, natured: boolean) {
+    const costsTable = BREED_EXPECTED_COSTS[desired31IVCount]
+    assert.exists(costsTable, "Expected cost must be defined")
 
-    return (
-        <Popover>
-            <PopoverTrigger asChild>
-                <Button className="gap-2" type="button" variant={"secondary"}>
-                    <Import size={16} />
-                    Import
-                </Button>
-            </PopoverTrigger>
-            <PopoverContent className="flex flex-col gap-4 w-96">
-                <pre spellCheck={false}>
-                    <code>
-                        <Textarea
-                            className="w-full resize-none border-none"
-                            rows={16}
-                            value={jsonData}
-                            onChange={(e) => setJsonData(e.currentTarget?.value ?? "")}
-                        />
-                    </code>
-                </pre>
-                <Button className="gap-1" onClick={() => props.handleImportJson(jsonData)}>
-                    <Save size={16} />
-                    Save
-                </Button>
-            </PopoverContent>
-        </Popover>
-    )
+    if (natured) {
+        return costsTable.natured
+    }
+
+    return costsTable.natureless
 }
