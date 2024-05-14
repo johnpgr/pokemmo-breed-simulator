@@ -59,7 +59,11 @@ function PokemonBreedTreeFinal() {
                 continue
             }
 
-            if (node.gender && !node.genderCostIgnored) {
+            const isLastRow = ctx.breedTarget.nature
+                ? node.position.row === desired31IvCount
+                : node.position.row === desired31IvCount - 1
+
+            if (node.gender && !node.genderCostIgnored && !isLastRow) {
                 if (node.gender === PokemonGender.Male) {
                     cost +=
                         GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
@@ -287,6 +291,7 @@ function PokemonBreedTreeFinal() {
                                             breedErrors={breedErrors}
                                         >
                                             <PokemonNodeSelect
+                                                desired31IvCount={desired31IvCount}
                                                 position={position}
                                                 breedTree={ctx.breedTree.map}
                                                 updateBreedTree={updateBreedTree}

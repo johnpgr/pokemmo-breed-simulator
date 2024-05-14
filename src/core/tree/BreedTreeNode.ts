@@ -15,6 +15,7 @@ export const PokemonBreedTreeNodeSerializedSchema = z.object({
     species: z.number().optional(),
     gender: PokemonGenderSchema.optional(),
     nickname: z.string().optional(),
+    genderCostIgnored: z.boolean().optional(),
 })
 export type PokemonBreedTreeNodeSerialized = z.infer<typeof PokemonBreedTreeNodeSerializedSchema>
 
@@ -64,6 +65,7 @@ export class PokemonBreedTreeNode implements IPokemonBreedTreeNode {
             species: this.species?.number,
             gender: this.gender,
             nickname: this.nickname,
+            genderCostIgnored: this.genderCostIgnored,
         }
     }
 

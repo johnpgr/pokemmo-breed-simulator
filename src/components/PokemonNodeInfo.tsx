@@ -1,21 +1,20 @@
 "use client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
-import { PokemonGender } from "@/core/pokemon"
 import type { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
 import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { getPokemonSpriteUrl } from "@/lib/sprites"
 import { Strings } from "@/lib/utils"
-import { HeldItem, PokemonNodeHeldItem, getHeldItemForNode } from "./PokemonNodeHeldItem"
-import { Button } from "./ui/button"
 import { PokemonNodeGender } from "./PokemonNodeGender"
+import { HeldItem, PokemonNodeHeldItem, getHeldItemForNode } from "./PokemonNodeHeldItem"
 import { PokemonNodeNickname } from "./PokemonNodeNickname"
+import { Button } from "./ui/button"
 
 export function PokemonNodeInfo(props: {
+    desired31IvCount: number
     currentNode: PokemonBreedTreeNode
     breedTree: PokemonBreedTreeMap
     updateBreedTree: () => void
-    setGender: (gender?: PokemonGender) => void
 }) {
     const ctx = useBreedTreeContext()
     const name = props.currentNode?.nickname ?? props.currentNode?.species?.name ?? ""
@@ -28,7 +27,7 @@ export function PokemonNodeInfo(props: {
     }
 
     function resetNode() {
-        props.setGender(undefined)
+        props.currentNode.setGender(undefined)
         props.currentNode.setSpecies(undefined)
         props.updateBreedTree()
         ctx.saveToLocalStorage()
@@ -56,10 +55,10 @@ export function PokemonNodeInfo(props: {
                 {!props.currentNode.isRootNode() ? (
                     <div className="absolute -top-4 -left-3 flex flex-col-reverse gap-1 items-center">
                         <PokemonNodeGender
+                            desired31IvCount={props.desired31IvCount}
                             currentNode={props.currentNode}
                             breedTree={props.breedTree}
                             updateBreedTree={props.updateBreedTree}
-                            setGender={props.setGender}
                         />
                         <PokemonNodeHeldItem
                             item={
