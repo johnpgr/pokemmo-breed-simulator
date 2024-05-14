@@ -65,15 +65,19 @@ function PokemonBreedTreeFinal() {
 
             if (node.gender && !node.genderCostIgnored && !isLastRow) {
                 if (node.gender === PokemonGender.Male) {
-                    cost +=
-                        GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                        node.species.percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
-                        ]
+                    const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[node.species.percentageMale]
+                    assert.exists(
+                        newCost,
+                        "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key",
+                    )
+                    cost += newCost
                 } else if (node.gender === PokemonGender.Female) {
-                    cost +=
-                        GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                        (100 - node.species.percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
-                        ]
+                    const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[100 - node.species.percentageMale]
+                    assert.exists(
+                        newCost,
+                        "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key",
+                    )
+                    cost += newCost
                 }
             }
 

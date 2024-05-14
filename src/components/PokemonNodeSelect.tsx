@@ -85,7 +85,7 @@ export function PokemonNodeSelect(props: {
         if (ctx.breedTarget.species.eggGroups.includes(PokemonEggGroup.Genderless)) {
             const breedable =
                 GENDERLESS_POKEMON_EVOLUTION_TREE[
-                ctx.breedTarget.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
+                    ctx.breedTarget.species.number as keyof typeof GENDERLESS_POKEMON_EVOLUTION_TREE
                 ]
 
             return newList.concat(ctx.pokemonSpeciesUnparsed.filter((poke) => breedable.includes(poke.number)))
@@ -130,9 +130,7 @@ export function PokemonNodeSelect(props: {
                         size={"icon"}
                         className="z-10 relative rounded-full bg-neutral-300 dark:bg-neutral-800 overflow-hidden"
                         style={{
-                            scale: NODE_SCALE_BY_COLOR_AMOUNT[
-                                String(colors?.length ?? 1) as keyof typeof NODE_SCALE_BY_COLOR_AMOUNT
-                            ],
+                            scale: NODE_SCALE_BY_COLOR_AMOUNT[colors?.length ?? 1],
                         }}
                     >
                         {colors?.map((color) => (
@@ -151,9 +149,7 @@ export function PokemonNodeSelect(props: {
                                 src={getPokemonSpriteUrl(currentNode.species.name)}
                                 style={{
                                     imageRendering: "pixelated",
-                                    scale: SPRITE_SCALE_BY_COLOR_AMOUNT[
-                                        String(colors?.length ?? 1) as keyof typeof SPRITE_SCALE_BY_COLOR_AMOUNT
-                                    ],
+                                    scale: SPRITE_SCALE_BY_COLOR_AMOUNT[colors?.length ?? 1],
                                 }}
                                 alt={currentNode.species.name}
                                 className="mb-1 absolute"
@@ -191,30 +187,30 @@ export function PokemonNodeSelect(props: {
                                 <ScrollArea className="h-72 w-full">
                                     {pending
                                         ? Array.from({ length: 9 }).map((_, i) => (
-                                            <CommandItem
-                                                key={`PokemonNodeSelectCommandItemPending${id}:${i}`}
-                                                value={""}
-                                                onSelect={() => { }}
-                                            ></CommandItem>
-                                        ))
+                                              <CommandItem
+                                                  key={`PokemonNodeSelectCommandItemPending${id}:${i}`}
+                                                  value={""}
+                                                  onSelect={() => {}}
+                                              />
+                                          ))
                                         : pokemonList
-                                            .filter((pokemon) =>
-                                                pokemon.name.toLowerCase().includes(search.toLowerCase()),
-                                            )
-                                            .map((pokemon) => (
-                                                <CommandItem
-                                                    key={`PokemonNodeSelectCommandItem${id}:${pokemon.name}`}
-                                                    value={pokemon.name}
-                                                    onSelect={() => setPokemonSpecies(pokemon)}
-                                                    data-cy={`${pokemon.name}-value`}
-                                                    className="pl-8 relative"
-                                                >
-                                                    {currentNode.species?.name === pokemon.name ? (
-                                                        <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
-                                                    ) : null}
-                                                    {pokemon.name}
-                                                </CommandItem>
-                                            ))}
+                                              .filter((pokemon) =>
+                                                  pokemon.name.toLowerCase().includes(search.toLowerCase()),
+                                              )
+                                              .map((pokemon) => (
+                                                  <CommandItem
+                                                      key={`PokemonNodeSelectCommandItem${id}:${pokemon.name}`}
+                                                      value={pokemon.name}
+                                                      onSelect={() => setPokemonSpecies(pokemon)}
+                                                      data-cy={`${pokemon.name}-value`}
+                                                      className="pl-8 relative"
+                                                  >
+                                                      {currentNode.species?.name === pokemon.name ? (
+                                                          <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
+                                                      ) : null}
+                                                      {pokemon.name}
+                                                  </CommandItem>
+                                              ))}
                                 </ScrollArea>
                             </CommandGroup>
                         </Command>
@@ -231,9 +227,7 @@ export function PokemonNodeSelect(props: {
                     size={"icon"}
                     className="z-10 relative rounded-full bg-neutral-300 dark:bg-neutral-800 overflow-hidden"
                     style={{
-                        scale: NODE_SCALE_BY_COLOR_AMOUNT[
-                            String(colors?.length ?? 1) as keyof typeof NODE_SCALE_BY_COLOR_AMOUNT
-                        ],
+                        scale: NODE_SCALE_BY_COLOR_AMOUNT[colors?.length ?? 1],
                     }}
                 >
                     {colors?.map((color) => (
@@ -252,9 +246,7 @@ export function PokemonNodeSelect(props: {
                             src={getPokemonSpriteUrl(currentNode.species.name)}
                             style={{
                                 imageRendering: "pixelated",
-                                scale: SPRITE_SCALE_BY_COLOR_AMOUNT[
-                                    String(colors?.length ?? 1) as keyof typeof SPRITE_SCALE_BY_COLOR_AMOUNT
-                                ],
+                                scale: SPRITE_SCALE_BY_COLOR_AMOUNT[colors?.length ?? 1],
                             }}
                             alt={currentNode.species.name}
                             className="mb-1 absolute"
@@ -284,30 +276,30 @@ export function PokemonNodeSelect(props: {
                             <ScrollArea className="h-52 w-full">
                                 {pending
                                     ? Array.from({ length: 9 }).map((_, i) => (
-                                        <CommandItem
-                                            key={`PokemonNodeSelectCommandItemPending${id}:${i}`}
-                                            value={""}
-                                            onSelect={() => { }}
-                                        />
-                                    ))
+                                          <CommandItem
+                                              key={`PokemonNodeSelectCommandItemPending${id}:${i}`}
+                                              value={""}
+                                              onSelect={() => {}}
+                                          />
+                                      ))
                                     : pokemonList
-                                        .filter((pokemon) =>
-                                            pokemon.name.toLowerCase().includes(search.toLowerCase()),
-                                        )
-                                        .map((pokemon) => (
-                                            <CommandItem
-                                                key={`PokemonNodeSelectCommandItem${id}:${pokemon.name}`}
-                                                value={pokemon.name}
-                                                onSelect={() => setPokemonSpecies(pokemon)}
-                                                data-cy={`${pokemon.name}-value`}
-                                                className="pl-8 relative"
-                                            >
-                                                {currentNode.species?.name === pokemon.name ? (
-                                                    <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
-                                                ) : null}
-                                                {pokemon.name}
-                                            </CommandItem>
-                                        ))}
+                                          .filter((pokemon) =>
+                                              pokemon.name.toLowerCase().includes(search.toLowerCase()),
+                                          )
+                                          .map((pokemon) => (
+                                              <CommandItem
+                                                  key={`PokemonNodeSelectCommandItem${id}:${pokemon.name}`}
+                                                  value={pokemon.name}
+                                                  onSelect={() => setPokemonSpecies(pokemon)}
+                                                  data-cy={`${pokemon.name}-value`}
+                                                  className="pl-8 relative"
+                                              >
+                                                  {currentNode.species?.name === pokemon.name ? (
+                                                      <Check className="h-4 w-4 absolute top-1/2 -translate-y-1/2 left-2" />
+                                                  ) : null}
+                                                  {pokemon.name}
+                                              </CommandItem>
+                                          ))}
                             </ScrollArea>
                         </CommandGroup>
                     </Command>
