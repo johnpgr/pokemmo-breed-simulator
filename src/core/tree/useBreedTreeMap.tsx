@@ -35,7 +35,7 @@ export function useBreedTreeMap(props: {
 
         const natured = Boolean(finalPokemonNode.nature)
 
-        assert.exists(finalPokemonNode.ivs, "finalPokemonNode.ivs should exist")
+        assert(finalPokemonNode.ivs, "finalPokemonNode.ivs should exist")
         assert([2, 3, 4, 5].includes(desired31Ivcount), "Invalid generations number")
 
         const lastRowBreeders =
@@ -54,7 +54,7 @@ export function useBreedTreeMap(props: {
                 default: {
                     const position = PokemonBreedTreePosition.fromKey(k)
                     const ivs = finalPokemonIvSet.get(v)
-                    assert.exists(ivs, "Ivs should exist for last row breeders")
+                    assert(ivs, "Ivs should exist for last row breeders")
 
                     _map[position.key()] = new PokemonBreedTreeNode({ position, ivs: [ivs] })
                     break
@@ -74,7 +74,7 @@ export function useBreedTreeMap(props: {
                 const node = new PokemonBreedTreeNode({ position })
 
                 const parentNodes = node.getParentNodes(_map)
-                assert.exists(parentNodes, `Parent nodes should exist for node: ${node.position.key()}`)
+                assert(parentNodes, `Parent nodes should exist for node: ${node.position.key()}`)
 
                 const p1Node = parentNodes[0]
                 const p2Node = parentNodes[1]
@@ -113,7 +113,7 @@ export function useBreedTreeMap(props: {
 
         for (const [pos, value] of Object.entries(serializedTreeMap)) {
             const node = breedTreeMapCopy[pos]
-            assert.exists(node, `Failed to import breed tree. Exported tree contains invalid position. (${pos})`)
+            assert(node, `Failed to import breed tree. Exported tree contains invalid position. (${pos})`)
 
             const unparsedSpecies = props.pokemonSpeciesUnparsed.find((p) => p.number === value.species)
             if (unparsedSpecies) {

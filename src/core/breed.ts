@@ -18,10 +18,10 @@ export namespace PokemonBreed {
         parent2: PokemonBreedTreeNode,
         child: PokemonBreedTreeNode,
     ): Result<PokemonSpecies, Set<BreedError>> {
-        assert.exists(parent1.gender, "Parent 1 gender should exist")
-        assert.exists(parent2.gender, "Parent 2 gender should exist")
-        assert.exists(parent1.species, "Parent 1 species should exist")
-        assert.exists(parent2.species, "Parent 2 species should exist")
+        assert(parent1.gender, "Parent 1 gender should exist")
+        assert(parent2.gender, "Parent 2 gender should exist")
+        assert(parent1.species, "Parent 1 species should exist")
+        assert(parent2.species, "Parent 2 species should exist")
 
         const errors = new Set<BreedError>()
 

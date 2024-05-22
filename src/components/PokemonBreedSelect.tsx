@@ -37,7 +37,7 @@ export function PokemonToBreedSelect() {
     const expectedCost = getExpectedBreedCost(desired31IVCount, Boolean(currentPokemonInSelect.nature))
     const breederKindCountTable = run(() => {
         const table = POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[desired31IVCount]
-        assert.exists(table, "POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS accessed with an invalid key.")
+        assert(table, "POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS accessed with an invalid key.")
 
         if (currentPokemonInSelect.nature) {
             return table.natured
@@ -76,8 +76,8 @@ export function PokemonToBreedSelect() {
 
         const finalIvs = Array.from(currentPokemonInSelect.ivs)
 
-        assert.exists(finalIvs[0], "At least 2 IV fields must be selected")
-        assert.exists(finalIvs[1], "At least 2 IV fields must be selected")
+        assert(finalIvs[0], "At least 2 IV fields must be selected")
+        assert(finalIvs[1], "At least 2 IV fields must be selected")
 
         ctx.breedTarget.setIvs(new IVSet(finalIvs[0], finalIvs[1], finalIvs[2], finalIvs[3], finalIvs[4]))
         ctx.breedTarget.setNature(currentPokemonInSelect.nature)
@@ -177,7 +177,7 @@ export function PokemonToBreedSelect() {
 
 export function getExpectedBreedCost(desired31IVCount: number, natured: boolean) {
     const costsTable = BREED_EXPECTED_COSTS[desired31IVCount]
-    assert.exists(costsTable, "Expected cost must be defined")
+    assert(costsTable, "Expected cost must be defined")
 
     if (natured) {
         return costsTable.natured

@@ -4,18 +4,15 @@ import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
 
 import { cn } from "@/lib/utils"
 
-const PokemonIvRadioGroup = React.forwardRef<
-    React.ElementRef<typeof RadioGroupPrimitive.Root>,
-    React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
->(({ className, ...props }, ref) => {
+const PokemonIvRadioGroup: React.FC<
+    React.ComponentProps<typeof RadioGroupPrimitive.Root>
+> = ({ className, ref, ...props }) => {
     return <RadioGroupPrimitive.Root className={cn("grid gap-2 overflow-hidden", className)} {...props} ref={ref} />
-})
-PokemonIvRadioGroup.displayName = RadioGroupPrimitive.Root.displayName
+}
 
-const PokemonIvRadioItem = React.forwardRef<
-    React.ElementRef<typeof RadioGroupPrimitive.Item>,
-    React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
->(({ className, children, ...props }, ref) => {
+const PokemonIvRadioItem: React.FC<
+    React.ComponentProps<typeof RadioGroupPrimitive.Item>
+> = ({ className, children, ref, ...props }) => {
     return (
         <RadioGroupPrimitive.Item
             ref={ref}
@@ -29,7 +26,6 @@ const PokemonIvRadioItem = React.forwardRef<
             <div className="absolute inset-0 mt-1">{children}</div>
         </RadioGroupPrimitive.Item>
     )
-})
-PokemonIvRadioItem.displayName = RadioGroupPrimitive.Item.displayName
+}
 
 export { PokemonIvRadioGroup, PokemonIvRadioItem }

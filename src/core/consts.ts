@@ -163,6 +163,7 @@ export type PokemonCountByBreederKind = {
     kind: PokemonBreederKind
     count: { natured: number; natureless: number }
 }[]
+
 /**
  * Returns a list of pokemon counts grouped by breeder kind
  * This list is used to render the pokemon breed tree depending on the number of generations that is selected

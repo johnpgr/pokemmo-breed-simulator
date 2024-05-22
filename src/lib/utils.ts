@@ -29,7 +29,7 @@ export namespace Strings {
     }
 
     export function capitalize(input: string) {
-        assert.exists(input[0])
+        assert(input[0])
 
         return input[0].toUpperCase() + input.slice(1)
     }

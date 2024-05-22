@@ -17,14 +17,9 @@ export function PokemonNodeInfo(props: {
     updateBreedTree: () => void
 }) {
     const ctx = useBreedTreeContext()
-    const name = props.currentNode?.nickname ?? props.currentNode?.species?.name ?? ""
     const heldItem = getHeldItemForNode(props.currentNode, props.breedTree)
 
-    function setNickname(nick: string) {
-        props.currentNode.setNickname(nick)
-        props.updateBreedTree()
-        ctx.saveToLocalStorage()
-    }
+
 
     function resetNode() {
         props.currentNode.setGender(undefined)
@@ -48,7 +43,7 @@ export function PokemonNodeInfo(props: {
                                 alt={props.currentNode.species.name}
                                 className="mb-1"
                             />
-                            <PokemonNodeNickname name={name} setName={setNickname} />
+                            <PokemonNodeNickname currentNode={props.currentNode} updateBreedTree={props.updateBreedTree} />
                         </div>
                     ) : null}
                 </CardTitle>

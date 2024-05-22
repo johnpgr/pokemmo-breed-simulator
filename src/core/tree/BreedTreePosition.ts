@@ -12,8 +12,8 @@ export class PokemonBreedTreePosition {
 
     static fromKey(key: string): PokemonBreedTreePosition {
         const [row, col] = key.split(",").map(Number)
-        assert.exists(row)
-        assert.exists(col)
+        assert(row !== undefined, "Tried to make a key from invalid string")
+        assert(col !== undefined, "Tried to make a key from invalid string")
         assert(!isNaN(row) && !isNaN(col), "Invalid BreedTreeNode key")
 
         return new PokemonBreedTreePosition(row, col)

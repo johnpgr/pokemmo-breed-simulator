@@ -45,7 +45,7 @@ export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.B
 function PokemonBreedTreeFinal() {
     const updateFromBreedEffect = React.useRef(false)
     const ctx = useBreedTreeContext()
-    assert.exists(ctx.breedTarget.species, "PokemonSpecies must be defined in useBreedMap")
+    assert(ctx.breedTarget.species, "PokemonSpecies must be defined in useBreedMap")
 
     const desired31IvCount = Object.values(ctx.breedTarget.ivs).filter(Boolean).length
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
@@ -66,17 +66,11 @@ function PokemonBreedTreeFinal() {
             if (node.gender && !node.genderCostIgnored && !isLastRow) {
                 if (node.gender === PokemonGender.Male) {
                     const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[node.species.percentageMale]
-                    assert.exists(
-                        newCost,
-                        "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key",
-                    )
+                    assert(newCost, "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key")
                     cost += newCost
                 } else if (node.gender === PokemonGender.Female) {
                     const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[100 - node.species.percentageMale]
-                    assert.exists(
-                        newCost,
-                        "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key",
-                    )
+                    assert(newCost, "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key")
                     cost += newCost
                 }
             }
@@ -160,7 +154,7 @@ function PokemonBreedTreeFinal() {
                 description: `Error codes: ${errorMsg}`,
                 action: {
                     label: "Dismiss",
-                    onClick: () => { },
+                    onClick: () => {},
                 },
             })
         })

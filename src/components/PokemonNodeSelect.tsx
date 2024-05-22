@@ -39,10 +39,10 @@ export function PokemonNodeSelect(props: {
     const [colors, setColors] = React.useState<IvColor[]>([])
     const isPokemonToBreed = props.position.col === 0 && props.position.row === 0
     const currentNode = props.breedTree[props.position.key()]
-    assert.exists(currentNode, "Current node should exist in PokemonNodeSelect")
+    assert(currentNode, "Current node should exist in PokemonNodeSelect")
 
     function setPokemonSpecies(species: PokemonSpeciesUnparsed) {
-        assert.exists(currentNode, `Node at ${props.position} should exist`)
+        assert(currentNode, `Node at ${props.position} should exist`)
         currentNode.setSpecies(PokemonSpecies.parse(species))
 
         switch (true) {
@@ -75,11 +75,11 @@ export function PokemonNodeSelect(props: {
     }
 
     const filterPokemonByEggGroups = React.useCallback((): PokemonSpeciesUnparsed[] => {
-        assert.exists(ctx.breedTarget.species, "Pokemon in context should exist")
+        assert(ctx.breedTarget.species, "Pokemon in context should exist")
         const newList: PokemonSpeciesUnparsed[] = []
 
         const ditto = ctx.pokemonSpeciesUnparsed.find((poke) => poke.number === 132)
-        assert.exists(ditto, "Ditto should exist")
+        assert(ditto, "Ditto should exist")
         newList.push(ditto)
 
         if (ctx.breedTarget.species.eggGroups.includes(PokemonEggGroup.Genderless)) {

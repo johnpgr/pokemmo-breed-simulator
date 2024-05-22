@@ -78,7 +78,7 @@ export function BreedTreeContext(props: {
     })
 
     function serialize(): PokemonBreedTreeSerialized {
-        assert.exists(species, "Attempted to serialize target Pokemon before initializing context.")
+        assert(species, "Attempted to serialize target Pokemon before initializing context.")
         const breedTargetSerialized = { ivs, nature } satisfies BreedTargetSerialized
         const breedTreeSerialized = breedTree.serialize()
 
@@ -90,10 +90,10 @@ export function BreedTreeContext(props: {
 
     function deserialize(serialized: PokemonBreedTreeSerialized) {
         const rootNode = serialized.breedTree["0,0"]
-        assert.exists(rootNode, "Deserialize failed. Root node not found.")
+        assert(rootNode, "Deserialize failed. Root node not found.")
 
         const speciesUnparsed = props.pokemonSpeciesUnparsed.find((p) => p.number === rootNode.species)
-        assert.exists(speciesUnparsed, "Failed to import Pokemon to breed target species. Invalid Pokemon number")
+        assert(speciesUnparsed, "Failed to import Pokemon to breed target species. Invalid Pokemon number")
 
         const species = PokemonSpecies.parse(speciesUnparsed)
         const ivs = new IVSet(
@@ -152,7 +152,7 @@ export function BreedTreeContext(props: {
 
 export function useBreedTreeContext() {
     const ctx = React.useContext(BreedTreeContextPrimitive)
-    assert.exists(ctx, "usePokemonToBreed must be used within a PokemonToBreedContextProvider")
+    assert(ctx, "usePokemonToBreed must be used within a PokemonToBreedContextProvider")
 
     return ctx
 }
