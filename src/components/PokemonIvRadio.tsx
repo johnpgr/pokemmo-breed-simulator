@@ -4,15 +4,20 @@ import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
 
 import { cn } from "@/lib/utils"
 
-const PokemonIvRadioGroup: React.FC<
-    React.ComponentProps<typeof RadioGroupPrimitive.Root>
-> = ({ className, ref, ...props }) => {
+const PokemonIvRadioGroup: React.FC<React.ComponentProps<typeof RadioGroupPrimitive.Root>> = ({
+    className,
+    ref,
+    ...props
+}) => {
     return <RadioGroupPrimitive.Root className={cn("grid gap-2 overflow-hidden", className)} {...props} ref={ref} />
 }
 
-const PokemonIvRadioItem: React.FC<
-    React.ComponentProps<typeof RadioGroupPrimitive.Item>
-> = ({ className, children, ref, ...props }) => {
+const PokemonIvRadioItem: React.FC<React.ComponentProps<typeof RadioGroupPrimitive.Item>> = ({
+    className,
+    children,
+    ref,
+    ...props
+}) => {
     return (
         <RadioGroupPrimitive.Item
             ref={ref}

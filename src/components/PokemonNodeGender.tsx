@@ -88,9 +88,9 @@ export function PokemonNodeGender(props: {
                                             <Female className="h-4 w-4 fill-pink-500 antialiased" />:{" $"}
                                             {
                                                 GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                (100 -
-                                                    props.currentNode.species
-                                                        .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                                    (100 -
+                                                        props.currentNode.species
+                                                            .percentageMale) as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                                 ]
                                             }
                                         </i>
@@ -98,8 +98,8 @@ export function PokemonNodeGender(props: {
                                             <Male className="fill-blue-500 h-4 w-4 antialiased" />:{" $"}
                                             {
                                                 GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[
-                                                props.currentNode.species
-                                                    .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
+                                                    props.currentNode.species
+                                                        .percentageMale as keyof typeof GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE
                                                 ]
                                             }
                                         </i>

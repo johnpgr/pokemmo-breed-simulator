@@ -12,9 +12,7 @@ const Command = ({
     ref,
     className,
     ...props
-}: React.ComponentPropsWithoutRef<typeof CommandPrimitive> & {
-    ref: React.RefObject<React.ElementRef<typeof CommandPrimitive>>
-}) => (
+}: React.ComponentProps<typeof CommandPrimitive>) => (
     <CommandPrimitive
         ref={ref}
         className={cn(
@@ -24,9 +22,8 @@ const Command = ({
         {...props}
     />
 )
-Command.displayName = CommandPrimitive.displayName
 
-interface CommandDialogProps extends DialogProps {}
+interface CommandDialogProps extends DialogProps { }
 
 const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
     return (
@@ -44,9 +41,7 @@ const CommandInput = ({
     ref,
     className,
     ...props
-}: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> & {
-    ref: React.RefObject<React.ElementRef<typeof CommandPrimitive.Input>>
-}) => (
+}: React.ComponentProps<typeof CommandPrimitive.Input>) => (
     <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
         <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
         <CommandPrimitive.Input
@@ -60,15 +55,11 @@ const CommandInput = ({
     </div>
 )
 
-CommandInput.displayName = CommandPrimitive.Input.displayName
-
 const CommandList = ({
     ref,
     className,
     ...props
-}: React.ComponentPropsWithoutRef<typeof CommandPrimitive.List> & {
-    ref: React.RefObject<React.ElementRef<typeof CommandPrimitive.List>>
-}) => (
+}: React.ComponentProps<typeof CommandPrimitive.List>) => (
     <CommandPrimitive.List
         ref={ref}
         className={cn("max-h-[300px] overflow-y-auto overflow-x-hidden", className)}
@@ -76,24 +67,16 @@ const CommandList = ({
     />
 )
 
-CommandList.displayName = CommandPrimitive.List.displayName
-
 const CommandEmpty = ({
     ref,
     ...props
-}: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty> & {
-    ref: React.RefObject<React.ElementRef<typeof CommandPrimitive.Empty>>
-}) => <CommandPrimitive.Empty ref={ref} className="py-6 text-center text-sm" {...props} />
-
-CommandEmpty.displayName = CommandPrimitive.Empty.displayName
+}: React.ComponentProps<typeof CommandPrimitive.Empty>) => <CommandPrimitive.Empty ref={ref} className="py-6 text-center text-sm" {...props} />
 
 const CommandGroup = ({
     ref,
     className,
     ...props
-}: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group> & {
-    ref: React.RefObject<React.ElementRef<typeof CommandPrimitive.Group>>
-}) => (
+}: React.ComponentProps<typeof CommandPrimitive.Group>) => (
     <CommandPrimitive.Group
         ref={ref}
         className={cn(
@@ -104,24 +87,17 @@ const CommandGroup = ({
     />
 )
 
-CommandGroup.displayName = CommandPrimitive.Group.displayName
-
 const CommandSeparator = ({
     ref,
     className,
     ...props
-}: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator> & {
-    ref: React.RefObject<React.ElementRef<typeof CommandPrimitive.Separator>>
-}) => <CommandPrimitive.Separator ref={ref} className={cn("-mx-1 h-px bg-border", className)} {...props} />
-CommandSeparator.displayName = CommandPrimitive.Separator.displayName
+}: React.ComponentProps<typeof CommandPrimitive.Separator>) => <CommandPrimitive.Separator ref={ref} className={cn("-mx-1 h-px bg-border", className)} {...props} />
 
 const CommandItem = ({
     ref,
     className,
     ...props
-}: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> & {
-    ref: React.RefObject<React.ElementRef<typeof CommandPrimitive.Item>>
-}) => (
+}: React.ComponentProps<typeof CommandPrimitive.Item>) => (
     <CommandPrimitive.Item
         ref={ref}
         className={cn(
@@ -132,12 +108,9 @@ const CommandItem = ({
     />
 )
 
-CommandItem.displayName = CommandPrimitive.Item.displayName
-
-const CommandShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
+const CommandShortcut = ({ className, ...props }: React.ComponentProps<"span">) => {
     return <span className={cn("ml-auto text-xs tracking-widest text-muted-foreground", className)} {...props} />
 }
-CommandShortcut.displayName = "CommandShortcut"
 
 export {
     Command,

@@ -19,8 +19,6 @@ export function PokemonNodeInfo(props: {
     const ctx = useBreedTreeContext()
     const heldItem = getHeldItemForNode(props.currentNode, props.breedTree)
 
-
-
     function resetNode() {
         props.currentNode.setGender(undefined)
         props.currentNode.setSpecies(undefined)
@@ -43,7 +41,10 @@ export function PokemonNodeInfo(props: {
                                 alt={props.currentNode.species.name}
                                 className="mb-1"
                             />
-                            <PokemonNodeNickname currentNode={props.currentNode} updateBreedTree={props.updateBreedTree} />
+                            <PokemonNodeNickname
+                                currentNode={props.currentNode}
+                                updateBreedTree={props.updateBreedTree}
+                            />
                         </div>
                     ) : null}
                 </CardTitle>

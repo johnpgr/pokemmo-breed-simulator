@@ -1,10 +1,10 @@
 "use client"
-import React from "react";
-import { Save, SquarePen } from "lucide-react";
-import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode";
-import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext";
+import React from "react"
+import { Save, SquarePen } from "lucide-react"
+import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
+import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 
-export function PokemonNodeNickname(props: { currentNode: PokemonBreedTreeNode, updateBreedTree: () => void }) {
+export function PokemonNodeNickname(props: { currentNode: PokemonBreedTreeNode; updateBreedTree: () => void }) {
     const ctx = useBreedTreeContext()
     const [isEditing, setIsEditing] = React.useState(false)
     const inputRef = React.useRef<HTMLInputElement>(null)
@@ -20,7 +20,7 @@ export function PokemonNodeNickname(props: { currentNode: PokemonBreedTreeNode, 
             const nameInput = inputRef.current?.value
             //If the name in the input is the current node species name, it means there is no change, so don't set a nickname
             if (nameInput !== props.currentNode.species?.name) {
-                setNickname(nameInput ?? '')
+                setNickname(nameInput ?? "")
             }
             setIsEditing(false)
             return
@@ -47,4 +47,3 @@ export function PokemonNodeNickname(props: { currentNode: PokemonBreedTreeNode, 
         </div>
     )
 }
-

@@ -138,6 +138,7 @@ export function useBreedTreeMap(props: {
 
         init(props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, props.breedTreeMapInLocalStorage)
         props.setInit(false)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, map, props.breedTreeMapInLocalStorage])
 
     return {
