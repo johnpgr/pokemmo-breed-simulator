@@ -63,14 +63,15 @@ function PokemonBreedTreeFinal() {
                 ? node.position.row === desired31IvCount
                 : node.position.row === desired31IvCount - 1
 
+
             if (node.gender && !node.genderCostIgnored && !isLastRow) {
                 if (node.gender === PokemonGender.Male) {
                     const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[node.species.percentageMale]
-                    assert(newCost, "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key")
+                    assert(newCost !== undefined, "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key")
                     cost += newCost
                 } else if (node.gender === PokemonGender.Female) {
                     const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[100 - node.species.percentageMale]
-                    assert(newCost, "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key")
+                    assert(newCost !== undefined, "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key")
                     cost += newCost
                 }
             }
@@ -154,7 +155,7 @@ function PokemonBreedTreeFinal() {
                 description: `Error codes: ${errorMsg}`,
                 action: {
                     label: "Dismiss",
-                    onClick: () => {},
+                    onClick: () => { },
                 },
             })
         })
