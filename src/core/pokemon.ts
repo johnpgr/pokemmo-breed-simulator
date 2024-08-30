@@ -59,6 +59,7 @@ export enum PokemonEggGroup {
     Flying = "Flying",
     Field = "Field",
     Fairy = "Fairy",
+    Mineral = "Mineral",
     Plant = "Plant",
     Humanoid = "Humanoid",
     Chaos = "Chaos",

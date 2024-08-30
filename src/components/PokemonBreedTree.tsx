@@ -40,7 +40,7 @@ export function PokemonBreedTree() {
     return <PokemonBreedTreeFinal />
 }
 
-export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.BreedError> | undefined>
+export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.ErrorKind> | undefined>
 
 function PokemonBreedTreeFinal() {
     const updateFromBreedEffect = React.useRef(false)
@@ -104,7 +104,7 @@ function PokemonBreedTreeFinal() {
         })
     }
 
-    function addErrors(pos: PokemonBreedTreePositionKey, errors: Set<PokemonBreed.BreedError>) {
+    function addErrors(pos: PokemonBreedTreePositionKey, errors: Set<PokemonBreed.ErrorKind>) {
         setBreedErrors((prev) => {
             prev[pos] = errors
             return { ...prev }
@@ -140,7 +140,7 @@ function PokemonBreedTreeFinal() {
 
             let errorMsg = ""
             for (const error of errorKind.values()) {
-                if (error === PokemonBreed.BreedError.ChildDidNotChange) {
+                if (error === PokemonBreed.ErrorKind.ChildDidNotChange) {
                     continue
                 }
                 errorMsg += error
@@ -203,7 +203,7 @@ function PokemonBreedTreeFinal() {
                 if (!breedResult.ok) {
                     if (
                         breedResult.error.size === 1 &&
-                        breedResult.error.has(PokemonBreed.BreedError.ChildDidNotChange)
+                        breedResult.error.has(PokemonBreed.ErrorKind.ChildDidNotChange)
                     ) {
                         deleteErrors(currentNodePos)
                         next()
