@@ -17,6 +17,7 @@ import { z } from "zod"
 import { POKEMON_BREEDTREE_LASTROW_MAPPING } from "./consts"
 import { PokemonBreedTarget } from "./PokemonBreedTarget"
 import { PokemonIvSet } from "./PokemonIvSet"
+import pokemons from "@/data/data.json"
 
 export namespace PokemonBreedTree {
     export type PositionKey = string
@@ -45,8 +46,7 @@ export namespace PokemonBreedTree {
     export function useBreedMap(props: {
         finalPokemonNode: Node
         finalPokemonIvSet: PokemonIvSet
-        pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
-        breedTreeMapInLocalStorage: BreedMapSerialized | undefined
+        storedBreedTree: BreedMapSerialized | undefined
         init: boolean
         setInit: React.Dispatch<React.SetStateAction<boolean>>
     }) {
@@ -56,21 +56,54 @@ export namespace PokemonBreedTree {
         )
         const [map, setMap] = React.useState<BreedMap>({})
 
-        function init(
-            finalPokemonNode: Node,
-            finalPokemonIvSet: PokemonIvSet,
-            desired31Ivcount: number,
-            breedTreeMapInLocalStorage?: BreedMapSerialized,
-        ) {
+        function serialize(): BreedMapSerialized {
+            const exported: BreedMapSerialized = {}
+            for (const [key, node] of Object.entries(map)) {
+                exported[key] = node.serialize()
+            }
+            return exported
+        }
+
+        function deserialize(from: BreedMapSerialized, to: BreedMap) {
+            if (Object.keys(to).length < 1) {
+                return
+            }
+
+            for (const [pos, value] of Object.entries(from)) {
+                const node = to[pos]
+                assert(node, `Failed to import breed tree. Exported tree contains invalid position. (${pos})`)
+
+                const unparsedSpecies = pokemons.find((p) => p.number === value.species)
+                if (unparsedSpecies) {
+                    const species = PokemonSpecies.parse(unparsedSpecies)
+                    node.species = species
+                }
+
+                node.nickname = value.nickname
+                node.gender = value.gender
+            }
+
+            setMap(to)
+        }
+
+        React.useEffect(() => {
+            if (!props.finalPokemonNode.species) {
+                return
+            }
+
+            if (!props.init) {
+                return
+            }
+
             const _map: BreedMap = {}
-            _map[finalPokemonNode.position.key()] = finalPokemonNode
+            _map[props.finalPokemonNode.position.key()] = props.finalPokemonNode
 
-            const natured = Boolean(finalPokemonNode.nature)
+            const natured = Boolean(props.finalPokemonNode.nature)
 
-            assert(finalPokemonNode.ivs, "finalPokemonNode.ivs should exist")
-            assert(desired31Ivcount >= 2 && desired31Ivcount <= 5, "Invalid generations number")
+            assert(props.finalPokemonNode.ivs, "finalPokemonNode.ivs should exist")
+            assert(desired31IvCount >= 2 && desired31IvCount <= 5, "Invalid generations number")
 
-            const lastRowBreeders = POKEMON_BREEDTREE_LASTROW_MAPPING[desired31Ivcount]!
+            const lastRowBreeders = POKEMON_BREEDTREE_LASTROW_MAPPING[desired31IvCount]!
             const lastRowBreedersPositions = natured ? lastRowBreeders.natured : lastRowBreeders.natureless
 
             // initialize last row
@@ -79,12 +112,12 @@ export namespace PokemonBreedTree {
                     case PokemonBreederKind.Nature: {
                         const position = Position.fromKey(k)
 
-                        _map[position.key()] = new Node({ nature: finalPokemonNode.nature, position })
+                        _map[position.key()] = new Node({ nature: props.finalPokemonNode.nature, position })
                         break
                     }
                     default: {
                         const position = Position.fromKey(k)
-                        const ivs = finalPokemonIvSet.get(v)
+                        const ivs = props.finalPokemonIvSet.get(v)
                         assert(ivs, "Ivs should exist for last row breeders")
 
                         _map[position.key()] = new Node({ position, ivs: [ivs] })
@@ -97,7 +130,7 @@ export namespace PokemonBreedTree {
             // start from the second to last row
             // stops on the first row where the final pokemon node is already set
             // -1 for natured because of the way POKEMON_BREEDTREE_LASTROW_MAPPING is defined
-            let row = natured ? desired31Ivcount - 1 : desired31Ivcount - 2
+            let row = natured ? desired31IvCount - 1 : desired31IvCount - 2
             while (row > 0) {
                 let col = 0
                 while (col < Math.pow(2, row)) {
@@ -115,7 +148,7 @@ export namespace PokemonBreedTree {
                     const nature = p1Node.nature ?? p2Node.nature ?? undefined
 
                     node.nature = nature
-                        node.ivs = ivs
+                    node.ivs = ivs
                     _map[position.key()] = node
 
                     col = col + 1
@@ -123,56 +156,15 @@ export namespace PokemonBreedTree {
                 row = row - 1
             }
 
-            if (breedTreeMapInLocalStorage) {
-                deserialize(breedTreeMapInLocalStorage, _map)
+            if (props.storedBreedTree) {
+                deserialize(props.storedBreedTree, _map)
             }
 
             setMap(_map)
-        }
 
-        function serialize(): BreedMapSerialized {
-            const exported: BreedMapSerialized = {}
-            for (const [key, node] of Object.entries(map)) {
-                exported[key] = node.serialize()
-            }
-            return exported
-        }
-
-        function deserialize(serializedTreeMap: BreedMapSerialized, breedTreeMapCopy: BreedMap) {
-            if (Object.keys(breedTreeMapCopy).length < 1) {
-                return
-            }
-
-            for (const [pos, value] of Object.entries(serializedTreeMap)) {
-                const node = breedTreeMapCopy[pos]
-                assert(node, `Failed to import breed tree. Exported tree contains invalid position. (${pos})`)
-
-                const unparsedSpecies = props.pokemonSpeciesUnparsed.find((p) => p.number === value.species)
-                if (unparsedSpecies) {
-                    const species = PokemonSpecies.parse(unparsedSpecies)
-                    node.species = species
-                }
-
-                node.nickname = value.nickname
-                node.gender = value.gender
-            }
-
-            setMap(breedTreeMapCopy)
-        }
-
-        React.useEffect(() => {
-            if (!props.finalPokemonNode.species) {
-                return
-            }
-
-            if (!props.init) {
-                return
-            }
-
-            init(props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, props.breedTreeMapInLocalStorage)
             props.setInit(false)
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, map, props.breedTreeMapInLocalStorage])
+        }, [props.finalPokemonNode, props.finalPokemonIvSet, desired31IvCount, map, props.storedBreedTree])
 
         return {
             map,
@@ -325,8 +317,7 @@ export namespace PokemonBreedTree {
                 species: species,
             }),
             finalPokemonIvSet: ivs,
-            pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
-            breedTreeMapInLocalStorage: localStorageTree?.breedTree,
+            storedBreedTree: localStorageTree?.breedTree,
             init: initMap,
             setInit: setInitMap,
         })
@@ -346,7 +337,7 @@ export namespace PokemonBreedTree {
             const rootNode = serialized.breedTree["0,0"]
             assert(rootNode, "Deserialize failed. Root node not found.")
 
-            const speciesUnparsed = props.pokemonSpeciesUnparsed.find((p) => p.number === rootNode.species)
+            const speciesUnparsed = pokemons.find((p) => p.number === rootNode.species)
             assert(speciesUnparsed, "Failed to import Pokemon to breed target species. Invalid Pokemon number")
 
             const species = PokemonSpecies.parse(speciesUnparsed)
