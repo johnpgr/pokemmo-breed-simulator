@@ -1,4 +1,4 @@
-import { PokemonBreederKind, PokemonIv } from "../pokemon"
+import { PokemonBreederKind, PokemonIv } from "./pokemon"
 
 export class PokemonIvSet { constructor(
         public A: PokemonIv,

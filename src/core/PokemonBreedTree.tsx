@@ -13,7 +13,7 @@ import { assert } from "@/lib/assert"
 import React from "react"
 import { useLocalStorage } from "@/lib/hooks"
 import { z } from "zod"
-import { POKEMON_BREEDTREE_LASTROW_MAPPING } from "../consts"
+import { POKEMON_BREEDTREE_LASTROW_MAPPING } from "./consts"
 import { PokemonBreedTarget } from "./PokemonBreedTarget"
 import { PokemonIvSet } from "./PokemonIvSet"
 
@@ -67,7 +67,7 @@ export namespace PokemonBreedTree {
             const natured = Boolean(finalPokemonNode.nature)
 
             assert(finalPokemonNode.ivs, "finalPokemonNode.ivs should exist")
-            assert([2, 3, 4, 5].includes(desired31Ivcount), "Invalid generations number")
+            assert(desired31Ivcount >= 2 && desired31Ivcount <= 5, "Invalid generations number")
 
             const lastRowBreeders =
                 POKEMON_BREEDTREE_LASTROW_MAPPING[desired31Ivcount as keyof typeof POKEMON_BREEDTREE_LASTROW_MAPPING]

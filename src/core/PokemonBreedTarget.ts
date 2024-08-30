@@ -1,4 +1,5 @@
-import type { PokemonNature, PokemonSpecies } from "../pokemon"
+import React from "react"
+import type { PokemonNature, PokemonSpecies } from "./pokemon"
 import type { PokemonIvSet } from "./PokemonIvSet"
 
 export namespace PokemonBreedTarget {
