@@ -147,7 +147,7 @@ function PokemonBreedTreeViewFinal() {
                 if (error.kind === PokemonBreed.BreedErrorKind.ChildDidNotChange) {
                     continue
                 }
-                errorMsg += error
+                errorMsg += error.kind
                 errorMsg += ", "
             }
 
