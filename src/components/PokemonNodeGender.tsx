@@ -7,34 +7,33 @@ import { Female } from "./ui/icons/Female"
 import { Male } from "./ui/icons/Male"
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
 import { GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./consts"
-import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
-import { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { Checkbox } from "./ui/checkbox"
-import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 import { Label } from "./ui/label"
+import { useBreedContext } from "@/core/PokemonBreedContext"
+import { PokemonBreedMap, PokemonNode } from "@/core/PokemonBreedMap"
 
 export function PokemonNodeGender(props: {
     desired31IvCount: number
-    currentNode: PokemonBreedTreeNode
-    breedTree: PokemonBreedTreeMap
+    currentNode: PokemonNode
+    breedTree: PokemonBreedMap
     updateBreedTree: () => void
 }) {
-    const ctx = useBreedTreeContext()
+    const ctx = useBreedContext()
     const gender = props.currentNode.gender
     const percentageMale = props.currentNode.species?.percentageMale
     const isLastRow = ctx.breedTarget.nature
         ? props.currentNode.position.row === props.desired31IvCount
         : props.currentNode.position.row === props.desired31IvCount - 1
-    const canHaveGenderCost = !props.currentNode.isGenderless() && !props.currentNode.isDitto() && !isLastRow
+    const canHaveGenderCost = !props.currentNode.species?.isGenderless() && !props.currentNode.species?.isDitto() && !isLastRow
 
     function handleToggleGenderCostIgnored() {
-        props.currentNode.setGenderCostIgnored(!props.currentNode.genderCostIgnored)
+        props.currentNode.genderCostIgnored = !props.currentNode.genderCostIgnored
         props.updateBreedTree()
         ctx.saveToLocalStorage()
     }
 
     function handleToggleGender(value: string) {
-        props.currentNode.setGender(value as PokemonGender)
+        props.currentNode.gender = value as PokemonGender
         props.updateBreedTree()
         ctx.saveToLocalStorage()
     }
@@ -43,7 +42,7 @@ export function PokemonNodeGender(props: {
         <Popover>
             <PopoverTrigger asChild>
                 <Button variant={"outline"} className="rounded-full border p-[6px] h-fit w-fit">
-                    {!gender || props.currentNode.isGenderless() || props.currentNode.isDitto() ? (
+                    {!gender || props.currentNode.species?.isGenderless() || props.currentNode.species?.isDitto() ? (
                         <HelpCircle size={20} />
                     ) : gender === PokemonGender.Female ? (
                         <Female className="h-5 w-5 fill-pink-500 antialiased" />
@@ -54,7 +53,7 @@ export function PokemonNodeGender(props: {
             </PopoverTrigger>
             <PopoverContent className="max-w-xs w-full">
                 <div className="flex flex-col items-center gap-6">
-                    {props.currentNode.isGenderless() || props.currentNode.isDitto() ? (
+                    {props.currentNode.species?.isGenderless() || props.currentNode.species?.isDitto() ? (
                         <i className="text-sm text-foreground/70">This Pokemon species can&apos;t have a gender</i>
                     ) : (
                         <>

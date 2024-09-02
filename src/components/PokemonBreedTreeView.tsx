@@ -1,14 +1,12 @@
 "use client"
 import { PokemonBreed } from "@/core/breed"
-import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 import { PokemonGender } from "@/core/pokemon"
-import { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
-import { PokemonBreedTreePositionKey } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import { run } from "@/lib/utils"
 import { Info } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
+import { ImportExportButton, ResetBreedButton } from "./Buttons"
 import { getExpectedBreedCost } from "./PokemonBreedSelect"
 import { PokemonIvColors } from "./PokemonIvColors"
 import { HeldItem, getHeldItemForNode } from "./PokemonNodeHeldItem"
@@ -18,11 +16,12 @@ import { BREED_ITEM_COSTS, GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./co
 import { Alert, AlertTitle } from "./ui/alert"
 import { Button } from "./ui/button"
 import { ScrollArea, ScrollBar } from "./ui/scroll-area"
-import { ImportExportButton, ResetBreedButton } from "./Buttons"
+import { useBreedContext } from "@/core/PokemonBreedContext"
+import { PokemonBreedMapPosition, PokemonBreedMapPositionKey } from "@/core/PokemonBreedMap"
 
-export function PokemonBreedTree() {
+export function PokemonBreedTreeView() {
     const loadedFromLocal = React.useRef(false)
-    const ctx = useBreedTreeContext()
+    const ctx = useBreedContext()
 
     React.useEffect(() => {
         if (loadedFromLocal.current) {
@@ -37,14 +36,14 @@ export function PokemonBreedTree() {
         return null
     }
 
-    return <PokemonBreedTreeFinal />
+    return <PokemonBreedTreeViewFinal />
 }
 
-export type BreedErrors = Record<PokemonBreedTreePositionKey, Set<PokemonBreed.ErrorKind> | undefined>
+export type BreedErrors = Record<PokemonBreedMapPositionKey, Set<PokemonBreed.BreedError> | undefined>
 
-function PokemonBreedTreeFinal() {
+function PokemonBreedTreeViewFinal() {
     const updateFromBreedEffect = React.useRef(false)
-    const ctx = useBreedTreeContext()
+    const ctx = useBreedContext()
     assert(ctx.breedTarget.species, "PokemonSpecies must be defined in useBreedMap")
 
     const desired31IvCount = Object.values(ctx.breedTarget.ivs).filter(Boolean).length
@@ -63,15 +62,20 @@ function PokemonBreedTreeFinal() {
                 ? node.position.row === desired31IvCount
                 : node.position.row === desired31IvCount - 1
 
-
             if (node.gender && !node.genderCostIgnored && !isLastRow) {
                 if (node.gender === PokemonGender.Male) {
                     const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[node.species.percentageMale]
-                    assert(newCost !== undefined, "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key")
+                    assert(
+                        newCost !== undefined,
+                        "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key",
+                    )
                     cost += newCost
                 } else if (node.gender === PokemonGender.Female) {
                     const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[100 - node.species.percentageMale]
-                    assert(newCost !== undefined, "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key")
+                    assert(
+                        newCost !== undefined,
+                        "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key",
+                    )
                     cost += newCost
                 }
             }
@@ -97,14 +101,14 @@ function PokemonBreedTreeFinal() {
         updateFromBreedEffect.current = fromBreedEffect
     }
 
-    function deleteErrors(pos: PokemonBreedTreePositionKey) {
+    function deleteErrors(pos: PokemonBreedMapPositionKey) {
         setBreedErrors((prev) => {
             delete prev[pos]
             return { ...prev }
         })
     }
 
-    function addErrors(pos: PokemonBreedTreePositionKey, errors: Set<PokemonBreed.ErrorKind>) {
+    function addErrors(pos: PokemonBreedMapPositionKey, errors: Set<PokemonBreed.BreedError>) {
         setBreedErrors((prev) => {
             prev[pos] = errors
             return { ...prev }
@@ -140,7 +144,7 @@ function PokemonBreedTreeFinal() {
 
             let errorMsg = ""
             for (const error of errorKind.values()) {
-                if (error === PokemonBreed.ErrorKind.ChildDidNotChange) {
+                if (error.kind === PokemonBreed.BreedErrorKind.ChildDidNotChange) {
                     continue
                 }
                 errorMsg += error
@@ -155,7 +159,7 @@ function PokemonBreedTreeFinal() {
                 description: `Error codes: ${errorMsg}`,
                 action: {
                     label: "Dismiss",
-                    onClick: () => { },
+                    onClick: () => {},
                 },
             })
         })
@@ -174,7 +178,7 @@ function PokemonBreedTreeFinal() {
 
         //inc by 2 because we only want to breed() on one parent
         for (let col = 0; col < rowLength; col += 2) {
-            const pos = new PokemonBreedTreePosition(lastRow, col)
+            const pos = new PokemonBreedMapPosition(lastRow, col)
             let node = ctx.breedTree.map[pos.key()]
             let partnerNode = node?.getPartnerNode(ctx.breedTree.map)
 
@@ -198,19 +202,17 @@ function PokemonBreedTreeFinal() {
                     break
                 }
 
-                const breedResult = PokemonBreed.breed(node, partnerNode, childNode)
+                const breedResult = PokemonBreed.breed(node, partnerNode, childNode, ctx.pokemonEvolutions)
 
-                if (!breedResult.ok) {
-                    if (
-                        breedResult.error.size === 1 &&
-                        breedResult.error.has(PokemonBreed.ErrorKind.ChildDidNotChange)
-                    ) {
+                if (breedResult instanceof Set) {
+                    const errors = Array.from(breedResult)
+                    if (errors.length === 1 && errors[0]!.kind === PokemonBreed.BreedErrorKind.ChildDidNotChange) {
                         deleteErrors(currentNodePos)
                         next()
                         continue
                     }
 
-                    addErrors(currentNodePos, breedResult.error)
+                    addErrors(currentNodePos, breedResult)
                     next()
                     continue
                 }
@@ -222,14 +224,14 @@ function PokemonBreedTreeFinal() {
                 }
 
                 changed = true
-                childNode.setSpecies(breedResult)
+                childNode.species = breedResult
 
                 if (childNode.species?.percentageMale === 0) {
-                    childNode.setGender(PokemonGender.Female)
+                    childNode.gender = PokemonGender.Female
                 } else if (childNode.species?.percentageMale === 100) {
-                    childNode.setGender(PokemonGender.Male)
-                } else if (childNode.isGenderless()) {
-                    childNode.setGender(PokemonGender.Genderless)
+                    childNode.gender = PokemonGender.Male
+                } else if (childNode.species?.isGenderless()) {
+                    childNode.gender = PokemonGender.Genderless
                 }
 
                 deleteErrors(currentNodePos)
@@ -279,7 +281,7 @@ function PokemonBreedTreeFinal() {
                         return (
                             <div key={`row:${row}`} className="flex w-full items-center justify-center">
                                 {Array.from({ length: rowLength }).map((_, col) => {
-                                    const position = new PokemonBreedTreePosition(row, col)
+                                    const position = new PokemonBreedMapPosition(row, col)
 
                                     return (
                                         <PokemonNodeLines

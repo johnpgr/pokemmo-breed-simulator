@@ -2,10 +2,9 @@
 import { getEvItemSpriteUrl } from "@/lib/sprites"
 import { Button } from "./ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
-import { Strings } from "@/lib/utils"
 import { PokemonIv } from "@/core/pokemon"
-import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
-import { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
+import { kebabToSpacedPascal } from "@/lib/utils"
+import { PokemonBreedMap, PokemonNode } from "@/core/PokemonBreedMap"
 
 export function PokemonNodeHeldItem(props: { item: HeldItem }) {
     return (
@@ -24,7 +23,7 @@ export function PokemonNodeHeldItem(props: { item: HeldItem }) {
                     </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                    <p>{Strings.kebabToSpacedPascal(props.item)}</p>
+                    <p>{kebabToSpacedPascal(props.item)}</p>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>
@@ -41,7 +40,7 @@ export enum HeldItem {
     Nature = "everstone",
 }
 
-export function getHeldItemForNode(node: PokemonBreedTreeNode, breedTree: PokemonBreedTreeMap): HeldItem | null {
+export function getHeldItemForNode(node: PokemonNode, breedTree: PokemonBreedMap): HeldItem | null {
     const breedPartner = node.getPartnerNode(breedTree)
 
     if (!breedPartner) {

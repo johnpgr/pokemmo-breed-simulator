@@ -1,11 +1,11 @@
 "use client"
-import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
 import type { PokemonIv } from "@/core/pokemon"
-import { Strings } from "@/lib/utils"
 import { IvColor, IV_COLOR_DICT } from "./consts"
+import { pascalToSpacedPascal } from "@/lib/utils"
+import { useBreedContext } from "@/core/PokemonBreedContext"
 
 export function PokemonIvColors() {
-    const ctx = useBreedTreeContext()
+    const ctx = useBreedContext()
 
     return (
         <div className="flex flex-wrap justify-center gap-4 mx-auto">
@@ -16,7 +16,7 @@ export function PokemonIvColors() {
                         backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.A],
                     }}
                 />
-                <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.A)}</span>
+                <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.A)}</span>
             </div>
             <div className="flex items-center gap-2">
                 <div
@@ -25,7 +25,7 @@ export function PokemonIvColors() {
                         backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.B],
                     }}
                 />
-                <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.B)}</span>
+                <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.B)}</span>
             </div>
             {ctx.breedTarget.ivs.C ? (
                 <div className="flex items-center gap-2">
@@ -35,7 +35,7 @@ export function PokemonIvColors() {
                             backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.C],
                         }}
                     />
-                    <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.C)}</span>
+                    <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.C)}</span>
                 </div>
             ) : null}
             {ctx.breedTarget.ivs.D ? (
@@ -46,7 +46,7 @@ export function PokemonIvColors() {
                             backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.D],
                         }}
                     />
-                    <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.D)}</span>
+                    <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.D)}</span>
                 </div>
             ) : null}
             {ctx.breedTarget.ivs.E ? (
@@ -57,7 +57,7 @@ export function PokemonIvColors() {
                             backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.E],
                         }}
                     />
-                    <span className="text-sm">{Strings.pascalToSpacedPascal(ctx.breedTarget.ivs.E)}</span>
+                    <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.E)}</span>
                 </div>
             ) : null}
             {ctx.breedTarget.nature ? (

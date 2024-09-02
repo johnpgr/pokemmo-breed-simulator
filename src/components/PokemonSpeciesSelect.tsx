@@ -8,13 +8,13 @@ import { getPokemonSpriteUrl } from "@/lib/sprites"
 import { Check, ChevronsUpDown } from "lucide-react"
 import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
-import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
+import { useBreedContext } from "@/core/PokemonBreedContext"
 
 export function PokemonSpeciesSelect(props: {
     currentSelectedNode: PokemonNodeInSelect
     setCurrentSelectedNode: React.Dispatch<React.SetStateAction<PokemonNodeInSelect>>
 }) {
-    const ctx = useBreedTreeContext()
+    const ctx = useBreedContext()
     const [isOpen, setIsOpen] = React.useState(false)
     const [search, setSearch] = React.useState("")
 
@@ -65,7 +65,6 @@ export function PokemonSpeciesSelect(props: {
                         <CommandGroup>
                             <ScrollArea className="h-72">
                                 {ctx.pokemonSpeciesUnparsed
-                                    .filter((pokemon) => pokemon.name.toLowerCase().includes(search.toLowerCase()))
                                     .map((pokemon) => (
                                         <CommandItem
                                             key={`pokemon_to_breed:${pokemon.name}`}

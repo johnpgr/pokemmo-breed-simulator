@@ -1,10 +1,8 @@
 "use client"
-import { PokemonBreedTreeSerializedSchema, useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
-import { Try } from "@/lib/results"
 import { TooltipProvider } from "@radix-ui/react-tooltip"
 import { ClipboardCopy, Import, RotateCcw, Save } from "lucide-react"
 import React from "react"
-import { useMediaQuery } from "usehooks-ts"
+import { useMediaQuery } from "@/lib/hooks"
 import { generateErrorMessage as generateZodErrorMessage } from "zod-error"
 import { Button } from "./ui/button"
 import {
@@ -30,6 +28,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { Textarea } from "./ui/textarea"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 import { useToast } from "./ui/use-toast"
+import { BreedContextSerialized, useBreedContext } from "@/core/PokemonBreedContext"
 
 export function JsonImportButton(props: { handleImportJson: (data: string) => void }) {
     const [jsonData, setJsonData] = React.useState("")
@@ -64,13 +63,22 @@ export function JsonImportButton(props: { handleImportJson: (data: string) => vo
 
 export function ImportExportButton(props: { handleExport: () => string }) {
     const { toast } = useToast()
-    const ctx = useBreedTreeContext()
+    const ctx = useBreedContext()
     const [jsonData, setJsonData] = React.useState("")
 
     function handleSave() {
-        const unparsed = JSON.parse(jsonData)
+        let unparsed
+        try {
+            unparsed = JSON.parse(jsonData)
+        } catch (error) {
+            toast({
+                title: "Failed to save the breed tree JSON content.",
+                description: (error as Error).message,
+                variant: "destructive",
+            })
+        }
 
-        const res = PokemonBreedTreeSerializedSchema.safeParse(unparsed)
+        const res = BreedContextSerialized.safeParse(unparsed)
         if (res.error) {
             const errorMsg = generateZodErrorMessage(res.error.issues)
 
@@ -82,11 +90,12 @@ export function ImportExportButton(props: { handleExport: () => string }) {
             return
         }
 
-        const deserialized = Try(() => ctx.deserialize(res.data))
-        if (!deserialized.ok) {
+        try {
+            ctx.deserialize(res.data)
+        } catch (error) {
             toast({
                 title: "Failed to save the breed tree JSON content.",
-                description: (deserialized.error as Error).message ?? "",
+                description: (error as Error).message ?? "",
                 variant: "destructive",
             })
         }

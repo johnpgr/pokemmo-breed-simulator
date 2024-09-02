@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react"
 import { useCallback, useRef, useEffect, useLayoutEffect } from "react"
 import type { Dispatch, SetStateAction } from "react"
@@ -104,7 +105,6 @@ export function useEventCallback<Args extends unknown[], R>(
 export const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect
 
 declare global {
-    // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
     interface WindowEventMap {
         "local-storage": CustomEvent
     }

@@ -2,11 +2,11 @@
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { PokemonIv } from "@/core/pokemon"
-import { Strings } from "@/lib/utils"
 import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 import { PokemonIvRadioGroup, PokemonIvRadioItem } from "./PokemonIvRadio"
 import { IV_DROPDOWN_LIST_VALUES } from "./consts"
+import { pascalToSpacedPascal } from "@/lib/utils"
 
 export function PokemonIvSelect(props: {
     desired31IVCount: number
@@ -70,13 +70,13 @@ export function PokemonIvSelect(props: {
                         >
                             <SelectTrigger>
                                 <SelectValue aria-label={props.currentIVDropdownValues[i]}>
-                                    {Strings.pascalToSpacedPascal(props.currentIVDropdownValues[i]!)}
+                                    {pascalToSpacedPascal(props.currentIVDropdownValues[i]!)}
                                 </SelectValue>
                             </SelectTrigger>
                             <SelectContent>
                                 {IV_DROPDOWN_LIST_VALUES.map((iv) => (
                                     <SelectItem key={`PokemonIvSelect:${i}:${iv}`} value={iv}>
-                                        {Strings.pascalToSpacedPascal(iv)}
+                                        {pascalToSpacedPascal(iv)}
                                     </SelectItem>
                                 ))}
                             </SelectContent>

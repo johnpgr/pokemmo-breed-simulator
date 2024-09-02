@@ -1,10 +1,9 @@
 "use client"
-import type { PokemonBreedTreePosition } from "@/core/tree/BreedTreePosition"
-import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { assert } from "@/lib/assert"
 import { run } from "@/lib/utils"
 import React from "react"
-import { BreedErrors } from "./PokemonBreedTree"
+import type { BreedErrors } from "./PokemonBreedTreeView"
+import type { PokemonBreedMap, PokemonBreedMapPosition } from "@/core/PokemonBreedMap"
 
 enum LineDirection {
     Left,
@@ -12,9 +11,9 @@ enum LineDirection {
 }
 
 export function PokemonNodeLines(props: {
-    position: PokemonBreedTreePosition
+    position: PokemonBreedMapPosition
     rowLength: number
-    breedTree: PokemonBreedTreeMap
+    breedTree: PokemonBreedMap
     breedErrors: BreedErrors
     children: React.ReactNode
 }) {

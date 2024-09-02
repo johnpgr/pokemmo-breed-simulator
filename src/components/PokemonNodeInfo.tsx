@@ -1,27 +1,26 @@
 "use client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
-import type { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
-import type { PokemonBreedTreeMap } from "@/core/tree/useBreedTreeMap"
 import { getPokemonSpriteUrl } from "@/lib/sprites"
-import { Strings } from "@/lib/utils"
 import { PokemonNodeGender } from "./PokemonNodeGender"
 import { HeldItem, PokemonNodeHeldItem, getHeldItemForNode } from "./PokemonNodeHeldItem"
 import { PokemonNodeNickname } from "./PokemonNodeNickname"
 import { Button } from "./ui/button"
+import {pascalToSpacedPascal, randomString} from "@/lib/utils"
+import { useBreedContext } from "@/core/PokemonBreedContext"
+import { PokemonBreedMap, PokemonNode } from "@/core/PokemonBreedMap"
 
 export function PokemonNodeInfo(props: {
     desired31IvCount: number
-    currentNode: PokemonBreedTreeNode
-    breedTree: PokemonBreedTreeMap
+    currentNode: PokemonNode
+    breedTree: PokemonBreedMap
     updateBreedTree: () => void
 }) {
-    const ctx = useBreedTreeContext()
+    const ctx = useBreedContext()
     const heldItem = getHeldItemForNode(props.currentNode, props.breedTree)
 
     function resetNode() {
-        props.currentNode.setGender(undefined)
-        props.currentNode.setSpecies(undefined)
+        props.currentNode.gender = undefined
+        props.currentNode.species = undefined
         props.updateBreedTree()
         ctx.saveToLocalStorage()
     }
@@ -70,8 +69,8 @@ export function PokemonNodeInfo(props: {
                     <>
                         <p className="font-bold -mb-1">Ivs</p>
                         {props.currentNode.ivs.map((iv) => (
-                            <span className="text-sm" key={Strings.random(4)}>
-                                31 {Strings.pascalToSpacedPascal(iv)}
+                            <span className="text-sm" key={randomString(4)}>
+                                31 {pascalToSpacedPascal(iv)}
                             </span>
                         ))}
                     </>

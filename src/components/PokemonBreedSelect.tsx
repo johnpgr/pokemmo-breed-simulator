@@ -1,20 +1,20 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
-import { IVSet, PokemonBreedTreeSerializedSchema, useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
+import { PokemonIvSet } from "@/core/PokemonIvSet"
 import type { PokemonIv, PokemonNature, PokemonSpecies } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
-import { Try } from "@/lib/results"
 import { run } from "@/lib/utils"
 import { Info, PlayIcon, RotateCcw } from "lucide-react"
 import React from "react"
 import { generateErrorMessage } from "zod-error"
+import { JsonImportButton } from "./Buttons"
 import { PokemonIvSelect } from "./PokemonIvSelect"
 import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
 import { BREED_EXPECTED_COSTS, DEFAULT_IV_DROPDOWN_VALUES, POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "./consts"
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert"
-import { JsonImportButton } from "./Buttons"
+import { BreedContextSerialized, useBreedContext } from "@/core/PokemonBreedContext"
 
 /**
  * This type is used to represent the state of the full Pokemon node that is going to be used in the PokemonToBreedContext
@@ -28,7 +28,7 @@ export type PokemonNodeInSelect = {
 
 export function PokemonToBreedSelect() {
     const { toast } = useToast()
-    const ctx = useBreedTreeContext()
+    const ctx = useBreedContext()
     const [desired31IVCount, setDesired31IVCount] = React.useState(2)
     const [currentIVDropdownValues, setCurrentIVDropdownValues] = React.useState(DEFAULT_IV_DROPDOWN_VALUES)
     const [currentPokemonInSelect, setCurrentPokemonInSelect] = React.useState<PokemonNodeInSelect>({
@@ -78,8 +78,7 @@ export function PokemonToBreedSelect() {
 
         assert(finalIvs[0], "At least 2 IV fields must be selected")
         assert(finalIvs[1], "At least 2 IV fields must be selected")
-
-        ctx.breedTarget.setIvs(new IVSet(finalIvs[0], finalIvs[1], finalIvs[2], finalIvs[3], finalIvs[4]))
+        ctx.breedTarget.setIvs(new PokemonIvSet(finalIvs[0], finalIvs[1], finalIvs[2], finalIvs[3], finalIvs[4]))
         ctx.breedTarget.setNature(currentPokemonInSelect.nature)
         ctx.breedTarget.setSpecies(currentPokemonInSelect.species)
     }
@@ -93,18 +92,19 @@ export function PokemonToBreedSelect() {
     }
 
     function handleImportJson(json: string) {
-        const dataUnparsed = Try(() => JSON.parse(json))
-
-        if (!dataUnparsed.ok) {
+        let dataUnparsed
+        try {
+            dataUnparsed = JSON.parse(json)
+        } catch (error) {
             toast({
                 title: "Failed to import the breed tree JSON content.",
-                description: (dataUnparsed.error as Error).message,
+                description: (error as Error).message,
                 variant: "destructive",
             })
             return
         }
 
-        const res = PokemonBreedTreeSerializedSchema.safeParse(dataUnparsed)
+        const res = BreedContextSerialized.safeParse(dataUnparsed)
 
         if (res.error) {
             const errorMsg = generateErrorMessage(res.error.issues)

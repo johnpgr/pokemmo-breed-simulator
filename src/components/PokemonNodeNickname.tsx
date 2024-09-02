@@ -1,16 +1,16 @@
 "use client"
 import React from "react"
 import { Save, SquarePen } from "lucide-react"
-import { PokemonBreedTreeNode } from "@/core/tree/BreedTreeNode"
-import { useBreedTreeContext } from "@/core/ctx/PokemonBreedTreeContext"
+import { useBreedContext } from "@/core/PokemonBreedContext";
+import type { PokemonNode } from "@/core/PokemonBreedMap";
 
-export function PokemonNodeNickname(props: { currentNode: PokemonBreedTreeNode; updateBreedTree: () => void }) {
-    const ctx = useBreedTreeContext()
+export function PokemonNodeNickname(props: { currentNode: PokemonNode; updateBreedTree: () => void }) {
+    const ctx = useBreedContext()
     const [isEditing, setIsEditing] = React.useState(false)
     const inputRef = React.useRef<HTMLInputElement>(null)
 
     function setNickname(nick: string) {
-        props.currentNode.setNickname(nick)
+        props.currentNode.nickname = nick
         props.updateBreedTree()
         ctx.saveToLocalStorage()
     }

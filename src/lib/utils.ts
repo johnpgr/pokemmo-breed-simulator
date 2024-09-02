@@ -10,7 +10,7 @@ export function run<T>(fn: () => T): T {
     return fn()
 }
 
-export function random(length: number) {
+export function randomString(length: number) {
     return Math.random()
         .toString(36)
         .substring(2, 2 + length)
@@ -28,7 +28,7 @@ export function kebabToSpacedPascal(input: string): string {
 }
 
 export function capitalize(input: string) {
-    assert(input[0])
+    assert(input[0] !== undefined)
 
-    return input[0].toUpperCase() + input.slice(1)
+    return input[0].toUpperCase() + input.slice(1).toLowerCase()
 }
