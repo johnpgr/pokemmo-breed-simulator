@@ -1,174 +1,115 @@
+import { PokemonEggGroup, PokemonSpecies, PokemonType } from "@/core/pokemon"
+import { capitalize } from "@/lib/utils"
 import fs from "fs"
 import path from "path"
-import csvParser from "csv-parser"
-import { PokemonEggGroup, PokemonSpecies } from "../core/pokemon"
 
-const csvDataPath = path.resolve(import.meta.dirname, "./data.csv")
-const jsonDataPath = path.resolve(import.meta.dirname, "./data.json")
-
-const skippedPokemons = [
-    "Mega",
-    "Partner",
-    "Alolan",
-    "Galarian",
-    "Castform ",
-    "Wormadam Sandy Cloak",
-    "Wormadam Trash Cloak",
-    "Wash",
-    "Frost",
-    "Heat",
-    "Fan",
-    "Mow",
-    "Basculin Blue-Striped Form",
-    "Darmanitan Zen Mode",
-]
-
-function fixPokemonEggGroups(pokemon: PokemonSpecies): [PokemonEggGroup, PokemonEggGroup?] {
-    switch (pokemon.name) {
-        case "Nidorina":
-            return [PokemonEggGroup.Field, PokemonEggGroup.Monster]
-        case "Nidoqueen":
-            return [PokemonEggGroup.Field, PokemonEggGroup.Monster]
-        case "Rotom":
-            return [PokemonEggGroup.Genderless]
-        case "Magnemite":
-            return [PokemonEggGroup.Genderless]
-        case "Magneton":
-            return [PokemonEggGroup.Genderless]
-        case "Magnezone":
-            return [PokemonEggGroup.Genderless]
-        case "Staryu":
-            return [PokemonEggGroup.Genderless]
-        case "Starmie":
-            return [PokemonEggGroup.Genderless]
-        case "Bronzor":
-            return [PokemonEggGroup.Genderless]
-        case "Bronzong":
-            return [PokemonEggGroup.Genderless]
-        case "Solrock":
-            return [PokemonEggGroup.Genderless]
-        case "Lunatone":
-            return [PokemonEggGroup.Genderless]
-        case "Beldum":
-            return [PokemonEggGroup.Genderless]
-        case "Metang":
-            return [PokemonEggGroup.Genderless]
-        case "Metagross":
-            return [PokemonEggGroup.Genderless]
-        case "Baltoy":
-            return [PokemonEggGroup.Genderless]
-        case "Claydol":
-            return [PokemonEggGroup.Genderless]
-        case "Voltorb":
-            return [PokemonEggGroup.Genderless]
-        case "Electrode":
-            return [PokemonEggGroup.Genderless]
-        case "Porygon":
-            return [PokemonEggGroup.Genderless]
-        case "Porygon2":
-            return [PokemonEggGroup.Genderless]
-        case "Porygon-Z":
-            return [PokemonEggGroup.Genderless]
-        case "Klink":
-            return [PokemonEggGroup.Genderless]
-        case "Klang":
-            return [PokemonEggGroup.Genderless]
-        case "Klinklang":
-            return [PokemonEggGroup.Genderless]
-        case "Cryogonal":
-            return [PokemonEggGroup.Genderless]
-        case "Golett":
-            return [PokemonEggGroup.Genderless]
-        case "Golurk":
-            return [PokemonEggGroup.Genderless]
-        default:
-            return pokemon.eggGroups
-    }
-}
-
-function parseEggGroup(eggGroup: string): PokemonEggGroup | undefined {
-    switch (eggGroup) {
-        case "Water 1":
-            return PokemonEggGroup.WaterA
-        case "Water 2":
-            return PokemonEggGroup.WaterB
-        case "Water 3":
-            return PokemonEggGroup.WaterC
-        case "Undiscovered":
-            return PokemonEggGroup.CannotBreed
-        case "Human-Like":
-            return PokemonEggGroup.Humanoid
-        case "Grass":
-            return PokemonEggGroup.Plant
-        case "Amorphous":
-            return PokemonEggGroup.Chaos
-        case "":
-            return undefined
-        default:
-            return eggGroup as PokemonEggGroup
-    }
-}
-
-function parseName(name: string): string {
-    switch (name) {
-        case "Wormadam Plant Cloak":
-            return "Wormadam"
-        case "Basculin Red-Striped Form":
-            return "Basculin"
-        case "Darmanitan Standard Mode":
-            return "Darmanitan"
-        case "Nidoran":
-            return "Nidoran ♀"
-        case "Nidoran":
-            return "Nidoran ♂"
-        default:
-            return name
-    }
-}
-
-const pokemons: PokemonSpecies[] = []
-
-fs.createReadStream(csvDataPath, "utf8")
-    .pipe(
-        csvParser({
-            mapHeaders: ({ header }) => header.trim(),
-        }),
+const monsters = (await (
+    await fetch(
+        "https://raw.githubusercontent.com/PokeMMO-Tools/pokemmo-hub/6fe1ef4e748c8862ba9549a3de44d669e015177e/src/data/pokemmo/monster.json",
     )
-    .on("data", (row) => {
-        if (skippedPokemons.some((name) => (row["name"] as string).startsWith(name))) {
+).json()) as any[]
+
+const species = [] as PokemonSpecies[]
+const evolutions: number[][] = []
+
+const multiform = ["Wormadam", "Rotom", "Castform", "Darmanitan", "Basculin"]
+
+function parseEggGroups(input: string[]): [PokemonEggGroup, PokemonEggGroup?] {
+    return input.map((it) => {
+        const parts = it.split(" ")
+        if (parts.length > 1) {
+            return (capitalize(parts[0]!) + capitalize(parts[1]!)) as PokemonEggGroup
+        }
+        return capitalize(parts[0]!)
+    }) as [PokemonEggGroup, PokemonEggGroup?]
+}
+
+function parseTypes(input: string[]): [PokemonType, PokemonType?] {
+    const deduped = new Set(input)
+    return Array.from(deduped).map(capitalize) as [PokemonType, PokemonType?]
+}
+
+function parsePercentageMale(input: number): number {
+    switch (input) {
+        case 255:
+            return 0
+        case 254:
+            return 0
+        case 127:
+            return 50
+        case 31:
+            return 87.5
+        case 191:
+            return 25
+        case 63:
+            return 75
+        case 0:
+            return 100
+        default:
+            throw new Error("Missed case in parsePercentageMale: " + input)
+    }
+}
+
+class EvolutionTrees {
+    constructor(public data: number[][] = []) {}
+
+    private recAddEvoTree(id: number, accumulator: number[] = []): number[] {
+        accumulator.push(id)
+        const raw = monsters.find((m) => m.id === id)
+        const evos = raw.evolutions?.map((e: any) => e.id)
+        evos.forEach((e: any) => this.recAddEvoTree(e, accumulator))
+        return accumulator
+    }
+
+    public get(id: number): number[] | undefined {
+        return this.data.find((tree) => tree.includes(id))
+    }
+
+    public add(id: number) {
+        if (this.get(id) !== undefined) {
             return
         }
+        const t = this.recAddEvoTree(id)
+        this.data.push(t)
+    }
 
-        const parsedEggGroups: PokemonEggGroup[] = []
-        const parsedEgg1 = parseEggGroup(row["egg_type_1"])
-        const parsedEgg2 = parseEggGroup(row["egg_type_2"])
-        if (parsedEgg1) {
-            parsedEggGroups.push(parsedEgg1)
-        }
-        if (parsedEgg2) {
-            parsedEggGroups.push(parsedEgg2)
-        }
+    public stringify(): string {
+        return JSON.stringify(this.data, null, 4)
+    }
+}
 
-        const pokemon = new PokemonSpecies(
-            parseInt(row["pokedex_number"]),
-            parseName(row["name"]),
-            //@ts-ignore
-            [row["type_1"], row["type_2"]].filter(Boolean),
-            parsedEggGroups,
-            parseFloat(row["percentage_male"]) || 0,
-        )
+for (const m of monsters as any[]) {
+    if (m.id > 667) {
+        break
+    }
 
-        const fix = fixPokemonEggGroups(pokemon)
+    if (m.egg_groups[0] === "cannot breed") {
+        continue
+    }
 
-        if (fix) {
-            pokemon.eggGroups[0] = fix[0]
-            if (fix[1]) {
-                pokemon.eggGroups[1] = fix[1]
-            }
-        }
+    if (multiform.includes(m.name) && species.find((p) => p.name === m.name)) {
+        continue
+    }
 
-        pokemons.push(pokemon)
-    })
-    .on("end", () => {
-        fs.writeFileSync(jsonDataPath, JSON.stringify(pokemons, null, 4))
-    })
+    species.push(
+        new PokemonSpecies(
+            m.id,
+            m.name,
+            parseTypes(m.types),
+            parseEggGroups(m.egg_groups),
+            parsePercentageMale(m.gender_ratio),
+        ),
+    )
+}
+
+const evoTrees = new EvolutionTrees()
+
+for (const s of species) {
+    evoTrees.add(s.id)
+}
+
+const monsterPath = path.resolve(import.meta.dirname, "monster.json")
+const evolutionsPath = path.resolve(import.meta.dirname, "evolutions.json")
+
+fs.writeFileSync(monsterPath, JSON.stringify(species, null, 4))
+fs.writeFileSync(evolutionsPath, evoTrees.stringify())

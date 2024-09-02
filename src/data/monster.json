@@ -1,0 +1,6862 @@
+[
+    {
+        "id": 1,
+        "name": "Bulbasaur",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 2,
+        "name": "Ivysaur",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 3,
+        "name": "Venusaur",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 4,
+        "name": "Charmander",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 5,
+        "name": "Charmeleon",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 6,
+        "name": "Charizard",
+        "types": [
+            "Fire",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 7,
+        "name": "Squirtle",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 8,
+        "name": "Wartortle",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 9,
+        "name": "Blastoise",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 10,
+        "name": "Caterpie",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 11,
+        "name": "Metapod",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 12,
+        "name": "Butterfree",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 13,
+        "name": "Weedle",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 14,
+        "name": "Kakuna",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 15,
+        "name": "Beedrill",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 16,
+        "name": "Pidgey",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 17,
+        "name": "Pidgeotto",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 18,
+        "name": "Pidgeot",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 19,
+        "name": "Rattata",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 20,
+        "name": "Raticate",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 21,
+        "name": "Spearow",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 22,
+        "name": "Fearow",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 23,
+        "name": "Ekans",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Field",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 24,
+        "name": "Arbok",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Field",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 25,
+        "name": "Pikachu",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field",
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 26,
+        "name": "Raichu",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field",
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 27,
+        "name": "Sandshrew",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 28,
+        "name": "Sandslash",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 29,
+        "name": "Nidoran♀",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 30,
+        "name": "Nidorina",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 31,
+        "name": "Nidoqueen",
+        "types": [
+            "Poison",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 32,
+        "name": "Nidoran♂",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 33,
+        "name": "Nidorino",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 34,
+        "name": "Nidoking",
+        "types": [
+            "Poison",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 35,
+        "name": "Clefairy",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 36,
+        "name": "Clefable",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 37,
+        "name": "Vulpix",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 38,
+        "name": "Ninetales",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 39,
+        "name": "Jigglypuff",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 40,
+        "name": "Wigglytuff",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 41,
+        "name": "Zubat",
+        "types": [
+            "Poison",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 42,
+        "name": "Golbat",
+        "types": [
+            "Poison",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 43,
+        "name": "Oddish",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 44,
+        "name": "Gloom",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 45,
+        "name": "Vileplume",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 46,
+        "name": "Paras",
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 47,
+        "name": "Parasect",
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 48,
+        "name": "Venonat",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 49,
+        "name": "Venomoth",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 50,
+        "name": "Diglett",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 51,
+        "name": "Dugtrio",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 52,
+        "name": "Meowth",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 53,
+        "name": "Persian",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 54,
+        "name": "Psyduck",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 55,
+        "name": "Golduck",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 56,
+        "name": "Mankey",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 57,
+        "name": "Primeape",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 58,
+        "name": "Growlithe",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 59,
+        "name": "Arcanine",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 60,
+        "name": "Poliwag",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 61,
+        "name": "Poliwhirl",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 62,
+        "name": "Poliwrath",
+        "types": [
+            "Water",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 63,
+        "name": "Abra",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 64,
+        "name": "Kadabra",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 65,
+        "name": "Alakazam",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 66,
+        "name": "Machop",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 67,
+        "name": "Machoke",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 68,
+        "name": "Machamp",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 69,
+        "name": "Bellsprout",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 70,
+        "name": "Weepinbell",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 71,
+        "name": "Victreebel",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 72,
+        "name": "Tentacool",
+        "types": [
+            "Water",
+            "Poison"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 73,
+        "name": "Tentacruel",
+        "types": [
+            "Water",
+            "Poison"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 74,
+        "name": "Geodude",
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 75,
+        "name": "Graveler",
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 76,
+        "name": "Golem",
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 77,
+        "name": "Ponyta",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 78,
+        "name": "Rapidash",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 79,
+        "name": "Slowpoke",
+        "types": [
+            "Water",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 80,
+        "name": "Slowbro",
+        "types": [
+            "Water",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 81,
+        "name": "Magnemite",
+        "types": [
+            "Electric",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 82,
+        "name": "Magneton",
+        "types": [
+            "Electric",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 83,
+        "name": "Farfetch'd",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 84,
+        "name": "Doduo",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 85,
+        "name": "Dodrio",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 86,
+        "name": "Seel",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 87,
+        "name": "Dewgong",
+        "types": [
+            "Water",
+            "Ice"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 88,
+        "name": "Grimer",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 89,
+        "name": "Muk",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 90,
+        "name": "Shellder",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 91,
+        "name": "Cloyster",
+        "types": [
+            "Water",
+            "Ice"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 92,
+        "name": "Gastly",
+        "types": [
+            "Ghost",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 93,
+        "name": "Haunter",
+        "types": [
+            "Ghost",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 94,
+        "name": "Gengar",
+        "types": [
+            "Ghost",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 95,
+        "name": "Onix",
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 96,
+        "name": "Drowzee",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 97,
+        "name": "Hypno",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 98,
+        "name": "Krabby",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 99,
+        "name": "Kingler",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 100,
+        "name": "Voltorb",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 101,
+        "name": "Electrode",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 102,
+        "name": "Exeggcute",
+        "types": [
+            "Grass",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 103,
+        "name": "Exeggutor",
+        "types": [
+            "Grass",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 104,
+        "name": "Cubone",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 105,
+        "name": "Marowak",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 106,
+        "name": "Hitmonlee",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 107,
+        "name": "Hitmonchan",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 108,
+        "name": "Lickitung",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 109,
+        "name": "Koffing",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 110,
+        "name": "Weezing",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 111,
+        "name": "Rhyhorn",
+        "types": [
+            "Ground",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 112,
+        "name": "Rhydon",
+        "types": [
+            "Ground",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 113,
+        "name": "Chansey",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 114,
+        "name": "Tangela",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 115,
+        "name": "Kangaskhan",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 116,
+        "name": "Horsea",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 117,
+        "name": "Seadra",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 118,
+        "name": "Goldeen",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 119,
+        "name": "Seaking",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 120,
+        "name": "Staryu",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 121,
+        "name": "Starmie",
+        "types": [
+            "Water",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 122,
+        "name": "Mr. Mime",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 123,
+        "name": "Scyther",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 124,
+        "name": "Jynx",
+        "types": [
+            "Ice",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 125,
+        "name": "Electabuzz",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 126,
+        "name": "Magmar",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 127,
+        "name": "Pinsir",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 128,
+        "name": "Tauros",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 129,
+        "name": "Magikarp",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 130,
+        "name": "Gyarados",
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterB",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 131,
+        "name": "Lapras",
+        "types": [
+            "Water",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 132,
+        "name": "Ditto",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Ditto"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 133,
+        "name": "Eevee",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 134,
+        "name": "Vaporeon",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 135,
+        "name": "Jolteon",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 136,
+        "name": "Flareon",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 137,
+        "name": "Porygon",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 138,
+        "name": "Omanyte",
+        "types": [
+            "Rock",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 139,
+        "name": "Omastar",
+        "types": [
+            "Rock",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 140,
+        "name": "Kabuto",
+        "types": [
+            "Rock",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 141,
+        "name": "Kabutops",
+        "types": [
+            "Rock",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 142,
+        "name": "Aerodactyl",
+        "types": [
+            "Rock",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 143,
+        "name": "Snorlax",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 147,
+        "name": "Dratini",
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 148,
+        "name": "Dragonair",
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 149,
+        "name": "Dragonite",
+        "types": [
+            "Dragon",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 152,
+        "name": "Chikorita",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 153,
+        "name": "Bayleef",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 154,
+        "name": "Meganium",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 155,
+        "name": "Cyndaquil",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 156,
+        "name": "Quilava",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 157,
+        "name": "Typhlosion",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 158,
+        "name": "Totodile",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 159,
+        "name": "Croconaw",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 160,
+        "name": "Feraligatr",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 161,
+        "name": "Sentret",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 162,
+        "name": "Furret",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 163,
+        "name": "Hoothoot",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 164,
+        "name": "Noctowl",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 165,
+        "name": "Ledyba",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 166,
+        "name": "Ledian",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 167,
+        "name": "Spinarak",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 168,
+        "name": "Ariados",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 169,
+        "name": "Crobat",
+        "types": [
+            "Poison",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 170,
+        "name": "Chinchou",
+        "types": [
+            "Water",
+            "Electric"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 171,
+        "name": "Lanturn",
+        "types": [
+            "Water",
+            "Electric"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 176,
+        "name": "Togetic",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "Fairy"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 177,
+        "name": "Natu",
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 178,
+        "name": "Xatu",
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 179,
+        "name": "Mareep",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 180,
+        "name": "Flaaffy",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 181,
+        "name": "Ampharos",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 182,
+        "name": "Bellossom",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 183,
+        "name": "Marill",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 184,
+        "name": "Azumarill",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 185,
+        "name": "Sudowoodo",
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 186,
+        "name": "Politoed",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 187,
+        "name": "Hoppip",
+        "types": [
+            "Grass",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 188,
+        "name": "Skiploom",
+        "types": [
+            "Grass",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 189,
+        "name": "Jumpluff",
+        "types": [
+            "Grass",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 190,
+        "name": "Aipom",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 191,
+        "name": "Sunkern",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 192,
+        "name": "Sunflora",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 193,
+        "name": "Yanma",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 194,
+        "name": "Wooper",
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 195,
+        "name": "Quagsire",
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 196,
+        "name": "Espeon",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 197,
+        "name": "Umbreon",
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 198,
+        "name": "Murkrow",
+        "types": [
+            "Dark",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 199,
+        "name": "Slowking",
+        "types": [
+            "Water",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 200,
+        "name": "Misdreavus",
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 202,
+        "name": "Wobbuffet",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 203,
+        "name": "Girafarig",
+        "types": [
+            "Normal",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 204,
+        "name": "Pineco",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 205,
+        "name": "Forretress",
+        "types": [
+            "Bug",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 206,
+        "name": "Dunsparce",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 207,
+        "name": "Gligar",
+        "types": [
+            "Ground",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 208,
+        "name": "Steelix",
+        "types": [
+            "Steel",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 209,
+        "name": "Snubbull",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Fairy"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 210,
+        "name": "Granbull",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Fairy"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 211,
+        "name": "Qwilfish",
+        "types": [
+            "Water",
+            "Poison"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 212,
+        "name": "Scizor",
+        "types": [
+            "Bug",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 213,
+        "name": "Shuckle",
+        "types": [
+            "Bug",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 214,
+        "name": "Heracross",
+        "types": [
+            "Bug",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 215,
+        "name": "Sneasel",
+        "types": [
+            "Dark",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 216,
+        "name": "Teddiursa",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 217,
+        "name": "Ursaring",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 218,
+        "name": "Slugma",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 219,
+        "name": "Magcargo",
+        "types": [
+            "Fire",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 220,
+        "name": "Swinub",
+        "types": [
+            "Ice",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 221,
+        "name": "Piloswine",
+        "types": [
+            "Ice",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 222,
+        "name": "Corsola",
+        "types": [
+            "Water",
+            "Rock"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 223,
+        "name": "Remoraid",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 224,
+        "name": "Octillery",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 225,
+        "name": "Delibird",
+        "types": [
+            "Ice",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 226,
+        "name": "Mantine",
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 227,
+        "name": "Skarmory",
+        "types": [
+            "Steel",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 228,
+        "name": "Houndour",
+        "types": [
+            "Dark",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 229,
+        "name": "Houndoom",
+        "types": [
+            "Dark",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 230,
+        "name": "Kingdra",
+        "types": [
+            "Water",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 231,
+        "name": "Phanpy",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 232,
+        "name": "Donphan",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 233,
+        "name": "Porygon2",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 234,
+        "name": "Stantler",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 235,
+        "name": "Smeargle",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 237,
+        "name": "Hitmontop",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 241,
+        "name": "Miltank",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 242,
+        "name": "Blissey",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 246,
+        "name": "Larvitar",
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 247,
+        "name": "Pupitar",
+        "types": [
+            "Rock",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 248,
+        "name": "Tyranitar",
+        "types": [
+            "Rock",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 252,
+        "name": "Treecko",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 253,
+        "name": "Grovyle",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 254,
+        "name": "Sceptile",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 255,
+        "name": "Torchic",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 256,
+        "name": "Combusken",
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 257,
+        "name": "Blaziken",
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 258,
+        "name": "Mudkip",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 259,
+        "name": "Marshtomp",
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 260,
+        "name": "Swampert",
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "WaterA"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 261,
+        "name": "Poochyena",
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 262,
+        "name": "Mightyena",
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 263,
+        "name": "Zigzagoon",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 264,
+        "name": "Linoone",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 265,
+        "name": "Wurmple",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 266,
+        "name": "Silcoon",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 267,
+        "name": "Beautifly",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 268,
+        "name": "Cascoon",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 269,
+        "name": "Dustox",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 270,
+        "name": "Lotad",
+        "types": [
+            "Water",
+            "Grass"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 271,
+        "name": "Lombre",
+        "types": [
+            "Water",
+            "Grass"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 272,
+        "name": "Ludicolo",
+        "types": [
+            "Water",
+            "Grass"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 273,
+        "name": "Seedot",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 274,
+        "name": "Nuzleaf",
+        "types": [
+            "Grass",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 275,
+        "name": "Shiftry",
+        "types": [
+            "Grass",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 276,
+        "name": "Taillow",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 277,
+        "name": "Swellow",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 278,
+        "name": "Wingull",
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 279,
+        "name": "Pelipper",
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 280,
+        "name": "Ralts",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Chaos",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 281,
+        "name": "Kirlia",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Chaos",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 282,
+        "name": "Gardevoir",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Chaos",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 283,
+        "name": "Surskit",
+        "types": [
+            "Bug",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 284,
+        "name": "Masquerain",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 285,
+        "name": "Shroomish",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 286,
+        "name": "Breloom",
+        "types": [
+            "Grass",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 287,
+        "name": "Slakoth",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 288,
+        "name": "Vigoroth",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 289,
+        "name": "Slaking",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 290,
+        "name": "Nincada",
+        "types": [
+            "Bug",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 291,
+        "name": "Ninjask",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 293,
+        "name": "Whismur",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 294,
+        "name": "Loudred",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 295,
+        "name": "Exploud",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 296,
+        "name": "Makuhita",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 297,
+        "name": "Hariyama",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 299,
+        "name": "Nosepass",
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 300,
+        "name": "Skitty",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Fairy"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 301,
+        "name": "Delcatty",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Fairy"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 302,
+        "name": "Sableye",
+        "types": [
+            "Dark",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 303,
+        "name": "Mawile",
+        "types": [
+            "Steel"
+        ],
+        "eggGroups": [
+            "Field",
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 304,
+        "name": "Aron",
+        "types": [
+            "Steel",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 305,
+        "name": "Lairon",
+        "types": [
+            "Steel",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 306,
+        "name": "Aggron",
+        "types": [
+            "Steel",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 307,
+        "name": "Meditite",
+        "types": [
+            "Fighting",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 308,
+        "name": "Medicham",
+        "types": [
+            "Fighting",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 309,
+        "name": "Electrike",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 310,
+        "name": "Manectric",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 311,
+        "name": "Plusle",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 312,
+        "name": "Minun",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 313,
+        "name": "Volbeat",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Humanoid"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 314,
+        "name": "Illumise",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Humanoid"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 315,
+        "name": "Roselia",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 316,
+        "name": "Gulpin",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 317,
+        "name": "Swalot",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 318,
+        "name": "Carvanha",
+        "types": [
+            "Water",
+            "Dark"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 319,
+        "name": "Sharpedo",
+        "types": [
+            "Water",
+            "Dark"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 320,
+        "name": "Wailmer",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 321,
+        "name": "Wailord",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field",
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 322,
+        "name": "Numel",
+        "types": [
+            "Fire",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 323,
+        "name": "Camerupt",
+        "types": [
+            "Fire",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 324,
+        "name": "Torkoal",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 325,
+        "name": "Spoink",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 326,
+        "name": "Grumpig",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 327,
+        "name": "Spinda",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 328,
+        "name": "Trapinch",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 329,
+        "name": "Vibrava",
+        "types": [
+            "Ground",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 330,
+        "name": "Flygon",
+        "types": [
+            "Ground",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 331,
+        "name": "Cacnea",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 332,
+        "name": "Cacturne",
+        "types": [
+            "Grass",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 333,
+        "name": "Swablu",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 334,
+        "name": "Altaria",
+        "types": [
+            "Dragon",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 335,
+        "name": "Zangoose",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 336,
+        "name": "Seviper",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Field",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 337,
+        "name": "Lunatone",
+        "types": [
+            "Rock",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 338,
+        "name": "Solrock",
+        "types": [
+            "Rock",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 339,
+        "name": "Barboach",
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 340,
+        "name": "Whiscash",
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 341,
+        "name": "Corphish",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 342,
+        "name": "Crawdaunt",
+        "types": [
+            "Water",
+            "Dark"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 343,
+        "name": "Baltoy",
+        "types": [
+            "Ground",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 344,
+        "name": "Claydol",
+        "types": [
+            "Ground",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 345,
+        "name": "Lileep",
+        "types": [
+            "Rock",
+            "Grass"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 346,
+        "name": "Cradily",
+        "types": [
+            "Rock",
+            "Grass"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 347,
+        "name": "Anorith",
+        "types": [
+            "Rock",
+            "Bug"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 348,
+        "name": "Armaldo",
+        "types": [
+            "Rock",
+            "Bug"
+        ],
+        "eggGroups": [
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 349,
+        "name": "Feebas",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 350,
+        "name": "Milotic",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 351,
+        "name": "Castform",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 352,
+        "name": "Kecleon",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 353,
+        "name": "Shuppet",
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 354,
+        "name": "Banette",
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 355,
+        "name": "Duskull",
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 356,
+        "name": "Dusclops",
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 357,
+        "name": "Tropius",
+        "types": [
+            "Grass",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 358,
+        "name": "Chimecho",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 359,
+        "name": "Absol",
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 361,
+        "name": "Snorunt",
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 362,
+        "name": "Glalie",
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 363,
+        "name": "Spheal",
+        "types": [
+            "Ice",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 364,
+        "name": "Sealeo",
+        "types": [
+            "Ice",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 365,
+        "name": "Walrein",
+        "types": [
+            "Ice",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 366,
+        "name": "Clamperl",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 367,
+        "name": "Huntail",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 368,
+        "name": "Gorebyss",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 369,
+        "name": "Relicanth",
+        "types": [
+            "Water",
+            "Rock"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterB"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 370,
+        "name": "Luvdisc",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 371,
+        "name": "Bagon",
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 372,
+        "name": "Shelgon",
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 373,
+        "name": "Salamence",
+        "types": [
+            "Dragon",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 374,
+        "name": "Beldum",
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 375,
+        "name": "Metang",
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 376,
+        "name": "Metagross",
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 387,
+        "name": "Turtwig",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 388,
+        "name": "Grotle",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 389,
+        "name": "Torterra",
+        "types": [
+            "Grass",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 390,
+        "name": "Chimchar",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 391,
+        "name": "Monferno",
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 392,
+        "name": "Infernape",
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 393,
+        "name": "Piplup",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 394,
+        "name": "Prinplup",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 395,
+        "name": "Empoleon",
+        "types": [
+            "Water",
+            "Steel"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 396,
+        "name": "Starly",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 397,
+        "name": "Staravia",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 398,
+        "name": "Staraptor",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 399,
+        "name": "Bidoof",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 400,
+        "name": "Bibarel",
+        "types": [
+            "Normal",
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 401,
+        "name": "Kricketot",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 402,
+        "name": "Kricketune",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 403,
+        "name": "Shinx",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 404,
+        "name": "Luxio",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 405,
+        "name": "Luxray",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 407,
+        "name": "Roserade",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 408,
+        "name": "Cranidos",
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 409,
+        "name": "Rampardos",
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 410,
+        "name": "Shieldon",
+        "types": [
+            "Rock",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 411,
+        "name": "Bastiodon",
+        "types": [
+            "Rock",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 412,
+        "name": "Burmy",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 413,
+        "name": "Wormadam",
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 414,
+        "name": "Mothim",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 415,
+        "name": "Combee",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 416,
+        "name": "Vespiquen",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 417,
+        "name": "Pachirisu",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field",
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 418,
+        "name": "Buizel",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 419,
+        "name": "Floatzel",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 420,
+        "name": "Cherubi",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 421,
+        "name": "Cherrim",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 422,
+        "name": "Shellos",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 423,
+        "name": "Gastrodon",
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 424,
+        "name": "Ambipom",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 425,
+        "name": "Drifloon",
+        "types": [
+            "Ghost",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 426,
+        "name": "Drifblim",
+        "types": [
+            "Ghost",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 427,
+        "name": "Buneary",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 428,
+        "name": "Lopunny",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 429,
+        "name": "Mismagius",
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 430,
+        "name": "Honchkrow",
+        "types": [
+            "Dark",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 431,
+        "name": "Glameow",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 432,
+        "name": "Purugly",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 434,
+        "name": "Stunky",
+        "types": [
+            "Poison",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 435,
+        "name": "Skuntank",
+        "types": [
+            "Poison",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 436,
+        "name": "Bronzor",
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 437,
+        "name": "Bronzong",
+        "types": [
+            "Steel",
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 441,
+        "name": "Chatot",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 442,
+        "name": "Spiritomb",
+        "types": [
+            "Ghost",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 443,
+        "name": "Gible",
+        "types": [
+            "Dragon",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 444,
+        "name": "Gabite",
+        "types": [
+            "Dragon",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 445,
+        "name": "Garchomp",
+        "types": [
+            "Dragon",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 448,
+        "name": "Lucario",
+        "types": [
+            "Fighting",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 449,
+        "name": "Hippopotas",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 450,
+        "name": "Hippowdon",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 451,
+        "name": "Skorupi",
+        "types": [
+            "Poison",
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug",
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 452,
+        "name": "Drapion",
+        "types": [
+            "Poison",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Bug",
+            "WaterC"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 453,
+        "name": "Croagunk",
+        "types": [
+            "Poison",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 454,
+        "name": "Toxicroak",
+        "types": [
+            "Poison",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 455,
+        "name": "Carnivine",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 456,
+        "name": "Finneon",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 457,
+        "name": "Lumineon",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 459,
+        "name": "Snover",
+        "types": [
+            "Grass",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 460,
+        "name": "Abomasnow",
+        "types": [
+            "Grass",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 461,
+        "name": "Weavile",
+        "types": [
+            "Dark",
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 462,
+        "name": "Magnezone",
+        "types": [
+            "Electric",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 463,
+        "name": "Lickilicky",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 464,
+        "name": "Rhyperior",
+        "types": [
+            "Ground",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 465,
+        "name": "Tangrowth",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 466,
+        "name": "Electivire",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 467,
+        "name": "Magmortar",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 468,
+        "name": "Togekiss",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "Fairy"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 469,
+        "name": "Yanmega",
+        "types": [
+            "Bug",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 470,
+        "name": "Leafeon",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 471,
+        "name": "Glaceon",
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 472,
+        "name": "Gliscor",
+        "types": [
+            "Ground",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 473,
+        "name": "Mamoswine",
+        "types": [
+            "Ice",
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 474,
+        "name": "Porygon-Z",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 475,
+        "name": "Gallade",
+        "types": [
+            "Psychic",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Chaos",
+            "Humanoid"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 476,
+        "name": "Probopass",
+        "types": [
+            "Rock",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 477,
+        "name": "Dusknoir",
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 478,
+        "name": "Froslass",
+        "types": [
+            "Ice",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Fairy",
+            "Mineral"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 479,
+        "name": "Rotom",
+        "types": [
+            "Electric",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 489,
+        "name": "Phione",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 490,
+        "name": "Manaphy",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 495,
+        "name": "Snivy",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 496,
+        "name": "Servine",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 497,
+        "name": "Serperior",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field",
+            "Plant"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 498,
+        "name": "Tepig",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 499,
+        "name": "Pignite",
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 500,
+        "name": "Emboar",
+        "types": [
+            "Fire",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 501,
+        "name": "Oshawott",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 502,
+        "name": "Dewott",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 503,
+        "name": "Samurott",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 504,
+        "name": "Patrat",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 505,
+        "name": "Watchog",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 506,
+        "name": "Lillipup",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 507,
+        "name": "Herdier",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 508,
+        "name": "Stoutland",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 509,
+        "name": "Purrloin",
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 510,
+        "name": "Liepard",
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 511,
+        "name": "Pansage",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 512,
+        "name": "Simisage",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 513,
+        "name": "Pansear",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 514,
+        "name": "Simisear",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 515,
+        "name": "Panpour",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 516,
+        "name": "Simipour",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 517,
+        "name": "Munna",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 518,
+        "name": "Musharna",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 519,
+        "name": "Pidove",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 520,
+        "name": "Tranquill",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 521,
+        "name": "Unfezant",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 522,
+        "name": "Blitzle",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 523,
+        "name": "Zebstrika",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 524,
+        "name": "Roggenrola",
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 525,
+        "name": "Boldore",
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 526,
+        "name": "Gigalith",
+        "types": [
+            "Rock"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 527,
+        "name": "Woobat",
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Field",
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 528,
+        "name": "Swoobat",
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Field",
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 529,
+        "name": "Drilbur",
+        "types": [
+            "Ground"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 530,
+        "name": "Excadrill",
+        "types": [
+            "Ground",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 531,
+        "name": "Audino",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 532,
+        "name": "Timburr",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 533,
+        "name": "Gurdurr",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 534,
+        "name": "Conkeldurr",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 75
+    },
+    {
+        "id": 535,
+        "name": "Tympole",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 536,
+        "name": "Palpitoad",
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 537,
+        "name": "Seismitoad",
+        "types": [
+            "Water",
+            "Ground"
+        ],
+        "eggGroups": [
+            "WaterA"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 538,
+        "name": "Throh",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 539,
+        "name": "Sawk",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 540,
+        "name": "Sewaddle",
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 541,
+        "name": "Swadloon",
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 542,
+        "name": "Leavanny",
+        "types": [
+            "Bug",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 543,
+        "name": "Venipede",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 544,
+        "name": "Whirlipede",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 545,
+        "name": "Scolipede",
+        "types": [
+            "Bug",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 546,
+        "name": "Cottonee",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 547,
+        "name": "Whimsicott",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Fairy"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 548,
+        "name": "Petilil",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 549,
+        "name": "Lilligant",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 550,
+        "name": "Basculin",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 551,
+        "name": "Sandile",
+        "types": [
+            "Ground",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 552,
+        "name": "Krokorok",
+        "types": [
+            "Ground",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 553,
+        "name": "Krookodile",
+        "types": [
+            "Ground",
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 554,
+        "name": "Darumaka",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 555,
+        "name": "Darmanitan",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 556,
+        "name": "Maractus",
+        "types": [
+            "Grass"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 557,
+        "name": "Dwebble",
+        "types": [
+            "Bug",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 558,
+        "name": "Crustle",
+        "types": [
+            "Bug",
+            "Rock"
+        ],
+        "eggGroups": [
+            "Bug",
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 559,
+        "name": "Scraggy",
+        "types": [
+            "Dark",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 560,
+        "name": "Scrafty",
+        "types": [
+            "Dark",
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 561,
+        "name": "Sigilyph",
+        "types": [
+            "Psychic",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 562,
+        "name": "Yamask",
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Mineral",
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 563,
+        "name": "Cofagrigus",
+        "types": [
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Mineral",
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 564,
+        "name": "Tirtouga",
+        "types": [
+            "Water",
+            "Rock"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 565,
+        "name": "Carracosta",
+        "types": [
+            "Water",
+            "Rock"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 566,
+        "name": "Archen",
+        "types": [
+            "Rock",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 567,
+        "name": "Archeops",
+        "types": [
+            "Rock",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying",
+            "WaterC"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 568,
+        "name": "Trubbish",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 569,
+        "name": "Garbodor",
+        "types": [
+            "Poison"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 570,
+        "name": "Zorua",
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 571,
+        "name": "Zoroark",
+        "types": [
+            "Dark"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 87.5
+    },
+    {
+        "id": 572,
+        "name": "Minccino",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 573,
+        "name": "Cinccino",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 574,
+        "name": "Gothita",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 575,
+        "name": "Gothorita",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 576,
+        "name": "Gothitelle",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 25
+    },
+    {
+        "id": 577,
+        "name": "Solosis",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 578,
+        "name": "Duosion",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 579,
+        "name": "Reuniclus",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 580,
+        "name": "Ducklett",
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 581,
+        "name": "Swanna",
+        "types": [
+            "Water",
+            "Flying"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Flying"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 582,
+        "name": "Vanillite",
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 583,
+        "name": "Vanillish",
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 584,
+        "name": "Vanilluxe",
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 585,
+        "name": "Deerling",
+        "types": [
+            "Normal",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 586,
+        "name": "Sawsbuck",
+        "types": [
+            "Normal",
+            "Grass"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 587,
+        "name": "Emolga",
+        "types": [
+            "Electric",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 588,
+        "name": "Karrablast",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 589,
+        "name": "Escavalier",
+        "types": [
+            "Bug",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 590,
+        "name": "Foongus",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 591,
+        "name": "Amoonguss",
+        "types": [
+            "Grass",
+            "Poison"
+        ],
+        "eggGroups": [
+            "Plant"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 592,
+        "name": "Frillish",
+        "types": [
+            "Water",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 593,
+        "name": "Jellicent",
+        "types": [
+            "Water",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 594,
+        "name": "Alomomola",
+        "types": [
+            "Water"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "WaterB"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 595,
+        "name": "Joltik",
+        "types": [
+            "Bug",
+            "Electric"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 596,
+        "name": "Galvantula",
+        "types": [
+            "Bug",
+            "Electric"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 597,
+        "name": "Ferroseed",
+        "types": [
+            "Grass",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 598,
+        "name": "Ferrothorn",
+        "types": [
+            "Grass",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Plant",
+            "Mineral"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 599,
+        "name": "Klink",
+        "types": [
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 600,
+        "name": "Klang",
+        "types": [
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 601,
+        "name": "Klinklang",
+        "types": [
+            "Steel"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 602,
+        "name": "Tynamo",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 603,
+        "name": "Eelektrik",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 604,
+        "name": "Eelektross",
+        "types": [
+            "Electric"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 605,
+        "name": "Elgyem",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 606,
+        "name": "Beheeyem",
+        "types": [
+            "Psychic"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 607,
+        "name": "Litwick",
+        "types": [
+            "Ghost",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 608,
+        "name": "Lampent",
+        "types": [
+            "Ghost",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 609,
+        "name": "Chandelure",
+        "types": [
+            "Ghost",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 610,
+        "name": "Axew",
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 611,
+        "name": "Fraxure",
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 612,
+        "name": "Haxorus",
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Monster",
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 613,
+        "name": "Cubchoo",
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 614,
+        "name": "Beartic",
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 615,
+        "name": "Cryogonal",
+        "types": [
+            "Ice"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 616,
+        "name": "Shelmet",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 617,
+        "name": "Accelgor",
+        "types": [
+            "Bug"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 618,
+        "name": "Stunfisk",
+        "types": [
+            "Ground",
+            "Electric"
+        ],
+        "eggGroups": [
+            "WaterA",
+            "Chaos"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 619,
+        "name": "Mienfoo",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 620,
+        "name": "Mienshao",
+        "types": [
+            "Fighting"
+        ],
+        "eggGroups": [
+            "Field",
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 621,
+        "name": "Druddigon",
+        "types": [
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon",
+            "Monster"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 622,
+        "name": "Golett",
+        "types": [
+            "Ground",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 623,
+        "name": "Golurk",
+        "types": [
+            "Ground",
+            "Ghost"
+        ],
+        "eggGroups": [
+            "Genderless"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 624,
+        "name": "Pawniard",
+        "types": [
+            "Dark",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 625,
+        "name": "Bisharp",
+        "types": [
+            "Dark",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Humanoid"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 626,
+        "name": "Bouffalant",
+        "types": [
+            "Normal"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 627,
+        "name": "Rufflet",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 628,
+        "name": "Braviary",
+        "types": [
+            "Normal",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 100
+    },
+    {
+        "id": 629,
+        "name": "Vullaby",
+        "types": [
+            "Dark",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 630,
+        "name": "Mandibuzz",
+        "types": [
+            "Dark",
+            "Flying"
+        ],
+        "eggGroups": [
+            "Flying"
+        ],
+        "percentageMale": 0
+    },
+    {
+        "id": 631,
+        "name": "Heatmor",
+        "types": [
+            "Fire"
+        ],
+        "eggGroups": [
+            "Field"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 632,
+        "name": "Durant",
+        "types": [
+            "Bug",
+            "Steel"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 633,
+        "name": "Deino",
+        "types": [
+            "Dark",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 634,
+        "name": "Zweilous",
+        "types": [
+            "Dark",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 635,
+        "name": "Hydreigon",
+        "types": [
+            "Dark",
+            "Dragon"
+        ],
+        "eggGroups": [
+            "Dragon"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 636,
+        "name": "Larvesta",
+        "types": [
+            "Bug",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    },
+    {
+        "id": 637,
+        "name": "Volcarona",
+        "types": [
+            "Bug",
+            "Fire"
+        ],
+        "eggGroups": [
+            "Bug"
+        ],
+        "percentageMale": 50
+    }
+]

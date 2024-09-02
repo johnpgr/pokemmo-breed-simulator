@@ -4,8 +4,8 @@ export const BASE_ITEM_SPRITES_URL = "https://raw.githubusercontent.com/msikma/p
 export function getPokemonSpriteUrl(name: string) {
     const nameFixed = name
         .replace("'", "")
-        .replace(" ♂", "-m")
-        .replace(" ♀", "-f")
+        .replace("♂", "-m")
+        .replace("♀", "-f")
         .replace("Mr. Mime", "mr-mime")
         .replace("Mime Jr.", "mime-jr")
 
