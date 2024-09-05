@@ -19,34 +19,12 @@ import { ScrollArea, ScrollBar } from "./ui/scroll-area"
 import { useBreedContext } from "@/core/PokemonBreedContext"
 import { PokemonBreedMapPosition, PokemonBreedMapPositionKey } from "@/core/PokemonBreedMap"
 
-export function PokemonBreedTreeView() {
-    const loadedFromLocal = React.useRef(false)
-    const ctx = useBreedContext()
-
-    React.useEffect(() => {
-        if (loadedFromLocal.current) {
-            return
-        }
-
-        ctx.loadFromLocalStorage()
-        loadedFromLocal.current = true
-    }, [ctx])
-
-    if (!ctx.breedTarget.species || !ctx.breedTree.map["0,0"]) {
-        return null
-    }
-
-    return <PokemonBreedTreeViewFinal />
-}
-
 export type BreedErrors = Record<PokemonBreedMapPositionKey, Set<PokemonBreed.BreedError> | undefined>
 
-function PokemonBreedTreeViewFinal() {
+export function PokemonBreedTreeView() {
     const updateFromBreedEffect = React.useRef(false)
     const ctx = useBreedContext()
-    assert(ctx.breedTarget.species, "PokemonSpecies must be defined in useBreedMap")
-
-    const desired31IvCount = Object.values(ctx.breedTarget.ivs).filter(Boolean).length
+    const desired31IvCount = ctx.breedTarget.ivs!.filter(Boolean).length
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
     const expectedCost = getExpectedBreedCost(desired31IvCount, Boolean(ctx.breedTarget.nature))
     const currentBreedCost = run(() => {
@@ -97,6 +75,7 @@ function PokemonBreedTreeViewFinal() {
     })
 
     function updateBreedTree(fromBreedEffect = false) {
+        console.log("updateBreedTree")
         ctx.breedTree.setMap((prev) => ({ ...prev }))
         updateFromBreedEffect.current = fromBreedEffect
     }
@@ -121,9 +100,17 @@ function PokemonBreedTreeViewFinal() {
     }
 
     function handleRestartBreed() {
-        ctx.resetLocalStorage()
+        ctx.setLocalStorageTree(undefined)
         window.location.reload()
     }
+
+    React.useEffect(() => {
+        ctx.loadFromLocalStorage()
+    }, [ctx.localStorageTree])
+
+    React.useEffect(() => {
+        if(ctx.breedTarget.species) ctx.saveToLocalStorage()
+    }, [ctx.breedTree.map])
 
     // Show toast notifications for breed errors
     React.useEffect(() => {
@@ -244,6 +231,8 @@ function PokemonBreedTreeViewFinal() {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ctx.breedTree.map, ctx.breedTarget.nature, desired31IvCount, ctx.breedTree.setMap, setBreedErrors])
+
+    if (!ctx.breedTarget.species) return null
 
     return (
         <div className="flex flex-col gap-8">

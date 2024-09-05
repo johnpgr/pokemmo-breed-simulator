@@ -4,7 +4,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { PokemonEggGroup, PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { getPokemonSpriteUrl } from "@/lib/sprites"
 import { Check } from "lucide-react"
@@ -16,7 +16,6 @@ import { IV_COLOR_DICT, IvColor, NODE_SCALE_BY_COLOR_AMOUNT, SPRITE_SCALE_BY_COL
 import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer"
 import { PokemonBreedMap, PokemonBreedMapPosition } from "@/core/PokemonBreedMap"
 import { useBreedContext } from "@/core/PokemonBreedContext"
-import { run } from "@/lib/utils"
 
 enum SearchMode {
     All,
@@ -64,7 +63,6 @@ export function PokemonNodeSelect(props: {
         }
 
         props.updateBreedTree()
-        ctx.saveToLocalStorage()
     }
 
     function handleSearchModeChange() {

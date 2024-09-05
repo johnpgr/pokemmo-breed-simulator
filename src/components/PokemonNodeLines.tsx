@@ -18,9 +18,8 @@ export function PokemonNodeLines(props: {
     children: React.ReactNode
 }) {
     const size = 100 / props.rowLength
-
     const node = props.breedTree[props.position.key()]
-    assert(node, "Node should exist in PokemonNodeLines")
+    if(!node) return null
 
     const partnerNode = node.getPartnerNode(props.breedTree)
 

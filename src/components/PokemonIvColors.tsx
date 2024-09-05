@@ -3,9 +3,11 @@ import type { PokemonIv } from "@/core/pokemon"
 import { IvColor, IV_COLOR_DICT } from "./consts"
 import { pascalToSpacedPascal } from "@/lib/utils"
 import { useBreedContext } from "@/core/PokemonBreedContext"
+import { PokemonIvSet } from "@/core/PokemonIvSet"
 
 export function PokemonIvColors() {
     const ctx = useBreedContext()
+    const ivSet = PokemonIvSet.fromArray(ctx.breedTarget.ivs!)
 
     return (
         <div className="flex flex-wrap justify-center gap-4 mx-auto">
@@ -13,51 +15,51 @@ export function PokemonIvColors() {
                 <div
                     className="rounded-full p-3 h-4 w-4"
                     style={{
-                        backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.A],
+                        backgroundColor: IV_COLOR_DICT[ivSet.A],
                     }}
                 />
-                <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.A)}</span>
+                <span className="text-sm">{pascalToSpacedPascal(ivSet.A)}</span>
             </div>
             <div className="flex items-center gap-2">
                 <div
                     className="rounded-full p-3 h-4 w-4"
                     style={{
-                        backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.B],
+                        backgroundColor: IV_COLOR_DICT[ivSet.B],
                     }}
                 />
-                <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.B)}</span>
+                <span className="text-sm">{pascalToSpacedPascal(ivSet.B)}</span>
             </div>
-            {ctx.breedTarget.ivs.C ? (
+            {ivSet.C ? (
                 <div className="flex items-center gap-2">
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.C],
+                            backgroundColor: IV_COLOR_DICT[ivSet.C],
                         }}
                     />
-                    <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.C)}</span>
+                    <span className="text-sm">{pascalToSpacedPascal(ivSet.C)}</span>
                 </div>
             ) : null}
-            {ctx.breedTarget.ivs.D ? (
+            {ivSet.D ? (
                 <div className="flex items-center gap-2">
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.D],
+                            backgroundColor: IV_COLOR_DICT[ivSet.D],
                         }}
                     />
-                    <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.D)}</span>
+                    <span className="text-sm">{pascalToSpacedPascal(ivSet.D)}</span>
                 </div>
             ) : null}
-            {ctx.breedTarget.ivs.E ? (
+            {ivSet.E ? (
                 <div className="flex items-center gap-2">
                     <div
                         className="rounded-full p-3 h-4 w-4"
                         style={{
-                            backgroundColor: IV_COLOR_DICT[ctx.breedTarget.ivs.E],
+                            backgroundColor: IV_COLOR_DICT[ivSet.E],
                         }}
                     />
-                    <span className="text-sm">{pascalToSpacedPascal(ctx.breedTarget.ivs.E)}</span>
+                    <span className="text-sm">{pascalToSpacedPascal(ivSet.E)}</span>
                 </div>
             ) : null}
             {ctx.breedTarget.nature ? (

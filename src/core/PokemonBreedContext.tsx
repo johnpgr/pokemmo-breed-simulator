@@ -1,6 +1,6 @@
 "use client"
 import React from "react"
-import { PokemonIvSchema, PokemonNature, PokemonNatureSchema, PokemonSpecies, PokemonSpeciesUnparsed } from "./pokemon"
+import { PokemonIvSchema, PokemonNatureSchema, PokemonSpecies, PokemonSpeciesUnparsed } from "./pokemon"
 import { PokemonNode, PokemonNodeSerialized, usePokemonBreedMap, UsePokemonBreedMap } from "./PokemonBreedMap"
 import { assert } from "@/lib/assert"
 import { useLocalStorage } from "@/lib/hooks"
@@ -10,10 +10,13 @@ import { z } from "zod"
 export interface BreedContext {
     pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
     pokemonEvolutions: number[][]
-    breedTarget: BreedContextTarget
+    breedTarget: PokemonNode
+    setBreedTarget: React.Dispatch<React.SetStateAction<PokemonNode>>
     breedTree: UsePokemonBreedMap
     serialize: () => BreedContextSerialized
     deserialize: (serialized: BreedContextSerialized) => void
+    localStorageTree: BreedContextSerialized | undefined,
+    setLocalStorageTree: React.Dispatch<React.SetStateAction<BreedContextSerialized | undefined>>
     saveToLocalStorage: () => void
     loadFromLocalStorage: () => void
     resetLocalStorage: () => void
@@ -30,26 +33,23 @@ export function BreedContext(props: {
         "last-tree",
         undefined,
     )
-    const [species, setSpecies] = React.useState<PokemonSpecies>()
-    const [nature, setNature] = React.useState<PokemonNature>()
-    const [ivs, setIvs] = React.useState<PokemonIvSet>(PokemonIvSet.DEFAULT)
-    const [initMap, setInitMap] = React.useState(true)
+    const [breedTarget, setBreedTarget] = React.useState(PokemonNode.ROOT({ ivs: PokemonIvSet.DEFAULT }))
     const breedTree = usePokemonBreedMap({
-        finalPokemonNode: PokemonNode.ROOT({
-            ivs: ivs,
-            nature: nature,
-            species: species,
-        }),
-        finalPokemonIvSet: ivs,
+        finalPokemonNode: breedTarget,
         storedBreedTree: localStorageTree?.breedTree,
-        init: initMap,
-        setInit: setInitMap,
         pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
     })
 
     function serialize(): BreedContextSerialized {
-        assert(species, "Attempted to serialize target Pokemon before initializing context.")
-        const breedTargetSerialized = { ivs, nature }
+        assert(
+            breedTarget.species !== undefined,
+            "Attempted to serialize target Pokemon before initializing context.",
+        )
+        assert(breedTarget.ivs !== undefined, "Attempted to serialize target Pokemon before initializing context.")
+        const breedTargetSerialized = {
+            ivs: PokemonIvSet.fromArray(breedTarget.ivs),
+            nature: breedTarget.nature,
+        }
         const breedTreeSerialized = breedTree.serialize()
 
         return {
@@ -74,11 +74,13 @@ export function BreedContext(props: {
             serialized.breedTarget.ivs.E,
         )
 
-        setIvs(ivs)
-        setSpecies(species)
-        setNature(serialized.breedTarget.nature)
-        setLocalStorageTree(serialized)
-        setInitMap(true)
+        setBreedTarget((prev) => {
+            const copy = prev.clone()
+            copy.species = species
+            copy.ivs = ivs.toArray()
+            copy.nature = serialized.breedTarget.nature
+            return copy
+        })
     }
 
     function saveToLocalStorage() {
@@ -86,8 +88,10 @@ export function BreedContext(props: {
     }
 
     function loadFromLocalStorage() {
-        if (localStorageTree) {
+        if (localStorageTree?.breedTree["0,0"]) {
             deserialize(localStorageTree)
+            breedTree.deserialize(localStorageTree.breedTree, breedTree.map, props.pokemonSpeciesUnparsed)
+            breedTree.setMap({...breedTree.map})
         }
     }
 
@@ -101,16 +105,12 @@ export function BreedContext(props: {
                 pokemonSpeciesUnparsed: props.pokemonSpeciesUnparsed,
                 pokemonEvolutions: props.pokemonEvolutions,
                 breedTree,
-                breedTarget: {
-                    species,
-                    setSpecies,
-                    nature,
-                    setNature,
-                    ivs,
-                    setIvs,
-                },
+                breedTarget,
+                setBreedTarget,
                 serialize,
                 deserialize,
+                localStorageTree,
+                setLocalStorageTree,
                 saveToLocalStorage,
                 loadFromLocalStorage,
                 resetLocalStorage,
@@ -121,6 +121,7 @@ export function BreedContext(props: {
     )
 }
 
+//TODO: Migrate to React 19 use(Context)
 export function useBreedContext() {
     const ctx = React.useContext(BreedContextPrimitive)
     assert(ctx, "usePokemonToBreed must be used within a PokemonToBreedContextProvider")
@@ -142,17 +143,3 @@ export const BreedContextSerialized = z.object({
     breedTree: z.record(z.string(), PokemonNodeSerialized),
 })
 export type BreedContextSerialized = z.infer<typeof BreedContextSerialized>
-
-export interface BreedContextTarget {
-    species: PokemonSpecies | undefined
-    setSpecies: React.Dispatch<React.SetStateAction<PokemonSpecies | undefined>>
-    ivs: PokemonIvSet
-    setIvs: React.Dispatch<React.SetStateAction<PokemonIvSet>>
-    nature: PokemonNature | undefined
-    setNature: React.Dispatch<React.SetStateAction<PokemonNature | undefined>>
-}
-
-export interface BreedContextTargetSerialized {
-    ivs: PokemonIvSet
-    nature?: PokemonNature
-}

@@ -53,7 +53,7 @@ export function PokemonToBreedSelect() {
         return uniques.size === selectedValues.length
     }
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    function handleStartBreed(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
         if (!currentPokemonInSelect.species) {
@@ -76,11 +76,14 @@ export function PokemonToBreedSelect() {
 
         const finalIvs = Array.from(currentPokemonInSelect.ivs)
 
-        assert(finalIvs[0], "At least 2 IV fields must be selected")
-        assert(finalIvs[1], "At least 2 IV fields must be selected")
-        ctx.breedTarget.setIvs(new PokemonIvSet(finalIvs[0], finalIvs[1], finalIvs[2], finalIvs[3], finalIvs[4]))
-        ctx.breedTarget.setNature(currentPokemonInSelect.nature)
-        ctx.breedTarget.setSpecies(currentPokemonInSelect.species)
+        assert(finalIvs.length >= 2, "At least 2 IV fields must be selected")
+        ctx.setBreedTarget((prev) => {
+            const copy = prev.clone()
+            copy.species = currentPokemonInSelect.species
+            copy.ivs = finalIvs
+            copy.nature = currentPokemonInSelect.nature
+            return copy
+        })
     }
 
     function handleResetFields() {
@@ -127,7 +130,7 @@ export function PokemonToBreedSelect() {
     return (
         <form
             className="mb-4 container max-w-screen-xl mx-auto flex flex-col items-center gap-4"
-            onSubmit={handleSubmit}
+            onSubmit={handleStartBreed}
         >
             <h1 className="text-2xl font-medium">Select a Pokémon to breed</h1>
             <div className="flex w-full flex-col items-center gap-4">
