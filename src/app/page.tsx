@@ -4,6 +4,9 @@ import { BreedContextProvider } from "@/core/PokemonBreedContext"
 import pokemons from "@/data/monster.json" assert { type: "json" }
 import evolutions from "@/data/evolutions.json" assert { type: "json" }
 
+export const runtime = "edge"
+export const dynamic = "force-static"
+
 export default function HomePage() {
     return (
         <BreedContextProvider species={pokemons} evolutions={evolutions}>
