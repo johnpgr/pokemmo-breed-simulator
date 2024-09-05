@@ -1,11 +1,11 @@
 "use client"
 import React from "react"
 import { Save, SquarePen } from "lucide-react"
-import { useBreedContext } from "@/core/PokemonBreedContext";
 import type { PokemonNode } from "@/core/PokemonBreedMap";
+import { BreedContext } from "@/core/PokemonBreedContext";
 
 export function PokemonNodeNickname(props: { currentNode: PokemonNode; updateBreedTree: () => void }) {
-    const ctx = useBreedContext()
+    const ctx = React.use(BreedContext)!
     const [isEditing, setIsEditing] = React.useState(false)
     const inputRef = React.useRef<HTMLInputElement>(null)
 

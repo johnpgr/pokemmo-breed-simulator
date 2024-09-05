@@ -1,4 +1,5 @@
 "use client"
+import React from "react"
 import { HelpCircle } from "lucide-react"
 import { Button } from "./ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
@@ -9,8 +10,8 @@ import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
 import { GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./consts"
 import { Checkbox } from "./ui/checkbox"
 import { Label } from "./ui/label"
-import { useBreedContext } from "@/core/PokemonBreedContext"
 import { PokemonBreedMap, PokemonNode } from "@/core/PokemonBreedMap"
+import { BreedContext } from "@/core/PokemonBreedContext"
 
 export function PokemonNodeGender(props: {
     desired31IvCount: number
@@ -18,7 +19,7 @@ export function PokemonNodeGender(props: {
     breedTree: PokemonBreedMap
     updateBreedTree: () => void
 }) {
-    const ctx = useBreedContext()
+    const ctx = React.use(BreedContext)!
     const gender = props.currentNode.gender
     const percentageMale = props.currentNode.species?.percentageMale
     const isLastRow = ctx.breedTree.rootNode().nature

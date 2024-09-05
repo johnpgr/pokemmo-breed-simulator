@@ -1,6 +1,8 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
+import { BreedContext } from "@/core/PokemonBreedContext"
+import { ZBreedMap } from "@/core/PokemonBreedMap"
 import type { PokemonIv, PokemonNature, PokemonSpecies } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { run } from "@/lib/utils"
@@ -13,8 +15,6 @@ import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
 import { BREED_EXPECTED_COSTS, DEFAULT_IV_DROPDOWN_VALUES, POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "./consts"
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert"
-import { useBreedContext } from "@/core/PokemonBreedContext"
-import { ZBreedMap } from "@/core/PokemonBreedMap"
 
 /**
  * This type is used to represent the state of the full Pokemon node that is going to be used in the PokemonToBreedContext
@@ -28,7 +28,7 @@ export type PokemonNodeInSelect = {
 
 export function PokemonToBreedSelect() {
     const { toast } = useToast()
-    const ctx = useBreedContext()
+    const ctx = React.use(BreedContext)!
     const [desired31IVCount, setDesired31IVCount] = React.useState(2)
     const [currentIVDropdownValues, setCurrentIVDropdownValues] = React.useState(DEFAULT_IV_DROPDOWN_VALUES)
     const [currentPokemonInSelect, setCurrentPokemonInSelect] = React.useState<PokemonNodeInSelect>({

@@ -16,15 +16,15 @@ import { BREED_ITEM_COSTS, GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./co
 import { Alert, AlertTitle } from "./ui/alert"
 import { Button } from "./ui/button"
 import { ScrollArea, ScrollBar } from "./ui/scroll-area"
-import { useBreedContext } from "@/core/PokemonBreedContext"
 import { PokemonBreedMapPosition, PokemonBreedMapPositionKey } from "@/core/PokemonBreedMap"
+import { BreedContext } from "@/core/PokemonBreedContext"
 
 export type BreedErrors = Record<PokemonBreedMapPositionKey, Set<PokemonBreed.BreedError> | undefined>
 
 export function PokemonBreedTreeView() {
     const loaded = React.useRef<boolean>()
     const updateFromBreedEffect = React.useRef(false)
-    const ctx = useBreedContext()
+    const ctx = React.use(BreedContext)!
     const target = ctx.breedTree.rootNode()
     const desired31IvCount = target.ivs!.filter(Boolean).length
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})

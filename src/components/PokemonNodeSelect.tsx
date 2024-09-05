@@ -15,7 +15,7 @@ import { PokemonNodeInfo } from "./PokemonNodeInfo"
 import { IV_COLOR_DICT, IvColor, NODE_SCALE_BY_COLOR_AMOUNT, SPRITE_SCALE_BY_COLOR_AMOUNT } from "./consts"
 import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer"
 import { PokemonBreedMap, PokemonBreedMapPosition } from "@/core/PokemonBreedMap"
-import { useBreedContext } from "@/core/PokemonBreedContext"
+import { BreedContext } from "@/core/PokemonBreedContext"
 
 enum SearchMode {
     All,
@@ -29,7 +29,7 @@ export function PokemonNodeSelect(props: {
     updateBreedTree: () => void
 }) {
     const id = React.useId()
-    const ctx = useBreedContext()
+    const ctx = React.use(BreedContext)!
     const target = ctx.breedTree.rootNode()
     const [pending, startTransition] = React.useTransition()
     const isDesktop = useMediaQuery("(min-width: 768px)")

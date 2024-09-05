@@ -8,13 +8,13 @@ import { getPokemonSpriteUrl } from "@/lib/sprites"
 import { Check, ChevronsUpDown } from "lucide-react"
 import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
-import { useBreedContext } from "@/core/PokemonBreedContext"
+import { BreedContext } from "@/core/PokemonBreedContext"
 
 export function PokemonSpeciesSelect(props: {
     currentSelectedNode: PokemonNodeInSelect
     setCurrentSelectedNode: React.Dispatch<React.SetStateAction<PokemonNodeInSelect>>
 }) {
-    const ctx = useBreedContext()
+    const ctx = React.use(BreedContext)!
     const [isOpen, setIsOpen] = React.useState(false)
     const [search, setSearch] = React.useState("")
 

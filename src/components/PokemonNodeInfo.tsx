@@ -1,4 +1,5 @@
 "use client"
+import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { getPokemonSpriteUrl } from "@/lib/sprites"
 import { PokemonNodeGender } from "./PokemonNodeGender"
@@ -6,8 +7,8 @@ import { HeldItem, PokemonNodeHeldItem, getHeldItemForNode } from "./PokemonNode
 import { PokemonNodeNickname } from "./PokemonNodeNickname"
 import { Button } from "./ui/button"
 import {pascalToSpacedPascal, randomString} from "@/lib/utils"
-import { useBreedContext } from "@/core/PokemonBreedContext"
 import { PokemonBreedMap, PokemonNode } from "@/core/PokemonBreedMap"
+import { BreedContext } from "@/core/PokemonBreedContext"
 
 export function PokemonNodeInfo(props: {
     desired31IvCount: number
@@ -15,7 +16,7 @@ export function PokemonNodeInfo(props: {
     breedTree: PokemonBreedMap
     updateBreedTree: () => void
 }) {
-    const ctx = useBreedContext()
+    const ctx = React.use(BreedContext)!
     const heldItem = getHeldItemForNode(props.currentNode, props.breedTree)
 
     function resetNode() {

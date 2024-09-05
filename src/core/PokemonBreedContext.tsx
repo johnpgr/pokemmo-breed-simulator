@@ -17,16 +17,16 @@ export interface BreedContext {
     evolutions: number[][]
     breedTree: UsePokemonBreedMap
     savedTree: ZBreedMap | undefined
-    serialize(): PokemonBreedMapSerialized
-    deserialize(deserialized: PokemonBreedMapSerialized): void
+    serialize: () => PokemonBreedMapSerialized
+    deserialize: (deserialized: PokemonBreedMapSerialized) => void
     save: () => void
     load: () => void
     reset: () => void
 }
 
-export const BreedContextPrimitive = React.createContext<BreedContext | null>(null)
+export const BreedContext = React.createContext<BreedContext | null>(null)
 
-export function BreedContext(props: {
+export function BreedContextProvider(props: {
     species: PokemonSpeciesRaw[]
     evolutions: number[][]
     children: React.ReactNode
@@ -92,7 +92,7 @@ export function BreedContext(props: {
     }
 
     return (
-        <BreedContextPrimitive.Provider
+        <BreedContext.Provider
             value={{
                 species: props.species,
                 evolutions: props.evolutions,
@@ -106,14 +106,6 @@ export function BreedContext(props: {
             }}
         >
             {props.children}
-        </BreedContextPrimitive.Provider>
+        </BreedContext.Provider>
     )
-}
-
-//TODO: Migrate to React 19 use(Context)
-export function useBreedContext() {
-    const ctx = React.useContext(BreedContextPrimitive)
-    assert(ctx, "usePokemonToBreed must be used within a PokemonToBreedContextProvider")
-
-    return ctx
 }

@@ -28,8 +28,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { Textarea } from "./ui/textarea"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 import { useToast } from "./ui/use-toast"
-import { useBreedContext } from "@/core/PokemonBreedContext"
 import { ZBreedMap } from "@/core/PokemonBreedMap"
+import { BreedContext } from "@/core/PokemonBreedContext"
 
 export function JsonImportButton(props: { handleImportJson: (data: string) => void }) {
     const [jsonData, setJsonData] = React.useState("")
@@ -64,7 +64,7 @@ export function JsonImportButton(props: { handleImportJson: (data: string) => vo
 
 export function ImportExportButton(props: { serialize: () => string }) {
     const { toast } = useToast()
-    const ctx = useBreedContext()
+    const ctx = React.use(BreedContext)!
     const [jsonData, setJsonData] = React.useState("")
 
     function handleSave() {

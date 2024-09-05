@@ -1,13 +1,14 @@
 "use client"
+import React from "react"
 import type { PokemonIv } from "@/core/pokemon"
 import { IvColor, IV_COLOR_DICT } from "./consts"
 import { pascalToSpacedPascal } from "@/lib/utils"
-import { useBreedContext } from "@/core/PokemonBreedContext"
 import { PokemonIvSet } from "@/core/PokemonIvSet"
 import { assert } from "@/lib/assert"
+import { BreedContext } from "@/core/PokemonBreedContext"
 
 export function PokemonIvColors() {
-    const ctx = useBreedContext()
+    const ctx = React.use(BreedContext)!
     const target = ctx.breedTree.rootNode()
     assert(target.ivs !== undefined, "PokemonIvColors tried to render without rootNode.ivs being defined")
     const ivSet = PokemonIvSet.fromArray(target.ivs)
