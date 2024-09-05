@@ -77,7 +77,6 @@ export function PokemonBreedTreeView() {
     })
 
     function updateBreedTree(fromBreedEffect = false) {
-        console.log("updateBreedTree")
         ctx.breedTree.setMap((prev) => ({ ...prev }))
         updateFromBreedEffect.current = fromBreedEffect
     }
@@ -169,7 +168,7 @@ export function PokemonBreedTreeView() {
             let node = ctx.breedTree.map[pos.key()]
             let partnerNode = node?.getPartnerNode(ctx.breedTree.map)
 
-            function next() {
+            const next = () => {
                 node = node?.getChildNode(ctx.breedTree.map)
                 partnerNode = node?.getPartnerNode(ctx.breedTree.map)
             }
@@ -237,7 +236,7 @@ export function PokemonBreedTreeView() {
     return (
         <div className="flex flex-col gap-8">
             <div className="flex items-center gap-2 mx-auto">
-                {process.env.DEBUG_BUTTONS ? (
+                {process.env.NODE_ENV === "development" ? (
                     <div className="space-x-4">
                         <Button variant={"secondary"} size={"sm"} onClick={() => console.log(ctx.breedTree.map)}>
                             Debug (Breed Tree)

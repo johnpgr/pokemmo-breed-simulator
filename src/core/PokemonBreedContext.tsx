@@ -2,7 +2,14 @@
 import { assert } from "@/lib/assert"
 import { useLocalStorage } from "@/lib/hooks"
 import React from "react"
-import { PokemonBreedMapSerialized, UsePokemonBreedMap, ZBreedMap, usePokemonBreedMap } from "./PokemonBreedMap"
+import {
+    PokemonBreedMapPosition,
+    PokemonBreedMapSerialized,
+    PokemonNode,
+    UsePokemonBreedMap,
+    ZBreedMap,
+    usePokemonBreedMap,
+} from "./PokemonBreedMap"
 import { PokemonSpecies, PokemonSpeciesRaw } from "./pokemon"
 
 export interface BreedContext {
@@ -33,7 +40,7 @@ export function BreedContext(props: {
         assert(target.ivs !== undefined, "Attempted to serialize target Pokemon before initializing context.")
         const serialized: PokemonBreedMapSerialized = {}
         for (const [key, node] of Object.entries(breedTree.map)) {
-            serialized[key] = node.serialize()
+            serialized[key] = node.serialize(target === node)
         }
 
         return serialized
@@ -41,22 +48,29 @@ export function BreedContext(props: {
 
     function deserialize(serialized: PokemonBreedMapSerialized) {
         for (const [pos, nodeRaw] of Object.entries(serialized)) {
-            const pokeSpecies = props.species.find((p) => p.id === nodeRaw.id)
-            assert(pokeSpecies !== undefined, "Failed to import Pokemon to breed target species. Invalid Pokemon id")
-            const species = PokemonSpecies.parse(pokeSpecies)
-
-            const node = breedTree.map[pos]
-            assert(node !== undefined, "Deserialize failed, invalid tree position")
-
-            if (pos === "0,0") {
-                assert(nodeRaw.ivs !== undefined, "Deserialize failed. Root node w/ no Ivs")
-                node.ivs = nodeRaw.ivs
+            let node = breedTree.map[pos]
+            if (!node) {
+                node = new PokemonNode({
+                    position: PokemonBreedMapPosition.fromKey(pos),
+                })
+                breedTree.map[pos] = node
             }
 
-            node.species = species
+            if (nodeRaw.id) {
+                const pokeSpecies = props.species.find((p) => p.id === nodeRaw.id)
+                assert(pokeSpecies !== undefined, "Invalid pokemon id")
+                const species = PokemonSpecies.parse(pokeSpecies)
+                node.species = species
+            }
+
             node.gender = nodeRaw.gender
             node.nickname = nodeRaw.nickname
             node.nature = nodeRaw.nature
+
+            if (node.isRootNode()) {
+                assert(nodeRaw.ivs !== undefined, "Deserialize failed. Root node w/ no Ivs")
+                node.ivs = nodeRaw.ivs
+            }
         }
 
         breedTree.setMap({ ...breedTree.map })
@@ -67,8 +81,9 @@ export function BreedContext(props: {
     }
 
     function load() {
-        if (savedTree?.["0,0"]) {
+        if (savedTree?.["0,0"]?.id) {
             deserialize(savedTree)
+            breedTree.initialize()
         }
     }
 

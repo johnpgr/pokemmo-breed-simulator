@@ -201,18 +201,16 @@ export type PokemonBreedMapSerialized = Record<PokemonBreedMapPositionKey, ZPoke
 export function usePokemonBreedMap() {
     const [map, setMap] = React.useState<PokemonBreedMap>({ "0,0": PokemonNode.ROOT({ ivs: PokemonIvSet.DEFAULT }) })
     const rootNode = () => map["0,0"]!
-    const desired31IvCount = rootNode().ivs?.filter(Boolean).length
 
     function initialize() {
         const target = rootNode()
-        const natured = Boolean(target.nature)
-
         assert(target.ivs !== undefined, "finalPokemonNode.ivs should exist")
+        const desired31IvCount = target.ivs.filter(Boolean).length
         assert(
             desired31IvCount !== undefined && desired31IvCount >= 2 && desired31IvCount <= 5,
             "Invalid generations number",
         )
-
+        const natured = Boolean(target.nature)
         const lastRowBreeders = PokemonBreedMapPosition.LASTROW_MAPPING[desired31IvCount]!
         const lastRowBreedersPositions = natured ? lastRowBreeders.natured : lastRowBreeders.natureless
 
@@ -222,7 +220,12 @@ export function usePokemonBreedMap() {
                 case PokemonBreederKind.Nature: {
                     const position = PokemonBreedMapPosition.fromKey(k)
 
-                    map[position.key()] = new PokemonNode({ nature: target.nature, position })
+                    let node = map[position.key()]
+                    if(!node) {
+                        node = new PokemonNode({position})
+                        map[position.key()] = node
+                    }
+                    node.nature = target.nature
                     break
                 }
                 default: {
@@ -230,7 +233,12 @@ export function usePokemonBreedMap() {
                     const ivs = PokemonIvSet.fromArray(target.ivs).get(v)
                     assert(ivs, "Ivs should exist for last row breeders")
 
-                    map[position.key()] = new PokemonNode({ position, ivs: [ivs] })
+                    let node = map[position.key()]
+                    if(!node) {
+                        node = new PokemonNode({position})
+                        map[position.key()] = node
+                    }
+                    node.ivs = [ivs]
                     break
                 }
             }
@@ -245,7 +253,11 @@ export function usePokemonBreedMap() {
             let col = 0
             while (col < Math.pow(2, row)) {
                 const position = new PokemonBreedMapPosition(row, col)
-                const node = new PokemonNode({ position })
+                let node = map[position.key()]
+                if(!node) {
+                    node = new PokemonNode({ position })
+                    map[position.key()] = node
+                }
 
                 const parentNodes = node.getParentNodes(map)
                 assert(parentNodes, `Parent nodes should exist for node: ${node.position.key()}`)
@@ -259,7 +271,6 @@ export function usePokemonBreedMap() {
 
                 node.nature = nature
                 node.ivs = ivs
-                map[position.key()] = node
 
                 col = col + 1
             }
@@ -335,7 +346,17 @@ export class PokemonNode {
         })
     }
 
-    public serialize(): ZPokemonNode {
+    public serialize(rootNode?: boolean): ZPokemonNode {
+        if(rootNode) {
+            return {
+                id: this.species?.id,
+                ivs: this.ivs,
+                nature: this.nature,
+                gender: this.gender,
+                nickname: this.nickname,
+                genderCostIgnored: this.genderCostIgnored,
+            }
+        }
         return {
             id: this.species?.id,
             gender: this.gender,
