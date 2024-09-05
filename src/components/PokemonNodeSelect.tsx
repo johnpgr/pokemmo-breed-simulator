@@ -4,7 +4,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { PokemonGender, PokemonSpecies, PokemonSpeciesRaw } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { getPokemonSpriteUrl } from "@/lib/sprites"
 import { Check } from "lucide-react"
@@ -30,6 +30,7 @@ export function PokemonNodeSelect(props: {
 }) {
     const id = React.useId()
     const ctx = useBreedContext()
+    const target = ctx.breedTree.rootNode()
     const [pending, startTransition] = React.useTransition()
     const isDesktop = useMediaQuery("(min-width: 768px)")
     const [searchMode, setSearchMode] = React.useState(SearchMode.All)
@@ -39,7 +40,7 @@ export function PokemonNodeSelect(props: {
     const currentNode = props.breedTree[props.position.key()]
     assert(currentNode, "Current node should exist in PokemonNodeSelect")
 
-    function setPokemonSpecies(species: PokemonSpeciesUnparsed) {
+    function setPokemonSpecies(species: PokemonSpeciesRaw) {
         assert(currentNode, `Node at ${props.position} should exist`)
         currentNode.species = PokemonSpecies.parse(species)
 
@@ -71,28 +72,28 @@ export function PokemonNodeSelect(props: {
         })
     }
 
-    function filterPokemonByEggGroups(): PokemonSpeciesUnparsed[] {
-        assert(ctx.breedTarget.species, "Pokemon in context should exist")
-        const newList: PokemonSpeciesUnparsed[] = []
+    function filterPokemonByEggGroups(): PokemonSpeciesRaw[] {
+        assert(target.species, "Pokemon in context should exist")
+        const newList: PokemonSpeciesRaw[] = []
 
-        const ditto = ctx.pokemonSpeciesUnparsed.find((poke) => poke.id === 132)
+        const ditto = ctx.species.find((poke) => poke.id === 132)
         assert(ditto, "Ditto should exist")
         newList.push(ditto)
 
-        if (ctx.breedTarget.species.isGenderless()) {
-            const breedable = ctx.breedTarget.species.getEvolutionTree(ctx.pokemonEvolutions)
-            return newList.concat(ctx.pokemonSpeciesUnparsed.filter((poke) => breedable.includes(poke.id)))
+        if (target.species.isGenderless()) {
+            const breedable = target.species.getEvolutionTree(ctx.evolutions)
+            return newList.concat(ctx.species.filter((poke) => breedable.includes(poke.id)))
         } else {
-            const eggGroups = ctx.breedTarget.species.eggGroups
+            const eggGroups = target.species.eggGroups
             return newList.concat(
-                ctx.pokemonSpeciesUnparsed.filter((poke) =>
+                ctx.species.filter((poke) =>
                     eggGroups.some((group) => poke.eggGroups.includes(group as string)),
                 ),
             )
         }
     }
 
-    const pokemonList = searchMode === SearchMode.All ? ctx.pokemonSpeciesUnparsed : filterPokemonByEggGroups()
+    const pokemonList = searchMode === SearchMode.All ? ctx.species : filterPokemonByEggGroups()
 
     React.useEffect(() => {
         if (!currentNode || colors.length > 0) return
@@ -168,7 +169,7 @@ export function PokemonNodeSelect(props: {
                                     checked={searchMode === SearchMode.EggGroupMatches}
                                     onCheckedChange={handleSearchModeChange}
                                 />
-                                Show only {ctx.breedTarget.species?.name}&apos;s egg groups
+                                Show only {target.species?.name}&apos;s egg groups
                             </div>
                             <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
                             <CommandGroup>
@@ -253,7 +254,7 @@ export function PokemonNodeSelect(props: {
                                 checked={searchMode === SearchMode.EggGroupMatches}
                                 onCheckedChange={handleSearchModeChange}
                             />
-                            Show only {ctx.breedTarget.species?.name}&apos;s egg groups
+                            Show only {target.species?.name}&apos;s egg groups
                         </div>
                         <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
                         <CommandGroup>

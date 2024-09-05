@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { PokemonSpecies, PokemonSpeciesUnparsed } from "@/core/pokemon"
+import { PokemonSpecies, PokemonSpeciesRaw } from "@/core/pokemon"
 import { getPokemonSpriteUrl } from "@/lib/sprites"
 import { Check, ChevronsUpDown } from "lucide-react"
 import React from "react"
@@ -18,7 +18,7 @@ export function PokemonSpeciesSelect(props: {
     const [isOpen, setIsOpen] = React.useState(false)
     const [search, setSearch] = React.useState("")
 
-    function handleSpeciesSelect(pokemon: PokemonSpeciesUnparsed) {
+    function handleSpeciesSelect(pokemon: PokemonSpeciesRaw) {
         props.setCurrentSelectedNode((prev) => ({
             ...prev,
             species: PokemonSpecies.parse(pokemon),
@@ -64,7 +64,7 @@ export function PokemonSpeciesSelect(props: {
                         <CommandEmpty>No results</CommandEmpty>
                         <CommandGroup>
                             <ScrollArea className="h-72">
-                                {ctx.pokemonSpeciesUnparsed
+                                {ctx.species
                                     .map((pokemon) => (
                                         <CommandItem
                                             key={`pokemon_to_breed:${pokemon.name}`}

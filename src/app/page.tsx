@@ -6,7 +6,7 @@ import evolutions from "@/data/evolutions.json" assert { type: "json" }
 
 export default async function HomePage() {
     return (
-        <BreedContext pokemonSpeciesUnparsed={pokemons} pokemonEvolutions={evolutions}>
+        <BreedContext species={pokemons} evolutions={evolutions}>
             <PokemonToBreedSelect />
             <PokemonBreedTreeView />
         </BreedContext>

@@ -28,7 +28,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { Textarea } from "./ui/textarea"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 import { useToast } from "./ui/use-toast"
-import { BreedContextSerialized, useBreedContext } from "@/core/PokemonBreedContext"
+import { useBreedContext } from "@/core/PokemonBreedContext"
+import { ZBreedMap } from "@/core/PokemonBreedMap"
 
 export function JsonImportButton(props: { handleImportJson: (data: string) => void }) {
     const [jsonData, setJsonData] = React.useState("")
@@ -61,7 +62,7 @@ export function JsonImportButton(props: { handleImportJson: (data: string) => vo
     )
 }
 
-export function ImportExportButton(props: { handleExport: () => string }) {
+export function ImportExportButton(props: { serialize: () => string }) {
     const { toast } = useToast()
     const ctx = useBreedContext()
     const [jsonData, setJsonData] = React.useState("")
@@ -78,7 +79,7 @@ export function ImportExportButton(props: { handleExport: () => string }) {
             })
         }
 
-        const res = BreedContextSerialized.safeParse(unparsed)
+        const res = ZBreedMap.safeParse(unparsed)
         if (res.error) {
             const errorMsg = generateZodErrorMessage(res.error.issues)
 
@@ -108,7 +109,7 @@ export function ImportExportButton(props: { handleExport: () => string }) {
                     type="button"
                     className="gap-1"
                     variant={"secondary"}
-                    onClick={() => setJsonData(props.handleExport())}
+                    onClick={() => setJsonData(props.serialize())}
                 >
                     <Import size={16} />
                     Import/Export

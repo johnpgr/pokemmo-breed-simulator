@@ -22,7 +22,7 @@ export function PokemonNodeInfo(props: {
         props.currentNode.gender = undefined
         props.currentNode.species = undefined
         props.updateBreedTree()
-        ctx.saveToLocalStorage()
+        ctx.save()
     }
 
     return (

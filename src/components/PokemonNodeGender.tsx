@@ -21,7 +21,7 @@ export function PokemonNodeGender(props: {
     const ctx = useBreedContext()
     const gender = props.currentNode.gender
     const percentageMale = props.currentNode.species?.percentageMale
-    const isLastRow = ctx.breedTarget.nature
+    const isLastRow = ctx.breedTree.rootNode().nature
         ? props.currentNode.position.row === props.desired31IvCount
         : props.currentNode.position.row === props.desired31IvCount - 1
     const canHaveGenderCost = !props.currentNode.species?.isGenderless() && !props.currentNode.species?.isDitto() && !isLastRow
@@ -29,13 +29,13 @@ export function PokemonNodeGender(props: {
     function handleToggleGenderCostIgnored() {
         props.currentNode.genderCostIgnored = !props.currentNode.genderCostIgnored
         props.updateBreedTree()
-        ctx.saveToLocalStorage()
+        ctx.save()
     }
 
     function handleToggleGender(value: string) {
         props.currentNode.gender = value as PokemonGender
         props.updateBreedTree()
-        ctx.saveToLocalStorage()
+        ctx.save()
     }
 
     return (

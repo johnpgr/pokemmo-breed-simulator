@@ -2,11 +2,13 @@
 import {
     PokemonBreederKind,
     PokemonGender,
-    PokemonGenderSchema,
+    ZPokemonGender,
     PokemonIv,
+    ZPokemonIv,
     PokemonNature,
+    ZPokemonNature,
     PokemonSpecies,
-    PokemonSpeciesUnparsed,
+    PokemonSpeciesRaw,
 } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import React from "react"
@@ -194,51 +196,22 @@ export function getPokemonCountByBreederKind(generations: number): PokemonCountB
 }
 
 export type PokemonBreedMap = Record<PokemonBreedMapPositionKey, PokemonNode>
-export type PokemonBreedMapSerialized = Record<PokemonBreedMapPositionKey, PokemonNodeSerialized>
+export type PokemonBreedMapSerialized = Record<PokemonBreedMapPositionKey, ZPokemonNode>
 
-export function usePokemonBreedMap(props: {
-    finalPokemonNode: PokemonNode
-    storedBreedTree: PokemonBreedMapSerialized | undefined
-    pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[]
-}) {
-    const desired31IvCount = props.finalPokemonNode.ivs!.filter(Boolean).length
-    const [map, setMap] = React.useState<PokemonBreedMap>({})
-
-    function serialize(): PokemonBreedMapSerialized {
-        const exported: PokemonBreedMapSerialized = {}
-        for (const [key, node] of Object.entries(map)) {
-            exported[key] = node.serialize()
-        }
-        return exported
-    }
-
-    function deserialize(
-        from: PokemonBreedMapSerialized,
-        to: PokemonBreedMap,
-        pokemonSpeciesUnparsed: PokemonSpeciesUnparsed[],
-    ) {
-        for (const [pos, value] of Object.entries(from)) {
-            const node = to[pos]
-            if(!node) break
-
-            const unparsedSpecies = pokemonSpeciesUnparsed.find((p) => p.id === value.id)
-            if (unparsedSpecies) {
-                const species = PokemonSpecies.parse(unparsedSpecies)
-                node.species = species
-            }
-
-            node.nickname = value.nickname
-            node.gender = value.gender
-        }
-    }
+export function usePokemonBreedMap() {
+    const [map, setMap] = React.useState<PokemonBreedMap>({ "0,0": PokemonNode.ROOT({ ivs: PokemonIvSet.DEFAULT }) })
+    const rootNode = () => map["0,0"]!
+    const desired31IvCount = rootNode().ivs?.filter(Boolean).length
 
     function initialize() {
-        map[props.finalPokemonNode.position.key()] = props.finalPokemonNode
+        const target = rootNode()
+        const natured = Boolean(target.nature)
 
-        const natured = Boolean(props.finalPokemonNode.nature)
-
-        assert(props.finalPokemonNode.ivs !== undefined, "finalPokemonNode.ivs should exist")
-        assert(desired31IvCount >= 2 && desired31IvCount <= 5, "Invalid generations number")
+        assert(target.ivs !== undefined, "finalPokemonNode.ivs should exist")
+        assert(
+            desired31IvCount !== undefined && desired31IvCount >= 2 && desired31IvCount <= 5,
+            "Invalid generations number",
+        )
 
         const lastRowBreeders = PokemonBreedMapPosition.LASTROW_MAPPING[desired31IvCount]!
         const lastRowBreedersPositions = natured ? lastRowBreeders.natured : lastRowBreeders.natureless
@@ -249,12 +222,12 @@ export function usePokemonBreedMap(props: {
                 case PokemonBreederKind.Nature: {
                     const position = PokemonBreedMapPosition.fromKey(k)
 
-                    map[position.key()] = new PokemonNode({ nature: props.finalPokemonNode.nature, position })
+                    map[position.key()] = new PokemonNode({ nature: target.nature, position })
                     break
                 }
                 default: {
                     const position = PokemonBreedMapPosition.fromKey(k)
-                    const ivs = PokemonIvSet.fromArray(props.finalPokemonNode.ivs).get(v)
+                    const ivs = PokemonIvSet.fromArray(target.ivs).get(v)
                     assert(ivs, "Ivs should exist for last row breeders")
 
                     map[position.key()] = new PokemonNode({ position, ivs: [ivs] })
@@ -292,32 +265,28 @@ export function usePokemonBreedMap(props: {
             }
             row = row - 1
         }
-        setMap({...map})
+        setMap({ ...map })
     }
-
-    React.useEffect(()=> {
-        if(!props.finalPokemonNode.species) return
-        initialize()
-    }, [props.finalPokemonNode])
 
     return {
         map,
         setMap,
-        serialize,
-        deserialize,
+        rootNode,
         initialize,
     }
 }
 
 export type UsePokemonBreedMap = ReturnType<typeof usePokemonBreedMap>
 
-export const PokemonNodeSerialized = z.object({
+export const ZPokemonNode = z.object({
     id: z.number().optional(),
-    gender: PokemonGenderSchema.optional(),
+    ivs: z.array(ZPokemonIv).optional(),
+    nature: ZPokemonNature.optional(),
+    gender: ZPokemonGender.optional(),
     nickname: z.string().optional(),
     genderCostIgnored: z.boolean().optional(),
 })
-export type PokemonNodeSerialized = z.infer<typeof PokemonNodeSerialized>
+export type ZPokemonNode = z.infer<typeof ZPokemonNode>
 
 export class PokemonNode {
     position: PokemonBreedMapPosition
@@ -366,7 +335,7 @@ export class PokemonNode {
         })
     }
 
-    public serialize(): PokemonNodeSerialized {
+    public serialize(): ZPokemonNode {
         return {
             id: this.species?.id,
             gender: this.gender,
@@ -406,3 +375,6 @@ export class PokemonNode {
         return this.position.key() === "0,0"
     }
 }
+
+export const ZBreedMap = z.record(z.string(), ZPokemonNode)
+export type ZBreedMap = z.infer<typeof ZBreedMap>

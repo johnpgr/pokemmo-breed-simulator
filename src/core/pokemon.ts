@@ -50,7 +50,7 @@ export enum PokemonNature {
     Careful = "Careful",
     Quirky  = "Quirky",
 }
-export const PokemonNatureSchema = z.nativeEnum(PokemonNature)
+export const ZPokemonNature = z.nativeEnum(PokemonNature)
 
 //prettier-ignore
 export enum PokemonEggGroup {
@@ -81,16 +81,16 @@ export enum PokemonIv {
     SpecialDefense = "SpecialDefense",
     Speed          = "Speed",
 }
-export const PokemonIvSchema = z.nativeEnum(PokemonIv)
+export const ZPokemonIv = z.nativeEnum(PokemonIv)
 
 export enum PokemonGender {
     Female = "Female",
     Male = "Male",
     Genderless = "Genderless",
 }
-export const PokemonGenderSchema = z.nativeEnum(PokemonGender)
+export const ZPokemonGender = z.nativeEnum(PokemonGender)
 
-export type PokemonSpeciesUnparsed = {
+export type PokemonSpeciesRaw = {
     id: number
     name: string
     types: string[]
@@ -107,7 +107,7 @@ export class PokemonSpecies {
         public percentageMale: number,
     ) {}
 
-    static parse(data: PokemonSpeciesUnparsed): PokemonSpecies {
+    static parse(data: PokemonSpeciesRaw): PokemonSpecies {
         const types = Object.values(PokemonType)
         const eggGroups = Object.values(PokemonEggGroup)
 

@@ -4,10 +4,13 @@ import { IvColor, IV_COLOR_DICT } from "./consts"
 import { pascalToSpacedPascal } from "@/lib/utils"
 import { useBreedContext } from "@/core/PokemonBreedContext"
 import { PokemonIvSet } from "@/core/PokemonIvSet"
+import { assert } from "@/lib/assert"
 
 export function PokemonIvColors() {
     const ctx = useBreedContext()
-    const ivSet = PokemonIvSet.fromArray(ctx.breedTarget.ivs!)
+    const target = ctx.breedTree.rootNode()
+    assert(target.ivs !== undefined, "PokemonIvColors tried to render without rootNode.ivs being defined")
+    const ivSet = PokemonIvSet.fromArray(target.ivs)
 
     return (
         <div className="flex flex-wrap justify-center gap-4 mx-auto">
@@ -62,7 +65,7 @@ export function PokemonIvColors() {
                     <span className="text-sm">{pascalToSpacedPascal(ivSet.E)}</span>
                 </div>
             ) : null}
-            {ctx.breedTarget.nature ? (
+            {target.nature ? (
                 <div className="flex items-center gap-2">
                     <div
                         className="rounded-full p-3 h-4 w-4"
@@ -70,7 +73,7 @@ export function PokemonIvColors() {
                             backgroundColor: IV_COLOR_DICT["Nature"],
                         }}
                     />
-                    <span className="text-sm">{ctx.breedTarget.nature}</span>
+                    <span className="text-sm">{target.nature}</span>
                 </div>
             ) : null}
         </div>

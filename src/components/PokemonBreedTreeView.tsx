@@ -22,11 +22,13 @@ import { PokemonBreedMapPosition, PokemonBreedMapPositionKey } from "@/core/Poke
 export type BreedErrors = Record<PokemonBreedMapPositionKey, Set<PokemonBreed.BreedError> | undefined>
 
 export function PokemonBreedTreeView() {
+    const loaded = React.useRef<boolean>()
     const updateFromBreedEffect = React.useRef(false)
     const ctx = useBreedContext()
-    const desired31IvCount = ctx.breedTarget.ivs!.filter(Boolean).length
+    const target = ctx.breedTree.rootNode()
+    const desired31IvCount = target.ivs!.filter(Boolean).length
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
-    const expectedCost = getExpectedBreedCost(desired31IvCount, Boolean(ctx.breedTarget.nature))
+    const expectedCost = getExpectedBreedCost(desired31IvCount, Boolean(target.nature))
     const currentBreedCost = run(() => {
         let cost = 0
         const nodes = Object.values(ctx.breedTree.map)
@@ -36,7 +38,7 @@ export function PokemonBreedTreeView() {
                 continue
             }
 
-            const isLastRow = ctx.breedTarget.nature
+            const isLastRow = target.nature
                 ? node.position.row === desired31IvCount
                 : node.position.row === desired31IvCount - 1
 
@@ -94,22 +96,20 @@ export function PokemonBreedTreeView() {
         })
     }
 
-    function handleExport(): string {
-        const serialized = ctx.serialize()
-        return JSON.stringify(serialized, null, 4)
-    }
-
     function handleRestartBreed() {
-        ctx.setLocalStorageTree(undefined)
+        ctx.reset()
         window.location.reload()
     }
 
     React.useEffect(() => {
-        ctx.loadFromLocalStorage()
-    }, [ctx.localStorageTree])
+        if (!loaded.current) {
+            ctx.load()
+            loaded.current = true
+        }
+    }, [ctx.savedTree])
 
     React.useEffect(() => {
-        if(ctx.breedTarget.species) ctx.saveToLocalStorage()
+        if (target.species) ctx.save()
     }, [ctx.breedTree.map])
 
     // Show toast notifications for breed errors
@@ -159,7 +159,7 @@ export function PokemonBreedTreeView() {
             return
         }
 
-        const lastRow = ctx.breedTarget.nature ? desired31IvCount : desired31IvCount - 1
+        const lastRow = target.nature ? desired31IvCount : desired31IvCount - 1
         const rowLength = Math.pow(2, lastRow)
         let changed = false
 
@@ -189,7 +189,7 @@ export function PokemonBreedTreeView() {
                     break
                 }
 
-                const breedResult = PokemonBreed.breed(node, partnerNode, childNode, ctx.pokemonEvolutions)
+                const breedResult = PokemonBreed.breed(node, partnerNode, childNode, ctx.evolutions)
 
                 if (breedResult instanceof Set) {
                     const errors = Array.from(breedResult)
@@ -230,9 +230,9 @@ export function PokemonBreedTreeView() {
             updateBreedTree(true)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [ctx.breedTree.map, ctx.breedTarget.nature, desired31IvCount, ctx.breedTree.setMap, setBreedErrors])
+    }, [ctx.breedTree.map, target.nature, desired31IvCount, ctx.breedTree.setMap, setBreedErrors])
 
-    if (!ctx.breedTarget.species) return null
+    if (!target.species) return null
 
     return (
         <div className="flex flex-col gap-8">
@@ -250,7 +250,7 @@ export function PokemonBreedTreeView() {
                         </Button>
                     </div>
                 ) : null}
-                <ImportExportButton handleExport={handleExport} />
+                <ImportExportButton serialize={() => JSON.stringify(ctx.serialize, null, 4)} />
                 <ResetBreedButton handleRestartBreed={handleRestartBreed} />
             </div>
             <Alert className="mx-auto w-fit">
@@ -263,7 +263,7 @@ export function PokemonBreedTreeView() {
             <ScrollArea className="max-w-screen-xl w-full 2xl:max-w-screen-2xl mx-auto">
                 <div className="w-full flex flex-col-reverse items-center gap-8">
                     {Array.from({
-                        length: ctx.breedTarget.nature ? desired31IvCount + 1 : desired31IvCount,
+                        length: target.nature ? desired31IvCount + 1 : desired31IvCount,
                     }).map((_, row) => {
                         const rowLength = Math.pow(2, row)
 

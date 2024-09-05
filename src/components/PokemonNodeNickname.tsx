@@ -12,7 +12,7 @@ export function PokemonNodeNickname(props: { currentNode: PokemonNode; updateBre
     function setNickname(nick: string) {
         props.currentNode.nickname = nick
         props.updateBreedTree()
-        ctx.saveToLocalStorage()
+        ctx.save()
     }
 
     function handleEditButton() {

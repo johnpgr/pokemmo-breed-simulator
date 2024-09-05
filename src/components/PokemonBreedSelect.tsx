@@ -1,7 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
-import { PokemonIvSet } from "@/core/PokemonIvSet"
 import type { PokemonIv, PokemonNature, PokemonSpecies } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { run } from "@/lib/utils"
@@ -14,7 +13,8 @@ import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
 import { BREED_EXPECTED_COSTS, DEFAULT_IV_DROPDOWN_VALUES, POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "./consts"
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert"
-import { BreedContextSerialized, useBreedContext } from "@/core/PokemonBreedContext"
+import { useBreedContext } from "@/core/PokemonBreedContext"
+import { ZBreedMap } from "@/core/PokemonBreedMap"
 
 /**
  * This type is used to represent the state of the full Pokemon node that is going to be used in the PokemonToBreedContext
@@ -77,13 +77,14 @@ export function PokemonToBreedSelect() {
         const finalIvs = Array.from(currentPokemonInSelect.ivs)
 
         assert(finalIvs.length >= 2, "At least 2 IV fields must be selected")
-        ctx.setBreedTarget((prev) => {
-            const copy = prev.clone()
-            copy.species = currentPokemonInSelect.species
-            copy.ivs = finalIvs
-            copy.nature = currentPokemonInSelect.nature
-            return copy
+        ctx.breedTree.setMap((prev) => {
+            const target = prev["0,0"]!
+            target.species = currentPokemonInSelect.species
+            target.ivs = finalIvs
+            target.nature = currentPokemonInSelect.nature
+            return {...prev}
         })
+        ctx.breedTree.initialize()
     }
 
     function handleResetFields() {
@@ -107,7 +108,7 @@ export function PokemonToBreedSelect() {
             return
         }
 
-        const res = BreedContextSerialized.safeParse(dataUnparsed)
+        const res = ZBreedMap.safeParse(dataUnparsed)
 
         if (res.error) {
             const errorMsg = generateErrorMessage(res.error.issues)
@@ -123,7 +124,7 @@ export function PokemonToBreedSelect() {
         ctx.deserialize(res.data)
     }
 
-    if (ctx.breedTarget.species) {
+    if (ctx.breedTree.rootNode().species) {
         return null
     }
 

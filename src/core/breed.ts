@@ -1,6 +1,6 @@
 import { assert } from "@/lib/assert"
-import { PokemonGender, PokemonSpecies, PokemonSpeciesUnparsed } from "./pokemon"
 import { PokemonNode } from "./PokemonBreedMap"
+import { PokemonGender, PokemonSpecies } from "./pokemon"
 
 export namespace PokemonBreed {
     export enum BreedErrorKind {
