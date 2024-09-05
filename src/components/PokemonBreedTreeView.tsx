@@ -249,7 +249,7 @@ export function PokemonBreedTreeView() {
                         </Button>
                     </div>
                 ) : null}
-                <ImportExportButton serialize={() => JSON.stringify(ctx.serialize, null, 4)} />
+                <ImportExportButton serialize={() => JSON.stringify(ctx.serialize(), null, 4)} />
                 <ResetBreedButton handleRestartBreed={handleRestartBreed} />
             </div>
             <Alert className="mx-auto w-fit">
