@@ -395,6 +395,16 @@ export class PokemonNode {
     public isRootNode(): boolean {
         return this.position.key() === "0,0"
     }
+
+    public rollGender(): PokemonGender | undefined {
+        if (this.species?.percentageMale === 0) {
+            return PokemonGender.Female
+        } else if (this.species?.percentageMale === 100) {
+            return PokemonGender.Male
+        } else if (this.species?.isGenderless()) {
+            return PokemonGender.Genderless
+        }
+    }
 }
 
 export const ZBreedMap = z.record(z.string(), ZPokemonNode)

@@ -190,7 +190,7 @@ export function PokemonBreedTreeView() {
 
                 const breedResult = PokemonBreed.breed(node, partnerNode, childNode, ctx.evolutions)
 
-                if (breedResult instanceof Set) {
+                if (breedResult instanceof PokemonBreed.BreedErrors) {
                     const errors = Array.from(breedResult)
                     if (errors.length === 1 && errors[0]!.kind === PokemonBreed.BreedErrorKind.ChildDidNotChange) {
                         deleteErrors(currentNodePos)
@@ -211,14 +211,7 @@ export function PokemonBreedTreeView() {
 
                 changed = true
                 childNode.species = breedResult
-
-                if (childNode.species?.percentageMale === 0) {
-                    childNode.gender = PokemonGender.Female
-                } else if (childNode.species?.percentageMale === 100) {
-                    childNode.gender = PokemonGender.Male
-                } else if (childNode.species?.isGenderless()) {
-                    childNode.gender = PokemonGender.Genderless
-                }
+                childNode.gender = childNode.rollGender()
 
                 deleteErrors(currentNodePos)
                 next()

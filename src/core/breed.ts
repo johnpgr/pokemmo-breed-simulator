@@ -15,18 +15,20 @@ export namespace PokemonBreed {
         constructor(public kind: BreedErrorKind) {}
     }
 
+    export class BreedErrors extends Set<BreedError> {}
+
     export function breed(
         parent1: PokemonNode,
         parent2: PokemonNode,
         child: PokemonNode,
         pokemonEvolutions: number[][],
-    ): PokemonSpecies | Set<BreedError> {
+    ): PokemonSpecies | BreedErrors  {
         assert(parent1.gender, "Parent 1 gender should exist")
         assert(parent2.gender, "Parent 2 gender should exist")
         assert(parent1.species, "Parent 1 species should exist")
         assert(parent2.species, "Parent 2 species should exist")
 
-        const errors = new Set<BreedError>()
+        const errors = new BreedErrors()
 
         const genderlessCheckRes = checkGenderless(parent1, parent2, pokemonEvolutions)
         if (genderlessCheckRes instanceof BreedError) {
