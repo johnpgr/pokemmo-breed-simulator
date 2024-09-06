@@ -161,15 +161,8 @@ export namespace PokemonBreed {
             return parent1.species!
         }
 
-        const female = parent1.gender === PokemonGender.Female ? parent1 : parent2.gender === PokemonGender.Female ? parent2 : null
-        return female.species ?? return new BreedError(BreedErrorKind.GenderCompatibility)
+        const female = parent1.gender === PokemonGender.Female ? parent1 : parent2.gender === PokemonGender.Female ? parent2 : null;
 
-/*        const females = [parent1, parent2].filter((p) => p.gender === PokemonGender.Female)
-
-        if (females.length !== 1) {
-            return new BreedError(BreedErrorKind.GenderCompatibility)
-        }
-
-        return females[0]!.species! */
+        return female.species ?? return new BreedError(BreedErrorKind.GenderCompatibility);
     }
 }
