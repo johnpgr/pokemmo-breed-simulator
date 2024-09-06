@@ -147,6 +147,13 @@ export class PokemonSpecies {
 
         return evoTree
     }
+
+    public getBaseEvolutionId(pokemonEvolutions: number[][]): number {
+        const tree = this.getEvolutionTree(pokemonEvolutions)
+        const base = tree[0]
+        assert(base !== undefined, "Pokemon Base evolution not found")
+        return base
+    }
 }
 
 /** In Pokemmo, in breeding, you can only breed a pokemon couple once.

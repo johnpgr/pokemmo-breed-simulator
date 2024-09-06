@@ -1,5 +1,5 @@
 "use client"
-import { PokemonBreed } from "@/core/breed"
+import { PokemonBreedService, BreedErrors as BreedErrorSet, BreedErrorKind } from "@/core/breed"
 import { PokemonGender } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
 import { run } from "@/lib/utils"
@@ -19,12 +19,13 @@ import { ScrollArea, ScrollBar } from "./ui/scroll-area"
 import { PokemonBreedMapPosition, PokemonBreedMapPositionKey } from "@/core/PokemonBreedMap"
 import { BreedContext } from "@/core/PokemonBreedContext"
 
-export type BreedErrors = Record<PokemonBreedMapPositionKey, Set<PokemonBreed.BreedError> | undefined>
+export type BreedErrors = Record<PokemonBreedMapPositionKey, BreedErrorSet | undefined>
 
 export function PokemonBreedTreeView() {
     const loaded = React.useRef<boolean>()
     const updateFromBreedEffect = React.useRef(false)
     const ctx = React.use(BreedContext)!
+    const breeder = new PokemonBreedService(ctx.species, ctx.evolutions)
     const target = ctx.breedTree.rootNode()
     const desired31IvCount = target.ivs!.filter(Boolean).length
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
@@ -88,7 +89,7 @@ export function PokemonBreedTreeView() {
         })
     }
 
-    function addErrors(pos: PokemonBreedMapPositionKey, errors: Set<PokemonBreed.BreedError>) {
+    function addErrors(pos: PokemonBreedMapPositionKey, errors: BreedErrorSet) {
         setBreedErrors((prev) => {
             prev[pos] = errors
             return { ...prev }
@@ -130,7 +131,7 @@ export function PokemonBreedTreeView() {
 
             let errorMsg = ""
             for (const error of errorKind.values()) {
-                if (error.kind === PokemonBreed.BreedErrorKind.ChildDidNotChange) {
+                if (error.kind === BreedErrorKind.ChildDidNotChange) {
                     continue
                 }
                 errorMsg += error.kind
@@ -188,11 +189,11 @@ export function PokemonBreedTreeView() {
                     break
                 }
 
-                const breedResult = PokemonBreed.breed(node, partnerNode, childNode, ctx.evolutions)
+                const breedResult = breeder.breed(node, partnerNode, childNode)
 
-                if (breedResult instanceof PokemonBreed.BreedErrors) {
+                if (breedResult instanceof BreedErrorSet) {
                     const errors = Array.from(breedResult)
-                    if (errors.length === 1 && errors[0]!.kind === PokemonBreed.BreedErrorKind.ChildDidNotChange) {
+                    if (errors.length === 1 && errors[0]!.kind === BreedErrorKind.ChildDidNotChange) {
                         deleteErrors(currentNodePos)
                         next()
                         continue

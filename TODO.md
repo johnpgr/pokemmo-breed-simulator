@@ -11,6 +11,6 @@
 -   [x] Handle Breed Errors.
 -   [x] Breed child doesn't get updated on the tree view. It currently only updates the breed map but the changes are not reflected on the view.
 -   [ ] Correct the BreedNode scaling for when there's only 2,3,4 generations
--   [ ] The child pokémon species should be of the base Evolution.
+-   [x] The child pokémon species should be of the base Evolution.
 -   [ ] Nickname in Node info should update when the species change.
 -   [ ] Fix random crashes.

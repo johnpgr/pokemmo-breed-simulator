@@ -1,28 +1,28 @@
 import { assert } from "@/lib/assert"
 import { PokemonNode } from "./PokemonBreedMap"
-import { PokemonGender, PokemonSpecies } from "./pokemon"
+import { PokemonGender, PokemonSpecies, PokemonSpeciesRaw } from "./pokemon"
 
-export namespace PokemonBreed {
-    export enum BreedErrorKind {
-        GenderCompatibility = "GenderCompatibility",
-        EggGroupCompatibility = "EggGroupCompatibility",
-        GenderlessSpeciesCompatibility = "GenderlessSpeciesCompatibility",
-        ChildDidNotChange = "ChildDidNotChange",
-        RootNodeSpeciesMismatch = "RootNodeSpeciesMismatch",
-    }
+export enum BreedErrorKind {
+    GenderCompatibility = "GenderCompatibility",
+    EggGroupCompatibility = "EggGroupCompatibility",
+    GenderlessSpeciesCompatibility = "GenderlessSpeciesCompatibility",
+    ChildDidNotChange = "ChildDidNotChange",
+    RootNodeSpeciesMismatch = "RootNodeSpeciesMismatch",
+}
 
-    export class BreedError {
-        constructor(public kind: BreedErrorKind) {}
-    }
+export class BreedError {
+    constructor(public kind: BreedErrorKind) {}
+}
 
-    export class BreedErrors extends Set<BreedError> {}
+export class BreedErrors extends Set<BreedError> {}
 
-    export function breed(
-        parent1: PokemonNode,
-        parent2: PokemonNode,
-        child: PokemonNode,
-        pokemonEvolutions: number[][],
-    ): PokemonSpecies | BreedErrors  {
+export class PokemonBreedService {
+    constructor(
+        private readonly pokemonSpeciesRaw: PokemonSpeciesRaw[],
+        private readonly pokemonEvolutions: number[][],
+    ) {}
+
+    public breed(parent1: PokemonNode, parent2: PokemonNode, child: PokemonNode): PokemonSpecies | BreedErrors {
         assert(parent1.gender, "Parent 1 gender should exist")
         assert(parent2.gender, "Parent 2 gender should exist")
         assert(parent1.species, "Parent 1 species should exist")
@@ -30,29 +30,29 @@ export namespace PokemonBreed {
 
         const errors = new BreedErrors()
 
-        const genderlessCheckRes = checkGenderless(parent1, parent2, pokemonEvolutions)
+        const genderlessCheckRes = this.checkGenderless(parent1, parent2)
         if (genderlessCheckRes instanceof BreedError) {
             errors.add(genderlessCheckRes)
         }
 
-        const eggGroupCheckRes = checkEggGroups(parent1, parent2)
+        const eggGroupCheckRes = this.checkEggGroups(parent1, parent2)
         if (eggGroupCheckRes instanceof BreedError) {
             errors.add(eggGroupCheckRes)
         }
 
-        const genderCheckRes = checkGenders(parent1, parent2)
+        const genderCheckRes = this.checkGenders(parent1, parent2)
         if (genderCheckRes instanceof BreedError) {
             errors.add(genderCheckRes)
         }
 
-        const childSpeciesRes = getChildSpecies(parent1, parent2)
+        const childSpeciesRes = this.getChildSpecies(parent1, parent2)
 
         if (childSpeciesRes instanceof BreedError) {
             errors.add(childSpeciesRes)
             return errors
         }
 
-        const childCheckRes = checkChild(child, childSpeciesRes, pokemonEvolutions)
+        const childCheckRes = this.checkChild(child, childSpeciesRes)
         if (childCheckRes instanceof BreedError) {
             errors.add(childCheckRes)
         }
@@ -64,14 +64,10 @@ export namespace PokemonBreed {
         return errors
     }
 
-    function checkChild(
-        child: PokemonNode,
-        childSpecies: PokemonSpecies,
-        pokemonEvolutions: number[][],
-    ): void | BreedError {
+    private checkChild(child: PokemonNode, childSpecies: PokemonSpecies): void | BreedError {
         if (child.isRootNode()) {
             if (child.species?.isGenderless()) {
-                const rootNodeGenderlessTree = child.species.getEvolutionTree(pokemonEvolutions)
+                const rootNodeGenderlessTree = child.species.getEvolutionTree(this.pokemonEvolutions)
 
                 if (!rootNodeGenderlessTree.includes(childSpecies.id)) {
                     return new BreedError(BreedErrorKind.RootNodeSpeciesMismatch)
@@ -86,7 +82,7 @@ export namespace PokemonBreed {
         }
     }
 
-    function checkEggGroups(parent1: PokemonNode, parent2: PokemonNode): void | BreedError {
+    private checkEggGroups(parent1: PokemonNode, parent2: PokemonNode): void | BreedError {
         if (parent1.species?.isDitto() || parent2.species?.isDitto()) {
             return
         }
@@ -100,7 +96,7 @@ export namespace PokemonBreed {
         }
     }
 
-    function checkGenders(parent1: PokemonNode, parent2: PokemonNode): void | BreedError {
+    private checkGenders(parent1: PokemonNode, parent2: PokemonNode): void | BreedError {
         if (parent1.species?.isGenderless() && parent2.species?.isGenderless()) {
             return
         }
@@ -110,11 +106,7 @@ export namespace PokemonBreed {
         }
     }
 
-    function checkGenderless(
-        parent1: PokemonNode,
-        parent2: PokemonNode,
-        pokemonEvolutions: number[][],
-    ): void | BreedError {
+    private checkGenderless(parent1: PokemonNode, parent2: PokemonNode): void | BreedError {
         if (parent1.species?.isGenderless()) {
             if (parent1.species?.isDitto()) {
                 if (!parent2.species?.isDitto()) {
@@ -124,7 +116,7 @@ export namespace PokemonBreed {
                 return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility)
             }
 
-            const parent1GenderlessEvoTree = parent1.species.getEvolutionTree(pokemonEvolutions)
+            const parent1GenderlessEvoTree = parent1.species.getEvolutionTree(this.pokemonEvolutions)
 
             if (!parent1GenderlessEvoTree.includes(parent2.species!.id)) {
                 return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility)
@@ -140,7 +132,7 @@ export namespace PokemonBreed {
                 return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility)
             }
 
-            const parent2GenderlessEvoTree = parent2.species?.getEvolutionTree(pokemonEvolutions)
+            const parent2GenderlessEvoTree = parent2.species?.getEvolutionTree(this.pokemonEvolutions)
 
             if (!parent2GenderlessEvoTree.includes(parent1.species!.id)) {
                 return new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility)
@@ -148,21 +140,34 @@ export namespace PokemonBreed {
         }
     }
 
-    function getChildSpecies(parent1: PokemonNode, parent2: PokemonNode): PokemonSpecies | BreedError {
-        if (parent1.species?.isDitto()) {
-            return parent2.species!
+    private getChildSpecies(parent1: PokemonNode, parent2: PokemonNode): PokemonSpecies | BreedError {
+        const getBaseSpecies = (p: PokemonSpecies) => {
+            const id = p.getBaseEvolutionId(this.pokemonEvolutions)
+            const raw = this.pokemonSpeciesRaw.find((p)=> p.id === id)
+            assert(raw !== undefined, "Pokemon Base evolution Species not found")
+            return PokemonSpecies.parse(raw)
         }
+
+        if (parent1.species?.isDitto()) {
+            return getBaseSpecies(parent2.species!)
+        }
+
         if (parent2.species?.isDitto()) {
-            return parent1.species!
+            return getBaseSpecies(parent1.species!)
         }
 
         if (parent1.species?.isGenderless() && parent2.species?.isGenderless()) {
-            //assume that both parents are correctly in the same GenderlessEvolutionTree
-            return parent1.species!
+            // both parents are correctly in the same GenderlessEvolutionTree because this function should run after checkGenderless()
+            return getBaseSpecies(parent1.species)
         }
 
-        const female = parent1.gender === PokemonGender.Female ? parent1 : parent2.gender === PokemonGender.Female ? parent2 : null;
+        const female =
+            parent1.gender === PokemonGender.Female ? parent1 : parent2.gender === PokemonGender.Female ? parent2 : null
 
-        return female?.species ?? new BreedError(BreedErrorKind.GenderCompatibility);
+        if(female){
+            return getBaseSpecies(female.species!)
+        }
+
+        return new BreedError(BreedErrorKind.GenderCompatibility)
     }
 }
