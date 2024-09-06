@@ -163,6 +163,6 @@ export namespace PokemonBreed {
 
         const female = parent1.gender === PokemonGender.Female ? parent1 : parent2.gender === PokemonGender.Female ? parent2 : null;
 
-        return female.species ?? return new BreedError(BreedErrorKind.GenderCompatibility);
+        return female?.species ?? new BreedError(BreedErrorKind.GenderCompatibility);
     }
 }
