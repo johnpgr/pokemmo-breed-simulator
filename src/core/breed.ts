@@ -162,7 +162,7 @@ export namespace PokemonBreed {
         }
 
         const female = parent1.gender === PokemonGender.Female ? parent1 : parent2.gender === PokemonGender.Female ? parent2 : null
-        return female ?? return new BreedError(BreedErrorKind.GenderCompatibility)
+        return female.species ?? return new BreedError(BreedErrorKind.GenderCompatibility)
 
 /*        const females = [parent1, parent2].filter((p) => p.gender === PokemonGender.Female)
 
