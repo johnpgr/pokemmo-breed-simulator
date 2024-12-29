@@ -1,5 +1,6 @@
 # Pokemmo Breeding simulator
 This tool is inspired by the [pokemmohub breeding tool](https://pokemmohub.com/tools/breeding/) that helps you track the amount of pokemon's you need to capture/buy to breed a competitive Pokemon
+
 ## Improvments on the pokemmohub's tool
 - Improved usability by being able to select which Pokemon species you are aiming to breed
     - By doing that you are able to filter only Pokemons that are capable of breeding with your desired breed.

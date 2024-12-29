@@ -1,16 +1,9 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/ui/themes/ThemeProvider"
 import { ThemeToggle } from "@/components/ui/themes/ThemeToggle"
-import { cn } from "@/lib/utils"
 import { Toaster } from "../components/ui/toaster"
 import { Toaster as ToasterSonner } from "@/components/ui/sonner"
 import "./globals.css"
-
-const fontSans = Inter({
-    subsets: ["latin"],
-    variable: "--font-sans",
-})
 
 export const metadata: Metadata = {
     title: "Pokemmo breed planner",
@@ -20,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={cn("min-h-screen flex flex-col", fontSans.className)}>
+            <body className="min-h-screen flex flex-col">
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <header className="mb-4">
                         <ThemeToggle />
