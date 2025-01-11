@@ -81,10 +81,12 @@ export function BreedContextProvider(props: {
     }
 
     function load() {
-        if (savedTree?.["0,0"]?.id) {
-            deserialize(savedTree)
-            breedTree.initialize()
-        }
+        if(!savedTree) return
+        const rootNode = savedTree["0,0"]
+        if (!rootNode) return 
+
+        deserialize(savedTree)
+        breedTree.initialize()
     }
 
     function reset() {

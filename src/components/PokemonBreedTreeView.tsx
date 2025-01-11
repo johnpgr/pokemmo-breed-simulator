@@ -2,7 +2,6 @@
 import { PokemonBreedService, BreedErrors as BreedErrorSet, BreedErrorKind } from "@/core/breed"
 import { PokemonGender } from "@/core/pokemon"
 import { assert } from "@/lib/assert"
-import { run } from "@/lib/utils"
 import { Info } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
@@ -16,70 +15,70 @@ import { BREED_ITEM_COSTS, GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE } from "./co
 import { Alert, AlertTitle } from "./ui/alert"
 import { Button } from "./ui/button"
 import { ScrollArea, ScrollBar } from "./ui/scroll-area"
-import { PokemonBreedMapPosition, PokemonBreedMapPositionKey } from "@/core/PokemonBreedMap"
+import {
+    PokemonBreedMap,
+    PokemonBreedMapPosition,
+    PokemonBreedMapPositionKey,
+    PokemonNode,
+} from "@/core/PokemonBreedMap"
 import { BreedContext } from "@/core/PokemonBreedContext"
 
-export type BreedErrors = Record<PokemonBreedMapPositionKey, BreedErrorSet | undefined>
+// export type BreedErrors = Record<PokemonBreedMapPositionKey, BreedErrorSet | undefined>
+
+function getCurrentBreedCost(breedTree: PokemonBreedMap, lastRowIdx: number): number {
+    return Object.values(breedTree)
+        .reduce((totalCost, node) => {
+            if (!node.species) {
+                return totalCost
+            }
+
+            const genderCost = getGenderCost(node, lastRowIdx)
+            const itemCost = getItemCost(node, breedTree)
+            
+            return totalCost + genderCost + itemCost
+        }, 0)
+}
+
+function getGenderCost(node: PokemonNode, lastRowIdx: number): number {
+    if (!node.gender || !node.species || node.genderCostIgnored || node.position.row === lastRowIdx) {
+        return 0
+    }
+
+    const percentageToUse = node.gender === PokemonGender.Male 
+        ? node.species.percentageMale 
+        : 100 - node.species.percentageMale
+
+    const cost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[percentageToUse]
+    assert(
+        cost !== undefined,
+        "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key"
+    )
+    return cost
+}
+
+function getItemCost(node: PokemonNode, breedTree: PokemonBreedMap): number {
+    const heldItem = getHeldItemForNode(node, breedTree)
+    if (!heldItem) {
+        return 0
+    }
+
+    return heldItem === HeldItem.Nature 
+        ? BREED_ITEM_COSTS.nature 
+        : BREED_ITEM_COSTS.iv
+}
 
 export function PokemonBreedTreeView() {
-    const loaded = React.useRef<boolean>()
-    const updateFromBreedEffect = React.useRef(false)
     const ctx = React.use(BreedContext)!
     const breeder = new PokemonBreedService(ctx.species, ctx.evolutions)
     const target = ctx.breedTree.rootNode()
-    const desired31IvCount = target.ivs!.filter(Boolean).length
+    const desired31IvCount = target.ivs?.filter(Boolean).length ?? 0
     const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
     const expectedCost = getExpectedBreedCost(desired31IvCount, Boolean(target.nature))
-    const currentBreedCost = run(() => {
-        let cost = 0
-        const nodes = Object.values(ctx.breedTree.map)
+    const lastRowIdx = target.nature ? desired31IvCount : desired31IvCount - 1
+    const currentBreedCost = getCurrentBreedCost(ctx.breedTree.map, lastRowIdx)
 
-        for (const node of nodes) {
-            if (!node.species) {
-                continue
-            }
-
-            const isLastRow = target.nature
-                ? node.position.row === desired31IvCount
-                : node.position.row === desired31IvCount - 1
-
-            if (node.gender && !node.genderCostIgnored && !isLastRow) {
-                if (node.gender === PokemonGender.Male) {
-                    const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[node.species.percentageMale]
-                    assert(
-                        newCost !== undefined,
-                        "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key",
-                    )
-                    cost += newCost
-                } else if (node.gender === PokemonGender.Female) {
-                    const newCost = GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE[100 - node.species.percentageMale]
-                    assert(
-                        newCost !== undefined,
-                        "tried to get cost in GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE with invalid key",
-                    )
-                    cost += newCost
-                }
-            }
-
-            const heldItem = getHeldItemForNode(node, ctx.breedTree.map)
-            if (!heldItem) {
-                continue
-            }
-
-            if (heldItem === HeldItem.Nature) {
-                cost += BREED_ITEM_COSTS.nature
-                continue
-            }
-
-            cost += BREED_ITEM_COSTS.iv
-        }
-
-        return cost
-    })
-
-    function updateBreedTree(fromBreedEffect = false) {
+    function updateBreedTree() {
         ctx.breedTree.setMap((prev) => ({ ...prev }))
-        updateFromBreedEffect.current = fromBreedEffect
     }
 
     function deleteErrors(pos: PokemonBreedMapPositionKey) {
@@ -102,18 +101,16 @@ export function PokemonBreedTreeView() {
     }
 
     React.useEffect(() => {
-        if (!loaded.current) {
-            ctx.load()
-            loaded.current = true
-        }
-    }, [ctx.savedTree])
+        ctx.load()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     React.useEffect(() => {
         if (target.species) ctx.save()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ctx.breedTree.map])
 
-    // Show toast notifications for breed errors
-    React.useEffect(() => {
+    React.useEffect(function showNotifications() {
         Object.entries(breedErrors).map(([key, errorKind]) => {
             if (!errorKind) {
                 return
@@ -153,15 +150,10 @@ export function PokemonBreedTreeView() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [breedErrors])
 
-    // Iterate through the breed tree and breed() the nodes
-    React.useEffect(() => {
-        if (updateFromBreedEffect.current) {
-            return
-        }
-
+    React.useEffect(function iterateBreedTree() {
         const lastRow = target.nature ? desired31IvCount : desired31IvCount - 1
         const rowLength = Math.pow(2, lastRow)
-        let changed = false
+        const updates: Record<PokemonBreedMapPositionKey, PokemonNode> = {}
 
         //inc by 2 because we only want to breed() on one parent
         for (let col = 0; col < rowLength; col += 2) {
@@ -210,17 +202,21 @@ export function PokemonBreedTreeView() {
                     continue
                 }
 
-                changed = true
-                childNode.species = breedResult
-                childNode.gender = childNode.rollGender()
+                const newNode = childNode.clone()
+                newNode.species = breedResult
+                newNode.gender = childNode.rollGender()
 
+                updates[newNode.position.key()] = newNode
                 deleteErrors(currentNodePos)
                 next()
             }
         }
 
-        if (changed) {
-            updateBreedTree(true)
+        if (Object.keys(updates).length > 0) {
+            ctx.breedTree.setMap((prev) => ({
+                ...prev,
+                ...updates,
+            }))
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ctx.breedTree.map, target.nature, desired31IvCount, ctx.breedTree.setMap, setBreedErrors])

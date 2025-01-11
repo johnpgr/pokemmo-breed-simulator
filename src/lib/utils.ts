@@ -32,3 +32,7 @@ export function capitalize(input: string) {
 
     return input[0].toUpperCase() + input.slice(1).toLowerCase()
 }
+
+export function unreachable(msg: string): never {
+    throw new Error(msg)
+}

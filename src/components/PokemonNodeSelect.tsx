@@ -16,6 +16,7 @@ import { IV_COLOR_DICT, IvColor, NODE_SCALE_BY_COLOR_AMOUNT, SPRITE_SCALE_BY_COL
 import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer"
 import { PokemonBreedMap, PokemonBreedMapPosition } from "@/core/PokemonBreedMap"
 import { BreedContext } from "@/core/PokemonBreedContext"
+import { unreachable } from "@/lib/utils"
 
 enum SearchMode {
     All,
@@ -38,6 +39,7 @@ export function PokemonNodeSelect(props: {
     const [colors, setColors] = React.useState<IvColor[]>([])
     const isPokemonToBreed = props.position.col === 0 && props.position.row === 0
     const currentNode = props.breedTree[props.position.key()]
+
     assert(currentNode, "Current node should exist in PokemonNodeSelect")
 
     function setPokemonSpecies(species: PokemonSpeciesRaw) {
@@ -57,8 +59,8 @@ export function PokemonNodeSelect(props: {
             case currentNode.species!.percentageMale === 100:
                 currentNode.gender = PokemonGender.Male
                 break
+            // This means that previously at this node there was a Genderless Pokemon
             case currentNode.gender === PokemonGender.Genderless:
-                //this means that previously at this node there was a Genderless Pokemon
                 currentNode.gender = undefined
                 break
         }
