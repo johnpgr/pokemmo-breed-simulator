@@ -8,7 +8,6 @@ export enum BreedErrorKind {
     GenderlessSpeciesCompatibility = "GENDERLESS_SPECIES_COMPATIBILITY",
     ChildDidNotChange = "CHILD_DID_NOT_CHANGE",
     RootNodeSpeciesMismatch = "ROOT_NODE_SPECIES_MISMATCH",
-    MissingSpecies = "MISSING_SPECIES",
 }
 
 export class BreedError {
@@ -66,23 +65,19 @@ export class PokemonBreedService {
     }
 
     private checkChild(child: PokemonNode, childSpecies: PokemonSpecies): BreedError | null {
-        if (!child.species) {
-            return new BreedError(BreedErrorKind.MissingSpecies)
-        }
-
         if (!child.isRootNode()) {
-            return child.species.id === childSpecies.id ? new BreedError(BreedErrorKind.ChildDidNotChange) : null
+            return child.species?.id === childSpecies.id ? new BreedError(BreedErrorKind.ChildDidNotChange) : null
         }
 
         // Handle root node cases
-        if (child.species.isGenderless()) {
-            const evolutionTree = child.species.getEvolutionTree(this.pokemonEvolutions)
+        if (child.species?.isGenderless()) {
+            const evolutionTree = child.species!.getEvolutionTree(this.pokemonEvolutions)
             return evolutionTree.includes(childSpecies.id)
                 ? null
                 : new BreedError(BreedErrorKind.RootNodeSpeciesMismatch)
         }
 
-        return child.species.id === childSpecies.id ? null : new BreedError(BreedErrorKind.RootNodeSpeciesMismatch)
+        return child.species?.id === childSpecies.id ? null : new BreedError(BreedErrorKind.RootNodeSpeciesMismatch)
     }
 
     private checkEggGroups(parent1: PokemonNode, parent2: PokemonNode): BreedError | null {
