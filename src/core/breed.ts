@@ -3,11 +3,11 @@ import { PokemonNode } from "./PokemonBreedMap"
 import { PokemonGender, PokemonSpecies, PokemonSpeciesRaw } from "./pokemon"
 
 export enum BreedErrorKind {
-    GenderCompatibility = "GenderCompatibility",
-    EggGroupCompatibility = "EggGroupCompatibility",
-    GenderlessSpeciesCompatibility = "GenderlessSpeciesCompatibility",
-    ChildDidNotChange = "ChildDidNotChange",
-    RootNodeSpeciesMismatch = "RootNodeSpeciesMismatch",
+    GenderCompatibility = "GENDER_COMPATIBILITY",
+    EggGroupCompatibility = "EGG_GROUP_COMPATIBILITY",
+    GenderlessSpeciesCompatibility = "GENDERLESS_SPECIES_COMPATIBILITY",
+    ChildDidNotChange = "CHILD_DID_NOT_CHANGE",
+    RootNodeSpeciesMismatch = "ROOT_NODE_SPECIES_MISMATCH",
     MissingSpecies = "MISSING_SPECIES",
 }
 
