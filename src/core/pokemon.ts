@@ -1,94 +1,108 @@
-import { assert } from "@/lib/assert"
+import type { MonsterSpriteMeta } from "@/data/app-data"
+import { assert } from "@/lib/utils"
 import { z } from "zod"
+import AppData from "@/data/app-data"
 
 //prettier-ignore
-export enum PokemonType {
-    Fire     = "Fire",
-    Water    = "Water",
-    Grass    = "Grass",
-    Electric = "Electric",
-    Flying   = "Flying",
-    Normal   = "Normal",
-    Bug      = "Bug",
-    Poison   = "Poison",
-    Ground   = "Ground",
-    Rock     = "Rock",
-    Fighting = "Fighting",
-    Psychic  = "Psychic",
-    Ghost    = "Ghost",
-    Ice      = "Ice",
-    Dragon   = "Dragon",
-    Dark     = "Dark",
-    Steel    = "Steel",
-}
+export const PokemonType = {
+    Fire:     "Fire",
+    Water:    "Water",
+    Grass:    "Grass",
+    Electric: "Electric",
+    Flying:   "Flying",
+    Normal:   "Normal",
+    Bug:      "Bug",
+    Poison:   "Poison",
+    Ground:   "Ground",
+    Rock:     "Rock",
+    Fighting: "Fighting",
+    Psychic:  "Psychic",
+    Ghost:    "Ghost",
+    Ice:      "Ice",
+    Dragon:   "Dragon",
+    Dark:     "Dark",
+    Steel:    "Steel",
+} as const
+
+export type PokemonType = (typeof PokemonType)[keyof typeof PokemonType]
 
 //prettier-ignore
-export enum PokemonNature {
-    Hardy   = "Hardy",
-    Lonely  = "Lonely",
-    Brave   = "Brave",
-    Adamant = "Adamant",
-    Naughty = "Naughty",
-    Bold    = "Bold",
-    Docile  = "Docile",
-    Relaxed = "Relaxed",
-    Impish  = "Impish",
-    Lax     = "Lax",
-    Timid   = "Timid",
-    Hasty   = "Hasty",
-    Serious = "Serious",
-    Jolly   = "Jolly",
-    Naive   = "Naive",
-    Modest  = "Modest",
-    Mild    = "Mild",
-    Quiet   = "Quiet",
-    Bashful = "Bashful",
-    Rash    = "Rash",
-    Calm    = "Calm",
-    Gentle  = "Gentle",
-    Sassy   = "Sassy",
-    Careful = "Careful",
-    Quirky  = "Quirky",
-}
-export const ZPokemonNature = z.nativeEnum(PokemonNature)
+export const PokemonNature = {
+    Hardy:   "Hardy",
+    Lonely:  "Lonely",
+    Brave:   "Brave",
+    Adamant: "Adamant",
+    Naughty: "Naughty",
+    Bold:    "Bold",
+    Docile:  "Docile",
+    Relaxed: "Relaxed",
+    Impish:  "Impish",
+    Lax:     "Lax",
+    Timid:   "Timid",
+    Hasty:   "Hasty",
+    Serious: "Serious",
+    Jolly:   "Jolly",
+    Naive:   "Naive",
+    Modest:  "Modest",
+    Mild:    "Mild",
+    Quiet:   "Quiet",
+    Bashful: "Bashful",
+    Rash:    "Rash",
+    Calm:    "Calm",
+    Gentle:  "Gentle",
+    Sassy:   "Sassy",
+    Careful: "Careful",
+    Quirky:  "Quirky",
+} as const
+
+export type PokemonNature = (typeof PokemonNature)[keyof typeof PokemonNature]
+
+export const ZPokemonNature = z.enum(Object.values(PokemonNature))
 
 //prettier-ignore
-export enum PokemonEggGroup {
-    Monster     = "Monster",
-    WaterA      = "WaterA",
-    WaterB      = "WaterB",
-    WaterC      = "WaterC",
-    Bug         = "Bug",
-    Flying      = "Flying",
-    Field       = "Field",
-    Fairy       = "Fairy",
-    Mineral     = "Mineral",
-    Plant       = "Plant",
-    Humanoid    = "Humanoid",
-    Chaos       = "Chaos",
-    Ditto       = "Ditto",
-    Dragon      = "Dragon",
-    CannotBreed = "CannotBreed",
-    Genderless  = "Genderless",
-}
+export const PokemonEggGroup = {
+    Monster:     "Monster",
+    WaterA:      "WaterA",
+    WaterB:      "WaterB",
+    WaterC:      "WaterC",
+    Bug:         "Bug",
+    Flying:      "Flying",
+    Field:       "Field",
+    Fairy:       "Fairy",
+    Mineral:     "Mineral",
+    Plant:       "Plant",
+    Humanoid:    "Humanoid",
+    Chaos:       "Chaos",
+    Ditto:       "Ditto",
+    Dragon:      "Dragon",
+    CannotBreed: "CannotBreed",
+    Genderless:  "Genderless",
+} as const
+
+export type PokemonEggGroup =
+  (typeof PokemonEggGroup)[keyof typeof PokemonEggGroup]
 
 //prettier-ignore
-export enum PokemonIv {
-    HP             = "Hp",
-    Attack         = "Attack",
-    Defense        = "Defense",
-    SpecialAttack  = "SpecialAttack",
-    SpecialDefense = "SpecialDefense",
-    Speed          = "Speed",
-}
-export const ZPokemonIv = z.nativeEnum(PokemonIv)
+export const PokemonIv = {
+    HP:             "Hp",
+    Attack:         "Attack",
+    Defense:        "Defense",
+    SpecialAttack:  "SpecialAttack",
+    SpecialDefense: "SpecialDefense",
+    Speed:          "Speed",
+} as const
 
-export enum PokemonGender {
-  Female = "Female",
-  Male = "Male",
-  Genderless = "Genderless",
-}
-export const ZPokemonGender = z.nativeEnum(PokemonGender)
+export type PokemonIv = (typeof PokemonIv)[keyof typeof PokemonIv]
+export const ZPokemonIv = z.enum(Object.values(PokemonIv))
+
+export const PokemonGender = {
+  Female: "Female",
+  Male: "Male",
+  Genderless: "Genderless",
+} as const
+
+export type PokemonGender = (typeof PokemonGender)[keyof typeof PokemonGender]
+export const ZPokemonGender = z.enum(Object.values(PokemonGender))
 
 export type PokemonSpeciesRaw = {
   id: number
@@ -99,29 +113,45 @@ export type PokemonSpeciesRaw = {
 }
 
 export class PokemonSpecies {
+  id: number
+  name: string
+  types: [PokemonType, PokemonType?]
+  eggGroups: [PokemonEggGroup, PokemonEggGroup?]
+  percentageMale: number
+
   constructor(
-    public id: number,
-    public name: string,
-    public types: [PokemonType, PokemonType?],
-    public eggGroups: [PokemonEggGroup, PokemonEggGroup?],
-    public percentageMale: number,
-  ) {}
+    id: number,
+    name: string,
+    types: [PokemonType, PokemonType?],
+    eggGroups: [PokemonEggGroup, PokemonEggGroup?],
+    percentageMale: number,
+  ) {
+    this.id = id
+    this.name = name
+    this.types = types
+    this.eggGroups = eggGroups
+    this.percentageMale = percentageMale
+  }
 
   static parse(data: PokemonSpeciesRaw): PokemonSpecies {
     const types = Object.values(PokemonType)
     const eggGroups = Object.values(PokemonEggGroup)
 
-    assert(types.includes(data.types[0]!), "Invalid type")
+    //@ts-expect-error this is ok
+    assert(types.includes(data.types[0]), "Invalid type")
     if (data.types[1]) {
+      //@ts-expect-error this is ok
       assert(types.includes(data.types[1]), "Invalid type")
     }
 
     assert(
-      eggGroups.includes(data.eggGroups[0]!),
+      //@ts-expect-error this is ok
+      eggGroups.includes(data.eggGroups[0]),
       `Invalid egg group ${data.eggGroups[0]} valids are ${eggGroups}`,
     )
     if (data.eggGroups[1]) {
       assert(
+        //@ts-expect-error this is ok
         eggGroups.includes(data.eggGroups[1]),
         `Invalid egg group ${data.eggGroups[1]} valids are ${eggGroups}`,
       )
@@ -160,6 +190,10 @@ export class PokemonSpecies {
     assert(base !== undefined, "Pokemon Base evolution not found")
     return base
   }
+
+  get spriteMeta(): MonsterSpriteMeta {
+    return AppData.monsterMapping[this.id]
+  }
 }
 
 /** In Pokemmo, in breeding, you can only breed a pokemon couple once.
@@ -167,11 +201,14 @@ export class PokemonSpecies {
  * That's why we need a certain number of pokemon kind, grouped here by a, b, c, d, e & nature.
  * https://pokemmo.shoutwiki.com/wiki/Breeding
  */
-export enum PokemonBreederKind {
-  A = "A",
-  B = "B",
-  C = "C",
-  D = "D",
-  E = "E",
-  Nature = "Nature",
-}
+export const PokemonBreederKind = {
+  A: "A",
+  B: "B",
+  C: "C",
+  D: "D",
+  E: "E",
+  Nature: "Nature",
+} as const
+
+export type PokemonBreederKind =
+  (typeof PokemonBreederKind)[keyof typeof PokemonBreederKind]

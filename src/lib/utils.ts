@@ -1,13 +1,22 @@
-import { type ClassValue, clsx } from "clsx"
+import { BREED_EXPECTED_COSTS, IV_COLOR_DICT, type IvColor } from "@/data/consts"
+import type { PokemonIv } from "@/core/pokemon"
+import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { assert } from "./assert"
+
+export const BASE_SPRITES_URL =
+  "https://raw.githubusercontent.com/msikma/pokesprite/master/icons/pokemon/regular"
+export const BASE_ITEM_SPRITES_URL =
+  "https://raw.githubusercontent.com/msikma/pokesprite/master/items"
+
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function run<T>(fn: () => T): T {
-  return fn()
+export function assert(condition: unknown, message?: string): asserts condition {
+  if (!condition) {
+    throw new Error("Assertion failed " + message)
+  }
 }
 
 export function randomString(length: number) {
@@ -37,4 +46,29 @@ export function capitalize(input: string) {
 
 export function unreachable(msg: string): never {
   throw new Error(msg)
+}
+
+export function getColorsByIvs(ivs: PokemonIv[]): IvColor[] {
+  return ivs.map((iv) => IV_COLOR_DICT[iv])
+}
+
+export function getExpectedBreedCost(
+  desired31IVCount: number,
+  natured: boolean
+): number {
+  const costsTable = BREED_EXPECTED_COSTS[desired31IVCount]
+  assert(costsTable, "Expected cost must be defined")
+
+  if (natured) {
+    return costsTable.natured
+  }
+
+  return costsTable.natureless
+}
+
+export function getEvItemSpriteUrl(item: string) {
+  if (item === "everstone")
+    return `${BASE_ITEM_SPRITES_URL}/hold-item/${item}.png`
+
+  return `${BASE_ITEM_SPRITES_URL}/ev-item/${item}.png`
 }
