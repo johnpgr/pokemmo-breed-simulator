@@ -9,6 +9,18 @@ export type MonsterSpriteMeta = {
   height: number
 }
 
+const BASE_PATH = import.meta.env.VITE_BASE_PATH || ""
+
+function fetchPublicAssets(input: RequestInfo | URL, init?: RequestInit) {
+  let url: string
+  if (typeof input === "string" || input instanceof URL) {
+    url = BASE_PATH + input.toString()
+  } else {
+    url = BASE_PATH + input.url
+  }
+  return fetch(url, init)
+}
+
 class AppData {
   private _species: PokemonSpeciesRaw[] | undefined = undefined
   private _evolutions: number[][] | undefined = undefined
@@ -23,11 +35,11 @@ class AppData {
       return
 
     const [speciesRes, evolutionsRes, monsterMappingRes] = await Promise.all([
-      fetch("/monster.json").then((r) => r.json()),
-      fetch("/evolutions.json").then((r) => r.json()),
+      fetchPublicAssets("/monster.json").then((r) => r.json()),
+      fetchPublicAssets("/evolutions.json").then((r) => r.json()),
       // monster-sprites.json has string keys (because JSON keys are strings).
       // Convert them to numeric keys here.
-      fetch("/monster-sprites.json").then(async (r) => {
+      fetchPublicAssets("/monster-sprites.json").then(async (r) => {
         const data = await r.json()
         if (!data || typeof data !== "object") return {}
         const out: Record<number, MonsterSpriteMeta> = {}
