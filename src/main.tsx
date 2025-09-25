@@ -14,7 +14,7 @@ await AppData.init()
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <link rel="preload" as="image" href={url("/monsters-spritesheet.png")} />
+    <link rel="preload" as="image" href={url("monsters-spritesheet.png")} />
     <title>PokeMMO Breeding Planner</title>
     <ThemeProvider defaultTheme="system" storageKey="ui-theme">
       <BreedContextProvider>
