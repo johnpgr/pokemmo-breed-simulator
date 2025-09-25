@@ -84,76 +84,82 @@ export enum PokemonIv {
 export const ZPokemonIv = z.nativeEnum(PokemonIv)
 
 export enum PokemonGender {
-    Female = "Female",
-    Male = "Male",
-    Genderless = "Genderless",
+  Female = "Female",
+  Male = "Male",
+  Genderless = "Genderless",
 }
 export const ZPokemonGender = z.nativeEnum(PokemonGender)
 
 export type PokemonSpeciesRaw = {
-    id: number
-    name: string
-    types: string[]
-    eggGroups: string[]
-    percentageMale: number
+  id: number
+  name: string
+  types: string[]
+  eggGroups: string[]
+  percentageMale: number
 }
 
 export class PokemonSpecies {
-    constructor(
-        public id: number,
-        public name: string,
-        public types: [PokemonType, PokemonType?],
-        public eggGroups: [PokemonEggGroup, PokemonEggGroup?],
-        public percentageMale: number,
-    ) {}
+  constructor(
+    public id: number,
+    public name: string,
+    public types: [PokemonType, PokemonType?],
+    public eggGroups: [PokemonEggGroup, PokemonEggGroup?],
+    public percentageMale: number,
+  ) {}
 
-    static parse(data: PokemonSpeciesRaw): PokemonSpecies {
-        const types = Object.values(PokemonType)
-        const eggGroups = Object.values(PokemonEggGroup)
+  static parse(data: PokemonSpeciesRaw): PokemonSpecies {
+    const types = Object.values(PokemonType)
+    const eggGroups = Object.values(PokemonEggGroup)
 
-        assert(types.includes(data.types[0]!), "Invalid type")
-        if (data.types[1]) {
-            assert(types.includes(data.types[1]), "Invalid type")
-        }
-
-        assert(eggGroups.includes(data.eggGroups[0]!), `Invalid egg group ${data.eggGroups[0]} valids are ${eggGroups}`)
-        if (data.eggGroups[1]) {
-            assert(
-                eggGroups.includes(data.eggGroups[1]),
-                `Invalid egg group ${data.eggGroups[1]} valids are ${eggGroups}`,
-            )
-        }
-
-        return new PokemonSpecies(
-            data.id,
-            data.name,
-            [data.types[0] as PokemonType, data.types[1] as PokemonType],
-            [data.eggGroups[0] as PokemonEggGroup, data.eggGroups[1] as PokemonEggGroup | undefined],
-            data.percentageMale,
-        )
+    assert(types.includes(data.types[0]!), "Invalid type")
+    if (data.types[1]) {
+      assert(types.includes(data.types[1]), "Invalid type")
     }
 
-    public isDitto(): boolean {
-        return this.eggGroups[0] === PokemonEggGroup.Ditto
+    assert(
+      eggGroups.includes(data.eggGroups[0]!),
+      `Invalid egg group ${data.eggGroups[0]} valids are ${eggGroups}`,
+    )
+    if (data.eggGroups[1]) {
+      assert(
+        eggGroups.includes(data.eggGroups[1]),
+        `Invalid egg group ${data.eggGroups[1]} valids are ${eggGroups}`,
+      )
     }
 
-    public isGenderless(): boolean {
-        return this.eggGroups[0] === PokemonEggGroup.Genderless
-    }
+    return new PokemonSpecies(
+      data.id,
+      data.name,
+      [data.types[0] as PokemonType, data.types[1] as PokemonType],
+      [
+        data.eggGroups[0] as PokemonEggGroup,
+        data.eggGroups[1] as PokemonEggGroup | undefined,
+      ],
+      data.percentageMale,
+    )
+  }
 
-    public getEvolutionTree(pokemonEvolutions: number[][]): number[] {
-        const evoTree = pokemonEvolutions.find((t) => t.includes(this.id))
-        assert(evoTree, `No evolution tree found for ${this.name}`)
+  public isDitto(): boolean {
+    return this.eggGroups[0] === PokemonEggGroup.Ditto
+  }
 
-        return evoTree
-    }
+  public isGenderless(): boolean {
+    return this.eggGroups[0] === PokemonEggGroup.Genderless
+  }
 
-    public getBaseEvolutionId(pokemonEvolutions: number[][]): number {
-        const tree = this.getEvolutionTree(pokemonEvolutions)
-        const base = tree[0]
-        assert(base !== undefined, "Pokemon Base evolution not found")
-        return base
-    }
+  public getEvolutionTree(pokemonEvolutions: number[][]): number[] {
+    const evoTree = pokemonEvolutions.find((t) => t.includes(this.id))
+    assert(evoTree, `No evolution tree found for ${this.name}`)
+
+    return evoTree
+  }
+
+  public getBaseEvolutionId(pokemonEvolutions: number[][]): number {
+    const tree = this.getEvolutionTree(pokemonEvolutions)
+    const base = tree[0]
+    assert(base !== undefined, "Pokemon Base evolution not found")
+    return base
+  }
 }
 
 /** In Pokemmo, in breeding, you can only breed a pokemon couple once.
@@ -162,10 +168,10 @@ export class PokemonSpecies {
  * https://pokemmo.shoutwiki.com/wiki/Breeding
  */
 export enum PokemonBreederKind {
-    A = "A",
-    B = "B",
-    C = "C",
-    D = "D",
-    E = "E",
-    Nature = "Nature",
+  A = "A",
+  B = "B",
+  C = "C",
+  D = "D",
+  E = "E",
+  Nature = "Nature",
 }

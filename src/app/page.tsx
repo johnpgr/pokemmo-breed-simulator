@@ -7,10 +7,10 @@ import evolutions from "@/data/evolutions.json" assert { type: "json" }
 export const dynamic = "force-static"
 
 export default function HomePage() {
-    return (
-        <BreedContextProvider species={pokemons} evolutions={evolutions}>
-            <PokemonToBreedSelect />
-            <PokemonBreedTreeView />
-        </BreedContextProvider>
-    )
+  return (
+    <BreedContextProvider species={pokemons} evolutions={evolutions}>
+      <PokemonToBreedSelect />
+      <PokemonBreedTreeView />
+    </BreedContextProvider>
+  )
 }
