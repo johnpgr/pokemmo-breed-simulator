@@ -8,11 +8,12 @@ import { PokemonBreedTreeView } from "./components/pokemon/PokemonBreedTreeView"
 import { ThemeProvider } from "./components/ui/theme-provider.tsx"
 import { ThemeToggle } from "./components/ui/theme-toggle.tsx"
 import "./index.css"
-
-await AppData.init()
+import { url } from "./lib/utils.ts"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    <link rel="preload" as="image" href={url("/monsters-spritesheet.png")} />
+    <title>PokeMMO Breeding Planner</title>
     <ThemeProvider defaultTheme="system" storageKey="ui-theme">
       <BreedContextProvider>
         <ThemeToggle />
@@ -23,3 +24,5 @@ createRoot(document.getElementById("root")!).render(
     </ThemeProvider>
   </StrictMode>,
 )
+
+await AppData.init()

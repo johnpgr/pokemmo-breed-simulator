@@ -1,4 +1,5 @@
 import type { PokemonSpeciesRaw } from "@/core/pokemon"
+import { url } from "@/lib/utils"
 
 // Local spritesheet file placed under /public by the build script
 export const MONSTERS_SPRITESHEET = "/monsters-spritesheet.png"
@@ -7,18 +8,6 @@ export type MonsterSpriteMeta = {
   y: number
   width: number
   height: number
-}
-
-const BASE_PATH = import.meta.env.VITE_BASE_PATH || ""
-
-function fetchPublicAssets(input: RequestInfo | URL, init?: RequestInit) {
-  let url: string
-  if (typeof input === "string" || input instanceof URL) {
-    url = BASE_PATH + input.toString()
-  } else {
-    url = BASE_PATH + input.url
-  }
-  return fetch(url, init)
 }
 
 class AppData {
@@ -35,11 +24,11 @@ class AppData {
       return
 
     const [speciesRes, evolutionsRes, monsterMappingRes] = await Promise.all([
-      fetchPublicAssets("/monster.json").then((r) => r.json()),
-      fetchPublicAssets("/evolutions.json").then((r) => r.json()),
+      fetch(url("/monster.json")).then((r) => r.json()),
+      fetch(url("/evolutions.json")).then((r) => r.json()),
       // monster-sprites.json has string keys (because JSON keys are strings).
       // Convert them to numeric keys here.
-      fetchPublicAssets("/monster-sprites.json").then(async (r) => {
+      fetch(url("/monster-sprites.json")).then(async (r) => {
         const data = await r.json()
         if (!data || typeof data !== "object") return {}
         const out: Record<number, MonsterSpriteMeta> = {}
