@@ -10,6 +10,8 @@ import { ThemeToggle } from "./components/ui/theme-toggle.tsx"
 import "./index.css"
 import { url } from "./lib/utils.ts"
 
+await AppData.init()
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <link rel="preload" as="image" href={url("/monsters-spritesheet.png")} />
@@ -25,4 +27,3 @@ createRoot(document.getElementById("root")!).render(
   </StrictMode>,
 )
 
-await AppData.init()
