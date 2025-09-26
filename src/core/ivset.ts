@@ -1,5 +1,5 @@
 import { assert } from "@/lib/utils"
-import { PokemonBreederKind, PokemonIv } from "../pokemon"
+import { PokemonBreederKind, PokemonIv } from "./pokemon"
 
 export class PokemonIvSet {
   public A: PokemonIv

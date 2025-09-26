@@ -1,9 +1,6 @@
 import React, { type Dispatch, type SetStateAction } from "react"
 
-export function useLocalStorage<T>(
-  key: string,
-  defaultValue: T,
-): [T, (value: T) => void] {
+export function useLocalStorage<T>(key: string, defaultValue: T) {
   const [state, _setState] = React.useState<T>(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem(key)
@@ -29,5 +26,12 @@ export function useLocalStorage<T>(
     }
   }
 
-  return [state, setState]
+  const deleteValue = React.useCallback(() => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem(key)
+      _setState(defaultValue)
+    }
+  }, [defaultValue, key])
+
+  return [state, setState, deleteValue] as const
 }

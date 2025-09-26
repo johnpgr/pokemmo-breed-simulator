@@ -9,15 +9,24 @@ import {
 import { kebabToSpacedPascal } from "@/lib/utils"
 import type { HeldItem } from "@/core/held-item"
 
-export function PokemonNodeHeldItem(props: { item: HeldItem }) {
+export interface PokemonNodeHeldItemProps {
+  item: HeldItem
+}
+
+export const PokemonNodeHeldItem: React.FC<PokemonNodeHeldItemProps> = ({
+  item,
+}) => {
   return (
     <TooltipProvider delayDuration={250}>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant={"secondary"} className="h-fit w-fit rounded-full p-0 border hover:bg-secondary dark:hover:bg-secondary hover:ring-2 hover:ring-offset-2 hover:ring-neutral-400 dark:hover:ring-neutral-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 dark:focus:ring-neutral-700">
+          <Button
+            variant={"secondary"}
+            className="hover:bg-secondary dark:hover:bg-secondary h-fit w-fit rounded-full border p-0 hover:ring-2 hover:ring-neutral-400 hover:ring-offset-2 focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:outline-none dark:hover:ring-neutral-700 dark:focus:ring-neutral-700"
+          >
             <img
-              src={getEvItemSpriteUrl(props.item)}
-              alt={`Held item: ${props.item}`}
+              src={getEvItemSpriteUrl(item)}
+              alt={`Held item: ${item}`}
               style={{
                 imageRendering: "pixelated",
               }}
@@ -25,7 +34,7 @@ export function PokemonNodeHeldItem(props: { item: HeldItem }) {
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <p>{kebabToSpacedPascal(props.item)}</p>
+          <p>{kebabToSpacedPascal(item)}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

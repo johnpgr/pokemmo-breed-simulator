@@ -12,17 +12,22 @@ import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 import { Data } from "@/lib/data"
 
-export function PokemonSpeciesSelect(props: {
+export interface PokemonSpeciesSelectProps {
   currentSelectedNode: PokemonNodeInSelect
   setCurrentSelectedNode: React.Dispatch<
     React.SetStateAction<PokemonNodeInSelect>
   >
-}) {
+}
+
+export const PokemonSpeciesSelect: React.FC<PokemonSpeciesSelectProps> = ({
+  currentSelectedNode,
+  setCurrentSelectedNode,
+}) => {
   const [isOpen, setIsOpen] = React.useState(false)
-  const currentSelectedSpecies = props.currentSelectedNode.species
+  const currentSelectedSpecies = currentSelectedNode.species
 
   function handleSpeciesSelect(pokemon: PokemonSpeciesRaw) {
-    props.setCurrentSelectedNode((prev) => ({
+    setCurrentSelectedNode((prev) => ({
       ...prev,
       species: PokemonSpecies.parse(pokemon),
     }))
@@ -73,9 +78,7 @@ export function PokemonSpeciesSelect(props: {
             if (pokemon) handleSpeciesSelect(pokemon)
           }}
           renderOption={(option) => {
-            const pokemon = Data.species.find(
-              (p) => p.name === option.value,
-            )!
+            const pokemon = Data.species.find((p) => p.name === option.value)!
             const meta = Data.monsterMapping[pokemon.id]
             const isSelected = currentSelectedSpecies?.name === pokemon.name
 

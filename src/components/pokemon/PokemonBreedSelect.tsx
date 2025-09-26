@@ -1,5 +1,9 @@
 import { Button } from "@/components/ui/button"
-import type { PokemonIv, PokemonNature, PokemonSpecies } from "@/core/pokemon"
+import {
+  PokemonIv,
+  type PokemonNature,
+  type PokemonSpecies,
+} from "@/core/pokemon"
 import { assert, getExpectedBreedCost } from "@/lib/utils"
 import { Info, PlayIcon, RotateCcw } from "lucide-react"
 import React from "react"
@@ -7,15 +11,24 @@ import { JsonImportButton } from "../JsonImportButton"
 import { PokemonIvSelect } from "./PokemonIvSelect"
 import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
-import {
-  DEFAULT_IV_DROPDOWN_VALUES,
-  POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS,
-} from "@/lib/consts"
+import { POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "@/lib/consts"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { toast } from "sonner"
 import { z } from "zod"
-import { BreedContext } from "@/contexts/breed-context/store"
-import { ZBreedMap } from "@/core/breed-map"
+import {
+  BreedContext,
+  PokemonBreedTarget,
+} from "@/contexts/breed-context/store"
+import { PokemonIvSet } from "@/core/ivset"
+import { ZBreedMap } from "@/core/types"
+
+const DEFAULT_IV_DROPDOWN_VALUES: PokemonIv[] = [
+  PokemonIv.HP,
+  PokemonIv.Attack,
+  PokemonIv.Defense,
+  PokemonIv.SpecialDefense,
+  PokemonIv.Speed,
+]
 
 /**
  * This type is used to represent the state of the full Pokemon node that is going to be used in the PokemonToBreedContext
@@ -29,25 +42,23 @@ export type PokemonNodeInSelect = {
 
 export function PokemonToBreedSelect() {
   const ctx = React.use(BreedContext)
-
-  const [desired31IVCount, setDesired31IVCount] = React.useState(2)
-
+  const [ivCount, setIvCount] = React.useState(2)
   const [currentIVDropdownValues, setCurrentIVDropdownValues] = React.useState(
     DEFAULT_IV_DROPDOWN_VALUES,
   )
 
   const [currentPokemonInSelect, setCurrentPokemonInSelect] =
     React.useState<PokemonNodeInSelect>({
-      ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, desired31IVCount)),
+      ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, ivCount)),
     })
 
   const expectedCost = getExpectedBreedCost(
-    desired31IVCount,
+    ivCount,
     Boolean(currentPokemonInSelect.nature),
   )
 
   const breederKindCountTable = (() => {
-    const table = POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[desired31IVCount]
+    const table = POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS[ivCount]
     assert(
       table,
       "POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS accessed with an invalid key.",
@@ -66,7 +77,7 @@ export function PokemonToBreedSelect() {
   )
 
   function validateIvFieldsUniqueness() {
-    const selectedValues = currentIVDropdownValues.slice(0, desired31IVCount)
+    const selectedValues = currentIVDropdownValues.slice(0, ivCount)
     const uniques = new Set(selectedValues)
     return uniques.size === selectedValues.length
   }
@@ -91,21 +102,22 @@ export function PokemonToBreedSelect() {
     const finalIvs = Array.from(currentPokemonInSelect.ivs)
 
     assert(finalIvs.length >= 2, "At least 2 IV fields must be selected")
-    ctx.breedTree.setMap((prev) => {
-      const target = prev["0,0"]!
-      target.species = currentPokemonInSelect.species
-      target.ivs = finalIvs
-      target.nature = currentPokemonInSelect.nature
-      return { ...prev }
-    })
-    ctx.breedTree.initialize()
+
+    const breedTarget = new PokemonBreedTarget(
+      PokemonIvSet.fromArray(finalIvs),
+      currentPokemonInSelect.species,
+      currentPokemonInSelect.nature,
+    )
+    ctx.setBreedTarget(breedTarget)
+    ctx.initializeBreedMap(breedTarget)
+    ctx.updateBreedTree()
   }
 
   function handleResetFields() {
     setCurrentPokemonInSelect({
-      ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, desired31IVCount)),
+      ivs: new Set(DEFAULT_IV_DROPDOWN_VALUES.slice(0, ivCount)),
     })
-    setDesired31IVCount(2)
+    setIvCount(2)
     setCurrentIVDropdownValues(DEFAULT_IV_DROPDOWN_VALUES)
   }
 
@@ -132,7 +144,7 @@ export function PokemonToBreedSelect() {
     ctx.deserialize(res.data)
   }
 
-  if (ctx.breedTree.rootNode.species) {
+  if (ctx.breedTarget) {
     return null
   }
 
@@ -163,9 +175,8 @@ export function PokemonToBreedSelect() {
           />
           <PokemonIvSelect
             breederKindCountTable={breederKindCountTable}
-            desired31IVCount={desired31IVCount}
-            setDesired31IVCount={setDesired31IVCount}
-            currentPokemonInSelect={currentPokemonInSelect}
+            ivCount={ivCount}
+            setDesired31IVCount={setIvCount}
             setCurrentPokemonInSelect={setCurrentPokemonInSelect}
             currentIVDropdownValues={currentIVDropdownValues}
             setCurrentIVDropdownValues={setCurrentIVDropdownValues}

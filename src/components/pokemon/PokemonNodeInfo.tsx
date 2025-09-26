@@ -1,105 +1,96 @@
-import React from "react"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { BreedContext } from "@/contexts/breed-context/store"
+import { getHeldItemForNode, HeldItem } from "@/core/held-item"
+import { Data } from "@/lib/data"
+import { pascalToSpacedPascal, randomString } from "@/lib/utils"
+import React from "react"
 import { PokemonNodeGender } from "./PokemonNodeGender"
 import { PokemonNodeHeldItem } from "./PokemonNodeHeldItem"
 import { PokemonNodeNickname } from "./PokemonNodeNickname"
-import { Button } from "@/components/ui/button"
-import { pascalToSpacedPascal, randomString } from "@/lib/utils"
-import { getHeldItemForNode, HeldItem } from "@/core/held-item"
-import type { PokemonNode } from "@/core/breed-map/node"
-import type { PokemonBreedMap } from "@/core/breed-map"
-import { BreedContext } from "@/contexts/breed-context/store"
-import { Data } from "@/lib/data"
+import type { PokemonNode } from "@/core/node"
 
-export function PokemonNodeInfo(props: {
-  desired31IvCount: number
+interface PokemonNodeInfoProps {
   currentNode: PokemonNode
-  breedTree: PokemonBreedMap
-  updateBreedTree: () => void
-}) {
+}
+
+export const PokemonNodeInfo: React.FC<PokemonNodeInfoProps> = ({
+  currentNode,
+}) => {
   const ctx = React.use(BreedContext)
-  const heldItem = getHeldItemForNode(props.currentNode, props.breedTree)
+  const heldItem = getHeldItemForNode(currentNode, ctx.breedMap)
 
   function resetNode() {
-    props.currentNode.gender = undefined
-    props.currentNode.species = undefined
-    props.updateBreedTree()
-    ctx.save()
+    currentNode.reset()
+    ctx.updateBreedTree()
   }
 
   return (
     <Card className="relative h-fit w-full md:ml-4 md:max-w-64">
       <CardHeader>
         <CardTitle className="flex items-center">
-          {props.currentNode && props.currentNode.species ? (
+          {currentNode && currentNode.species ? (
             <div className="flex items-center">
-              {props.currentNode.species ? (
+              {currentNode.species ? (
                 <div
                   className="mb-1"
                   style={{
-                    width: props.currentNode.species.spriteMeta.width,
-                    height: props.currentNode.species.spriteMeta.height,
+                    width: currentNode.species.spriteMeta.width,
+                    height: currentNode.species.spriteMeta.height,
                     backgroundImage: `url(${Data.spritesheet})`,
-                    backgroundPosition: `-${props.currentNode.species.spriteMeta.x}px -${props.currentNode.species.spriteMeta.y}px`,
+                    backgroundPosition: `-${currentNode.species.spriteMeta.x}px -${currentNode.species.spriteMeta.y}px`,
                     imageRendering: "pixelated",
                     backgroundRepeat: "no-repeat",
                   }}
                   aria-hidden
                 />
               ) : null}
-              <PokemonNodeNickname
-                currentNode={props.currentNode}
-                updateBreedTree={props.updateBreedTree}
-              />
+              <PokemonNodeNickname currentNode={currentNode} />
             </div>
           ) : null}
         </CardTitle>
-        {!props.currentNode.isRootNode() ? (
+        {!currentNode.isRootNode() ? (
           <div className="absolute -top-4 -left-3 flex flex-col-reverse items-center gap-1">
-            <PokemonNodeGender
-              desired31IvCount={props.desired31IvCount}
-              currentNode={props.currentNode}
-              breedTree={props.breedTree}
-              updateBreedTree={props.updateBreedTree}
-            />
+            <PokemonNodeGender currentNode={currentNode} />
             <PokemonNodeHeldItem
               item={
-                //if not natured, ivs must exist.
-                props.currentNode.nature ? HeldItem.Nature : heldItem!
+                currentNode.nature
+                  ? HeldItem.Nature
+                  : (heldItem ?? ("" as HeldItem))
               }
             />
           </div>
         ) : null}
       </CardHeader>
       <CardContent className="flex flex-col gap-1 pl-9">
-        {props.currentNode.ivs ? (
+        {currentNode.ivs ? (
           <>
             <p className="-mb-1 font-bold">Ivs</p>
-            {props.currentNode.ivs.map((iv) => (
+            {currentNode.ivs.map((iv) => (
               <span className="text-sm" key={randomString(4)}>
                 31 {pascalToSpacedPascal(iv)}
               </span>
             ))}
           </>
         ) : null}
-        {props.currentNode.nature ? (
+        {currentNode.nature ? (
           <>
             <p className="-mb-1 font-bold">Nature</p>
-            <span className="text-sm">{props.currentNode.nature}</span>
+            <span className="text-sm">{currentNode.nature}</span>
           </>
         ) : null}
-        {props.currentNode.species ? (
+        {currentNode.species ? (
           <>
             <p className="-mb-1 font-bold">Egg Groups</p>
             <p>
               <span className="text-sm">
-                {props.currentNode.species!.eggGroups[0]}
-                {props.currentNode.species?.eggGroups[1]
-                  ? `, ${props.currentNode.species.eggGroups[1]}`
+                {currentNode.species!.eggGroups[0]}
+                {currentNode.species?.eggGroups[1]
+                  ? `, ${currentNode.species.eggGroups[1]}`
                   : null}
               </span>
             </p>
-            {!props.currentNode.isRootNode() ? (
+            {!currentNode.isRootNode() ? (
               <Button
                 onClick={resetNode}
                 className="mt-2"

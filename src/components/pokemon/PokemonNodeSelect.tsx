@@ -7,23 +7,21 @@ import {
   CommandInput,
   CommandItem,
 } from "@/components/ui/command"
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { BreedContext } from "@/contexts/breed-context/store"
+import type { PokemonBreedMapPosition } from "@/core/position"
 import {
   PokemonGender,
   PokemonSpecies,
   type PokemonSpeciesRaw,
 } from "@/core/pokemon"
-import { assert, getColorsByIvs } from "@/lib/utils"
-import { Data } from "@/lib/data"
-import { Check } from "lucide-react"
-import React from "react"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { PokemonNodeInfo } from "./PokemonNodeInfo"
 import {
   DITTO,
   IV_COLOR_DICT,
@@ -31,10 +29,11 @@ import {
   NODE_SCALE_BY_COLOR_AMOUNT,
   SPRITE_SCALE_BY_COLOR_AMOUNT,
 } from "@/lib/consts"
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
-import type { PokemonBreedMapPosition } from "@/core/breed-map/position"
-import type { PokemonBreedMap } from "@/core/breed-map"
-import { BreedContext } from "@/contexts/breed-context/store"
+import { Data } from "@/lib/data"
+import { assert, getColorsByIvs } from "@/lib/utils"
+import { Check } from "lucide-react"
+import React from "react"
+import { PokemonNodeInfo } from "./PokemonNodeInfo"
 
 const SearchMode = {
   All: "All",
@@ -42,26 +41,26 @@ const SearchMode = {
 }
 export type SearchMode = (typeof SearchMode)[keyof typeof SearchMode]
 
-export function PokemonNodeSelect(props: {
-  desired31IvCount: number
+interface PokemonNodeSelectProps {
   position: PokemonBreedMapPosition
-  breedTree: PokemonBreedMap
-  updateBreedTree: () => void
-}) {
-  // no unique id needed here; using stable values for keys instead
+}
+
+export const PokemonNodeSelect: React.FC<PokemonNodeSelectProps> = ({
+  position,
+}) => {
   const ctx = React.use(BreedContext)
-  const target = ctx.breedTree.rootNode
+  const target = ctx.breedTarget
   const [pending, startTransition] = React.useTransition()
   const isDesktop = useMediaQuery("(min-width: 768px)")
   const [searchMode, setSearchMode] = React.useState(SearchMode.All)
   const [search, setSearch] = React.useState("")
-  const isRootNode = props.position.col === 0 && props.position.row === 0
-  const currentNode = props.breedTree[props.position.key]
+  const isRootNode = position.col === 0 && position.row === 0
+  const currentNode = ctx.breedMap[position.key]
 
   assert(currentNode, "Current node should exist in PokemonNodeSelect")
 
   function setPokemonSpecies(species: PokemonSpeciesRaw) {
-    assert(currentNode, `Node at ${props.position} should exist`)
+    assert(currentNode, `Node at ${position} should exist`)
     currentNode.species = PokemonSpecies.parse(species)
 
     switch (true) {
@@ -83,7 +82,7 @@ export function PokemonNodeSelect(props: {
         break
     }
 
-    props.updateBreedTree()
+    ctx.updateBreedTree()
   }
 
   function handleSearchModeChange() {
@@ -95,7 +94,7 @@ export function PokemonNodeSelect(props: {
   }
 
   function filterPokemonByEggGroups(): PokemonSpeciesRaw[] {
-    assert(target.species, "Pokemon in context should exist")
+    assert(target && target.species, "Pokemon in context should exist")
     const newList: PokemonSpeciesRaw[] = []
 
     newList.push(DITTO)
@@ -167,14 +166,7 @@ export function PokemonNodeSelect(props: {
           </Button>
         </PopoverTrigger>
         <PopoverContent className="flex w-full max-w-2xl gap-4 border-none bg-transparent p-0 shadow-none">
-          {currentNode ? (
-            <PokemonNodeInfo
-              desired31IvCount={props.desired31IvCount}
-              breedTree={props.breedTree}
-              updateBreedTree={props.updateBreedTree}
-              currentNode={currentNode}
-            />
-          ) : null}
+          {currentNode ? <PokemonNodeInfo currentNode={currentNode} /> : null}
           {!isRootNode ? (
             <Command className="w-full max-w-lg border">
               <CommandInput
@@ -189,7 +181,7 @@ export function PokemonNodeSelect(props: {
                   checked={searchMode === SearchMode.EggGroupMatches}
                   onCheckedChange={handleSearchModeChange}
                 />
-                Show only {target.species?.name}&apos;s egg groups
+                Show only {target?.species?.name}&apos;s egg groups
               </div>
               <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
               <CommandGroup>
@@ -276,7 +268,7 @@ export function PokemonNodeSelect(props: {
                 checked={searchMode === SearchMode.EggGroupMatches}
                 onCheckedChange={handleSearchModeChange}
               />
-              Show only {target.species?.name}&apos;s egg groups
+              Show only {target?.species?.name}&apos;s egg groups
             </div>
             <CommandEmpty>{!pending ? "No results" : ""}</CommandEmpty>
             <CommandGroup>
@@ -313,14 +305,7 @@ export function PokemonNodeSelect(props: {
             </CommandGroup>
           </Command>
         ) : null}
-        {currentNode ? (
-          <PokemonNodeInfo
-            desired31IvCount={props.desired31IvCount}
-            breedTree={props.breedTree}
-            updateBreedTree={props.updateBreedTree}
-            currentNode={currentNode}
-          />
-        ) : null}
+        {currentNode ? <PokemonNodeInfo currentNode={currentNode} /> : null}
       </DrawerContent>
     </Drawer>
   )

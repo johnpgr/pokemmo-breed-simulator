@@ -48,7 +48,7 @@ export function useMediaQuery(
         matchMedia.removeEventListener("change", handleChange)
       }
     }
-  }, [query])
+  }, [handleChange, query])
 
   return matches
 }

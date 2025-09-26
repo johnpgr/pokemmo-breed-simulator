@@ -1,21 +1,4 @@
-import { PokemonIv, type PokemonSpeciesRaw } from "@/core/pokemon"
-
-export const DEFAULT_IV_DROPDOWN_VALUES: PokemonIv[] = [
-  PokemonIv.HP,
-  PokemonIv.Attack,
-  PokemonIv.Defense,
-  PokemonIv.SpecialDefense,
-  PokemonIv.Speed,
-]
-
-export const IV_DROPDOWN_LIST_VALUES: PokemonIv[] = [
-  PokemonIv.HP,
-  PokemonIv.Attack,
-  PokemonIv.Defense,
-  PokemonIv.SpecialDefense,
-  PokemonIv.SpecialAttack,
-  PokemonIv.Speed,
-]
+import { type PokemonSpeciesRaw } from "@/core/pokemon"
 
 export const BREED_ITEM_COSTS = {
   iv: 10000,

@@ -1,7 +1,7 @@
 import { assert } from "@/lib/utils"
-import { PokemonNode } from "./breed-map/node"
+import { PokemonNode } from "./node"
 import { PokemonGender, PokemonSpecies } from "./pokemon"
-import {Data} from "@/lib/data"
+import { Data } from "@/lib/data"
 
 export const BreedErrorKind = {
   GenderCompatibility: "GENDER_COMPATIBILITY",
@@ -163,9 +163,7 @@ export class PokemonBreeder {
 
     // Handle non-Ditto genderless cases
     if (isGenderless1) {
-      const evolutionTree = parent1.species!.getEvolutionTree(
-        Data.evolutions,
-      )
+      const evolutionTree = parent1.species!.getEvolutionTree(Data.evolutions)
       return evolutionTree.includes(parent2.species!.id)
         ? null
         : new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility)

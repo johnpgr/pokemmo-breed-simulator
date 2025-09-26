@@ -1,6 +1,6 @@
-import type { PokemonBreedMap } from "./breed-map"
-import type { PokemonNode } from "./breed-map/node"
+import type { PokemonNode } from "./node"
 import { PokemonIv } from "./pokemon"
+import type { PokemonBreedMap } from "./types"
 
 export const HeldItem = {
   HP: "power-weight",

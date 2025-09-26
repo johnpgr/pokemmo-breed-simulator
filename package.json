@@ -8,6 +8,7 @@
     "build": "tsc -b && vite-react-ssg build",
     "build:spritesheet": "node scripts/build-spritesheet.ts",
     "build:monsterdata": "node scripts/build-monsterdata.ts",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "preview": "vite preview"
   },

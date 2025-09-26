@@ -1,61 +1,232 @@
-import { assert, unreachable } from "@/lib/utils"
-import { useLocalStorage } from "@/hooks/use-local-storage"
-import React from "react"
-import { PokemonSpecies } from "../../core/pokemon"
-import type { PokemonBreedMapSerialized, ZBreedMap } from "@/core/breed-map"
-import { usePokemonBreedMap } from "@/core/breed-map/hook"
-import { PokemonNode } from "@/core/breed-map/node"
+import { PokemonIvSet } from "@/core/ivset"
+import { PokemonNode } from "@/core/node"
 import {
   PokemonBreedMapPosition,
   type PokemonBreedMapPositionKey,
-} from "@/core/breed-map/position"
-import { BreedContext } from "./store"
+} from "@/core/position"
+import { BreedErrorKind, PokemonBreeder } from "@/core/breeder"
+import { useLocalStorage } from "@/hooks/use-local-storage"
 import { Data } from "@/lib/data"
+import { assert, unreachable } from "@/lib/utils"
+import React from "react"
+import { toast } from "sonner"
+import { PokemonBreederKind, PokemonSpecies } from "../../core/pokemon"
+import { BreedContext, PokemonBreedTarget } from "./store"
+import { LASTROW_MAPPING } from "./utils"
+import type {
+  BreedErrors,
+  PokemonBreedMap,
+  PokemonBreedMapSerialized,
+  ZBreedMap,
+} from "@/core/types"
 
 export function BreedContextProvider({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const [savedTree, setSavedTree] = useLocalStorage<ZBreedMap | undefined>(
-    "last-tree",
-    undefined,
+  const [breedTarget, setBreedTarget] = React.useState<
+    PokemonBreedTarget | undefined
+  >()
+  const [savedTree, _setSavedTree, deleteSavedTree] = useLocalStorage<
+    ZBreedMap | undefined
+  >("last-tree", undefined)
+  const [breedErrors, _setBreedErrors] = React.useState<BreedErrors>({})
+  const [breedMap, _setBreedMap] = React.useState<PokemonBreedMap>({
+    "0,0": PokemonNode.ROOT({ ivs: PokemonIvSet.DEFAULT }),
+  })
+
+  function initializeBreedMap(breedTarget: PokemonBreedTarget) {
+    assert(
+      breedTarget.ivCount >= 2 && breedTarget.ivCount <= 5,
+      "Invalid ivCount in breed target",
+    )
+
+    // Initialize root node w/ breedTarget
+    const rootNode = breedMap["0,0"]
+    rootNode.ivs = breedTarget.ivSet.toArray()
+    rootNode.nature = breedTarget.nature
+    rootNode.species = breedTarget.species
+
+    const natured = Boolean(breedTarget.nature)
+    const lastRowBreeders = LASTROW_MAPPING[breedTarget.ivCount]!
+    const lastRowBreedersPositions = natured
+      ? lastRowBreeders.natured
+      : lastRowBreeders.natureless
+
+    // initialize last row
+    for (const [k, v] of Object.entries(lastRowBreedersPositions)) {
+      switch (v) {
+        case PokemonBreederKind.Nature: {
+          const position = PokemonBreedMapPosition.fromKey(
+            k as PokemonBreedMapPositionKey,
+          )
+
+          let node = breedMap[position.key]
+          if (!node) {
+            node = new PokemonNode({ position })
+            breedMap[position.key] = node
+          }
+          node.nature = breedTarget.nature
+          break
+        }
+        default: {
+          const position = PokemonBreedMapPosition.fromKey(
+            k as PokemonBreedMapPositionKey,
+          )
+          const ivs = breedTarget.ivSet.get(v)
+          assert(ivs, "Ivs should exist for last row breeders")
+
+          let node = breedMap[position.key]
+          if (!node) {
+            node = new PokemonNode({ position })
+            breedMap[position.key] = node
+          }
+          node.ivs = [ivs]
+          break
+        }
+      }
+    }
+
+    // initialize the rest of the tree
+    // start from the second to last row
+    // stops on the first row where the final pokemon node is already set
+    // -1 for natured because of the way POKEMON_BREEDTREE_LASTROW_MAPPING is defined
+    let row = natured ? breedTarget.ivCount - 1 : breedTarget.ivCount - 2
+    while (row > 0) {
+      let col = 0
+      while (col < Math.pow(2, row)) {
+        const position = new PokemonBreedMapPosition(row, col)
+        let node = breedMap[position.key]
+        if (!node) {
+          node = new PokemonNode({ position })
+          breedMap[position.key] = node
+        }
+
+        const parentNodes = node.getParentNodes(breedMap)
+        assert(
+          parentNodes,
+          `Parent nodes should exist for node: ${node.position.key}`,
+        )
+
+        const p1Node = parentNodes[0]
+        const p2Node = parentNodes[1]
+
+        // calculate ivs and nature from parent nodes
+        const ivs = [...new Set([...(p1Node.ivs ?? []), ...(p2Node.ivs ?? [])])]
+        const nature = p1Node.nature ?? p2Node.nature ?? undefined
+
+        node.nature = nature
+        node.ivs = ivs
+
+        col = col + 1
+      }
+      row = row - 1
+    }
+    _setBreedMap({ ...breedMap })
+  }
+
+  // This function now encapsulates the breeding logic.
+  // It's called directly when a node is updated, removing the need for a useEffect to watch for map changes.
+  const runBreedingLogic = React.useCallback(
+    (map: PokemonBreedMap) => {
+      if (!breedTarget) return { updates: {}, errors: {} }
+
+      const breeder = PokemonBreeder.getInstance()
+      const updates: Record<PokemonBreedMapPositionKey, PokemonNode> = {}
+      const errors: BreedErrors = {}
+      const lastRow = breedTarget.nature
+        ? breedTarget.ivCount
+        : breedTarget.ivCount - 1
+      const rowLength = Math.pow(2, lastRow)
+
+      for (let col = 0; col < rowLength; col += 2) {
+        const pos = new PokemonBreedMapPosition(lastRow, col)
+        let node: PokemonNode | undefined = map[pos.key]
+        let partnerNode: PokemonNode | undefined = node?.getPartnerNode(map)
+
+        const next = () => {
+          node = node?.getChildNode(map)
+          partnerNode = node?.getPartnerNode(map)
+        }
+
+        while (node && partnerNode) {
+          const currentNodePos = node.position.key
+
+          if (
+            !node.gender ||
+            !partnerNode.gender ||
+            !node.species ||
+            !partnerNode.species
+          ) {
+            next()
+            continue
+          }
+
+          const childNode = node.getChildNode(map)
+          if (!childNode) {
+            break
+          }
+
+          const breedResult = breeder.breed(node, partnerNode, childNode)
+
+          if (!breedResult.success) {
+            if (
+              breedResult.errors.length !== 1 ||
+              breedResult.errors[0]!.kind !== BreedErrorKind.ChildDidNotChange
+            ) {
+              errors[currentNodePos] = breedResult.errors
+            }
+          } else {
+            if (!childNode.isRootNode()) {
+              const newNode = childNode.clone()
+              newNode.species = breedResult.species
+              newNode.gender = childNode.rollGender()
+              updates[newNode.position.key] = newNode
+            }
+          }
+          next()
+        }
+      }
+      return { updates, errors }
+    },
+    [breedTarget],
   )
-  const breedTree = usePokemonBreedMap()
 
   function serialize(): PokemonBreedMapSerialized {
-    const target = breedTree.rootNode
+    const rootNode = breedMap["0,0"]
+
     assert(
-      target.species !== undefined,
-      "Attempted to serialize target Pokemon before initializing context.",
+      rootNode !== undefined &&
+        rootNode.species !== undefined &&
+        rootNode.ivs !== undefined,
+      "Attempted to serialize before initializing.",
     )
-    assert(
-      target.ivs !== undefined,
-      "Attempted to serialize target Pokemon before initializing context.",
-    )
+
     const serialized: PokemonBreedMapSerialized = {}
-    for (const [key, node] of Object.entries(breedTree.map)) {
+    for (const [key, node] of Object.entries(breedMap)) {
       serialized[key as PokemonBreedMapPositionKey] = node.serialize(
-        target === node,
+        rootNode === node,
       )
     }
 
     return serialized
   }
 
-  function deserialize(serialized: PokemonBreedMapSerialized) {
+  function deserialize(serialized?: PokemonBreedMapSerialized) {
+    if (!serialized || !serialized["0,0"]) return
     for (const [pos, nodeRaw] of Object.entries(serialized)) {
       const key: PokemonBreedMapPositionKey =
         pos.split(",").length === 2
           ? (pos as PokemonBreedMapPositionKey)
           : unreachable("Invalid position key")
 
-      let node = breedTree.map[key]
+      let node = breedMap[key]
       if (!node) {
         node = new PokemonNode({
           position: PokemonBreedMapPosition.fromKey(key),
         })
-        breedTree.map[key] = node
+        breedMap[key] = node
       }
 
       if (nodeRaw.id) {
@@ -78,35 +249,126 @@ export function BreedContextProvider({
       }
     }
 
-    breedTree.setMap({ ...breedTree.map })
+    _setBreedMap({ ...breedMap })
+
+    const rootNode = breedMap["0,0"]
+    assert(
+      rootNode !== undefined &&
+        rootNode.species !== undefined &&
+        rootNode.ivs !== undefined,
+      "Root node should exist after deserializing",
+    )
+
+    const target = new PokemonBreedTarget(
+      PokemonIvSet.fromArray(rootNode.ivs),
+      rootNode.species,
+      rootNode.nature,
+    )
+    setBreedTarget(target)
+    initializeBreedMap(target)
   }
 
   function save() {
-    setSavedTree(serialize())
+    _setSavedTree(serialize())
   }
 
-  function load() {
-    if (!savedTree) return
-    const rootNode = savedTree["0,0"]
-    if (!rootNode) return
+  function setBreedErrors(errors: BreedErrors) {
+    _setBreedErrors(errors)
+    // Show toast notifications for errors
+    Object.entries(breedErrors).forEach(([key, errorKind]) => {
+      if (!errorKind) {
+        return
+      }
 
-    deserialize(savedTree)
-    breedTree.initialize()
+      const node = breedMap[key as PokemonBreedMapPositionKey]
+      if (!node?.species) {
+        return
+      }
+
+      const partner = node.getPartnerNode(breedMap)
+      if (!partner?.species) {
+        return
+      }
+
+      let errorMsg = ""
+      for (const error of errorKind.values()) {
+        if (error.kind === BreedErrorKind.ChildDidNotChange) {
+          continue
+        }
+        errorMsg += error.kind
+        errorMsg += ", "
+      }
+
+      if (errorMsg.endsWith(", ")) {
+        errorMsg = errorMsg.slice(0, -2)
+      }
+
+      if (errorMsg) {
+        toast.error(
+          `${node.species.name} cannot breed with ${partner.species.name}.`,
+          {
+            description: `Error codes: ${errorMsg}`,
+            action: {
+              label: "Dismiss",
+              onClick: () => {},
+            },
+          },
+        )
+      }
+    })
+  }
+
+  function updateBreedTree({
+    runLogic = true,
+    persist = true,
+    map = breedMap,
+  }: {
+    runLogic?: boolean
+    persist?: boolean
+    map?: PokemonBreedMap
+  } = {}) {
+    if (!runLogic) {
+      _setBreedMap({ ...map })
+    } else {
+      const { updates, errors } = runBreedingLogic(breedMap)
+      _setBreedMap({ ...map, ...updates })
+      setBreedErrors(errors)
+    }
+
+    if (persist) {
+      save()
+    }
   }
 
   function reset() {
-    setSavedTree(undefined)
+    deleteSavedTree()
+    setBreedTarget(undefined)
+    updateBreedTree({
+      runLogic: false,
+      persist: false,
+      map: { "0,0": PokemonNode.ROOT({ ivs: PokemonIvSet.DEFAULT }) },
+    })
   }
+
+  React.useEffect(() => {
+    ;(() => {
+      deserialize(savedTree)
+    })()
+  }, [savedTree])
 
   return (
     <BreedContext.Provider
       value={{
-        breedTree,
+        breedTarget,
+        setBreedTarget,
+        breedErrors,
+        setBreedErrors,
+        breedMap,
+        initializeBreedMap,
+        updateBreedTree,
         savedTree,
         serialize,
         deserialize,
-        save,
-        load,
         reset,
       }}
     >

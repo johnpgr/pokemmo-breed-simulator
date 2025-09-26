@@ -16,9 +16,15 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import z from "zod"
 import { BreedContext } from "@/contexts/breed-context/store"
-import { ZBreedMap } from "@/core/breed-map"
+import { ZBreedMap } from "@/core/types"
 
-export function ImportExportButton(props: { serialize: () => string }) {
+export interface ImportExportButtonProps {
+  serialize: () => string
+}
+
+export const ImportExportButton: React.FC<ImportExportButtonProps> = ({
+  serialize,
+}) => {
   const ctx = React.use(BreedContext)
   const [jsonData, setJsonData] = React.useState("")
 
@@ -56,17 +62,20 @@ export function ImportExportButton(props: { serialize: () => string }) {
           type="button"
           className="gap-1"
           variant={"secondary"}
-          onClick={() => setJsonData(props.serialize())}
+          onClick={() => setJsonData(serialize())}
         >
           <Import size={16} />
           Import/Export
         </Button>
       </PopoverTrigger>
       <PopoverContent className="relative flex h-96 w-96 flex-col gap-4">
-        <pre className="flex-1 overflow-auto border rounded-md" spellCheck={false}>
+        <pre
+          className="flex-1 overflow-auto rounded-md border"
+          spellCheck={false}
+        >
           <code className="block h-full">
             <Textarea
-              className="w-full h-full resize-none border-none min-h-0 bg-transparent font-mono"
+              className="h-full min-h-0 w-full resize-none border-none bg-transparent font-mono"
               value={jsonData}
               onChange={(e) => setJsonData(e.currentTarget?.value ?? "")}
               placeholder="Paste your JSON data here..."

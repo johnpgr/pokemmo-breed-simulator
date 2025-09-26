@@ -1,18 +1,16 @@
 import React from "react"
 import { IV_COLOR_DICT } from "@/lib/consts"
 import { pascalToSpacedPascal } from "@/lib/utils"
-import { PokemonIvSet } from "@/core/breed-map/ivset"
 import { assert } from "@/lib/utils"
 import { BreedContext } from "@/contexts/breed-context/store"
 
 export function PokemonIvColors() {
   const ctx = React.use(BreedContext)
-  const target = ctx.breedTree.rootNode
+  const target = ctx.breedTarget
   assert(
-    target.ivs !== undefined,
+    target && target.ivSet !== undefined,
     "PokemonIvColors tried to render without rootNode.ivs being defined",
   )
-  const ivSet = PokemonIvSet.fromArray(target.ivs)
 
   return (
     <div className="mx-auto flex flex-wrap justify-center gap-4">
@@ -20,51 +18,57 @@ export function PokemonIvColors() {
         <div
           className="h-4 w-4 rounded-full p-3"
           style={{
-            backgroundColor: IV_COLOR_DICT[ivSet.A],
+            backgroundColor: IV_COLOR_DICT[target.ivSet.A],
           }}
         />
-        <span className="text-sm">{pascalToSpacedPascal(ivSet.A)}</span>
+        <span className="text-sm">{pascalToSpacedPascal(target.ivSet.A)}</span>
       </div>
       <div className="flex items-center gap-2">
         <div
           className="h-4 w-4 rounded-full p-3"
           style={{
-            backgroundColor: IV_COLOR_DICT[ivSet.B],
+            backgroundColor: IV_COLOR_DICT[target.ivSet.B],
           }}
         />
-        <span className="text-sm">{pascalToSpacedPascal(ivSet.B)}</span>
+        <span className="text-sm">{pascalToSpacedPascal(target.ivSet.B)}</span>
       </div>
-      {ivSet.C ? (
+      {target.ivSet.C ? (
         <div className="flex items-center gap-2">
           <div
             className="h-4 w-4 rounded-full p-3"
             style={{
-              backgroundColor: IV_COLOR_DICT[ivSet.C],
+              backgroundColor: IV_COLOR_DICT[target.ivSet.C],
             }}
           />
-          <span className="text-sm">{pascalToSpacedPascal(ivSet.C)}</span>
+          <span className="text-sm">
+            {pascalToSpacedPascal(target.ivSet.C)}
+          </span>
         </div>
       ) : null}
-      {ivSet.D ? (
+      {target.ivSet.D ? (
         <div className="flex items-center gap-2">
           <div
             className="h-4 w-4 rounded-full p-3"
             style={{
-              backgroundColor: IV_COLOR_DICT[ivSet.D],
+              backgroundColor: IV_COLOR_DICT[target.ivSet.D],
             }}
           />
-          <span className="text-sm">{pascalToSpacedPascal(ivSet.D)}</span>
+          <span className="text-sm">
+            {pascalToSpacedPascal(target.ivSet.D)}
+          </span>
         </div>
       ) : null}
-      {ivSet.E ? (
+      {target.ivSet.E ? (
         <div className="flex items-center gap-2">
           <div
             className="h-4 w-4 rounded-full p-3"
             style={{
-              backgroundColor: IV_COLOR_DICT[ivSet.E],
+              backgroundColor: IV_COLOR_DICT[target.ivSet.E],
             }}
           />
-          <span className="text-sm">{pascalToSpacedPascal(ivSet.E)}</span>
+          <span className="text-sm">
+            {pascalToSpacedPascal(target.ivSet.E)}
+          </span>
         </div>
       ) : null}
       {target.nature ? (

@@ -8,9 +8,9 @@ import {
   PokemonSpecies,
   PokemonGender,
   PokemonNature,
-} from "../pokemon"
+} from "./pokemon"
 import { PokemonBreedMapPosition } from "./position"
-import type { PokemonBreedMap } from "."
+import type { PokemonBreedMap } from "./types"
 
 export const ZPokemonNode = z.object({
   id: z.number().optional(),
@@ -56,6 +56,12 @@ export class PokemonNode {
       Object.setPrototypeOf(copy.species, PokemonSpecies.prototype)
     }
     return copy
+  }
+
+  public reset(): void {
+    this.species = undefined
+    this.gender = undefined
+    this.nickname = undefined
   }
 
   static EMPTY(pos: PokemonBreedMapPosition): PokemonNode {

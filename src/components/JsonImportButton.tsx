@@ -8,9 +8,13 @@ import { Import, Save } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 
-export function JsonImportButton(props: {
+export interface JsonImportButtonProps {
   handleImportJson: (data: string) => void
-}) {
+}
+
+export const JsonImportButton: React.FC<JsonImportButtonProps> = ({
+  handleImportJson,
+}) => {
   const [jsonData, setJsonData] = React.useState("")
 
   return (
@@ -34,7 +38,7 @@ export function JsonImportButton(props: {
         </pre>
         <Button
           className="gap-1"
-          onClick={() => props.handleImportJson(jsonData)}
+          onClick={() => handleImportJson(jsonData)}
         >
           <Save size={16} />
           Save

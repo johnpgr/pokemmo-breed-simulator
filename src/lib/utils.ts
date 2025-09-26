@@ -12,9 +12,17 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function assert(condition: unknown, message?: string): asserts condition {
+export function assert(
+  condition: unknown,
+  message?: string,
+): asserts condition {
   if (!condition) {
-    throw new Error("Assertion failed " + message)
+    if (import.meta.env.DEV) {
+      console.error("Assertion failed " + message)
+      debugger
+    } else {
+      throw new Error(message ?? "Assertion failed")
+    }
   }
 }
 
@@ -53,7 +61,7 @@ export function getColorsByIvs(ivs: PokemonIv[]): IvColor[] {
 
 export function getExpectedBreedCost(
   desired31IVCount: number,
-  natured: boolean
+  natured: boolean,
 ): number {
   const costsTable = BREED_EXPECTED_COSTS[desired31IVCount]
   assert(costsTable, "Expected cost must be defined")

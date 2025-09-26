@@ -18,7 +18,7 @@ import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 import { cn } from "@/lib/utils"
 
-const ivLabel: Record<PokemonIv, string> = {
+const IV_LABEL: Record<PokemonIv, string> = {
   Hp: "HP",
   Attack: "ATK",
   Defense: "DEF",
@@ -57,21 +57,24 @@ const NATURE_EFFECT: Record<
   Careful: { up: PokemonIv.SpecialDefense, down: PokemonIv.SpecialAttack },
   Quirky: { up: undefined, down: undefined },
 }
-
-export function PokemonNatureSelect(props: {
+interface PokemonNatureSelectProps {
   currentPokemonInSelect: PokemonNodeInSelect
   setCurrentPokemonInSelect: React.Dispatch<
     React.SetStateAction<PokemonNodeInSelect>
   >
-}) {
+}
+export const PokemonNatureSelect: React.FC<PokemonNatureSelectProps> = ({
+  currentPokemonInSelect,
+  setCurrentPokemonInSelect,
+}) => {
   const [open, setOpen] = React.useState(false)
   const [search, setSearch] = React.useState("")
-  const natured = Boolean(props.currentPokemonInSelect.nature)
-  const currentSelectedNature = props.currentPokemonInSelect.nature
+  const natured = Boolean(currentPokemonInSelect.nature)
+  const currentSelectedNature = currentPokemonInSelect.nature
   const natures = React.useMemo(() => Object.values(PokemonNature), [])
 
   function handleNatureSelect(value?: PokemonNature) {
-    props.setCurrentPokemonInSelect((prev) => ({ ...prev, nature: value }))
+    setCurrentPokemonInSelect((prev) => ({ ...prev, nature: value }))
     setOpen(false)
   }
 
@@ -138,12 +141,12 @@ export function PokemonNatureSelect(props: {
                       <span className="ml-2 text-xs">
                         {NATURE_EFFECT[nature].up ? (
                           <span className="mr-1 text-green-600">
-                            +{ivLabel[NATURE_EFFECT[nature].up!]}
+                            +{IV_LABEL[NATURE_EFFECT[nature].up!]}
                           </span>
                         ) : null}
                         {NATURE_EFFECT[nature].down ? (
                           <span className="text-destructive">
-                            -{ivLabel[NATURE_EFFECT[nature].down!]}
+                            -{IV_LABEL[NATURE_EFFECT[nature].down!]}
                           </span>
                         ) : null}
                         {!NATURE_EFFECT[nature].up &&

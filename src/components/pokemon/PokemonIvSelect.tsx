@@ -10,37 +10,53 @@ import { PokemonIv } from "@/core/pokemon"
 import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 import { PokemonIvRadioGroup, PokemonIvRadioItem } from "./PokemonIvRadio"
-import { IV_DROPDOWN_LIST_VALUES } from "@/lib/consts"
 import { pascalToSpacedPascal } from "@/lib/utils"
 
-export function PokemonIvSelect(props: {
-  desired31IVCount: number
+const IV_DROPDOWN_LIST_VALUES: PokemonIv[] = [
+  PokemonIv.HP,
+  PokemonIv.Attack,
+  PokemonIv.Defense,
+  PokemonIv.SpecialDefense,
+  PokemonIv.SpecialAttack,
+  PokemonIv.Speed,
+]
+
+export interface PokemonIvSelectProps {
+  ivCount: number
   breederKindCountTable: Record<string, number>
   setDesired31IVCount: React.Dispatch<React.SetStateAction<number>>
   currentIVDropdownValues: PokemonIv[]
   setCurrentIVDropdownValues: React.Dispatch<React.SetStateAction<PokemonIv[]>>
-  currentPokemonInSelect: PokemonNodeInSelect
   setCurrentPokemonInSelect: React.Dispatch<
     React.SetStateAction<PokemonNodeInSelect>
   >
-}) {
+}
+
+export const PokemonIvSelect: React.FC<PokemonIvSelectProps> = ({
+  ivCount,
+  breederKindCountTable,
+  currentIVDropdownValues,
+  setCurrentIVDropdownValues,
+  setCurrentPokemonInSelect,
+  setDesired31IVCount,
+}) => {
   function handleDesired31IvCountChange(number: string) {
     const value = parseInt(number)
-    const ivSet = new Set(props.currentIVDropdownValues.slice(0, value))
-    props.setCurrentPokemonInSelect((prev) => ({
+    const ivSet = new Set(currentIVDropdownValues.slice(0, value))
+    setCurrentPokemonInSelect((prev) => ({
       ...prev,
       ivs: ivSet,
     }))
-    props.setDesired31IVCount(ivSet.size)
+    setDesired31IVCount(ivSet.size)
   }
 
   function handleIvSelectChange(value: PokemonIv, index: number) {
-    const newDropDownValues = [...props.currentIVDropdownValues]
+    const newDropDownValues = [...currentIVDropdownValues]
     newDropDownValues[index] = value
-    props.setCurrentIVDropdownValues(newDropDownValues)
-    props.setCurrentPokemonInSelect((prev) => ({
+    setCurrentIVDropdownValues(newDropDownValues)
+    setCurrentPokemonInSelect((prev) => ({
       ...prev,
-      ivs: new Set(newDropDownValues.slice(0, props.desired31IVCount)),
+      ivs: new Set(newDropDownValues.slice(0, ivCount)),
     }))
   }
 
@@ -68,22 +84,19 @@ export function PokemonIvSelect(props: {
         </PokemonIvRadioItem>
       </PokemonIvRadioGroup>
       <div className="flex flex-col items-center gap-2 pt-1 md:flex-row">
-        {Object.entries(props.breederKindCountTable).map(([_, value], i) => (
-          <div
-            key={`PokemonIvSelect:${i}`}
-            className="w-full"
-          >
+        {Object.entries(breederKindCountTable).map(([, value], i) => (
+          <div key={`PokemonIvSelect:${i}`} className="w-full">
             <Label className="text-foreground/70 text-sm">
               <strong className="text-foreground mr-1 text-lg">{value}</strong>{" "}
               1x31 IV in
             </Label>
             <Select
-              value={props.currentIVDropdownValues[i]!}
+              value={currentIVDropdownValues[i]!}
               onValueChange={(v) => handleIvSelectChange(v as PokemonIv, i)}
             >
               <SelectTrigger className="w-full">
-                <SelectValue aria-label={props.currentIVDropdownValues[i]}>
-                  {pascalToSpacedPascal(props.currentIVDropdownValues[i]!)}
+                <SelectValue aria-label={currentIVDropdownValues[i]}>
+                  {pascalToSpacedPascal(currentIVDropdownValues[i]!)}
                 </SelectValue>
               </SelectTrigger>
               <SelectContent>

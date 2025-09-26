@@ -20,8 +20,11 @@ import {
   DrawerClose,
 } from "@/components/ui/drawer"
 import { useMediaQuery } from "@/hooks/use-media-query"
+import { BreedContext } from "@/contexts/breed-context/store"
+import React from "react"
 
-export function ResetBreedButton(props: { handleRestartBreed: () => void }) {
+export const ResetBreedButton: React.FC = () => {
+  const ctx = React.useContext(BreedContext)
   const isDesktop = useMediaQuery("(min-width: 768px)")
 
   if (isDesktop) {
@@ -43,7 +46,7 @@ export function ResetBreedButton(props: { handleRestartBreed: () => void }) {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button variant={"destructive"} onClick={props.handleRestartBreed}>
+            <Button variant={"destructive"} onClick={ctx.reset}>
               Confirm
             </Button>
           </DialogFooter>
@@ -70,7 +73,7 @@ export function ResetBreedButton(props: { handleRestartBreed: () => void }) {
         </DrawerHeader>
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
-            <Button variant={"destructive"} onClick={props.handleRestartBreed}>
+            <Button variant={"destructive"} onClick={ctx.reset}>
               Confirm
             </Button>
           </DrawerClose>

@@ -1,7 +1,6 @@
 import React from "react"
-import type { BreedErrors } from "./PokemonBreedTreeView"
-import type { PokemonBreedMapPosition } from "@/core/breed-map/position"
-import type { PokemonBreedMap } from "@/core/breed-map"
+import type { PokemonBreedMapPosition } from "@/core/position"
+import { BreedContext } from "@/contexts/breed-context/store"
 
 const LineDirection = {
   Left: "LEFT",
@@ -9,18 +8,23 @@ const LineDirection = {
 } as const
 type LineDirection = (typeof LineDirection)[keyof typeof LineDirection]
 
-export function PokemonNodeLines(props: {
+interface PokemonNodeLinesProps {
   position: PokemonBreedMapPosition
   rowLength: number
-  breedTree: PokemonBreedMap
-  breedErrors: BreedErrors
   children: React.ReactNode
-}) {
-  const size = 100 / props.rowLength
-  const node = props.breedTree[props.position.key]
+}
+
+export const PokemonNodeLines: React.FC<PokemonNodeLinesProps> = ({
+  children,
+  position,
+  rowLength,
+}) => {
+  const ctx = React.use(BreedContext)
+  const size = 100 / rowLength
+  const node = ctx.breedMap[position.key]
   if (!node) return null
 
-  const partnerNode = node.getPartnerNode(props.breedTree)
+  const partnerNode = node.getPartnerNode(ctx.breedMap)
 
   // Root node
   if (!partnerNode) {
@@ -29,7 +33,7 @@ export function PokemonNodeLines(props: {
         style={{ flexBasis: `${size}%` }}
         className="relative flex items-center justify-center"
       >
-        {props.children}
+        {children}
       </div>
     )
   }
@@ -40,12 +44,17 @@ export function PokemonNodeLines(props: {
       : LineDirection.Right
 
   const hasError =
-    props.breedErrors[node.position.key] ||
-    props.breedErrors[partnerNode.position.key]
+    ctx.breedErrors[node.position.key] ||
+    ctx.breedErrors[partnerNode.position.key]
 
   const color = (() => {
     if (hasError) return "bg-red-500"
-    if (node.species && node.gender && partnerNode.species && partnerNode.gender) {
+    if (
+      node.species &&
+      node.gender &&
+      partnerNode.species &&
+      partnerNode.gender
+    ) {
       return "bg-green-500"
     }
     return "bg-foreground"
@@ -56,7 +65,7 @@ export function PokemonNodeLines(props: {
       style={{ flexBasis: `${size}%` }}
       className="relative flex items-center justify-center"
     >
-      {props.children}
+      {children}
       <div
         className={`absolute h-[1px] w-1/2 ${color} ${lineDirection === LineDirection.Left ? "translate-x-1/2" : "-translate-x-1/2"}`}
       ></div>

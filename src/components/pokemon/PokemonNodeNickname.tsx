@@ -1,24 +1,26 @@
 import React from "react"
 import { Save, SquarePen } from "lucide-react"
-import type { PokemonNode } from "@/core/breed-map/node"
+import type { PokemonNode } from "@/core/node"
 import { BreedContext } from "@/contexts/breed-context/store"
 
-export function PokemonNodeNickname(props: {
+interface PokemonNodeNicknameProps {
   currentNode: PokemonNode
-  updateBreedTree: () => void
-}) {
+}
+
+export const PokemonNodeNickname: React.FC<PokemonNodeNicknameProps> = ({
+  currentNode,
+}) => {
   const ctx = React.use(BreedContext)
   const [isEditing, setIsEditing] = React.useState(false)
   const [nickName, setNickname] = React.useState(
-    props.currentNode.nickname ?? props.currentNode.species?.name ?? "",
+    currentNode.nickname ?? currentNode.species?.name ?? "",
   )
   const inputRef = React.useRef<HTMLInputElement>(null)
 
   function saveNicknameIfChanged() {
-    if (nickName !== props.currentNode.species?.name) {
-      props.currentNode.nickname = nickName
-      props.updateBreedTree()
-      ctx.save()
+    if (nickName !== currentNode.species?.name) {
+      currentNode.nickname = nickName
+      ctx.updateBreedTree({ runLogic: false })
     }
   }
 

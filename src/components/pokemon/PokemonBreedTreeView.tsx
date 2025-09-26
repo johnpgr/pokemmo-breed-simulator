@@ -1,9 +1,7 @@
-import { PokemonBreeder, BreedErrorKind, BreedError } from "@/core/breeder"
 import { PokemonGender } from "@/core/pokemon"
 import { assert } from "@/lib/utils"
 import { Info } from "lucide-react"
 import React from "react"
-import { toast } from "sonner"
 import { ImportExportButton } from "../ImportExportButton"
 import { ResetBreedButton } from "../ResetBreedButton"
 import { getExpectedBreedCost } from "@/lib/utils"
@@ -17,16 +15,11 @@ import {
 import { Alert, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import {
-  PokemonBreedMapPosition,
-  type PokemonBreedMapPositionKey,
-} from "@/core/breed-map/position"
-import type { PokemonBreedMap } from "@/core/breed-map"
-import type { PokemonNode } from "@/core/breed-map/node"
+import { PokemonBreedMapPosition } from "@/core/position"
+import type { PokemonNode } from "@/core/node"
 import { getHeldItemForNode, HeldItem } from "@/core/held-item"
 import { BreedContext } from "@/contexts/breed-context/store"
-
-export type BreedErrors = Record<PokemonBreedMapPositionKey, BreedError[]>
+import type { PokemonBreedMap } from "@/core/types"
 
 function getCurrentBreedCost(
   breedTree: PokemonBreedMap,
@@ -78,193 +71,20 @@ function getItemCost(node: PokemonNode, breedTree: PokemonBreedMap): number {
     : BREED_ITEM_COSTS.iv
 }
 
-export function PokemonBreedTreeView() {
+export const PokemonBreedTreeView: React.FC = () => {
   const ctx = React.use(BreedContext)
-  const [breeder] = React.useState<PokemonBreeder>(() =>
-    PokemonBreeder.getInstance(),
-  )
-  const target = ctx.breedTree.rootNode
-  const desired31IvCount = target.ivs?.filter(Boolean).length ?? 0
-  const [breedErrors, setBreedErrors] = React.useState<BreedErrors>({})
+  if (!ctx.breedTarget) return null
+
+  const lastRowIdx = ctx.breedTarget.nature
+    ? ctx.breedTarget.ivCount
+    : ctx.breedTarget.ivCount - 1
+
   const expectedCost = getExpectedBreedCost(
-    desired31IvCount,
-    Boolean(target.nature),
-  )
-  const lastRowIdx = target.nature ? desired31IvCount : desired31IvCount - 1
-  const currentBreedCost = getCurrentBreedCost(ctx.breedTree.map, lastRowIdx)
-
-  function updateBreedTree() {
-    ctx.breedTree.setMap((prev) => ({ ...prev }))
-  }
-
-  function deleteErrors(pos: PokemonBreedMapPositionKey) {
-    setBreedErrors((prev) => {
-      delete prev[pos]
-      return { ...prev }
-    })
-  }
-
-  function addErrors(pos: PokemonBreedMapPositionKey, errors: BreedError[]) {
-    setBreedErrors((prev) => {
-      prev[pos] = errors
-      return { ...prev }
-    })
-  }
-
-  function handleRestartBreed() {
-    ctx.reset()
-    window.location.reload()
-  }
-
-  // LOAD FROM LOCALSTORAGE ON MOUNT
-  React.useEffect(() => {
-    ctx.load()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  // SAVE TO LOCALSTORAGE WHENEVER THE BREED TREE UPDATES
-  React.useEffect(() => {
-    if (target.species) ctx.save()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ctx.breedTree.map])
-
-  // SHOW NOTIFICATIONS FOR BREED ERRORS
-  React.useEffect(
-    () => {
-      Object.entries(breedErrors).map(([key, errorKind]) => {
-        if (!errorKind) {
-          return
-        }
-
-        const node = ctx.breedTree.map[key as PokemonBreedMapPositionKey]
-        if (!node?.species) {
-          return
-        }
-
-        const partner = node.getPartnerNode(ctx.breedTree.map)
-        if (!partner?.species) {
-          return
-        }
-
-        let errorMsg = ""
-        for (const error of errorKind.values()) {
-          if (error.kind === BreedErrorKind.ChildDidNotChange) {
-            continue
-          }
-          errorMsg += error.kind
-          errorMsg += ", "
-        }
-
-        if (errorMsg.endsWith(", ")) {
-          errorMsg = errorMsg.slice(0, -2)
-        }
-
-        toast.error(
-          `${node.species.name} cannot breed with ${partner.species.name}.`,
-          {
-            description: `Error codes: ${errorMsg}`,
-            action: {
-              label: "Dismiss",
-              onClick: () => {},
-            },
-          },
-        )
-      })
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [breedErrors],
+    ctx.breedTarget.ivCount,
+    Boolean(ctx.breedTarget.nature),
   )
 
-  // BREED THE TREE NODES WHENEVER THE BREED TREE UPDATES
-  React.useEffect(() => {
-      const lastRow = target.nature ? desired31IvCount : desired31IvCount - 1
-      const rowLength = Math.pow(2, lastRow)
-      const updates: Record<PokemonBreedMapPositionKey, PokemonNode> = {}
-
-      //inc by 2 because we only want to breed() on one parent
-      for (let col = 0; col < rowLength; col += 2) {
-        const pos = new PokemonBreedMapPosition(lastRow, col)
-        let node: PokemonNode | undefined = ctx.breedTree.map[pos.key]
-        let partnerNode: PokemonNode | undefined = node?.getPartnerNode(
-          ctx.breedTree.map,
-        )
-
-        const next = () => {
-          node = node?.getChildNode(ctx.breedTree.map)
-          partnerNode = node?.getPartnerNode(ctx.breedTree.map)
-        }
-
-        while (node && partnerNode) {
-          // bind the current node position because next() will move the node pointer before the errors are set
-          const currentNodePos = node.position.key
-
-          if (
-            !node.gender ||
-            !partnerNode.gender ||
-            !node.species ||
-            !partnerNode.species
-          ) {
-            deleteErrors(currentNodePos)
-            next()
-            continue
-          }
-
-          const childNode = node.getChildNode(ctx.breedTree.map)
-          if (!childNode) {
-            break
-          }
-
-          const breedResult = breeder.breed(node, partnerNode, childNode)
-
-          if (!breedResult.success) {
-            if (
-              breedResult.errors.length === 1 &&
-              breedResult.errors[0]!.kind === BreedErrorKind.ChildDidNotChange
-            ) {
-              deleteErrors(currentNodePos)
-              next()
-              continue
-            }
-
-            addErrors(currentNodePos, breedResult.errors)
-            next()
-            continue
-          }
-
-          if (childNode.isRootNode()) {
-            deleteErrors(currentNodePos)
-            next()
-            continue
-          }
-
-          const newNode = childNode.clone()
-          newNode.species = breedResult.species
-          newNode.gender = childNode.rollGender()
-
-          updates[newNode.position.key] = newNode
-          deleteErrors(currentNodePos)
-          next()
-        }
-      }
-
-      if (Object.keys(updates).length > 0) {
-        ctx.breedTree.setMap((prev) => ({
-          ...prev,
-          ...updates,
-        }))
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [
-      ctx.breedTree.map,
-      target.nature,
-      desired31IvCount,
-      ctx.breedTree.setMap,
-      setBreedErrors,
-    ],
-  )
-
-  if (!target.species) return null
+  const currentBreedCost = getCurrentBreedCost(ctx.breedMap, lastRowIdx)
 
   return (
     <div className="flex flex-col gap-8">
@@ -274,14 +94,14 @@ export function PokemonBreedTreeView() {
             <Button
               variant={"secondary"}
               size={"sm"}
-              onClick={() => console.log(ctx.breedTree.map)}
+              onClick={() => console.log(ctx.breedMap)}
             >
               Debug (Breed Tree)
             </Button>
             <Button
               variant={"secondary"}
               size={"sm"}
-              onClick={() => console.log(breedErrors)}
+              onClick={() => console.log(ctx.breedErrors)}
             >
               Debug (Breed Errors)
             </Button>
@@ -297,7 +117,7 @@ export function PokemonBreedTreeView() {
         <ImportExportButton
           serialize={() => JSON.stringify(ctx.serialize(), null, 4)}
         />
-        <ResetBreedButton handleRestartBreed={handleRestartBreed} />
+        <ResetBreedButton />
       </div>
       <Alert className="mx-auto w-fit">
         <AlertTitle className="flex items-center gap-2">
@@ -310,7 +130,9 @@ export function PokemonBreedTreeView() {
       <ScrollArea className="mx-auto w-full max-w-screen-xl 2xl:max-w-screen-2xl">
         <div className="flex w-full flex-col-reverse items-center gap-8">
           {Array.from({
-            length: target.nature ? desired31IvCount + 1 : desired31IvCount,
+            length: ctx.breedTarget.nature
+              ? ctx.breedTarget.ivCount + 1
+              : ctx.breedTarget.ivCount,
           }).map((_, row) => {
             const rowLength = Math.pow(2, row)
 
@@ -327,15 +149,8 @@ export function PokemonBreedTreeView() {
                       key={`node:${position.key}`}
                       position={position}
                       rowLength={rowLength}
-                      breedTree={ctx.breedTree.map}
-                      breedErrors={breedErrors}
                     >
-                      <PokemonNodeSelect
-                        desired31IvCount={desired31IvCount}
-                        position={position}
-                        breedTree={ctx.breedTree.map}
-                        updateBreedTree={updateBreedTree}
-                      />
+                      <PokemonNodeSelect position={position} />
                     </PokemonNodeLines>
                   )
                 })}
