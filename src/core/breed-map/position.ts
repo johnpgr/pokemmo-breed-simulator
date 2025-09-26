@@ -1,6 +1,4 @@
-import { assert } from "@/lib/utils"
-
-export type PokemonBreedMapPositionKey = string
+export type PokemonBreedMapPositionKey = `${number},${number}`
 
 export class PokemonBreedMapPosition {
   row: number
@@ -17,9 +15,6 @@ export class PokemonBreedMapPosition {
 
   static fromKey(key: PokemonBreedMapPositionKey): PokemonBreedMapPosition {
     const [row, col] = key.split(",").map(Number)
-    assert(row !== undefined, "Tried to make a key from invalid string")
-    assert(col !== undefined, "Tried to make a key from invalid string")
-    assert(!isNaN(row) && !isNaN(col), "Invalid BreedTreeNode key")
 
     return new PokemonBreedMapPosition(row, col)
   }

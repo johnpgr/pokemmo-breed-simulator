@@ -133,7 +133,7 @@ export function PokemonBreedTreeView() {
           return
         }
 
-        const node = ctx.breedTree.map[key]
+        const node = ctx.breedTree.map[key as PokemonBreedMapPositionKey]
         if (!node?.species) {
           return
         }

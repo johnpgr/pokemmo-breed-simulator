@@ -17,6 +17,5 @@ export class Data {
   static monsterMapping: Record<number, MonsterSpriteMeta> = Object.fromEntries(
     Object.entries(monsterMappingJson).map(([k, v]) => [Number(k), v]),
   )
-
-  static spritesheet = spriteSheetPng
+  static spritesheet: string = spriteSheetPng
 }

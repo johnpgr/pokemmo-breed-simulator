@@ -5,7 +5,7 @@ import type { PokemonBreedMap } from "."
 import { assert } from "@/lib/utils"
 import { LASTROW_MAPPING } from "./utils"
 import { PokemonBreederKind } from "../pokemon"
-import { PokemonBreedMapPosition } from "./position"
+import { PokemonBreedMapPosition, type PokemonBreedMapPositionKey } from "./position"
 
 export function usePokemonBreedMap() {
   const [map, setMap] = React.useState<PokemonBreedMap>({
@@ -34,7 +34,7 @@ export function usePokemonBreedMap() {
     for (const [k, v] of Object.entries(lastRowBreedersPositions)) {
       switch (v) {
         case PokemonBreederKind.Nature: {
-          const position = PokemonBreedMapPosition.fromKey(k)
+          const position = PokemonBreedMapPosition.fromKey(k as PokemonBreedMapPositionKey)
 
           let node = map[position.key]
           if (!node) {
@@ -45,7 +45,7 @@ export function usePokemonBreedMap() {
           break
         }
         default: {
-          const position = PokemonBreedMapPosition.fromKey(k)
+          const position = PokemonBreedMapPosition.fromKey(k as PokemonBreedMapPositionKey)
           const ivs = PokemonIvSet.fromArray(target.ivs).get(v)
           assert(ivs, "Ivs should exist for last row breeders")
 

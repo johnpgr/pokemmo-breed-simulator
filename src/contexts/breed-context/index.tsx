@@ -1,11 +1,14 @@
-import { assert } from "@/lib/utils"
+import { assert, unreachable } from "@/lib/utils"
 import { useLocalStorage } from "@/hooks/use-local-storage"
 import React from "react"
 import { PokemonSpecies } from "../../core/pokemon"
 import type { PokemonBreedMapSerialized, ZBreedMap } from "@/core/breed-map"
 import { usePokemonBreedMap } from "@/core/breed-map/hook"
 import { PokemonNode } from "@/core/breed-map/node"
-import { PokemonBreedMapPosition } from "@/core/breed-map/position"
+import {
+  PokemonBreedMapPosition,
+  type PokemonBreedMapPositionKey,
+} from "@/core/breed-map/position"
 import { BreedContext } from "./store"
 import { Data } from "@/lib/data"
 
@@ -32,7 +35,9 @@ export function BreedContextProvider({
     )
     const serialized: PokemonBreedMapSerialized = {}
     for (const [key, node] of Object.entries(breedTree.map)) {
-      serialized[key] = node.serialize(target === node)
+      serialized[key as PokemonBreedMapPositionKey] = node.serialize(
+        target === node,
+      )
     }
 
     return serialized
@@ -40,12 +45,17 @@ export function BreedContextProvider({
 
   function deserialize(serialized: PokemonBreedMapSerialized) {
     for (const [pos, nodeRaw] of Object.entries(serialized)) {
-      let node = breedTree.map[pos]
+      const key: PokemonBreedMapPositionKey =
+        pos.split(",").length === 2
+          ? (pos as PokemonBreedMapPositionKey)
+          : unreachable("Invalid position key")
+
+      let node = breedTree.map[key]
       if (!node) {
         node = new PokemonNode({
-          position: PokemonBreedMapPosition.fromKey(pos),
+          position: PokemonBreedMapPosition.fromKey(key),
         })
-        breedTree.map[pos] = node
+        breedTree.map[key] = node
       }
 
       if (nodeRaw.id) {
