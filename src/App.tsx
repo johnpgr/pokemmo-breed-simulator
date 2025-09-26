@@ -4,11 +4,20 @@ import { PokemonToBreedSelect } from "./components/pokemon/PokemonBreedSelect"
 import { PokemonBreedTreeView } from "./components/pokemon/PokemonBreedTreeView"
 import { ThemeProvider } from "./components/ui/theme-provider/index.tsx"
 import { ThemeToggle } from "./components/ui/theme-toggle.tsx"
+import { Head } from "vite-react-ssg/single-page"
+import { Data } from "./lib/data.ts"
 
 export default function App() {
   return (
     <>
-      <title>PokeMMO Breeding Planner</title>
+      <Head>
+        <title>PokeMMO Breed Planner</title>
+        <meta
+          name="description"
+          content="A tool to plan your Pokémon breeding in PokeMMO."
+        />
+        <link rel="preload" as="image" href={Data.spritesheet} />
+      </Head>
       <ThemeProvider defaultTheme="system" storageKey="ui-theme">
         <BreedContextProvider>
           <ThemeToggle />
