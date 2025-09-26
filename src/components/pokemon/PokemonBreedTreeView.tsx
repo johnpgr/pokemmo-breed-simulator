@@ -116,18 +116,21 @@ export function PokemonBreedTreeView() {
     window.location.reload()
   }
 
+  // LOAD FROM LOCALSTORAGE ON MOUNT
   React.useEffect(() => {
     ctx.load()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // SAVE TO LOCALSTORAGE WHENEVER THE BREED TREE UPDATES
   React.useEffect(() => {
     if (target.species) ctx.save()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx.breedTree.map])
 
+  // SHOW NOTIFICATIONS FOR BREED ERRORS
   React.useEffect(
-    function showNotifications() {
+    () => {
       Object.entries(breedErrors).map(([key, errorKind]) => {
         if (!errorKind) {
           return
@@ -172,8 +175,8 @@ export function PokemonBreedTreeView() {
     [breedErrors],
   )
 
-  React.useEffect(
-    function iterateBreedTree() {
+  // BREED THE TREE NODES WHENEVER THE BREED TREE UPDATES
+  React.useEffect(() => {
       const lastRow = target.nature ? desired31IvCount : desired31IvCount - 1
       const rowLength = Math.pow(2, lastRow)
       const updates: Record<PokemonBreedMapPositionKey, PokemonNode> = {}
