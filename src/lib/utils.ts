@@ -1,4 +1,4 @@
-import { BREED_EXPECTED_COSTS, IV_COLOR_DICT, type IvColor } from "@/data/consts"
+import { BREED_EXPECTED_COSTS, IV_COLOR_DICT, type IvColor } from "@/lib/consts"
 import type { PokemonIv } from "@/core/pokemon"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"

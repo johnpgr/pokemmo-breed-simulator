@@ -7,10 +7,10 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const projectRoot = path.resolve(__dirname, "..")
-const publicDir = path.join(projectRoot, "public")
-const monsterJsonPath = path.join(publicDir, "monster.json")
-const outSpritesheetPath = path.join(publicDir, "monsters-spritesheet.png")
-const outMappingPath = path.join(publicDir, "monster-sprites.json")
+const dataDir = path.join(projectRoot, "data")
+const monsterJsonPath = path.join(dataDir, "monster.json")
+const outSpritesheetPath = path.join(dataDir, "spritesheet.png")
+const outMappingPath = path.join(dataDir, "sprites.json")
 
 function getSpriteUrl(name: string) {
   const nameFixed = name

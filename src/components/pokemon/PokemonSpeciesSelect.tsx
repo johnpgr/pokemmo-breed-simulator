@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 import { Check, ChevronsUpDown } from "lucide-react"
 import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
-import AppData, { MONSTERS_SPRITESHEET } from "@/data/app-data"
+import { Data } from "@/lib/data"
 
 export function PokemonSpeciesSelect(props: {
   currentSelectedNode: PokemonNodeInSelect
@@ -44,7 +44,7 @@ export function PokemonSpeciesSelect(props: {
                 style={{
                   width: currentSelectedSpecies.spriteMeta.width,
                   height: currentSelectedSpecies.spriteMeta.height,
-                  backgroundImage: `url(${MONSTERS_SPRITESHEET})`,
+                  backgroundImage: `url(${Data.spritesheet})`,
                   backgroundPosition: `-${currentSelectedSpecies.spriteMeta.x}px -${currentSelectedSpecies.spriteMeta.y}px`,
                   imageRendering: "pixelated",
                   backgroundRepeat: "no-repeat",
@@ -62,21 +62,21 @@ export function PokemonSpeciesSelect(props: {
       <PopoverContent className="w-[240px] p-0">
         <VirtualizedCommand
           height="288px"
-          options={AppData.species.map((s) => ({
+          options={Data.species.map((s) => ({
             value: s.name,
             label: s.name,
           }))}
           placeholder="Search pokemon..."
           selectedOption={currentSelectedSpecies?.name ?? ""}
           onSelectOption={(value) => {
-            const pokemon = AppData.species.find((p) => p.name === value)
+            const pokemon = Data.species.find((p) => p.name === value)
             if (pokemon) handleSpeciesSelect(pokemon)
           }}
           renderOption={(option) => {
-            const pokemon = AppData.species.find(
+            const pokemon = Data.species.find(
               (p) => p.name === option.value,
             )!
-            const meta = AppData.monsterMapping[pokemon.id]
+            const meta = Data.monsterMapping[pokemon.id]
             const isSelected = currentSelectedSpecies?.name === pokemon.name
 
             return (
@@ -92,7 +92,7 @@ export function PokemonSpeciesSelect(props: {
                   style={{
                     width: meta.width,
                     height: meta.height,
-                    backgroundImage: `url(${MONSTERS_SPRITESHEET})`,
+                    backgroundImage: `url(${Data.spritesheet})`,
                     backgroundPosition: `-${meta.x}px -${meta.y}px`,
                     imageRendering: "pixelated",
                     backgroundRepeat: "no-repeat",

@@ -10,7 +10,7 @@ import { PokemonIv } from "@/core/pokemon"
 import React from "react"
 import type { PokemonNodeInSelect } from "./PokemonBreedSelect"
 import { PokemonIvRadioGroup, PokemonIvRadioItem } from "./PokemonIvRadio"
-import { IV_DROPDOWN_LIST_VALUES } from "@/data/consts"
+import { IV_DROPDOWN_LIST_VALUES } from "@/lib/consts"
 import { pascalToSpacedPascal } from "@/lib/utils"
 
 export function PokemonIvSelect(props: {

@@ -19,7 +19,7 @@ import {
   type PokemonSpeciesRaw,
 } from "@/core/pokemon"
 import { assert, getColorsByIvs } from "@/lib/utils"
-import AppData, { MONSTERS_SPRITESHEET } from "@/data/app-data"
+import { Data } from "@/lib/data"
 import { Check } from "lucide-react"
 import React from "react"
 import { useMediaQuery } from "@/hooks/use-media-query"
@@ -30,7 +30,7 @@ import {
   type IvColor,
   NODE_SCALE_BY_COLOR_AMOUNT,
   SPRITE_SCALE_BY_COLOR_AMOUNT,
-} from "@/data/consts"
+} from "@/lib/consts"
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
 import type { PokemonBreedMapPosition } from "@/core/breed-map/position"
 import type { PokemonBreedMap } from "@/core/breed-map"
@@ -101,14 +101,14 @@ export function PokemonNodeSelect(props: {
     newList.push(DITTO)
 
     if (target.species.isGenderless()) {
-      const breedable = target.species.getEvolutionTree(AppData.evolutions)
+      const breedable = target.species.getEvolutionTree(Data.evolutions)
       return newList.concat(
-        AppData.species.filter((poke) => breedable.includes(poke.id)),
+        Data.species.filter((poke) => breedable.includes(poke.id)),
       )
     } else {
       const eggGroups = target.species.eggGroups
       return newList.concat(
-        AppData.species.filter((poke) =>
+        Data.species.filter((poke) =>
           eggGroups.some((group) => poke.eggGroups.includes(group as string)),
         ),
       )
@@ -116,7 +116,7 @@ export function PokemonNodeSelect(props: {
   }
 
   const pokemonList =
-    searchMode === SearchMode.All ? AppData.species : filterPokemonByEggGroups()
+    searchMode === SearchMode.All ? Data.species : filterPokemonByEggGroups()
 
   const colors: IvColor[] = []
 
@@ -155,7 +155,7 @@ export function PokemonNodeSelect(props: {
                 style={{
                   width: currentNode.species.spriteMeta.width,
                   height: currentNode.species.spriteMeta.height,
-                  backgroundImage: `url(${MONSTERS_SPRITESHEET})`,
+                  backgroundImage: `url(${Data.spritesheet})`,
                   backgroundPosition: `-${currentNode.species.spriteMeta.x}px -${currentNode.species.spriteMeta.y}px`,
                   imageRendering: "pixelated",
                   backgroundRepeat: "no-repeat",
@@ -251,7 +251,7 @@ export function PokemonNodeSelect(props: {
               style={{
                 width: currentNode.species.spriteMeta.width,
                 height: currentNode.species.spriteMeta.height,
-                backgroundImage: `url(${MONSTERS_SPRITESHEET})`,
+                backgroundImage: `url(${Data.spritesheet})`,
                 backgroundPosition: `-${currentNode.species.spriteMeta.x}px -${currentNode.species.spriteMeta.y}px`,
                 imageRendering: "pixelated",
                 backgroundRepeat: "no-repeat",

@@ -1,7 +1,7 @@
 import { assert } from "@/lib/utils"
 import { PokemonNode } from "./breed-map/node"
 import { PokemonGender, PokemonSpecies } from "./pokemon"
-import AppData from "@/data/app-data"
+import {Data} from "@/lib/data"
 
 export const BreedErrorKind = {
   GenderCompatibility: "GENDER_COMPATIBILITY",
@@ -92,7 +92,7 @@ export class PokemonBreeder {
 
     // Handle root node cases
     if (child.species?.isGenderless()) {
-      const evolutionTree = child.species!.getEvolutionTree(AppData.evolutions)
+      const evolutionTree = child.species!.getEvolutionTree(Data.evolutions)
       return evolutionTree.includes(childSpecies.id)
         ? null
         : new BreedError(BreedErrorKind.RootNodeSpeciesMismatch)
@@ -164,22 +164,22 @@ export class PokemonBreeder {
     // Handle non-Ditto genderless cases
     if (isGenderless1) {
       const evolutionTree = parent1.species!.getEvolutionTree(
-        AppData.evolutions,
+        Data.evolutions,
       )
       return evolutionTree.includes(parent2.species!.id)
         ? null
         : new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility)
     }
 
-    const evolutionTree = parent2.species!.getEvolutionTree(AppData.evolutions)
+    const evolutionTree = parent2.species!.getEvolutionTree(Data.evolutions)
     return evolutionTree.includes(parent1.species!.id)
       ? null
       : new BreedError(BreedErrorKind.GenderlessSpeciesCompatibility)
   }
 
   private getBaseSpecies(p: PokemonSpecies): PokemonSpecies {
-    const id = p.getBaseEvolutionId(AppData.evolutions)
-    const raw = AppData.species.find((p) => p.id === id)
+    const id = p.getBaseEvolutionId(Data.evolutions)
+    const raw = Data.species.find((p) => p.id === id)
 
     assert(raw !== undefined, "Pokemon Base evolution Species not found")
 

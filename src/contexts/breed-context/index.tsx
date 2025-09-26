@@ -7,7 +7,7 @@ import { usePokemonBreedMap } from "@/core/breed-map/hook"
 import { PokemonNode } from "@/core/breed-map/node"
 import { PokemonBreedMapPosition } from "@/core/breed-map/position"
 import { BreedContext } from "./store"
-import AppData from "@/data/app-data"
+import { Data } from "@/lib/data"
 
 export function BreedContextProvider({
   children,
@@ -49,7 +49,7 @@ export function BreedContextProvider({
       }
 
       if (nodeRaw.id) {
-        const pokeSpecies = AppData.species.find((p) => p.id === nodeRaw.id)
+        const pokeSpecies = Data.species.find((p) => p.id === nodeRaw.id)
         assert(pokeSpecies !== undefined, "Invalid pokemon id")
         const species = PokemonSpecies.parse(pokeSpecies)
         node.species = species

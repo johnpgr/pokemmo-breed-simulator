@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url"
 import {
   PokemonEggGroup,
   PokemonSpecies,
@@ -6,6 +7,14 @@ import {
 import { capitalize } from "../src/lib/utils.ts"
 import fs from "node:fs"
 import path from "node:path"
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const projectRoot = path.resolve(__dirname, "..")
+const dataDir = path.join(projectRoot, "data")
+const monsterPath = path.resolve(dataDir, "monster.json")
+const evolutionsPath = path.resolve(dataDir, "evolutions.json")
 
 const multiform = ["Wormadam", "Rotom", "Castform", "Darmanitan", "Basculin"]
 
@@ -123,9 +132,6 @@ async function main() {
   for (const s of species) {
     evoTrees.add(s.id)
   }
-
-  const monsterPath = path.resolve(import.meta.dirname, "monster.json")
-  const evolutionsPath = path.resolve(import.meta.dirname, "evolutions.json")
 
   fs.writeFileSync(monsterPath, JSON.stringify(species, null, 4))
   fs.writeFileSync(evolutionsPath, evoTrees.stringify())

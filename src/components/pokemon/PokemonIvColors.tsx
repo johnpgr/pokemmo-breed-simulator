@@ -1,5 +1,5 @@
 import React from "react"
-import { IV_COLOR_DICT } from "@/data/consts"
+import { IV_COLOR_DICT } from "@/lib/consts"
 import { pascalToSpacedPascal } from "@/lib/utils"
 import { PokemonIvSet } from "@/core/breed-map/ivset"
 import { assert } from "@/lib/utils"

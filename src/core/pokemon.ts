@@ -1,7 +1,7 @@
-import type { MonsterSpriteMeta } from "@/data/app-data"
+import type { MonsterSpriteMeta } from "@/lib/data"
 import { assert } from "@/lib/utils"
 import { z } from "zod"
-import AppData from "@/data/app-data"
+import { Data } from "@/lib/data"
 
 //prettier-ignore
 export const PokemonType = {
@@ -192,7 +192,7 @@ export class PokemonSpecies {
   }
 
   get spriteMeta(): MonsterSpriteMeta {
-    return AppData.monsterMapping[this.id]
+    return Data.monsterMapping[this.id]
   }
 }
 

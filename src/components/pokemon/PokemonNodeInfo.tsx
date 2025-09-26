@@ -9,7 +9,7 @@ import { getHeldItemForNode, HeldItem } from "@/core/held-item"
 import type { PokemonNode } from "@/core/breed-map/node"
 import type { PokemonBreedMap } from "@/core/breed-map"
 import { BreedContext } from "@/contexts/breed-context/store"
-import { MONSTERS_SPRITESHEET } from "@/data/app-data"
+import { Data } from "@/lib/data"
 
 export function PokemonNodeInfo(props: {
   desired31IvCount: number
@@ -39,7 +39,7 @@ export function PokemonNodeInfo(props: {
                   style={{
                     width: props.currentNode.species.spriteMeta.width,
                     height: props.currentNode.species.spriteMeta.height,
-                    backgroundImage: `url(${MONSTERS_SPRITESHEET})`,
+                    backgroundImage: `url(${Data.spritesheet})`,
                     backgroundPosition: `-${props.currentNode.species.spriteMeta.x}px -${props.currentNode.species.spriteMeta.y}px`,
                     imageRendering: "pixelated",
                     backgroundRepeat: "no-repeat",

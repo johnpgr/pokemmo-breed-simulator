@@ -10,7 +10,7 @@ import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
 import {
   DEFAULT_IV_DROPDOWN_VALUES,
   POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS,
-} from "@/data/consts"
+} from "@/lib/consts"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { toast } from "sonner"
 import { z } from "zod"

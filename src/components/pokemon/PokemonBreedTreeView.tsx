@@ -13,7 +13,7 @@ import { PokemonNodeSelect } from "./PokemonNodeSelect"
 import {
   BREED_ITEM_COSTS,
   GENDER_GUARANTEE_COST_BY_PERCENTAGE_MALE,
-} from "@/data/consts"
+} from "@/lib/consts"
 import { Alert, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
