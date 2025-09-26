@@ -20,7 +20,7 @@ export const PokemonNodeNickname: React.FC<PokemonNodeNicknameProps> = ({
   function saveNicknameIfChanged() {
     if (nickName !== currentNode.species?.name) {
       currentNode.nickname = nickName
-      ctx.updateBreedTree({ runLogic: false })
+      ctx.updateBreedTree({ compute: false })
     }
   }
 

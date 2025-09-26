@@ -127,15 +127,19 @@ export function BreedContextProvider({
     _setBreedMap({ ...breedMap })
   }
 
-  function computeBreedingUpdates(map: PokemonBreedMap) {
-    if (!breedTarget) return { updates: {}, errors: {} }
+  function computeBreedingUpdates(
+    map: PokemonBreedMap,
+    target: PokemonBreedTarget | undefined = breedTarget,
+  ) {
+    if (!target) {
+      debugger
+      return { updates: {}, errors: {} }
+    }
 
     const breeder = PokemonBreeder.getInstance()
     const updates: Record<PokemonBreedMapPositionKey, PokemonNode> = {}
     const errors: BreedErrors = {}
-    const lastRow = breedTarget.nature
-      ? breedTarget.ivCount
-      : breedTarget.ivCount - 1
+    const lastRow = target.nature ? target.ivCount : target.ivCount - 1
     const rowLength = Math.pow(2, lastRow)
 
     for (let col = 0; col < rowLength; col += 2) {
@@ -262,6 +266,8 @@ export function BreedContextProvider({
     )
     setBreedTarget(target)
     initializeBreedMap(target)
+    const { errors } = computeBreedingUpdates(breedMap, target)
+    setBreedErrors(errors)
   }
 
   function save() {
@@ -271,7 +277,7 @@ export function BreedContextProvider({
   function setBreedErrors(errors: BreedErrors) {
     _setBreedErrors(errors)
     // Show toast notifications for errors
-    Object.entries(breedErrors).forEach(([key, errorKind]) => {
+    Object.entries(errors).forEach(([key, errorKind]) => {
       if (!errorKind) {
         return
       }
@@ -300,15 +306,20 @@ export function BreedContextProvider({
       }
 
       if (errorMsg) {
-        toast.error(
-          `${node.species.name} cannot breed with ${partner.species.name}.`,
-          {
-            description: `Error codes: ${errorMsg}`,
-            action: {
-              label: "Dismiss",
-              onClick: () => {},
-            },
-          },
+        // bullshit-ass hack to make this toast show up when deserializing
+        setTimeout(
+          () =>
+            toast.error(
+              `${node!.species!.name} cannot breed with ${partner!.species!.name}.`,
+              {
+                description: `Error codes: ${errorMsg}`,
+                action: {
+                  label: "Dismiss",
+                  onClick: () => {},
+                },
+              },
+            ),
+          0,
         )
       }
     })
@@ -323,7 +334,6 @@ export function BreedContextProvider({
     persist?: boolean
     map?: PokemonBreedMap
   } = {}) {
-    console.log("Updating breed tree...")
     if (compute) {
       const { updates, errors } = computeBreedingUpdates(breedMap)
       _setBreedMap({ ...map, ...updates })
