@@ -8,10 +8,6 @@ export const BASE_SPRITES_URL =
 export const BASE_ITEM_SPRITES_URL =
   "https://raw.githubusercontent.com/msikma/pokesprite/master/items"
 
-export function url(path: string) {
-  return (import.meta.env.VITE_BASE_PATH || "") + path
-}
-
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }

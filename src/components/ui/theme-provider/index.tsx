@@ -1,8 +1,7 @@
 import React from "react"
 import { ThemeProviderContext, type Theme } from "./store"
 
-
-type ThemeProviderProps = {
+export type ThemeProviderProps = {
   children: React.ReactNode
   defaultTheme?: Theme
   storageKey?: string
