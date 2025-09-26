@@ -7,7 +7,7 @@ import {
 import { assert, getExpectedBreedCost } from "@/lib/utils"
 import { Info, PlayIcon, RotateCcw } from "lucide-react"
 import React from "react"
-import { JsonImportButton } from "../JsonImportButton"
+import { JsonImportButton } from "@/components/JsonImportButton"
 import { PokemonIvSelect } from "./PokemonIvSelect"
 import { PokemonNatureSelect } from "./PokemonNatureSelect"
 import { PokemonSpeciesSelect } from "./PokemonSpeciesSelect"
@@ -15,12 +15,10 @@ import { POKEMON_BREEDER_KIND_COUNT_BY_GENERATIONS } from "@/lib/consts"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { toast } from "sonner"
 import { z } from "zod"
-import {
-  BreedContext,
-  PokemonBreedTarget,
-} from "@/contexts/breed-context/store"
+import { BreedContext } from "@/contexts/breed-context/store"
 import { PokemonIvSet } from "@/core/ivset"
 import { ZBreedMap } from "@/core/types"
+import { PokemonBreedTarget } from "@/core/breed-target"
 
 const DEFAULT_IV_DROPDOWN_VALUES: PokemonIv[] = [
   PokemonIv.HP,

@@ -10,8 +10,8 @@ import { Data } from "@/lib/data"
 import { assert, unreachable } from "@/lib/utils"
 import React from "react"
 import { toast } from "sonner"
-import { PokemonBreederKind, PokemonSpecies } from "../../core/pokemon"
-import { BreedContext, PokemonBreedTarget } from "./store"
+import { PokemonBreederKind, PokemonSpecies } from "@/core/pokemon"
+import { BreedContext } from "./store"
 import { LASTROW_MAPPING } from "./utils"
 import type {
   BreedErrors,
@@ -19,6 +19,7 @@ import type {
   PokemonBreedMapSerialized,
   ZBreedMap,
 } from "@/core/types"
+import { PokemonBreedTarget } from "@/core/breed-target"
 
 export function BreedContextProvider({
   children,
@@ -126,72 +127,67 @@ export function BreedContextProvider({
     _setBreedMap({ ...breedMap })
   }
 
-  // This function now encapsulates the breeding logic.
-  // It's called directly when a node is updated, removing the need for a useEffect to watch for map changes.
-  const runBreedingLogic = React.useCallback(
-    (map: PokemonBreedMap) => {
-      if (!breedTarget) return { updates: {}, errors: {} }
+  function computeBreedingUpdates(map: PokemonBreedMap) {
+    if (!breedTarget) return { updates: {}, errors: {} }
 
-      const breeder = PokemonBreeder.getInstance()
-      const updates: Record<PokemonBreedMapPositionKey, PokemonNode> = {}
-      const errors: BreedErrors = {}
-      const lastRow = breedTarget.nature
-        ? breedTarget.ivCount
-        : breedTarget.ivCount - 1
-      const rowLength = Math.pow(2, lastRow)
+    const breeder = PokemonBreeder.getInstance()
+    const updates: Record<PokemonBreedMapPositionKey, PokemonNode> = {}
+    const errors: BreedErrors = {}
+    const lastRow = breedTarget.nature
+      ? breedTarget.ivCount
+      : breedTarget.ivCount - 1
+    const rowLength = Math.pow(2, lastRow)
 
-      for (let col = 0; col < rowLength; col += 2) {
-        const pos = new PokemonBreedMapPosition(lastRow, col)
-        let node: PokemonNode | undefined = map[pos.key]
-        let partnerNode: PokemonNode | undefined = node?.getPartnerNode(map)
+    for (let col = 0; col < rowLength; col += 2) {
+      const pos = new PokemonBreedMapPosition(lastRow, col)
+      let node: PokemonNode | undefined = map[pos.key]
+      let partnerNode: PokemonNode | undefined = node?.getPartnerNode(map)
 
-        const next = () => {
-          node = node?.getChildNode(map)
-          partnerNode = node?.getPartnerNode(map)
-        }
-
-        while (node && partnerNode) {
-          const currentNodePos = node.position.key
-
-          if (
-            !node.gender ||
-            !partnerNode.gender ||
-            !node.species ||
-            !partnerNode.species
-          ) {
-            next()
-            continue
-          }
-
-          const childNode = node.getChildNode(map)
-          if (!childNode) {
-            break
-          }
-
-          const breedResult = breeder.breed(node, partnerNode, childNode)
-
-          if (!breedResult.success) {
-            if (
-              breedResult.errors.length !== 1 ||
-              breedResult.errors[0]!.kind !== BreedErrorKind.ChildDidNotChange
-            ) {
-              errors[currentNodePos] = breedResult.errors
-            }
-          } else {
-            if (!childNode.isRootNode()) {
-              const newNode = childNode.clone()
-              newNode.species = breedResult.species
-              newNode.gender = childNode.rollGender()
-              updates[newNode.position.key] = newNode
-            }
-          }
-          next()
-        }
+      const next = () => {
+        node = node?.getChildNode(map)
+        partnerNode = node?.getPartnerNode(map)
       }
-      return { updates, errors }
-    },
-    [breedTarget],
-  )
+
+      while (node && partnerNode) {
+        const currentNodePos = node.position.key
+
+        if (
+          !node.gender ||
+          !partnerNode.gender ||
+          !node.species ||
+          !partnerNode.species
+        ) {
+          next()
+          continue
+        }
+
+        const childNode = node.getChildNode(map)
+        if (!childNode) {
+          break
+        }
+
+        const breedResult = breeder.breed(node, partnerNode, childNode)
+
+        if (!breedResult.success) {
+          if (
+            breedResult.errors.length !== 1 ||
+            breedResult.errors[0]!.kind !== BreedErrorKind.ChildDidNotChange
+          ) {
+            errors[currentNodePos] = breedResult.errors
+          }
+        } else {
+          if (!childNode.isRootNode()) {
+            const newNode = childNode.clone()
+            newNode.species = breedResult.species
+            newNode.gender = childNode.rollGender()
+            updates[newNode.position.key] = newNode
+          }
+        }
+        next()
+      }
+    }
+    return { updates, errors }
+  }
 
   function serialize(): PokemonBreedMapSerialized {
     const rootNode = breedMap["0,0"]
@@ -319,20 +315,21 @@ export function BreedContextProvider({
   }
 
   function updateBreedTree({
-    runLogic = true,
+    compute = true,
     persist = true,
     map = breedMap,
   }: {
-    runLogic?: boolean
+    compute?: boolean
     persist?: boolean
     map?: PokemonBreedMap
   } = {}) {
-    if (!runLogic) {
-      _setBreedMap({ ...map })
-    } else {
-      const { updates, errors } = runBreedingLogic(breedMap)
+    console.log("Updating breed tree...")
+    if (compute) {
+      const { updates, errors } = computeBreedingUpdates(breedMap)
       _setBreedMap({ ...map, ...updates })
       setBreedErrors(errors)
+    } else {
+      _setBreedMap({ ...map })
     }
 
     if (persist) {
@@ -344,7 +341,7 @@ export function BreedContextProvider({
     deleteSavedTree()
     setBreedTarget(undefined)
     updateBreedTree({
-      runLogic: false,
+      compute: false,
       persist: false,
       map: { "0,0": PokemonNode.ROOT({ ivs: PokemonIvSet.DEFAULT }) },
     })
